@@ -1,7 +1,7 @@
 Feature: Test home page
   Scenario: Test case check home page
     * def urlBase = 'https://demo.opencart.com/admin/'
-    * def driver = { type: 'chrome', showDriverLog: true }
+    * configure driver = { type: 'chrome' }
     * driver urlBase
     * value('#input-username', '')
     * input('#input-username', 'dummy')
