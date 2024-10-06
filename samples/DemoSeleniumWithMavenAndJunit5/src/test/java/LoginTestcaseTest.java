@@ -23,7 +23,6 @@ public class LoginTestcaseTest {
         Thread.sleep(5000);
         WebElement error = driver.findElement(By.cssSelector(".alert.alert-danger.alert-dismissible"));
         Assertions.assertEquals("No match for Username and/or Password.", error.getText());
-        Integer.
         driver.quit();
     }
 }
