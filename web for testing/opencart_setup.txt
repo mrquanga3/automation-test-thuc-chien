@@ -1,0 +1,19 @@
+opencart account for web/db: admin/admin
+db name: opencart
+
+Sửa: "D:\xampp\php\php.ini"
+;extension=gd = > extension=gd
+;extension=zip => extension=zip
+
+Rename
+1. Upload all of the files and folders to your server from the "Upload" folder, place them in your web root. The web root is different on some servers, cPanel it should be ```public_html/``` and on Plesk it should be ```httpdocs/```.
+2. Make sure your web user has the permission to read, write and execute all directories under the web root.
+3. Rename config-dist.php to config.php and admin/config-dist.php to ```admin/config.php```
+
+4. For Linux/Unix make sure the following folders and files are writable.
+
+		chmod 0777 config.php
+		chmod 0777 admin/config.php
+5. Copy data storage1 to ...\xampp\
+
+6.Change post httpd.conf if needed
