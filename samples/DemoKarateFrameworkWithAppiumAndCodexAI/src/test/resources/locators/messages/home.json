@@ -1,0 +1,5 @@
+{
+  "permissionAllow": "id=com.android.permissioncontroller:id/permission_allow_button",
+  "startChat": "text=Start chat",
+  "startChatFallback": "xpath=//*[@text='Start chat' or @content-desc='Start chat']"
+}

@@ -1,0 +1,14 @@
+{
+  "serverUrl": "http://127.0.0.1:4723",
+  "implicitWaitSeconds": 3,
+  "capabilities": {
+    "platformName": "Android",
+    "appium:automationName": "UiAutomator2",
+    "appium:deviceName": "emulator-5554",
+    "appium:platformVersion": "16",
+    "appium:noReset": true,
+    "appium:newCommandTimeout": 120,
+    "appium:appPackage": "com.google.android.apps.messaging",
+    "appium:appActivity": "com.google.android.apps.messaging.ui.ConversationListActivity"
+  }
+}

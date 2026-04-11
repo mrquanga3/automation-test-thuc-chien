@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "types": ["node", "@wdio/globals/types", "@wdio/mocha-framework", "expect-webdriverio/jest"]
+  },
+  "include": [
+    "test/**/*.ts",
+    "test/types/**/*.d.ts",
+    "wdio.conf.ts",
+    "wdio.android.conf.ts",
+    "wdio.cross.conf.ts"
+  ]
+}
