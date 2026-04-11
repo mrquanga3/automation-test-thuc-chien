@@ -1,65 +1,65 @@
 # Demo Karate + Appium - Mobile Automation Testing
 
-Project demo su dung **Karate framework** ket hop **Appium** de tu dong hoa test ung dung Android tren emulator.
+Project demo sử dụng **Karate framework** kết hợp **Appium** để tự động hoá test ứng dụng Android trên emulator.
 
-## Kien truc tong quan
+## Kiến trúc tổng quan
 
 ```
                                           HTTP (WebDriver Protocol)
 Feature File (.feature)  -->  Karate Driver  ---------------------->  Appium Server  -->  Android Emulator
-     (kich ban test)         (gui lenh)          port 4723            (dieu khien)        (chay app)
+     (kịch bản test)         (gửi lệnh)          port 4723            (điều khiển)        (chạy app)
 ```
 
-### Cau truc project
+### Cấu trúc project
 
 ```
 src/test/java/
-├── karate-config.js                      # Config global: thong tin ket noi Appium + emulator
+├── karate-config.js                      # Config global: thông tin kết nối Appium + emulator
 ├── logback-test.xml                      # Config logging
 └── examples/appium/
-    ├── messages.feature                  # Kich ban test (mo app Messages, verify UI)
-    ├── AppiumRunner.java                 # Entry point - JUnit5 chay feature file
-    └── ScreenshotHook.java              # Hook tu dong chup anh sau moi step
+    ├── messages.feature                  # Kịch bản test (mở app Messages, verify UI)
+    ├── AppiumRunner.java                 # Entry point - JUnit5 chạy feature file
+    └── ScreenshotHook.java              # Hook tự động chụp ảnh sau mỗi step
 ```
 
-### Giai thich tung file
+### Giải thích từng file
 
-| File | Vai tro |
+| File | Vai trò |
 |------|---------|
-| `karate-config.js` | Khai bao thong tin ket noi: ten emulator, app package, app activity, URL Appium server |
-| `messages.feature` | Viet kich ban test bang cú phap Gherkin (Given/When/Then), de doc, de hieu |
-| `AppiumRunner.java` | Class Java de Maven/IDE tim va chay test, dong thoi gan ScreenshotHook |
-| `ScreenshotHook.java` | Tu dong chup man hinh sau **moi step** (ke ca khi test FAIL) va embed vao HTML report |
+| `karate-config.js` | Khai báo thông tin kết nối: tên emulator, app package, app activity, URL Appium server |
+| `messages.feature` | Viết kịch bản test bằng cú pháp Gherkin (Given/When/Then), dễ đọc, dễ hiểu |
+| `AppiumRunner.java` | Class Java để Maven/IDE tìm và chạy test, đồng thời gắn ScreenshotHook |
+| `ScreenshotHook.java` | Tự động chụp màn hình sau **mỗi step** (kể cả khi test FAIL) và embed vào HTML report |
 
 ---
 
-## Yeu cau cai dat
+## Yêu cầu cài đặt
 
 ### 1. Java JDK 17+
 
-Kiem tra:
+Kiểm tra:
 ```bash
 java -version
 ```
 
 ### 2. Maven
 
-Kiem tra:
+Kiểm tra:
 ```bash
 mvn -version
 ```
 
 ### 3. Android Emulator
 
-- Cai [Android Studio](https://developer.android.com/studio)
-- Tao 1 emulator trong **AVD Manager** (Tools > Device Manager)
-- Khoi dong emulator
+- Cài [Android Studio](https://developer.android.com/studio)
+- Tạo 1 emulator trong **AVD Manager** (Tools > Device Manager)
+- Khởi động emulator
 
-Kiem tra emulator dang chay:
+Kiểm tra emulator đang chạy:
 ```bash
 adb devices
 ```
-Ket qua mong doi:
+Kết quả mong đợi:
 ```
 List of devices attached
 emulator-5554   device
@@ -67,100 +67,100 @@ emulator-5554   device
 
 ### 4. Appium Server
 
-Cai dat:
+Cài đặt:
 ```bash
-# Cai Appium
+# Cài Appium
 npm install -g appium
 
-# Cai driver cho Android
+# Cài driver cho Android
 appium driver install uiautomator2
 ```
 
-Khoi dong:
+Khởi động:
 ```bash
 appium
 ```
-Ket qua mong doi: server chay tai `http://127.0.0.1:4723`
+Kết quả mong đợi: server chạy tại `http://127.0.0.1:4723`
 
 ---
 
-## Cach chay test
+## Cách chạy test
 
-### Buoc 1: Dam bao emulator va Appium dang chay
+### Bước 1: Đảm bảo emulator và Appium đang chạy
 
 ```bash
-# Terminal 1: Kiem tra emulator
+# Terminal 1: Kiểm tra emulator
 adb devices
 
-# Terminal 2: Chay Appium server
+# Terminal 2: Chạy Appium server
 appium
 ```
 
-### Buoc 2: Chay test
+### Bước 2: Chạy test
 
 ```bash
 mvn test -Dtest=AppiumRunner
 ```
 
-### Buoc 3: Xem ket qua
+### Bước 3: Xem kết quả
 
-- **Console**: hien thi PASS/FAIL ngay trong terminal
-- **HTML Report**: mo file ben duoi trong trinh duyet
+- **Console**: hiển thị PASS/FAIL ngay trong terminal
+- **HTML Report**: mở file bên dưới trong trình duyệt
   ```
   target/karate-reports/karate-summary.html
   ```
-  Report bao gom: ket qua tung step + anh chup man hinh tu dong
+  Report bao gồm: kết quả từng step + ảnh chụp màn hình tự động
 
 ---
 
-## Cach lay thong tin cau hinh cho app khac
+## Cách lấy thông tin cấu hình cho app khác
 
-Neu ban muon test 1 app khac (khong phai Messages), can lay 3 thong tin:
+Nếu bạn muốn test 1 app khác (không phải Messages), cần lấy 3 thông tin:
 
-### 1. Ten emulator (deviceName)
+### 1. Tên emulator (deviceName)
 ```bash
 adb devices
-# Ket qua: emulator-5554
+# Kết quả: emulator-5554
 ```
 
-### 2. Package name cua app (appPackage)
+### 2. Package name của app (appPackage)
 ```bash
-# Tim theo tu khoa
-adb shell pm list packages | grep <tu-khoa>
+# Tìm theo từ khoá
+adb shell pm list packages | grep <từ-khoá>
 
-# Vi du: tim app Calculator
+# Ví dụ: tìm app Calculator
 adb shell pm list packages | grep calc
-# Ket qua: package:com.google.android.calculator
+# Kết quả: package:com.google.android.calculator
 ```
 
-### 3. Activity chinh cua app (appActivity)
+### 3. Activity chính của app (appActivity)
 ```bash
 adb shell cmd package resolve-activity --brief <package-name>
 
-# Vi du:
+# Ví dụ:
 adb shell cmd package resolve-activity --brief com.google.android.calculator
-# Ket qua: com.google.android.calculator/com.android.calculator2.Calculator
+# Kết quả: com.google.android.calculator/com.android.calculator2.Calculator
 # -> appActivity = com.android.calculator2.Calculator
 ```
 
-Sau do cap nhat 2 truong `appPackage` va `appActivity` trong file `karate-config.js`.
+Sau đó cập nhật 2 trường `appPackage` và `appActivity` trong file `karate-config.js`.
 
 ---
 
-## Cach tim locator de verify UI
+## Cách tìm locator để verify UI
 
-Sau khi mo app, dump UI hierarchy de tim element:
+Sau khi mở app, dump UI hierarchy để tìm element:
 
 ```bash
 adb exec-out uiautomator dump /dev/tty
 ```
 
-Tim cac thuoc tinh huu ich trong ket qua XML:
-- `resource-id` - dinh danh duy nhat cua element (uu tien dung)
-- `text` - noi dung hien thi
-- `content-desc` - mo ta (dung cho accessibility)
+Tìm các thuộc tính hữu ích trong kết quả XML:
+- `resource-id` - định danh duy nhất của element (ưu tiên dùng)
+- `text` - nội dung hiển thị
+- `content-desc` - mô tả (dùng cho accessibility)
 
-Su dung trong feature file voi XPath:
+Sử dụng trong feature file với XPath:
 ```gherkin
 # Theo resource-id
 Then waitFor('//*[@resource-id="com.example.app:id/button_ok"]')
@@ -174,24 +174,24 @@ Then waitFor('//*[@content-desc="Search"]')
 
 ---
 
-## Giai thich cach ScreenshotHook hoat dong
+## Giải thích cách ScreenshotHook hoạt động
 
 ```
-Karate chay step 1  -->  afterStep()  -->  co driver?  -->  screenshot()  -->  embed vao report
-Karate chay step 2  -->  afterStep()  -->  co driver?  -->  screenshot()  -->  embed vao report
-Karate chay step 3 (FAIL!)  -->  afterStep()  -->  co driver?  -->  screenshot()  -->  VAN CHUP DUOC
+Karate chạy step 1  -->  afterStep()  -->  có driver?  -->  screenshot()  -->  embed vào report
+Karate chạy step 2  -->  afterStep()  -->  có driver?  -->  screenshot()  -->  embed vào report
+Karate chạy step 3 (FAIL!)  -->  afterStep()  -->  có driver?  -->  screenshot()  -->  VẪN CHỤP ĐƯỢC
 ```
 
-Khong can goi `screenshot()` thu cong trong feature file. Hook xu ly tu dong.
+Không cần gọi `screenshot()` thủ công trong feature file. Hook xử lý tự động.
 
 ---
 
-## Cong nghe su dung
+## Công nghệ sử dụng
 
-| Cong nghe | Phien ban | Vai tro |
+| Công nghệ | Phiên bản | Vai trò |
 |-----------|-----------|---------|
-| Karate | 1.4.1 | Framework BDD, tich hop WebDriver |
+| Karate | 1.4.1 | Framework BDD, tích hợp WebDriver |
 | Appium | 2.x | Automation server cho mobile |
-| UiAutomator2 | latest | Driver dieu khien Android |
-| JUnit 5 | - | Chay test tu Maven/IDE |
-| Maven | - | Quan ly dependency va build |
+| UiAutomator2 | latest | Driver điều khiển Android |
+| JUnit 5 | - | Chạy test từ Maven/IDE |
+| Maven | - | Quản lý dependency và build |
