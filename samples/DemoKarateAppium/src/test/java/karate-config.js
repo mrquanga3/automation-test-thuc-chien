@@ -15,11 +15,10 @@ function fn() {
           'appium:deviceName': 'emulator-5554',               // Ten emulator (lay tu: adb devices)
           'appium:automationName': 'UiAutomator2',            // Driver automation cho Android
           'appium:appPackage': 'com.google.android.apps.messaging',          // Package app (lay tu: adb shell pm list packages)
-          'appium:appActivity': '.ui.ConversationListActivity',             // Activity chinh (lay tu: adb shell cmd package resolve-activity)
+          'appium:appActivity': '.main.MainActivity',             // Activity chinh (lay tu: adb shell cmd package resolve-activity)
           'appium:noReset': true,                             // Khong reset app state giua cac test
           'appium:newCommandTimeout': 60,                     // Timeout cho moi lenh (giay)
-          'appium:appWaitForLaunch': true,                    // Cho app launch xong moi tiep tuc
-          'appium:appWaitDuration': 30000                     // Cho toi da 30 giay de app khoi dong
+          'appium:forceAppLaunch': true                       // Luon khoi dong lai app khi bat dau test
         }
       }
     }

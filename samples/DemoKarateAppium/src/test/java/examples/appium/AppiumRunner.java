@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Su dung Runner.builder() thay vi @Karate.Test de co the gan hook.
  * .hook(new ScreenshotHook()) = dang ky hook chup anh sau moi step.
  */
-class AppiumRunner {
+public class AppiumRunner {
 
     @Test
     void testMessages() {

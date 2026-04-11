@@ -27,8 +27,11 @@ public class ScreenshotHook implements RuntimeHook {
         // Lay driver tu Karate variables (vi engine.driver la protected)
         Object driver = sr.engine.getVariable("driver");
         if (driver instanceof Driver d) {
-            // true = embed anh vao Karate HTML report
-            d.screenshot(true);
+            try {
+                d.screenshot(true);
+            } catch (Exception e) {
+                sr.logger.warn("Screenshot failed: {}", e.getMessage());
+            }
         }
     }
 }

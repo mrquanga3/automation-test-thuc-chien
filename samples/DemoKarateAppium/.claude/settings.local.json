@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(\"C:/Program Files/Java/jdk-17/bin/jar\" tf \"C:/Users/ADMIN/.m2/repository/com/intuit/karate/karate-core/1.4.1/karate-core-1.4.1.jar\")",
+      "Bash(\"C:/Program Files/Java/jdk-17/bin/jar\" xf \"C:/Users/ADMIN/.m2/repository/com/intuit/karate/karate-core/1.4.1/karate-core-1.4.1.jar\" com/intuit/karate/RuntimeHook.java)",
+      "Bash(\"C:/Program Files/Java/jdk-17/bin/jar\" xf \"C:/Users/ADMIN/.m2/repository/com/intuit/karate/karate-core/1.4.1/karate-core-1.4.1.jar\" com/intuit/karate/core/ScenarioRuntime.java)",
+      "Bash(\"C:/Program Files/Java/jdk-17/bin/jar\" xf \"C:/Users/ADMIN/.m2/repository/com/intuit/karate/karate-core/1.4.1/karate-core-1.4.1.jar\" com/intuit/karate/core/ScenarioEngine.java)",
+      "Bash(mvn test:*)",
+      "Bash(ls -la D:/automation-test-thuc-chien/samples/DemoKarateAppium/target/karate-reports/*.png)",
+      "Bash(adb -s emulator-5554 exec-out uiautomator dump /dev/tty)",
+      "Bash(adb -s emulator-5554 shell am force-stop com.google.android.apps.messaging)",
+      "Bash(adb -s emulator-5554 shell am start -n com.google.android.apps.messaging/.ui.ConversationListActivity)",
+      "Bash(\"C:/Program Files/Java/jdk-17/bin/jar\" xf \"C:/Users/ADMIN/.m2/repository/com/intuit/karate/karate-core/1.4.1/karate-core-1.4.1.jar\" com/intuit/karate/driver/appium/MobileDriverOptions.java)",
+      "Bash(\"C:/Program Files/Java/jdk-17/bin/jar\" xf \"C:/Users/ADMIN/.m2/repository/com/intuit/karate/karate-core/1.4.1/karate-core-1.4.1.jar\" com/intuit/karate/driver/appium/AppiumDriver.java)",
+      "Bash(ls D:/automation-test-thuc-chien/samples/DemoKarateAppium/target/karate-reports/*.png)",
+      "Read(//d/automation-test-thuc-chien/**)",
+      "Bash(gh pr create --title 'Demo Karate + Appium mobile automation testing' --body ':*)",
+      "Bash(adb devices:*)",
+      "Bash(adb shell:*)",
+      "Bash(adb pull:*)",
+      "Bash(appium:*)"
+    ]
+  }
+}
