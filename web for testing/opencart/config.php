@@ -6,7 +6,7 @@ define('APPLICATION', 'Catalog');
 define('HTTP_SERVER', 'http://localhost/opencart/');
 
 // DIR
-define('DIR_OPENCART', 'D:/xampp/htdocs/opencart/');
+define('DIR_OPENCART', 'D:/automation-test-thuc-chien/web for testing/opencart/');
 define('DIR_APPLICATION', DIR_OPENCART . 'catalog/');
 define('DIR_EXTENSION', DIR_OPENCART . 'extension/');
 define('DIR_IMAGE', DIR_OPENCART . 'image/');
