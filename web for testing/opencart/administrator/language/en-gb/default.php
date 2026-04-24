@@ -170,6 +170,7 @@ $_['error_upload_8']                = 'Warning: File upload stopped by extension
 $_['error_upload_999']              = 'Warning: No error code available!';
 $_['error_upload_size']             = 'Warning: The uploaded file exceeds the %smb max file size!';
 $_['error_curl']                    = 'CURL: Error Code(%s): %s';
+$_['error_delete_disabled']         = 'Delete feature is disabled.';
 $_['error_format_b']				= 'Warning: The uploaded file exceeds the max file size: %s bytes!';
 $_['error_format_kb']				= 'Warning: The uploaded file exceeds the max file size: %s kilobytes!';
 $_['error_format_mb']				= 'Warning: The uploaded file exceeds the max file size: %s megabytes!';

@@ -697,16 +697,15 @@ class Installer extends \Opencart\System\Engine\Controller {
 		$extension_install_info = $this->model_setting_extension->getInstall($extension_install_id);
 
 		if (!$json) {
-			$file = DIR_STORAGE . 'marketplace/' . $extension_install_info['code'] . '.ocmod.zip';
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			// Remove file
-			if (is_file($file)) {
-				unlink($file);
-			}
-
-			$this->model_setting_extension->deleteInstall($extension_install_id);
-
-			$json['success'] = $this->language->get('text_success');
+			// $file = DIR_STORAGE . 'marketplace/' . $extension_install_info['code'] . '.ocmod.zip';
+			// if (is_file($file)) {
+			// 	unlink($file);
+			// }
+			// $this->model_setting_extension->deleteInstall($extension_install_id);
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

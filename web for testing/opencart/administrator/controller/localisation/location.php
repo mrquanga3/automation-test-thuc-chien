@@ -335,7 +335,7 @@ class Location extends \Opencart\System\Engine\Controller {
 
 		if (!$json) {
 			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
-			$json['error'] = 'Tính năng xóa đã bị vô hiệu hóa.';
+			$json['error'] = $this->language->get('error_delete_disabled');
 
 			// $this->load->model('localisation/location');
 			// foreach ($selected as $location_id) {

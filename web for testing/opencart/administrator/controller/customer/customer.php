@@ -819,7 +819,7 @@ class Customer extends \Opencart\System\Engine\Controller {
 
 		if (!$json) {
 			// [DISABLED] Tính năng xóa customer đã bị vô hiệu hóa
-			$json['error'] = 'Tính năng xóa customer đã bị vô hiệu hóa.';
+			$json['error'] = $this->language->get('error_delete_disabled');
 
 			// $this->load->model('customer/customer');
 			// foreach ($selected as $customer_id) {

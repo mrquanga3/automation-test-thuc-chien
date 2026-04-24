@@ -1162,7 +1162,7 @@ class Product extends \Opencart\System\Engine\Controller {
 
 		if (!$json) {
 			// [DISABLED] Tính năng xóa product đã bị vô hiệu hóa
-			$json['error'] = 'Tính năng xóa product đã bị vô hiệu hóa.';
+			$json['error'] = $this->language->get('error_delete_disabled');
 
 			// $this->load->model('catalog/product');
 			// foreach ($selected as $product_id) {

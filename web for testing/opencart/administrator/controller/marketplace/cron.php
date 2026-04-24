@@ -295,13 +295,14 @@ class Cron extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('setting/cron');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $cron_id) {
-				$this->model_setting_cron->deleteCron($cron_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('setting/cron');
+			// foreach ($selected as $cron_id) {
+			// 	$this->model_setting_cron->deleteCron($cron_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

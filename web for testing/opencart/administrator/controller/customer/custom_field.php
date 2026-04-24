@@ -424,7 +424,7 @@ class CustomField extends \Opencart\System\Engine\Controller {
 
 		if (!$json) {
 			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
-			$json['error'] = 'Tính năng xóa đã bị vô hiệu hóa.';
+			$json['error'] = $this->language->get('error_delete_disabled');
 
 			// $this->load->model('customer/custom_field');
 			// foreach ($selected as $custom_field_id) {

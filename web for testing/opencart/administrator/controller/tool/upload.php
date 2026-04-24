@@ -247,20 +247,18 @@ class Upload extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('tool/upload');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $upload_id) {
-				// Remove file before deleting DB record.
-				$upload_info = $this->model_tool_upload->getUpload($upload_id);
-
-				if ($upload_info && is_file(DIR_UPLOAD . $upload_info['filename'])) {
-					unlink(DIR_UPLOAD . $upload_info['filename']);
-				}
-
-				$this->model_tool_upload->deleteUpload($upload_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('tool/upload');
+			// foreach ($selected as $upload_id) {
+			// 	$upload_info = $this->model_tool_upload->getUpload($upload_id);
+			// 	if ($upload_info && is_file(DIR_UPLOAD . $upload_info['filename'])) {
+			// 		unlink(DIR_UPLOAD . $upload_info['filename']);
+			// 	}
+			// 	$this->model_tool_upload->deleteUpload($upload_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

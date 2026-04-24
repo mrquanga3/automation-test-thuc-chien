@@ -343,7 +343,7 @@ class Download extends \Opencart\System\Engine\Controller {
 
 		if (!$json) {
 			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
-			$json['error'] = 'Tính năng xóa đã bị vô hiệu hóa.';
+			$json['error'] = $this->language->get('error_delete_disabled');
 
 			// $this->load->model('catalog/download');
 			// foreach ($selected as $download_id) {

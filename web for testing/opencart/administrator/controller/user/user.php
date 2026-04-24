@@ -398,7 +398,7 @@ class User extends \Opencart\System\Engine\Controller {
 
 		if (!$json) {
 			// [DISABLED] Tính năng xóa user đã bị vô hiệu hóa
-			$json['error']['warning'] = 'Tính năng xóa user đã bị vô hiệu hóa.';
+			$json['error']['warning'] = $this->language->get('error_delete_disabled');
 
 			// $this->load->model('user/user');
 			// $has_admin_user = false;

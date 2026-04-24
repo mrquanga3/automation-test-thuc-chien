@@ -803,7 +803,7 @@ class Affiliate extends \Opencart\System\Engine\Controller {
 
 		if (!$json) {
 			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
-			$json['error'] = 'Tính năng xóa đã bị vô hiệu hóa.';
+			$json['error'] = $this->language->get('error_delete_disabled');
 
 			// $this->load->model('marketing/affiliate');
 			// foreach ($selected as $affiliate_id) {

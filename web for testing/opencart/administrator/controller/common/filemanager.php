@@ -436,47 +436,29 @@ class FileManager extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			// Loop through each path
-			foreach ($paths as $path) {
-				$path = rtrim($base . html_entity_decode($path, ENT_QUOTES, 'UTF-8'), '/');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-				$files = [];
-
-				// Make path into an array
-				$directory = [$path];
-
-				// While the path array is still populated keep looping through
-				while (count($directory) != 0) {
-					$next = array_shift($directory);
-
-					if (is_dir($next)) {
-						foreach (glob(trim($next, '/') . '/{*,.[!.]*,..?*}', GLOB_BRACE) as $file) {
-							// If directory add to path array
-							$directory[] = $file;
-						}
-					}
-
-					// Add the file to the files to be deleted array
-					$files[] = $next;
-				}
-
-				// Reverse sort the file array
-				rsort($files);
-
-				foreach ($files as $file) {
-					// If file just delete
-					if (is_file($file)) {
-						unlink($file);
-					}
-
-					// If directory use the remove directory function
-					if (is_dir($file)) {
-						rmdir($file);
-					}
-				}
-			}
-
-			$json['success'] = $this->language->get('text_delete');
+			// foreach ($paths as $path) {
+			// 	$path = rtrim($base . html_entity_decode($path, ENT_QUOTES, 'UTF-8'), '/');
+			// 	$files = [];
+			// 	$directory = [$path];
+			// 	while (count($directory) != 0) {
+			// 		$next = array_shift($directory);
+			// 		if (is_dir($next)) {
+			// 			foreach (glob(trim($next, '/') . '/{*,.[!.]*,..?*}', GLOB_BRACE) as $file) {
+			// 				$directory[] = $file;
+			// 			}
+			// 		}
+			// 		$files[] = $next;
+			// 	}
+			// 	rsort($files);
+			// 	foreach ($files as $file) {
+			// 		if (is_file($file)) { unlink($file); }
+			// 		if (is_dir($file)) { rmdir($file); }
+			// 	}
+			// }
+			// $json['success'] = $this->language->get('text_delete');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

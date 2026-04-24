@@ -163,13 +163,14 @@ class Notification extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('tool/notification');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $notification_id) {
-				$this->model_tool_notification->deleteNotification($notification_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('tool/notification');
+			// foreach ($selected as $notification_id) {
+			// 	$this->model_tool_notification->deleteNotification($notification_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

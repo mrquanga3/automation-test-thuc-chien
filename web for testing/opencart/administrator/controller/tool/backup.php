@@ -446,9 +446,11 @@ class Backup extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			unlink($file);
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			$json['success'] = $this->language->get('text_success');
+			// unlink($file);
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

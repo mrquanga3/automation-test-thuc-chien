@@ -757,17 +757,16 @@ class Store extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('setting/store');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			$this->load->model('setting/setting');
-
-			foreach ($selected as $store_id) {
-				$this->model_setting_store->deleteStore($store_id);
-
-				$this->model_setting_setting->deleteSetting('config', $store_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('setting/store');
+			// $this->load->model('setting/setting');
+			// foreach ($selected as $store_id) {
+			// 	$this->model_setting_store->deleteStore($store_id);
+			// 	$this->model_setting_setting->deleteSetting('config', $store_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');
