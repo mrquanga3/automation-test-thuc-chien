@@ -10,6 +10,7 @@ class Theme extends \Opencart\System\Engine\Controller {
 	 * @return void
 	 */
 	public function index(): void {
+			$this->response->redirect($this->url->link('common/dashboard', 'user_token=' . $this->session->data['user_token']));
 		$this->load->language('design/theme');
 
 		$this->document->setTitle($this->language->get('heading_title'));

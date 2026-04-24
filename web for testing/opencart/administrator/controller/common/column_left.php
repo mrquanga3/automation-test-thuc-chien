@@ -242,60 +242,7 @@ class ColumnLeft extends \Opencart\System\Engine\Controller {
 				];
 			}
 
-			// Design
-			$design = [];
-
-			if ($this->user->hasPermission('access', 'design/layout')) {
-				$design[] = [
-					'name'	   => $this->language->get('text_layout'),
-					'href'     => $this->url->link('design/layout', 'user_token=' . $this->session->data['user_token']),
-					'children' => []
-				];
-			}
-
-			if ($this->user->hasPermission('access', 'design/theme')) {
-				$design[] = [
-					'name'	   => $this->language->get('text_theme'),
-					'href'     => $this->url->link('design/theme', 'user_token=' . $this->session->data['user_token']),
-					'children' => []
-				];
-			}
-
-			if ($this->user->hasPermission('access', 'design/translation')) {
-				$design[] = [
-					'name'	   => $this->language->get('text_language_editor'),
-					'href'     => $this->url->link('design/translation', 'user_token=' . $this->session->data['user_token']),
-					'children' => []
-				];
-			}
-
-			if ($this->user->hasPermission('access', 'design/banner')) {
-				$design[] = [
-					'name'	   => $this->language->get('text_banner'),
-					'href'     => $this->url->link('design/banner', 'user_token=' . $this->session->data['user_token']),
-					'children' => []
-				];
-			}
-
-			$seo = [];
-
-			if ($this->user->hasPermission('access', 'design/seo_url')) {
-				$design[] = [
-					'name'	   => $this->language->get('text_seo_url'),
-					'href'     => $this->url->link('design/seo_url', 'user_token=' . $this->session->data['user_token']),
-					'children' => []
-				];
-			}
-
-			if ($design) {
-				$data['menus'][] = [
-					'id'       => 'menu-design',
-					'icon'	   => 'fas fa-desktop',
-					'name'	   => $this->language->get('text_design'),
-					'href'     => '',
-					'children' => $design
-				];
-			}
+			// [DISABLED] Design menu hidden
 
 			// Sales
 			$sale = [];
