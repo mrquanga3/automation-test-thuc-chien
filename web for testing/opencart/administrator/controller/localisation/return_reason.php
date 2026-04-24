@@ -286,13 +286,14 @@ class ReturnReason extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('localisation/return_reason');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $return_reason_id) {
-				$this->model_localisation_return_reason->deleteReturnReason($return_reason_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('localisation/return_reason');
+			// foreach ($selected as $return_reason_id) {
+			// 	$this->model_localisation_return_reason->deleteReturnReason($return_reason_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

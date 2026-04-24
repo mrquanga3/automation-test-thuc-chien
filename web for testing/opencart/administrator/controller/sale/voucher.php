@@ -391,13 +391,14 @@ class Voucher extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('sale/voucher');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $voucher_id) {
-				$this->model_sale_voucher->deleteVoucher($voucher_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('sale/voucher');
+			// foreach ($selected as $voucher_id) {
+			// 	$this->model_sale_voucher->deleteVoucher($voucher_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

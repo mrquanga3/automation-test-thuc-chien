@@ -304,13 +304,14 @@ class AttributeGroup extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('catalog/attribute_group');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $attribute_group_id) {
-				$this->model_catalog_attribute_group->deleteAttributeGroup($attribute_group_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('catalog/attribute_group');
+			// foreach ($selected as $attribute_group_id) {
+			// 	$this->model_catalog_attribute_group->deleteAttributeGroup($attribute_group_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

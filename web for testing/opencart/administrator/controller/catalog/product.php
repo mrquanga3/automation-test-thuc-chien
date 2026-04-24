@@ -1161,13 +1161,14 @@ class Product extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('catalog/product');
+			// [DISABLED] Tính năng xóa product đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $product_id) {
-				$this->model_catalog_product->deleteProduct($product_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('catalog/product');
+			// foreach ($selected as $product_id) {
+			// 	$this->model_catalog_product->deleteProduct($product_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

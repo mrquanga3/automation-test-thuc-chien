@@ -423,13 +423,14 @@ class CustomField extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('customer/custom_field');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $custom_field_id) {
-				$this->model_customer_custom_field->deleteCustomField($custom_field_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('customer/custom_field');
+			// foreach ($selected as $custom_field_id) {
+			// 	$this->model_customer_custom_field->deleteCustomField($custom_field_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

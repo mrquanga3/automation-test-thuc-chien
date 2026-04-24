@@ -818,13 +818,14 @@ class Customer extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('customer/customer');
+			// [DISABLED] Tính năng xóa customer đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $customer_id) {
-				$this->model_customer_customer->deleteCustomer($customer_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('customer/customer');
+			// foreach ($selected as $customer_id) {
+			// 	$this->model_customer_customer->deleteCustomer($customer_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

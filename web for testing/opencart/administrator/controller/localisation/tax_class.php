@@ -304,13 +304,14 @@ class TaxClass extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('localisation/tax_class');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $tax_class_id) {
-				$this->model_localisation_tax_class->deleteTaxClass($tax_class_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('localisation/tax_class');
+			// foreach ($selected as $tax_class_id) {
+			// 	$this->model_localisation_tax_class->deleteTaxClass($tax_class_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

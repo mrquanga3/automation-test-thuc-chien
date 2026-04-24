@@ -333,13 +333,14 @@ class Api extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('user/api');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $api_id) {
-				$this->model_user_api->deleteApi($api_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('user/api');
+			// foreach ($selected as $api_id) {
+			// 	$this->model_user_api->deleteApi($api_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

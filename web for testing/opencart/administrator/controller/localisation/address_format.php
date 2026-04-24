@@ -234,13 +234,14 @@ class AddressFormat extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('localisation/address_format');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $address_format_id) {
-				$this->model_localisation_address_format->deleteAddressFormat($address_format_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('localisation/address_format');
+			// foreach ($selected as $address_format_id) {
+			// 	$this->model_localisation_address_format->deleteAddressFormat($address_format_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

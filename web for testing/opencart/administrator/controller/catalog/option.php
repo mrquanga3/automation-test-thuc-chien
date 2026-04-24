@@ -376,13 +376,14 @@ class Option extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('catalog/option');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $option_id) {
-				$this->model_catalog_option->deleteOption($option_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('catalog/option');
+			// foreach ($selected as $option_id) {
+			// 	$this->model_catalog_option->deleteOption($option_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

@@ -393,11 +393,13 @@ class Currency extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			foreach ($selected as $currency_id) {
-				$this->model_localisation_currency->deleteCurrency($currency_id);
-			}
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			$json['success'] = $this->language->get('text_success');
+			// foreach ($selected as $currency_id) {
+			// 	$this->model_localisation_currency->deleteCurrency($currency_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

@@ -402,13 +402,14 @@ class Information extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('catalog/information');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $information_id) {
-				$this->model_catalog_information->deleteInformation($information_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('catalog/information');
+			// foreach ($selected as $information_id) {
+			// 	$this->model_catalog_information->deleteInformation($information_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

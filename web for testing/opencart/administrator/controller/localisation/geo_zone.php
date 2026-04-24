@@ -308,13 +308,14 @@ class GeoZone extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('localisation/geo_zone');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $geo_zone_id) {
-				$this->model_localisation_geo_zone->deleteGeoZone($geo_zone_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('localisation/geo_zone');
+			// foreach ($selected as $geo_zone_id) {
+			// 	$this->model_localisation_geo_zone->deleteGeoZone($geo_zone_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

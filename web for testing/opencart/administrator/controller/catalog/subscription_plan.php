@@ -417,13 +417,14 @@ class SubscriptionPlan extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('catalog/subscription_plan');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $subscription_plan_id) {
-				$this->model_catalog_subscription_plan->deleteSubscriptionPlan($subscription_plan_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('catalog/subscription_plan');
+			// foreach ($selected as $subscription_plan_id) {
+			// 	$this->model_catalog_subscription_plan->deleteSubscriptionPlan($subscription_plan_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');
