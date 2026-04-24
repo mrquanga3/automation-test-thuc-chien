@@ -802,13 +802,14 @@ class Affiliate extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('marketing/affiliate');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = 'Tính năng xóa đã bị vô hiệu hóa.';
 
-			foreach ($selected as $affiliate_id) {
-				$this->model_marketing_affiliate->deleteAffiliate($affiliate_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('marketing/affiliate');
+			// foreach ($selected as $affiliate_id) {
+			// 	$this->model_marketing_affiliate->deleteAffiliate($affiliate_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

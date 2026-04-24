@@ -419,11 +419,12 @@ class Theme extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('design/theme');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = 'Tính năng xóa đã bị vô hiệu hóa.';
 
-			$this->model_design_theme->deleteTheme($theme_id);
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('design/theme');
+			// $this->model_design_theme->deleteTheme($theme_id);
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

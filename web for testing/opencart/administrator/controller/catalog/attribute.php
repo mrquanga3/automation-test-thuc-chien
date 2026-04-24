@@ -320,13 +320,14 @@ class Attribute extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('catalog/attribute');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = 'Tính năng xóa đã bị vô hiệu hóa.';
 
-			foreach ($selected as $attribute_id) {
-				$this->model_catalog_attribute->deleteAttribute($attribute_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('catalog/attribute');
+			// foreach ($selected as $attribute_id) {
+			// 	$this->model_catalog_attribute->deleteAttribute($attribute_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

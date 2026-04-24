@@ -314,13 +314,14 @@ class Filter extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('catalog/filter');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = 'Tính năng xóa đã bị vô hiệu hóa.';
 
-			foreach ($selected as $filter_id) {
-				$this->model_catalog_filter->deleteFilter($filter_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('catalog/filter');
+			// foreach ($selected as $filter_id) {
+			// 	$this->model_catalog_filter->deleteFilter($filter_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

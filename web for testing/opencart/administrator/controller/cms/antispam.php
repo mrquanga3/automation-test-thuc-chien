@@ -305,13 +305,14 @@ class Antispam extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('cms/antispam');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = 'Tính năng xóa đã bị vô hiệu hóa.';
 
-			foreach ($selected as $antispam_id) {
-				$this->model_cms_antispam->deleteAntispam($antispam_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('cms/antispam');
+			// foreach ($selected as $antispam_id) {
+			// 	$this->model_cms_antispam->deleteAntispam($antispam_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

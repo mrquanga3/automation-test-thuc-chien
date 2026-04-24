@@ -306,13 +306,14 @@ class WeightClass extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('localisation/weight_class');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = 'Tính năng xóa đã bị vô hiệu hóa.';
 
-			foreach ($selected as $weight_class_id) {
-				$this->model_localisation_weight_class->deleteWeightClass($weight_class_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('localisation/weight_class');
+			// foreach ($selected as $weight_class_id) {
+			// 	$this->model_localisation_weight_class->deleteWeightClass($weight_class_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

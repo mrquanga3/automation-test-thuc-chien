@@ -558,13 +558,14 @@ class SeoUrl extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('design/seo_url');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = 'Tính năng xóa đã bị vô hiệu hóa.';
 
-			foreach ($selected as $seo_url_id) {
-				$this->model_design_seo_url->deleteSeoUrl($seo_url_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('design/seo_url');
+			// foreach ($selected as $seo_url_id) {
+			// 	$this->model_design_seo_url->deleteSeoUrl($seo_url_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

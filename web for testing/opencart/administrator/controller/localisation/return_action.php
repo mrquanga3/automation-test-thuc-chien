@@ -287,13 +287,14 @@ class ReturnAction extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('localisation/return_action');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = 'Tính năng xóa đã bị vô hiệu hóa.';
 
-			foreach ($selected as $return_action_id) {
-				$this->model_localisation_return_action->deleteReturnAction($return_action_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('localisation/return_action');
+			// foreach ($selected as $return_action_id) {
+			// 	$this->model_localisation_return_action->deleteReturnAction($return_action_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

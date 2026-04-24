@@ -286,13 +286,14 @@ class StockStatus extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('localisation/stock_status');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = 'Tính năng xóa đã bị vô hiệu hóa.';
 
-			foreach ($selected as $stock_status_id) {
-				$this->model_localisation_stock_status->deleteStockStatus($stock_status_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('localisation/stock_status');
+			// foreach ($selected as $stock_status_id) {
+			// 	$this->model_localisation_stock_status->deleteStockStatus($stock_status_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

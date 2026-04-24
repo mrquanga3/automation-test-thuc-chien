@@ -311,23 +311,21 @@ class Gdpr extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$gdprs = [];
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = 'Tính năng xóa đã bị vô hiệu hóa.';
 
-			if (isset($this->request->post['selected'])) {
-				$gdprs = $this->request->post['selected'];
-			}
-
-			if (isset($this->request->get['gdpr_id'])) {
-				$gdprs[] = (int)$this->request->get['gdpr_id'];
-			}
-
-			$this->load->model('customer/gdpr');
-
-			foreach ($gdprs as $gdpr_id) {
-				$this->model_customer_gdpr->deleteGdpr($gdpr_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $gdprs = [];
+			// if (isset($this->request->post['selected'])) {
+			// 	$gdprs = $this->request->post['selected'];
+			// }
+			// if (isset($this->request->get['gdpr_id'])) {
+			// 	$gdprs[] = (int)$this->request->get['gdpr_id'];
+			// }
+			// $this->load->model('customer/gdpr');
+			// foreach ($gdprs as $gdpr_id) {
+			// 	$this->model_customer_gdpr->deleteGdpr($gdpr_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

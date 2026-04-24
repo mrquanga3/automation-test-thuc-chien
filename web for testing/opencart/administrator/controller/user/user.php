@@ -339,28 +339,33 @@ class User extends \Opencart\System\Engine\Controller {
 				$json['user_id'] = $this->model_user_user->addUser($this->request->post);
 				$json['success'] = $this->language->get('text_success');
 			} else {
-				if(
-					$this->request->post['user_id'] != '1'
-				) {
-					$this->model_user_user->editUser($this->request->post['user_id'], $this->request->post);
-					$json['success'] = $this->language->get('text_success');
-				}
-				else if(
-					$this->request->post['username'] != 'admin'
-					||  $this->request->post['email'] != 'dangquangk53a3@gmail.com'
-					|| ($this->request->post['user_group_id'] != '1' )
-					|| ($this->request->post['status'] != '1')
-					|| ($this->request->post['password'] != 'admin')
-				) {
-					$json['error']['warning'] = $this->language->get('error_edit_admin_inf');
-				} else{
-					$this->model_user_user->editUser($this->request->post['user_id'], $this->request->post);
-					$json['success'] = $this->language->get('text_success');
+				// [DISABLED] Không cho phép sửa username của user đã tồn tại
+				$existing_user = $this->model_user_user->getUser($this->request->post['user_id']);
+				if ($existing_user && $this->request->post['username'] !== $existing_user['username']) {
+					$json['error']['username'] = 'Không được phép thay đổi username.';
 				}
 
+				if (!isset($json['error'])) {
+					if(
+						$this->request->post['user_id'] != '1'
+					) {
+						$this->model_user_user->editUser($this->request->post['user_id'], $this->request->post);
+						$json['success'] = $this->language->get('text_success');
+					}
+					else if(
+						$this->request->post['username'] != 'admin'
+						||  $this->request->post['email'] != 'dangquangk53a3@gmail.com'
+						|| ($this->request->post['user_group_id'] != '1' )
+						|| ($this->request->post['status'] != '1')
+						|| ($this->request->post['password'] != 'admin')
+					) {
+						$json['error']['warning'] = $this->language->get('error_edit_admin_inf');
+					} else{
+						$this->model_user_user->editUser($this->request->post['user_id'], $this->request->post);
+						$json['success'] = $this->language->get('text_success');
+					}
+				}
 			}
-
-			
 		}
 
 		$this->response->addHeader('Content-Type: application/json');
@@ -392,23 +397,26 @@ class User extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('user/user');
-			$has_admin_user = false;
-			foreach ($selected as $user_id) {
-				if($user_id == '1') {
-					$has_admin_user = true;
-					$json['error']['warning'] = $this->language->get('error_edit_admin_inf');
-					break;
-				}
-			}
-			if(!$has_admin_user) {
-				foreach ($selected as $user_id) {
-					$this->model_user_user->deleteUser($user_id);
-				}
-			}
-			if(!$has_admin_user) {
-				$json['success'] = $this->language->get('text_success');
-			}
+			// [DISABLED] Tính năng xóa user đã bị vô hiệu hóa
+			$json['error']['warning'] = 'Tính năng xóa user đã bị vô hiệu hóa.';
+
+			// $this->load->model('user/user');
+			// $has_admin_user = false;
+			// foreach ($selected as $user_id) {
+			// 	if($user_id == '1') {
+			// 		$has_admin_user = true;
+			// 		$json['error']['warning'] = $this->language->get('error_edit_admin_inf');
+			// 		break;
+			// 	}
+			// }
+			// if(!$has_admin_user) {
+			// 	foreach ($selected as $user_id) {
+			// 		$this->model_user_user->deleteUser($user_id);
+			// 	}
+			// }
+			// if(!$has_admin_user) {
+			// 	$json['success'] = $this->language->get('text_success');
+			// }
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

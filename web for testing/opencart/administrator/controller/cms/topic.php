@@ -374,13 +374,14 @@ class Topic extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('cms/topic');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = 'Tính năng xóa đã bị vô hiệu hóa.';
 
-			foreach ($selected as $topic_id) {
-				$this->model_cms_topic->deleteTopic($topic_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('cms/topic');
+			// foreach ($selected as $topic_id) {
+			// 	$this->model_cms_topic->deleteTopic($topic_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

@@ -296,13 +296,14 @@ class ReturnStatus extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('localisation/return_status');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = 'Tính năng xóa đã bị vô hiệu hóa.';
 
-			foreach ($selected as $return_status_id) {
-				$this->model_localisation_return_status->deleteReturnStatus($return_status_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('localisation/return_status');
+			// foreach ($selected as $return_status_id) {
+			// 	$this->model_localisation_return_status->deleteReturnStatus($return_status_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

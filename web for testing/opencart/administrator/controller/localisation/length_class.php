@@ -308,13 +308,14 @@ class LengthClass extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('localisation/length_class');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = 'Tính năng xóa đã bị vô hiệu hóa.';
 
-			foreach ($selected as $length_class_id) {
-				$this->model_localisation_length_class->deleteLengthClass($length_class_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('localisation/length_class');
+			// foreach ($selected as $length_class_id) {
+			// 	$this->model_localisation_length_class->deleteLengthClass($length_class_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

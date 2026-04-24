@@ -482,13 +482,14 @@ class Category extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('catalog/category');
+			// [DISABLED] Tính năng xóa category đã bị vô hiệu hóa
+			$json['error'] = 'Tính năng xóa category đã bị vô hiệu hóa.';
 
-			foreach ($selected as $category_id) {
-				$this->model_catalog_category->deleteCategory($category_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('catalog/category');
+			// foreach ($selected as $category_id) {
+			// 	$this->model_catalog_category->deleteCategory($category_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

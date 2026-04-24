@@ -387,22 +387,23 @@ class UserPermission extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$has_default_group = false;
-			$this->load->model('user/user_group');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = 'Tính năng xóa đã bị vô hiệu hóa.';
 
-			foreach ($selected as $user_group_id) {
-				if(!$user_group_id == '1'){
-					$has_default_group = true;
-					break;
-				}
-				$this->model_user_user_group->deleteUserGroup($user_group_id);
-			}
-			if($has_default_group) {
-				$json['error'] = $this->language->get('error_permission');
-			} else{
-				$json['success'] = $this->language->get('text_success');
-			}
-
+			// $has_default_group = false;
+			// $this->load->model('user/user_group');
+			// foreach ($selected as $user_group_id) {
+			// 	if(!$user_group_id == '1'){
+			// 		$has_default_group = true;
+			// 		break;
+			// 	}
+			// 	$this->model_user_user_group->deleteUserGroup($user_group_id);
+			// }
+			// if($has_default_group) {
+			// 	$json['error'] = $this->language->get('error_permission');
+			// } else{
+			// 	$json['success'] = $this->language->get('text_success');
+			// }
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

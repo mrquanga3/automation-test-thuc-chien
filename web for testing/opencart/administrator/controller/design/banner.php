@@ -329,13 +329,14 @@ class Banner extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('design/banner');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = 'Tính năng xóa đã bị vô hiệu hóa.';
 
-			foreach ($selected as $banner_id) {
-				$this->model_design_banner->deleteBanner($banner_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('design/banner');
+			// foreach ($selected as $banner_id) {
+			// 	$this->model_design_banner->deleteBanner($banner_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

@@ -410,13 +410,14 @@ class Coupon extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('marketing/coupon');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = 'Tính năng xóa đã bị vô hiệu hóa.';
 
-			foreach ($selected as $coupon_id) {
-				$this->model_marketing_coupon->deleteCoupon($coupon_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('marketing/coupon');
+			// foreach ($selected as $coupon_id) {
+			// 	$this->model_marketing_coupon->deleteCoupon($coupon_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

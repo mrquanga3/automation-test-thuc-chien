@@ -315,13 +315,14 @@ class CustomerGroup extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('customer/customer_group');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = 'Tính năng xóa đã bị vô hiệu hóa.';
 
-			foreach ($selected as $customer_group_id) {
-				$this->model_customer_customer_group->deleteCustomerGroup($customer_group_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('customer/customer_group');
+			// foreach ($selected as $customer_group_id) {
+			// 	$this->model_customer_customer_group->deleteCustomerGroup($customer_group_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');
