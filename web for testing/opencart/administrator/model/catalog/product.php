@@ -864,6 +864,10 @@ class Product extends \Opencart\System\Engine\Model {
 
 		$sql = "SELECT p.*, COALESCE(pd.`name`, (SELECT `name` FROM `" . DB_PREFIX . "product_description` WHERE `product_id` = p.`product_id` LIMIT 1)) AS `name`, pd.`description`, pd.`tag`, pd.`meta_title`, pd.`meta_description`, pd.`meta_keyword` FROM `" . DB_PREFIX . "product` p LEFT JOIN `" . DB_PREFIX . "product_description` pd ON (p.`product_id` = pd.`product_id` AND pd.`language_id` = '" . $language_id . "') WHERE 1";
 
+		if (!empty($data['filter_product_id'])) {
+			$sql .= " AND p.`product_id` = '" . (int)$data['filter_product_id'] . "'";
+		}
+
 		if (!empty($data['filter_master_id'])) {
 			$sql .= " AND p.`master_id` = '" . (int)$data['filter_master_id'] . "'";
 		}
@@ -1235,6 +1239,10 @@ class Product extends \Opencart\System\Engine\Model {
 	 */
 	public function getTotalProducts(array $data = []): int {
 		$sql = "SELECT COUNT(DISTINCT p.`product_id`) AS `total` FROM `" . DB_PREFIX . "product` p LEFT JOIN `" . DB_PREFIX . "product_description` pd ON (p.`product_id` = pd.`product_id` AND pd.`language_id` = '" . (int)$this->config->get('config_language_id') . "') WHERE 1";
+
+		if (!empty($data['filter_product_id'])) {
+			$sql .= " AND p.`product_id` = '" . (int)$data['filter_product_id'] . "'";
+		}
 
 		if (!empty($data['filter_master_id'])) {
 			$sql .= " AND p.`master_id` = '" . (int)$data['filter_master_id'] . "'";

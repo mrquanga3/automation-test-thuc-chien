@@ -48,6 +48,7 @@ $_['column_date_added']       = 'Ngày Tạo';
 $_['column_action']           = 'Hành Động';
 
 // Entry
+$_['entry_product_id']        = 'Product ID';
 $_['entry_name']              = 'Tên Sản Phẩm';
 $_['entry_description']       = 'Mô Tả';
 $_['entry_meta_title']        = 'Tiêu Đề Meta';
