@@ -32,6 +32,7 @@ class Product extends \Opencart\System\Engine\Controller {
 
 	public function index(): void {
 		$error = $this->validate();
+		$this->load->language('catalog/product');
 		if ($error) { $this->sendJson(['error' => $error], 401); return; }
 		if (!$this->user->hasPermission('access', 'catalog/product')) { $this->sendJson(['error' => 'Permission denied.'], 403); return; }
 
@@ -47,6 +48,7 @@ class Product extends \Opencart\System\Engine\Controller {
 
 	public function add(): void {
 		$error = $this->validate();
+		$this->load->language('catalog/product');
 		if ($error) { $this->sendJson(['error' => $error], 401); return; }
 		if (!$this->user->hasPermission('modify', 'catalog/product')) { $this->sendJson(['error' => 'Permission denied.'], 403); return; }
 
@@ -57,42 +59,43 @@ class Product extends \Opencart\System\Engine\Controller {
 
 	public function edit(): void {
 		$error = $this->validate();
+		$this->load->language('catalog/product');
 		if ($error) { $this->sendJson(['error' => $error], 401); return; }
 		if (!$this->user->hasPermission('modify', 'catalog/product')) { $this->sendJson(['error' => 'Permission denied.'], 403); return; }
 
 		$product_id = isset($this->request->get['product_id']) ? (int)$this->request->get['product_id'] : 0;
-		if (!$product_id) { $this->sendJson(['error' => 'Missing product_id.'], 400); return; }
+		if (!$product_id) { $this->sendJson(['error' => $this->language->get('error_product_id')], 400); return; }
 
 		$this->load->model('catalog/product');
+		$product_info = $this->model_catalog_product->getProduct($product_id);
+		if (!$product_info) { $this->sendJson(['error' => $this->language->get('error_not_found')], 404); return; }
+
 		$this->model_catalog_product->editProduct($product_id, $this->request->post);
 		$this->sendJson(['success' => true]);
 	}
 
 	public function delete(): void {
 		$error = $this->validate();
+		$this->load->language('catalog/product');
 		if ($error) { $this->sendJson(['error' => $error], 401); return; }
-		if (!$this->user->hasPermission('modify', 'catalog/product')) { $this->sendJson(['error' => 'Permission denied.'], 403); return; }
 
-		$product_id = isset($this->request->get['product_id']) ? (int)$this->request->get['product_id'] : 0;
-		if (!$product_id) { $this->sendJson(['error' => 'Missing product_id.'], 400); return; }
-
-		$this->load->model('catalog/product');
-		$this->model_catalog_product->deleteProduct($product_id);
-		$this->sendJson(['success' => true]);
+		// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+		$this->sendJson(['error' => $this->language->get('error_delete_disabled')], 403);
 	}
 
 	public function get(): void {
 		$error = $this->validate();
+		$this->load->language('catalog/product');
 		if ($error) { $this->sendJson(['error' => $error], 401); return; }
 		if (!$this->user->hasPermission('access', 'catalog/product')) { $this->sendJson(['error' => 'Permission denied.'], 403); return; }
 
 		$product_id = isset($this->request->get['product_id']) ? (int)$this->request->get['product_id'] : 0;
-		if (!$product_id) { $this->sendJson(['error' => 'Missing product_id.'], 400); return; }
+		if (!$product_id) { $this->sendJson(['error' => $this->language->get('error_product_id')], 400); return; }
 
 		$this->load->model('catalog/product');
 		$product = $this->model_catalog_product->getProduct($product_id);
 
-		if (!$product) { $this->sendJson(['error' => 'Product not found.'], 404); return; }
+		if (!$product) { $this->sendJson(['error' => $this->language->get('error_not_found')], 404); return; }
 
 		$this->sendJson(['success' => true, 'product' => $product]);
 	}

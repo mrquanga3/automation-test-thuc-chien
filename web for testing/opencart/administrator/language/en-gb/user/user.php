@@ -49,3 +49,6 @@ $_['error_email_exists']    = 'Warning: E-Mail Address is already registered!';
 $_['error_password']        = 'Password must be between 4 and 20 characters!';
 $_['error_confirm']         = 'Password and password confirmation do not match!';
 $_['error_edit_admin_inf'] = 'Not allow to modify username/email/password/status of default admin account!';
+$_['error_not_found']        = 'Warning: User not found!';
+$_['error_user_id']          = 'Warning: Missing user_id!';
+$_['error_delete_disabled']   = 'Warning: Delete feature is disabled!';

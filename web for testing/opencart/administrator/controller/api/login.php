@@ -29,6 +29,8 @@ class Login extends \Opencart\System\Engine\Controller {
 	public function index(): void {
 		$json = [];
 
+		$this->load->language('common/login');
+
 		// Chỉ cho phép POST
 		if ($this->request->server['REQUEST_METHOD'] !== 'POST') {
 			$this->response->addHeader('HTTP/1.1 405 Method Not Allowed');
@@ -42,7 +44,7 @@ class Login extends \Opencart\System\Engine\Controller {
 
 		if (!$username || !$password) {
 			$this->response->addHeader('HTTP/1.1 400 Bad Request');
-			$json['error'] = 'Username and password are required.';
+			$json['error'] = $this->language->get('error_required');
 			$this->sendJson($json);
 			return;
 		}
@@ -55,7 +57,7 @@ class Login extends \Opencart\System\Engine\Controller {
 		// Thực hiện đăng nhập qua User library
 		if (!$this->user->login($username, html_entity_decode($password, ENT_QUOTES, 'UTF-8'))) {
 			$this->response->addHeader('HTTP/1.1 401 Unauthorized');
-			$json['error'] = 'Invalid username or password.';
+			$json['error'] = $this->language->get('error_login');
 			$this->sendJson($json);
 			return;
 		}

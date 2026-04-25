@@ -32,8 +32,9 @@ class Category extends \Opencart\System\Engine\Controller {
 
 	public function index(): void {
 		$error = $this->validate();
+		$this->load->language('catalog/category');
 		if ($error) { $this->sendJson(['error' => $error], 401); return; }
-		if (!$this->user->hasPermission('access', 'catalog/category')) { $this->sendJson(['error' => 'Permission denied.'], 403); return; }
+		if (!$this->user->hasPermission('access', 'catalog/category')) { $this->sendJson(['error' => $this->language->get('error_permission')], 403); return; }
 
 		$this->load->model('catalog/category');
 		$results = $this->model_catalog_category->getCategories();
@@ -42,8 +43,9 @@ class Category extends \Opencart\System\Engine\Controller {
 
 	public function add(): void {
 		$error = $this->validate();
+		$this->load->language('catalog/category');
 		if ($error) { $this->sendJson(['error' => $error], 401); return; }
-		if (!$this->user->hasPermission('modify', 'catalog/category')) { $this->sendJson(['error' => 'Permission denied.'], 403); return; }
+		if (!$this->user->hasPermission('modify', 'catalog/category')) { $this->sendJson(['error' => $this->language->get('error_permission')], 403); return; }
 
 		$this->load->model('catalog/category');
 		$category_id = $this->model_catalog_category->addCategory($this->request->post);
@@ -52,42 +54,43 @@ class Category extends \Opencart\System\Engine\Controller {
 
 	public function edit(): void {
 		$error = $this->validate();
+		$this->load->language('catalog/category');
 		if ($error) { $this->sendJson(['error' => $error], 401); return; }
-		if (!$this->user->hasPermission('modify', 'catalog/category')) { $this->sendJson(['error' => 'Permission denied.'], 403); return; }
+		if (!$this->user->hasPermission('modify', 'catalog/category')) { $this->sendJson(['error' => $this->language->get('error_permission')], 403); return; }
 
 		$category_id = isset($this->request->get['category_id']) ? (int)$this->request->get['category_id'] : 0;
-		if (!$category_id) { $this->sendJson(['error' => 'Missing category_id.'], 400); return; }
+		if (!$category_id) { $this->sendJson(['error' => $this->language->get('error_category_id')], 400); return; }
 
 		$this->load->model('catalog/category');
+		$category_info = $this->model_catalog_category->getCategory($category_id);
+		if (!$category_info) { $this->sendJson(['error' => $this->language->get('error_not_found')], 404); return; }
+
 		$this->model_catalog_category->editCategory($category_id, $this->request->post);
 		$this->sendJson(['success' => true]);
 	}
 
 	public function delete(): void {
 		$error = $this->validate();
+		$this->load->language('catalog/category');
 		if ($error) { $this->sendJson(['error' => $error], 401); return; }
-		if (!$this->user->hasPermission('modify', 'catalog/category')) { $this->sendJson(['error' => 'Permission denied.'], 403); return; }
 
-		$category_id = isset($this->request->get['category_id']) ? (int)$this->request->get['category_id'] : 0;
-		if (!$category_id) { $this->sendJson(['error' => 'Missing category_id.'], 400); return; }
-
-		$this->load->model('catalog/category');
-		$this->model_catalog_category->deleteCategory($category_id);
-		$this->sendJson(['success' => true]);
+		// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+		$this->sendJson(['error' => $this->language->get('error_delete_disabled')], 403);
 	}
 
 	public function get(): void {
 		$error = $this->validate();
+		$this->load->language('catalog/category');
 		if ($error) { $this->sendJson(['error' => $error], 401); return; }
-		if (!$this->user->hasPermission('access', 'catalog/category')) { $this->sendJson(['error' => 'Permission denied.'], 403); return; }
+		if (!$this->user->hasPermission('access', 'catalog/category')) { $this->sendJson(['error' => $this->language->get('error_permission')], 403); return; }
 
 		$category_id = isset($this->request->get['category_id']) ? (int)$this->request->get['category_id'] : 0;
-		if (!$category_id) { $this->sendJson(['error' => 'Missing category_id.'], 400); return; }
+		if (!$category_id) { $this->sendJson(['error' => $this->language->get('error_category_id')], 400); return; }
 
 		$this->load->model('catalog/category');
 		$category = $this->model_catalog_category->getCategory($category_id);
 
-		if (!$category) { $this->sendJson(['error' => 'Category not found.'], 404); return; }
+		if (!$category) { $this->sendJson(['error' => $this->language->get('error_not_found')], 404); return; }
 
 		$this->sendJson(['success' => true, 'category' => $category]);
 	}

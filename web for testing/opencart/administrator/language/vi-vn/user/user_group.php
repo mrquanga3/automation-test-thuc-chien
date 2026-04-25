@@ -23,3 +23,5 @@ $_['entry_extension']  = 'Tiện ích mở rộng';
 $_['error_permission'] = 'Cảnh báo: Bạn không có quyền chỉnh sửa nhóm người dùng!';
 $_['error_name']       = 'Tên nhóm người dùng phải từ 3 đến 64 ký tự!';
 $_['error_user']       = 'Cảnh báo: Không thể xóa nhóm này vì đang được gán cho %s người dùng!';
+$_['error_not_found']  = 'Cảnh báo: Không tìm thấy nhóm người dùng!';
+$_['error_user_group_id'] = 'Cảnh báo: Thiếu user_group_id!';$_['error_delete_disabled']   = 'Cảnh báo: Tính năng xóa đã bị vô hiệu hóa!';

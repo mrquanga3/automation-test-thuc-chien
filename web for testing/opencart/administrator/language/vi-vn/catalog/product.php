@@ -130,4 +130,6 @@ $_['error_model']             = 'Model sản phẩm phải từ 1 đến 64 ký 
 $_['error_keyword']           = 'URL SEO phải từ 1 đến 64 ký tự!';
 $_['error_keyword_exists']    = 'URL SEO phải là duy nhất!';
 $_['error_keyword_character'] = 'Từ khóa chỉ được dùng ký tự a-z, 0-9, - và _!';
-$_['error_required']          = '%s là bắt buộc!';
+$_['error_required']          = '%s yêu cầu!';
+$_['error_not_found']         = 'Cảnh báo: Không tìm thấy sản phẩm!';
+$_['error_product_id']        = 'Cảnh báo: Thiếu product_id!';$_['error_delete_disabled']   = 'Cảnh báo: Tính năng xóa đã bị vô hiệu hóa!';

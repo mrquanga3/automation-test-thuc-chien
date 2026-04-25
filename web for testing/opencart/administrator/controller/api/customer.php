@@ -40,8 +40,9 @@ class Customer extends \Opencart\System\Engine\Controller {
 
 	public function index(): void {
 		$error = $this->validate();
+		$this->load->language('customer/customer');
 		if ($error) { $this->sendJson(['error' => $error], 401); return; }
-		if (!$this->user->hasPermission('access', 'customer/customer')) { $this->sendJson(['error' => 'Permission denied.'], 403); return; }
+		if (!$this->user->hasPermission('access', 'customer/customer')) { $this->sendJson(['error' => $this->language->get('error_permission')], 403); return; }
 
 		$page  = isset($this->request->get['page'])  ? max(1, (int)$this->request->get['page']) : 1;
 		$limit = isset($this->request->get['limit']) ? min(100, max(1, (int)$this->request->get['limit'])) : 20;
@@ -83,16 +84,17 @@ class Customer extends \Opencart\System\Engine\Controller {
 
 	public function get(): void {
 		$error = $this->validate();
+		$this->load->language('customer/customer');
 		if ($error) { $this->sendJson(['error' => $error], 401); return; }
-		if (!$this->user->hasPermission('access', 'customer/customer')) { $this->sendJson(['error' => 'Permission denied.'], 403); return; }
+		if (!$this->user->hasPermission('access', 'customer/customer')) { $this->sendJson(['error' => $this->language->get('error_permission')], 403); return; }
 
 		$customer_id = isset($this->request->get['customer_id']) ? (int)$this->request->get['customer_id'] : 0;
-		if (!$customer_id) { $this->sendJson(['error' => 'Missing customer_id.'], 400); return; }
+		if (!$customer_id) { $this->sendJson(['error' => $this->language->get('error_customer_id')], 400); return; }
 
 		$this->load->model('customer/customer');
 		$customer = $this->model_customer_customer->getCustomer($customer_id);
 
-		if (!$customer) { $this->sendJson(['error' => 'Customer not found.'], 404); return; }
+		if (!$customer) { $this->sendJson(['error' => $this->language->get('error_not_found')], 404); return; }
 
 		unset($customer['password']);
 		$this->sendJson(['success' => true, 'customer' => $customer]);
@@ -100,8 +102,9 @@ class Customer extends \Opencart\System\Engine\Controller {
 
 	public function add(): void {
 		$error = $this->validate();
+		$this->load->language('customer/customer');
 		if ($error) { $this->sendJson(['error' => $error], 401); return; }
-		if (!$this->user->hasPermission('modify', 'customer/customer')) { $this->sendJson(['error' => 'Permission denied.'], 403); return; }
+		if (!$this->user->hasPermission('modify', 'customer/customer')) { $this->sendJson(['error' => $this->language->get('error_permission')], 403); return; }
 
 		if ($this->request->server['REQUEST_METHOD'] !== 'POST') {
 			$this->sendJson(['error' => 'POST method required.'], 405); return;
@@ -114,27 +117,27 @@ class Customer extends \Opencart\System\Engine\Controller {
 
 	public function edit(): void {
 		$error = $this->validate();
+		$this->load->language('customer/customer');
 		if ($error) { $this->sendJson(['error' => $error], 401); return; }
-		if (!$this->user->hasPermission('modify', 'customer/customer')) { $this->sendJson(['error' => 'Permission denied.'], 403); return; }
+		if (!$this->user->hasPermission('modify', 'customer/customer')) { $this->sendJson(['error' => $this->language->get('error_permission')], 403); return; }
 
 		$customer_id = isset($this->request->get['customer_id']) ? (int)$this->request->get['customer_id'] : 0;
-		if (!$customer_id) { $this->sendJson(['error' => 'Missing customer_id.'], 400); return; }
+		if (!$customer_id) { $this->sendJson(['error' => $this->language->get('error_customer_id')], 400); return; }
 
 		$this->load->model('customer/customer');
+		$customer_info = $this->model_customer_customer->getCustomer($customer_id);
+		if (!$customer_info) { $this->sendJson(['error' => $this->language->get('error_not_found')], 404); return; }
+
 		$this->model_customer_customer->editCustomer($customer_id, $this->request->post);
 		$this->sendJson(['success' => true]);
 	}
 
 	public function delete(): void {
 		$error = $this->validate();
+		$this->load->language('customer/customer');
 		if ($error) { $this->sendJson(['error' => $error], 401); return; }
-		if (!$this->user->hasPermission('modify', 'customer/customer')) { $this->sendJson(['error' => 'Permission denied.'], 403); return; }
 
-		$customer_id = isset($this->request->get['customer_id']) ? (int)$this->request->get['customer_id'] : 0;
-		if (!$customer_id) { $this->sendJson(['error' => 'Missing customer_id.'], 400); return; }
-
-		$this->load->model('customer/customer');
-		$this->model_customer_customer->deleteCustomer($customer_id);
-		$this->sendJson(['success' => true]);
+		// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+		$this->sendJson(['error' => $this->language->get('error_delete_disabled')], 403);
 	}
 }
