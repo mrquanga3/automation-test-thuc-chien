@@ -10,7 +10,10 @@
       "Bash(xargs ls *)",
       "Bash(cd /d \"D:/xampp\")",
       "Bash(mysql -u root -e \"SELECT language_id, name, code, status FROM opencart.oc_language;\")",
-      "Bash(D:/xampp/mysql/bin/mysql.exe *)"
+      "Bash(D:/xampp/mysql/bin/mysql.exe *)",
+      "Bash(python add_id_columns.py)",
+      "Bash(del *)",
+      "Bash(python \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\scan.py\")"
     ],
     "*": "allow"
   },

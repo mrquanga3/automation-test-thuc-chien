@@ -4,6 +4,7 @@
       <thead>
         <tr>
           <td class="text-center" style="width: 1px;"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', $(this).prop('checked'));" class="form-check-input"/></td>
+          <td class="text-end" style="width: 1px;">ID</td>
           <td class="text-start"><a href="{{ sort_keyword }}"{% if sort == 'keyword' %} class="{{ order|lower }}"{% endif %}>{{ column_keyword }}</a></td>
           <td class="text-start"><a href="{{ sort_key }}"{% if sort == 'key' %} class="{{ order|lower }}"{% endif %}>{{ column_key }}</a></td>
           <td class="text-start"><a href="{{ sort_value }}"{% if sort == 'value' %} class="{{ order|lower }}"{% endif %}>{{ column_value }}</a></td>
@@ -18,6 +19,7 @@
           {% for seo_url in seo_urls %}
             <tr>
               <td class="text-center"><input type="checkbox" name="selected[]" value="{{ seo_url.seo_url_id }}" class="form-check-input"/></td>
+              <td class="text-end"><span class="badge bg-secondary">{{ seo_url.seo_url_id }}</span></td>
               <td class="text-start">{{ seo_url.keyword }}</td>
               <td class="text-start">{{ seo_url.key }}</td>
               <td class="text-start">{{ seo_url.value }}</td>
@@ -29,7 +31,7 @@
           {% endfor %}
         {% else %}
           <tr>
-            <td class="text-center" colspan="7">{{ text_no_results }}</td>
+            <td class="text-center" colspan="8">{{ text_no_results }}</td>
           </tr>
         {% endif %}
       </tbody>

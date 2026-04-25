@@ -4,6 +4,7 @@
       <thead>
         <tr>
           <td class="text-center" style="width: 1px;"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', $(this).prop('checked'));" class="form-check-input"/></td>
+          <td class="text-end" style="width: 1px;">ID</td>
           <td class="text-start"><a href="{{ sort_code }}"{% if sort == 'code' %} class="{{ order|lower }}"{% endif %}>{{ column_code }}</a></td>
           <td class="text-end d-none d-lg-table-cell"><a href="{{ sort_sort_order }}"{% if sort == 'sort_order' %} class="{{ order|lower }}"{% endif %}>{{ column_sort_order }}</a></td>
           <td class="text-end">{{ column_action }}</td>
@@ -14,6 +15,7 @@
           {% for event in events %}
             <tr>
               <td class="text-center"><input type="checkbox" name="selected[]" value="{{ event.event_id }}" class="form-check-input"/></td>
+              <td class="text-end"><span class="badge bg-secondary">{{ event.event_id }}</span></td>
               <td class="text-start">{{ event.code }}</td>
               <td class="text-end d-none d-lg-table-cell">{{ event.sort_order }}</td>
               <td class="text-end text-nowrap"><button type="button" data-oc-description="{{ event.description }}" data-oc-trigger="{{ event.trigger }}" data-oc-action="{{ event.action }}" class="btn btn-info"><i class="fa-solid fa-info-circle"></i></button>
@@ -26,7 +28,7 @@
           {% endfor %}
         {% else %}
           <tr>
-            <td class="text-center" colspan="4">{{ text_no_results }}</td>
+            <td class="text-center" colspan="5">{{ text_no_results }}</td>
           </tr>
         {% endif %}
       </tbody>

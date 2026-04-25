@@ -4,6 +4,7 @@
       <thead>
         <tr>
           <td class="text-center" style="width: 1px;"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', $(this).prop('checked'));" class="form-check-input"/></td>
+          <td class="text-end" style="width: 1px;">ID</td>
           <td class="text-start"><a href="{{ sort_name }}"{% if sort == 'tr.name' %} class="{{ order|lower }}"{% endif %}>{{ column_name }}</a></td>
           <td class="text-end"><a href="{{ sort_rate }}"{% if sort == 'tr.rate' %} class="{{ order|lower }}"{% endif %}>{{ column_rate }}</a></td>
           <td class="text-start"><a href="{{ sort_type }}"{% if sort == 'tr.type' %} class="{{ order|lower }}"{% endif %}>{{ column_type }}</a></td>
@@ -18,6 +19,7 @@
           {% for tax_rate in tax_rates %}
             <tr>
               <td class="text-center"><input type="checkbox" name="selected[]" value="{{ tax_rate.tax_rate_id }}" class="form-check-input"/></td>
+              <td class="text-end"><span class="badge bg-secondary">{{ tax_rate.tax_rate_id }}</span></td>
               <td class="text-start">{{ tax_rate.name }}</td>
               <td class="text-end">{{ tax_rate.rate }}</td>
               <td class="text-start">{{ tax_rate.type }}</td>
@@ -29,7 +31,7 @@
           {% endfor %}
         {% else %}
           <tr>
-            <td class="text-center" colspan="9">{{ text_no_results }}</td>
+            <td class="text-center" colspan="10">{{ text_no_results }}</td>
           </tr>
         {% endif %}
       </tbody>

@@ -4,6 +4,7 @@
       <thead>
         <tr>
           <td class="text-center" style="width: 1px;"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', $(this).prop('checked'));" class="form-check-input"/></td>
+          <td class="text-end" style="width: 1px;">ID</td>
           <td class="text-start"><a href="{{ sort_country }}"{% if sort == 'c.name' %} class="{{ order|lower }}"{% endif %}>{{ column_country }}</a></td>
           <td class="text-start"><a href="{{ sort_name }}"{% if sort == 'z.name' %} class="{{ order|lower }}"{% endif %}>{{ column_name }}</a></td>
           <td class="text-start"><a href="{{ sort_code }}"{% if sort == 'z.code' %} class="{{ order|lower }}"{% endif %}>{{ column_code }}</a></td>
@@ -15,6 +16,7 @@
           {% for zone in zones %}
             <tr>
               <td class="text-center"><input type="checkbox" name="selected[]" value="{{ zone.zone_id }}" class="form-check-input"/></td>
+              <td class="text-end"><span class="badge bg-secondary">{{ zone.zone_id }}</span></td>
               <td class="text-start">{{ zone.country }}
                 <br/>
                 {% if zone.status %}
@@ -30,7 +32,7 @@
           {% endfor %}
         {% else %}
           <tr>
-            <td class="text-center" colspan="5">{{ text_no_results }}</td>
+            <td class="text-center" colspan="6">{{ text_no_results }}</td>
           </tr>
         {% endif %}
       </tbody>

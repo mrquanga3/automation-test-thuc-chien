@@ -4,6 +4,7 @@
       <thead>
         <tr>
           <td class="text-center" style="width: 1px;"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', $(this).prop('checked'));" class="form-check-input"/></td>
+          <td class="text-end" style="width: 1px;">ID</td>
           <td class="text-start"><a href="{{ sort_code }}"{% if sort == 'v.code' %} class="{{ order|lower }}"{% endif %}>{{ column_code }}</a></td>
           <td class="text-start"><a href="{{ sort_from }}"{% if sort == 'v.from_name' %} class="{{ order|lower }}"{% endif %}>{{ column_from }}</a></td>
           <td class="text-start"><a href="{{ sort_to }}"{% if sort == 'v.to_name' %} class="{{ order|lower }}"{% endif %}>{{ column_to }}</a></td>
@@ -18,6 +19,7 @@
           {% for voucher in vouchers %}
             <tr>
               <td class="text-center"><input type="checkbox" name="selected[]" value="{{ voucher.voucher_id }}" class="form-check-input"/></td>
+              <td class="text-end"><span class="badge bg-secondary">{{ voucher.voucher_id }}</span></td>
               <td class="text-start">{{ voucher.code }}
                 <br/>
                 {% if voucher.status %}
@@ -40,7 +42,7 @@
           {% endfor %}
         {% else %}
           <tr>
-            <td class="text-center" colspan="9">{{ text_no_results }}</td>
+            <td class="text-center" colspan="10">{{ text_no_results }}</td>
           </tr>
         {% endif %}
       </tbody>
