@@ -167,15 +167,17 @@ class Product extends \Opencart\System\Engine\Model {
 	public function editProduct(int $product_id, array $data): void {
 		$this->db->query("UPDATE `" . DB_PREFIX . "product` SET `model` = '" . $this->db->escape((string)($data['model'] ?? '')) . "', `sku` = '" . $this->db->escape((string)($data['sku'] ?? '')) . "', `upc` = '" . $this->db->escape((string)($data['upc'] ?? '')) . "', `ean` = '" . $this->db->escape((string)($data['ean'] ?? '')) . "', `jan` = '" . $this->db->escape((string)($data['jan'] ?? '')) . "', `isbn` = '" . $this->db->escape((string)($data['isbn'] ?? '')) . "', `mpn` = '" . $this->db->escape((string)($data['mpn'] ?? '')) . "', `location` = '" . $this->db->escape((string)($data['location'] ?? '')) . "', `variant` = '" . $this->db->escape(!empty($data['variant']) ? json_encode($data['variant']) : '') . "', `override` = '" . $this->db->escape(!empty($data['override']) ? json_encode($data['override']) : '') . "', `quantity` = '" . (int)($data['quantity'] ?? 0) . "', `minimum` = '" . (int)($data['minimum'] ?? 1) . "', `subtract` = '" . (isset($data['subtract']) ? (bool)$data['subtract'] : 0) . "', `stock_status_id` = '" . (int)($data['stock_status_id'] ?? 0) . "', `date_available` = '" . $this->db->escape((string)($data['date_available'] ?? '')) . "', `manufacturer_id` = '" . (int)($data['manufacturer_id'] ?? 0) . "', `shipping` = '" . (isset($data['shipping']) ? (bool)$data['shipping'] : 0) . "', `price` = '" . (float)($data['price'] ?? 0) . "', `points` = '" . (int)($data['points'] ?? 0) . "', `weight` = '" . (float)($data['weight'] ?? 0) . "', `weight_class_id` = '" . (int)($data['weight_class_id'] ?? 0) . "', `length` = '" . (float)($data['length'] ?? 0) . "', `width` = '" . (float)($data['width'] ?? 0) . "', `height` = '" . (float)($data['height'] ?? 0) . "', `length_class_id` = '" . (int)($data['length_class_id'] ?? 0) . "', `status` = '" . (bool)(isset($data['status']) ? $data['status'] : 0) . "', `tax_class_id` = '" . (int)($data['tax_class_id'] ?? 0) . "', `sort_order` = '" . (int)($data['sort_order'] ?? 0) . "', `date_modified` = NOW() WHERE `product_id` = '" . (int)$product_id . "'");
 
-		if ($data['image']) {
+		if (!empty($data['image'])) {
 			$this->db->query("UPDATE `" . DB_PREFIX . "product` SET `image` = '" . $this->db->escape((string)$data['image']) . "' WHERE `product_id` = '" . (int)$product_id . "'");
 		}
 
 		// Description
-		$this->db->query("DELETE FROM `" . DB_PREFIX . "product_description` WHERE `product_id` = '" . (int)$product_id . "'");
+		if (isset($data['product_description'])) {
+			$this->db->query("DELETE FROM `" . DB_PREFIX . "product_description` WHERE `product_id` = '" . (int)$product_id . "'");
 
-		foreach ($data['product_description'] as $language_id => $value) {
-			$this->db->query("INSERT INTO `" . DB_PREFIX . "product_description` SET `product_id` = '" . (int)$product_id . "', `language_id` = '" . (int)$language_id . "', `name` = '" . $this->db->escape($value['name']) . "', `description` = '" . $this->db->escape($value['description']) . "', `tag` = '" . $this->db->escape($value['tag']) . "', `meta_title` = '" . $this->db->escape($value['meta_title']) . "', `meta_description` = '" . $this->db->escape($value['meta_description']) . "', `meta_keyword` = '" . $this->db->escape($value['meta_keyword']) . "'");
+			foreach ($data['product_description'] as $language_id => $value) {
+				$this->db->query("INSERT INTO `" . DB_PREFIX . "product_description` SET `product_id` = '" . (int)$product_id . "', `language_id` = '" . (int)$language_id . "', `name` = '" . $this->db->escape((string)($value['name'] ?? '')) . "', `description` = '" . $this->db->escape((string)($value['description'] ?? '')) . "', `tag` = '" . $this->db->escape((string)($value['tag'] ?? '')) . "', `meta_title` = '" . $this->db->escape((string)($value['meta_title'] ?? '')) . "', `meta_description` = '" . $this->db->escape((string)($value['meta_description'] ?? '')) . "', `meta_keyword` = '" . $this->db->escape((string)($value['meta_keyword'] ?? '')) . "'");
+			}
 		}
 
 		// Categories

@@ -12,6 +12,17 @@ class Permission extends \Opencart\System\Engine\Controller {
 	public function index(): void {
 		$this->load->language('error/permission');
 
+		$route = isset($this->request->get['route']) ? (string)$this->request->get['route'] : '';
+
+		if (strpos($route, 'api/') === 0) {
+			$this->response->addHeader('HTTP/1.1 403 Forbidden');
+			$this->response->addHeader('Content-Type: application/json; charset=UTF-8');
+			$this->response->setOutput(json_encode([
+				'error' => $this->language->get('error_permission')
+			], JSON_UNESCAPED_UNICODE));
+			return;
+		}
+
 		$this->document->setTitle($this->language->get('heading_title'));
 
 		$data['breadcrumbs'] = [];
