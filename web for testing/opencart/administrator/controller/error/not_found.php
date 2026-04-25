@@ -10,8 +10,19 @@ class NotFound extends \Opencart\System\Engine\Controller {
 	 * @return void
 	 */
 	public function index(): void {
+		$route = isset($this->request->get['route']) ? (string)$this->request->get['route'] : '';
+
 		$this->load->language('error/not_found');
-		
+
+		if (strpos($route, 'api/') === 0) {
+			$this->response->addHeader('HTTP/1.1 404 Not Found');
+			$this->response->addHeader('Content-Type: application/json; charset=UTF-8');
+			$this->response->setOutput(json_encode([
+				'error' => sprintf($this->language->get('error_route_not_found'), $route)
+			], JSON_UNESCAPED_UNICODE));
+			return;
+		}
+
 		$this->document->setTitle($this->language->get('heading_title'));
 
 		$data['breadcrumbs'] = [];
