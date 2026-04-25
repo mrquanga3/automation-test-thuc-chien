@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2024 at 02:59 PM
+-- Generation Time: Apr 25, 2026 at 10:49 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `opencart`
 --
+CREATE DATABASE IF NOT EXISTS `opencart` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `opencart`;
 
 -- --------------------------------------------------------
 
@@ -27,6 +29,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `oc_address`
 --
 
+DROP TABLE IF EXISTS `oc_address`;
 CREATE TABLE `oc_address` (
   `address_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
@@ -43,18 +46,36 @@ CREATE TABLE `oc_address` (
   `default` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_address`
+--
+
+TRUNCATE TABLE `oc_address`;
+--
+-- Dumping data for table `oc_address`
+--
+
+INSERT INTO `oc_address` (`address_id`, `customer_id`, `firstname`, `lastname`, `company`, `address_1`, `address_2`, `city`, `postcode`, `country_id`, `zone_id`, `custom_field`, `default`) VALUES
+(1, 2, 'Gege', 'Lee', '', '165 Cau Giay', '', 'Ha Noi', '', 230, 3751, '[]', 0);
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_address_format`
 --
 
+DROP TABLE IF EXISTS `oc_address_format`;
 CREATE TABLE `oc_address_format` (
   `address_format_id` int(11) NOT NULL,
   `name` varchar(128) NOT NULL,
   `address_format` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_address_format`
+--
+
+TRUNCATE TABLE `oc_address_format`;
 --
 -- Dumping data for table `oc_address_format`
 --
@@ -68,17 +89,24 @@ INSERT INTO `oc_address_format` (`address_format_id`, `name`, `address_format`) 
 -- Table structure for table `oc_antispam`
 --
 
+DROP TABLE IF EXISTS `oc_antispam`;
 CREATE TABLE `oc_antispam` (
   `antispam_id` int(11) NOT NULL,
   `keyword` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_antispam`
+--
+
+TRUNCATE TABLE `oc_antispam`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_api`
 --
 
+DROP TABLE IF EXISTS `oc_api`;
 CREATE TABLE `oc_api` (
   `api_id` int(11) NOT NULL,
   `username` varchar(64) NOT NULL,
@@ -88,6 +116,11 @@ CREATE TABLE `oc_api` (
   `date_modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_api`
+--
+
+TRUNCATE TABLE `oc_api`;
 --
 -- Dumping data for table `oc_api`
 --
@@ -101,12 +134,18 @@ INSERT INTO `oc_api` (`api_id`, `username`, `key`, `status`, `date_added`, `date
 -- Table structure for table `oc_api_ip`
 --
 
+DROP TABLE IF EXISTS `oc_api_ip`;
 CREATE TABLE `oc_api_ip` (
   `api_ip_id` int(11) NOT NULL,
   `api_id` int(11) NOT NULL,
   `ip` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_api_ip`
+--
+
+TRUNCATE TABLE `oc_api_ip`;
 --
 -- Dumping data for table `oc_api_ip`
 --
@@ -121,6 +160,7 @@ INSERT INTO `oc_api_ip` (`api_ip_id`, `api_id`, `ip`) VALUES
 -- Table structure for table `oc_api_session`
 --
 
+DROP TABLE IF EXISTS `oc_api_session`;
 CREATE TABLE `oc_api_session` (
   `api_session_id` int(11) NOT NULL,
   `api_id` int(11) NOT NULL,
@@ -130,6 +170,11 @@ CREATE TABLE `oc_api_session` (
   `date_modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_api_session`
+--
+
+TRUNCATE TABLE `oc_api_session`;
 --
 -- Dumping data for table `oc_api_session`
 --
@@ -157,6 +202,7 @@ INSERT INTO `oc_api_session` (`api_session_id`, `api_id`, `session_id`, `ip`, `d
 -- Table structure for table `oc_article`
 --
 
+DROP TABLE IF EXISTS `oc_article`;
 CREATE TABLE `oc_article` (
   `article_id` int(11) NOT NULL,
   `topic_id` int(11) NOT NULL,
@@ -166,12 +212,18 @@ CREATE TABLE `oc_article` (
   `date_modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_article`
+--
+
+TRUNCATE TABLE `oc_article`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_article_comment`
 --
 
+DROP TABLE IF EXISTS `oc_article_comment`;
 CREATE TABLE `oc_article_comment` (
   `article_comment_id` int(11) NOT NULL,
   `article_id` int(11) NOT NULL,
@@ -181,12 +233,18 @@ CREATE TABLE `oc_article_comment` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_article_comment`
+--
+
+TRUNCATE TABLE `oc_article_comment`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_article_description`
 --
 
+DROP TABLE IF EXISTS `oc_article_description`;
 CREATE TABLE `oc_article_description` (
   `article_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
@@ -199,41 +257,64 @@ CREATE TABLE `oc_article_description` (
   `meta_keyword` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_article_description`
+--
+
+TRUNCATE TABLE `oc_article_description`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_article_to_layout`
 --
 
+DROP TABLE IF EXISTS `oc_article_to_layout`;
 CREATE TABLE `oc_article_to_layout` (
   `article_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL,
   `layout_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_article_to_layout`
+--
+
+TRUNCATE TABLE `oc_article_to_layout`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_article_to_store`
 --
 
+DROP TABLE IF EXISTS `oc_article_to_store`;
 CREATE TABLE `oc_article_to_store` (
   `article_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_article_to_store`
+--
+
+TRUNCATE TABLE `oc_article_to_store`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_attribute`
 --
 
+DROP TABLE IF EXISTS `oc_attribute`;
 CREATE TABLE `oc_attribute` (
   `attribute_id` int(11) NOT NULL,
   `attribute_group_id` int(11) NOT NULL,
   `sort_order` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_attribute`
+--
+
+TRUNCATE TABLE `oc_attribute`;
 --
 -- Dumping data for table `oc_attribute`
 --
@@ -257,6 +338,7 @@ INSERT INTO `oc_attribute` (`attribute_id`, `attribute_group_id`, `sort_order`) 
 -- Table structure for table `oc_attribute_description`
 --
 
+DROP TABLE IF EXISTS `oc_attribute_description`;
 CREATE TABLE `oc_attribute_description` (
   `attribute_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
@@ -264,21 +346,37 @@ CREATE TABLE `oc_attribute_description` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
+-- Truncate table before insert `oc_attribute_description`
+--
+
+TRUNCATE TABLE `oc_attribute_description`;
+--
 -- Dumping data for table `oc_attribute_description`
 --
 
 INSERT INTO `oc_attribute_description` (`attribute_id`, `language_id`, `name`) VALUES
 (1, 1, 'Description'),
+(1, 2, 'Description'),
 (2, 1, 'No. of Cores'),
+(2, 2, 'No. of Cores'),
 (3, 1, 'Clockspeed'),
+(3, 2, 'Clockspeed'),
 (4, 1, 'test 1'),
+(4, 2, 'test 1'),
 (5, 1, 'test 2'),
+(5, 2, 'test 2'),
 (6, 1, 'test 3'),
+(6, 2, 'test 3'),
 (7, 1, 'test 4'),
+(7, 2, 'test 4'),
 (8, 1, 'test 5'),
+(8, 2, 'test 5'),
 (9, 1, 'test 6'),
+(9, 2, 'test 6'),
 (10, 1, 'test 7'),
-(11, 1, 'test 8');
+(10, 2, 'test 7'),
+(11, 1, 'test 8'),
+(11, 2, 'test 8');
 
 -- --------------------------------------------------------
 
@@ -286,11 +384,17 @@ INSERT INTO `oc_attribute_description` (`attribute_id`, `language_id`, `name`) V
 -- Table structure for table `oc_attribute_group`
 --
 
+DROP TABLE IF EXISTS `oc_attribute_group`;
 CREATE TABLE `oc_attribute_group` (
   `attribute_group_id` int(11) NOT NULL,
   `sort_order` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_attribute_group`
+--
+
+TRUNCATE TABLE `oc_attribute_group`;
 --
 -- Dumping data for table `oc_attribute_group`
 --
@@ -307,6 +411,7 @@ INSERT INTO `oc_attribute_group` (`attribute_group_id`, `sort_order`) VALUES
 -- Table structure for table `oc_attribute_group_description`
 --
 
+DROP TABLE IF EXISTS `oc_attribute_group_description`;
 CREATE TABLE `oc_attribute_group_description` (
   `attribute_group_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
@@ -314,14 +419,23 @@ CREATE TABLE `oc_attribute_group_description` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
+-- Truncate table before insert `oc_attribute_group_description`
+--
+
+TRUNCATE TABLE `oc_attribute_group_description`;
+--
 -- Dumping data for table `oc_attribute_group_description`
 --
 
 INSERT INTO `oc_attribute_group_description` (`attribute_group_id`, `language_id`, `name`) VALUES
 (3, 1, 'Memory'),
+(3, 2, 'Memory'),
 (4, 1, 'Technical'),
+(4, 2, 'Technical'),
 (5, 1, 'Motherboard'),
-(6, 1, 'Processor');
+(5, 2, 'Motherboard'),
+(6, 1, 'Processor'),
+(6, 2, 'Processor');
 
 -- --------------------------------------------------------
 
@@ -329,12 +443,18 @@ INSERT INTO `oc_attribute_group_description` (`attribute_group_id`, `language_id
 -- Table structure for table `oc_banner`
 --
 
+DROP TABLE IF EXISTS `oc_banner`;
 CREATE TABLE `oc_banner` (
   `banner_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
   `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_banner`
+--
+
+TRUNCATE TABLE `oc_banner`;
 --
 -- Dumping data for table `oc_banner`
 --
@@ -350,6 +470,7 @@ INSERT INTO `oc_banner` (`banner_id`, `name`, `status`) VALUES
 -- Table structure for table `oc_banner_image`
 --
 
+DROP TABLE IF EXISTS `oc_banner_image`;
 CREATE TABLE `oc_banner_image` (
   `banner_image_id` int(11) NOT NULL,
   `banner_id` int(11) NOT NULL,
@@ -360,6 +481,11 @@ CREATE TABLE `oc_banner_image` (
   `sort_order` int(3) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_banner_image`
+--
+
+TRUNCATE TABLE `oc_banner_image`;
 --
 -- Dumping data for table `oc_banner_image`
 --
@@ -378,7 +504,21 @@ INSERT INTO `oc_banner_image` (`banner_image_id`, `banner_id`, `language_id`, `t
 (95, 8, 1, 'RedBull', '', 'catalog/demo/manufacturer/redbull.png', 0),
 (96, 8, 1, 'Sony', '', 'catalog/demo/manufacturer/sony.png', 0),
 (97, 8, 1, 'Starbucks', '', 'catalog/demo/manufacturer/starbucks.png', 0),
-(98, 8, 1, 'Nintendo', '', 'catalog/demo/manufacturer/nintendo.png', 0);
+(98, 8, 1, 'Nintendo', '', 'catalog/demo/manufacturer/nintendo.png', 0),
+(99, 7, 2, 'iPhone 6', 'index.php?route=product/product&amp;path=57&amp;product_id=49', 'catalog/demo/banners/iPhone6.jpg', 0),
+(100, 7, 2, 'MacBookAir', '', 'catalog/demo/banners/MacBookAir.jpg', 0),
+(101, 6, 2, 'HP Banner', 'index.php?route=product/manufacturer.info&amp;manufacturer_id=7', 'catalog/demo/compaq_presario.jpg', 0),
+(102, 8, 2, 'Harley Davidson', '', 'catalog/demo/manufacturer/harley.png', 0),
+(103, 8, 2, 'Dell', '', 'catalog/demo/manufacturer/dell.png', 0),
+(104, 8, 2, 'Disney', '', 'catalog/demo/manufacturer/disney.png', 0),
+(105, 8, 2, 'Coca Cola', '', 'catalog/demo/manufacturer/cocacola.png', 0),
+(106, 8, 2, 'Burger King', '', 'catalog/demo/manufacturer/burgerking.png', 0),
+(107, 8, 2, 'Canon', '', 'catalog/demo/manufacturer/canon.png', 0),
+(108, 8, 2, 'NFL', '', 'catalog/demo/manufacturer/nfl.png', 0),
+(109, 8, 2, 'RedBull', '', 'catalog/demo/manufacturer/redbull.png', 0),
+(110, 8, 2, 'Sony', '', 'catalog/demo/manufacturer/sony.png', 0),
+(111, 8, 2, 'Starbucks', '', 'catalog/demo/manufacturer/starbucks.png', 0),
+(112, 8, 2, 'Nintendo', '', 'catalog/demo/manufacturer/nintendo.png', 0);
 
 -- --------------------------------------------------------
 
@@ -386,6 +526,7 @@ INSERT INTO `oc_banner_image` (`banner_image_id`, `banner_id`, `language_id`, `t
 -- Table structure for table `oc_cart`
 --
 
+DROP TABLE IF EXISTS `oc_cart`;
 CREATE TABLE `oc_cart` (
   `cart_id` int(11) NOT NULL,
   `api_id` int(11) NOT NULL,
@@ -401,18 +542,17 @@ CREATE TABLE `oc_cart` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
--- Dumping data for table `oc_cart`
+-- Truncate table before insert `oc_cart`
 --
 
-INSERT INTO `oc_cart` (`cart_id`, `api_id`, `customer_id`, `session_id`, `product_id`, `subscription_plan_id`, `option`, `quantity`, `override`, `price`, `date_added`) VALUES
-(1, 0, 0, 'bdc09942184768781e953b1eb3', 28, 0, '[]', 2, 0, 0.0000, '2024-10-27 15:58:53');
-
+TRUNCATE TABLE `oc_cart`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_category`
 --
 
+DROP TABLE IF EXISTS `oc_category`;
 CREATE TABLE `oc_category` (
   `category_id` int(11) NOT NULL,
   `image` varchar(255) NOT NULL,
@@ -425,6 +565,11 @@ CREATE TABLE `oc_category` (
   `date_modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_category`
+--
+
+TRUNCATE TABLE `oc_category`;
 --
 -- Dumping data for table `oc_category`
 --
@@ -475,6 +620,7 @@ INSERT INTO `oc_category` (`category_id`, `image`, `parent_id`, `top`, `column`,
 -- Table structure for table `oc_category_description`
 --
 
+DROP TABLE IF EXISTS `oc_category_description`;
 CREATE TABLE `oc_category_description` (
   `category_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
@@ -486,48 +632,91 @@ CREATE TABLE `oc_category_description` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
+-- Truncate table before insert `oc_category_description`
+--
+
+TRUNCATE TABLE `oc_category_description`;
+--
 -- Dumping data for table `oc_category_description`
 --
 
 INSERT INTO `oc_category_description` (`category_id`, `language_id`, `name`, `description`, `meta_title`, `meta_description`, `meta_keyword`) VALUES
 (17, 1, 'Software', '', 'Software', '', ''),
+(17, 2, 'Software', '', 'Software', '', ''),
 (18, 1, 'Laptops &amp; Notebooks', '&lt;p&gt;\r\n	Shop Laptop feature only the best laptop deals on the market. By comparing laptop deals from the likes of PC World, Comet, Dixons, The Link and Carphone Warehouse, Shop Laptop has the most comprehensive selection of laptops on the internet. At Shop Laptop, we pride ourselves on offering customers the very best laptop deals. From refurbished laptops to netbooks, Shop Laptop ensures that every laptop - in every colour, style, size and technical spec - is featured on the site at the lowest possible price.&lt;/p&gt;\r\n', 'Laptops &amp; Notebooks', '', ''),
+(18, 2, 'Laptops &amp; Notebooks', '&lt;p&gt;\r\n	Shop Laptop feature only the best laptop deals on the market. By comparing laptop deals from the likes of PC World, Comet, Dixons, The Link and Carphone Warehouse, Shop Laptop has the most comprehensive selection of laptops on the internet. At Shop Laptop, we pride ourselves on offering customers the very best laptop deals. From refurbished laptops to netbooks, Shop Laptop ensures that every laptop - in every colour, style, size and technical spec - is featured on the site at the lowest possible price.&lt;/p&gt;\r\n', 'Laptops &amp; Notebooks', '', ''),
 (20, 1, 'Desktops', '&lt;p&gt;\r\n	Example of category description text&lt;/p&gt;\r\n', 'Desktops', 'Example of category description', ''),
+(20, 2, 'Desktops', '&lt;p&gt;\r\n	Example of category description text&lt;/p&gt;\r\n', 'Desktops', 'Example of category description', ''),
 (24, 1, 'Phones &amp; PDAs', '', 'Phones &amp; PDAs', '', ''),
+(24, 2, 'Phones &amp; PDAs', '', 'Phones &amp; PDAs', '', ''),
 (25, 1, 'Components', '', 'Components', '', ''),
+(25, 2, 'Components', '', 'Components', '', ''),
 (26, 1, 'PC', '', 'PC', '', ''),
+(26, 2, 'PC', '', 'PC', '', ''),
 (27, 1, 'Mac', '', 'Mac', '', ''),
+(27, 2, 'Mac', '', 'Mac', '', ''),
 (28, 1, 'Monitors', '', 'Monitors', '', ''),
+(28, 2, 'Monitors', '', 'Monitors', '', ''),
 (29, 1, 'Mice and Trackballs', '', 'Mice and Trackballs', '', ''),
+(29, 2, 'Mice and Trackballs', '', 'Mice and Trackballs', '', ''),
 (30, 1, 'Printers', '', 'Printers', '', ''),
+(30, 2, 'Printers', '', 'Printers', '', ''),
 (31, 1, 'Scanners', '', 'Scanners', '', ''),
+(31, 2, 'Scanners', '', 'Scanners', '', ''),
 (32, 1, 'Web Cameras', '', 'Web Cameras', '', ''),
+(32, 2, 'Web Cameras', '', 'Web Cameras', '', ''),
 (33, 1, 'Cameras', '', 'Cameras', '', ''),
+(33, 2, 'Cameras', '', 'Cameras', '', ''),
 (34, 1, 'MP3 Players', '&lt;p&gt;\r\n	Shop Laptop feature only the best laptop deals on the market. By comparing laptop deals from the likes of PC World, Comet, Dixons, The Link and Carphone Warehouse, Shop Laptop has the most comprehensive selection of laptops on the internet. At Shop Laptop, we pride ourselves on offering customers the very best laptop deals. From refurbished laptops to netbooks, Shop Laptop ensures that every laptop - in every colour, style, size and technical spec - is featured on the site at the lowest possible price.&lt;/p&gt;\r\n', 'MP3 Players', '', ''),
+(34, 2, 'MP3 Players', '&lt;p&gt;\r\n	Shop Laptop feature only the best laptop deals on the market. By comparing laptop deals from the likes of PC World, Comet, Dixons, The Link and Carphone Warehouse, Shop Laptop has the most comprehensive selection of laptops on the internet. At Shop Laptop, we pride ourselves on offering customers the very best laptop deals. From refurbished laptops to netbooks, Shop Laptop ensures that every laptop - in every colour, style, size and technical spec - is featured on the site at the lowest possible price.&lt;/p&gt;\r\n', 'MP3 Players', '', ''),
 (35, 1, 'test 1', '', 'test 1', '', ''),
+(35, 2, 'test 1', '', 'test 1', '', ''),
 (36, 1, 'test 2', '', 'test 2', '', ''),
+(36, 2, 'test 2', '', 'test 2', '', ''),
 (37, 1, 'test 5', '', 'test 5', '', ''),
+(37, 2, 'test 5', '', 'test 5', '', ''),
 (38, 1, 'test 4', '', 'test 4', '', ''),
+(38, 2, 'test 4', '', 'test 4', '', ''),
 (39, 1, 'test 6', '', 'test 6', '', ''),
+(39, 2, 'test 6', '', 'test 6', '', ''),
 (40, 1, 'test 7', '', 'test 7', '', ''),
+(40, 2, 'test 7', '', 'test 7', '', ''),
 (41, 1, 'test 8', '', 'test 8', '', ''),
+(41, 2, 'test 8', '', 'test 8', '', ''),
 (42, 1, 'test 9', '', 'test 9', '', ''),
+(42, 2, 'test 9', '', 'test 9', '', ''),
 (43, 1, 'test 11', '', 'test 11', '', ''),
+(43, 2, 'test 11', '', 'test 11', '', ''),
 (44, 1, 'test 12', '', 'test 12', '', ''),
+(44, 2, 'test 12', '', 'test 12', '', ''),
 (45, 1, 'Windows', '', 'Windows', '', ''),
+(45, 2, 'Windows', '', 'Windows', '', ''),
 (46, 1, 'Macs', '', 'Macs', '', ''),
+(46, 2, 'Macs', '', 'Macs', '', ''),
 (47, 1, 'test 15', '', 'test 15', '', ''),
+(47, 2, 'test 15', '', 'test 15', '', ''),
 (48, 1, 'test 16', '', 'test 16', '', ''),
+(48, 2, 'test 16', '', 'test 16', '', ''),
 (49, 1, 'test 17', '', 'test 17', '', ''),
+(49, 2, 'test 17', '', 'test 17', '', ''),
 (50, 1, 'test 18', '', 'test 18', '', ''),
+(50, 2, 'test 18', '', 'test 18', '', ''),
 (51, 1, 'test 19', '', 'test 19', '', ''),
+(51, 2, 'test 19', '', 'test 19', '', ''),
 (52, 1, 'test 20', '', 'test 20', '', ''),
+(52, 2, 'test 20', '', 'test 20', '', ''),
 (53, 1, 'test 21', '', 'test 21', '', ''),
+(53, 2, 'test 21', '', 'test 21', '', ''),
 (54, 1, 'test 22', '', 'test 22', '', ''),
+(54, 2, 'test 22', '', 'test 22', '', ''),
 (55, 1, 'test 23', '', 'test 23', '', ''),
+(55, 2, 'test 23', '', 'test 23', '', ''),
 (56, 1, 'test 24', '', 'test 24', '', ''),
+(56, 2, 'test 24', '', 'test 24', '', ''),
 (57, 1, 'Tablets', '', 'Tablets', '', ''),
-(58, 1, 'test 25', '', 'test 25', '', '');
+(57, 2, 'Tablets', '', 'Tablets', '', ''),
+(58, 1, 'test 25', '', 'test 25', '', ''),
+(58, 2, 'test 25', '', 'test 25', '', '');
 
 -- --------------------------------------------------------
 
@@ -535,23 +724,35 @@ INSERT INTO `oc_category_description` (`category_id`, `language_id`, `name`, `de
 -- Table structure for table `oc_category_filter`
 --
 
+DROP TABLE IF EXISTS `oc_category_filter`;
 CREATE TABLE `oc_category_filter` (
   `category_id` int(11) NOT NULL,
   `filter_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_category_filter`
+--
+
+TRUNCATE TABLE `oc_category_filter`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_category_path`
 --
 
+DROP TABLE IF EXISTS `oc_category_path`;
 CREATE TABLE `oc_category_path` (
   `category_id` int(11) NOT NULL,
   `path_id` int(11) NOT NULL,
   `level` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_category_path`
+--
+
+TRUNCATE TABLE `oc_category_path`;
 --
 -- Dumping data for table `oc_category_path`
 --
@@ -635,23 +836,35 @@ INSERT INTO `oc_category_path` (`category_id`, `path_id`, `level`) VALUES
 -- Table structure for table `oc_category_to_layout`
 --
 
+DROP TABLE IF EXISTS `oc_category_to_layout`;
 CREATE TABLE `oc_category_to_layout` (
   `category_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL,
   `layout_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_category_to_layout`
+--
+
+TRUNCATE TABLE `oc_category_to_layout`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_category_to_store`
 --
 
+DROP TABLE IF EXISTS `oc_category_to_store`;
 CREATE TABLE `oc_category_to_store` (
   `category_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_category_to_store`
+--
+
+TRUNCATE TABLE `oc_category_to_store`;
 --
 -- Dumping data for table `oc_category_to_store`
 --
@@ -702,6 +915,7 @@ INSERT INTO `oc_category_to_store` (`category_id`, `store_id`) VALUES
 -- Table structure for table `oc_country`
 --
 
+DROP TABLE IF EXISTS `oc_country`;
 CREATE TABLE `oc_country` (
   `country_id` int(11) NOT NULL,
   `name` varchar(128) NOT NULL,
@@ -712,6 +926,11 @@ CREATE TABLE `oc_country` (
   `status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_country`
+--
+
+TRUNCATE TABLE `oc_country`;
 --
 -- Dumping data for table `oc_country`
 --
@@ -977,6 +1196,7 @@ INSERT INTO `oc_country` (`country_id`, `name`, `iso_code_2`, `iso_code_3`, `add
 -- Table structure for table `oc_coupon`
 --
 
+DROP TABLE IF EXISTS `oc_coupon`;
 CREATE TABLE `oc_coupon` (
   `coupon_id` int(11) NOT NULL,
   `name` varchar(128) NOT NULL,
@@ -995,6 +1215,11 @@ CREATE TABLE `oc_coupon` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
+-- Truncate table before insert `oc_coupon`
+--
+
+TRUNCATE TABLE `oc_coupon`;
+--
 -- Dumping data for table `oc_coupon`
 --
 
@@ -1009,17 +1234,24 @@ INSERT INTO `oc_coupon` (`coupon_id`, `name`, `code`, `type`, `discount`, `logge
 -- Table structure for table `oc_coupon_category`
 --
 
+DROP TABLE IF EXISTS `oc_coupon_category`;
 CREATE TABLE `oc_coupon_category` (
   `coupon_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_coupon_category`
+--
+
+TRUNCATE TABLE `oc_coupon_category`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_coupon_history`
 --
 
+DROP TABLE IF EXISTS `oc_coupon_history`;
 CREATE TABLE `oc_coupon_history` (
   `coupon_history_id` int(11) NOT NULL,
   `coupon_id` int(11) NOT NULL,
@@ -1029,24 +1261,36 @@ CREATE TABLE `oc_coupon_history` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_coupon_history`
+--
+
+TRUNCATE TABLE `oc_coupon_history`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_coupon_product`
 --
 
+DROP TABLE IF EXISTS `oc_coupon_product`;
 CREATE TABLE `oc_coupon_product` (
   `coupon_product_id` int(11) NOT NULL,
   `coupon_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_coupon_product`
+--
+
+TRUNCATE TABLE `oc_coupon_product`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_cron`
 --
 
+DROP TABLE IF EXISTS `oc_cron`;
 CREATE TABLE `oc_cron` (
   `cron_id` int(11) NOT NULL,
   `code` varchar(128) NOT NULL,
@@ -1058,6 +1302,11 @@ CREATE TABLE `oc_cron` (
   `date_modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_cron`
+--
+
+TRUNCATE TABLE `oc_cron`;
 --
 -- Dumping data for table `oc_cron`
 --
@@ -1073,6 +1322,7 @@ INSERT INTO `oc_cron` (`cron_id`, `code`, `description`, `cycle`, `action`, `sta
 -- Table structure for table `oc_currency`
 --
 
+DROP TABLE IF EXISTS `oc_currency`;
 CREATE TABLE `oc_currency` (
   `currency_id` int(11) NOT NULL,
   `title` varchar(32) NOT NULL,
@@ -1085,6 +1335,11 @@ CREATE TABLE `oc_currency` (
   `date_modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_currency`
+--
+
+TRUNCATE TABLE `oc_currency`;
 --
 -- Dumping data for table `oc_currency`
 --
@@ -1105,6 +1360,7 @@ INSERT INTO `oc_currency` (`currency_id`, `title`, `code`, `symbol_left`, `symbo
 -- Table structure for table `oc_customer`
 --
 
+DROP TABLE IF EXISTS `oc_customer`;
 CREATE TABLE `oc_customer` (
   `customer_id` int(11) NOT NULL,
   `customer_group_id` int(11) NOT NULL,
@@ -1126,11 +1382,23 @@ CREATE TABLE `oc_customer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
+-- Truncate table before insert `oc_customer`
+--
+
+TRUNCATE TABLE `oc_customer`;
+--
 -- Dumping data for table `oc_customer`
 --
 
 INSERT INTO `oc_customer` (`customer_id`, `customer_group_id`, `store_id`, `language_id`, `firstname`, `lastname`, `email`, `telephone`, `password`, `custom_field`, `newsletter`, `ip`, `status`, `safe`, `token`, `code`, `date_added`) VALUES
-(1, 1, 0, 0, 'Test', 'Test', 'a@gmail.com', '423423', '$2y$10$B489R2wvg19CESBysT8coeP3uFJfkTGjUP0Nz.1Wo7bSplb4yjgNO', '[]', 0, '', 1, 0, '', '', '2024-10-27 15:30:30');
+(1, 1, 0, 0, 'Test', 'Test', 'a@gmail.com', '423423', '$2y$10$B489R2wvg19CESBysT8coeP3uFJfkTGjUP0Nz.1Wo7bSplb4yjgNO', '[]', 0, '', 1, 0, '', '', '2024-10-27 15:30:30'),
+(2, 1, 0, 1, 'Le', 'Tung', 'hbyen2510@gmail.com', 'admin', '$2y$10$.ffv26CXj4u6uqX2KqwyJeDEOEF4.BKPQvX4lttMNiJjvRPxfGZqq', '[]', 0, '123.20.163.16', 1, 0, '', '', '2026-01-28 08:56:01'),
+(4, 1, 0, 0, 'Nguyễn', 'Minh', 'nguyenminhkhctd@gmail.com', 'admin', '$2y$10$JCcYlKmNPrkXid0PdR4EhOL9MdNctFns/FP5EqhJWJzYETjh0O2v6', '[]', 0, '', 1, 0, '', '', '2026-01-29 16:35:17'),
+(5, 1, 0, 0, 'Lien', 'Nguyen', 'lien@gmail.com', '', '$2y$10$5Kgl4HzSH2oXQi5LHDSLVuAhsLbEBkBkMRSl3zIvESJBqM4.ADOVO', '[]', 0, '', 1, 0, '', '', '2026-02-01 16:57:16'),
+(6, 1, 0, 0, 'Pham', 'Dat', 'datphoam1996@gmail.com', '', '$2y$10$RBk6IWZXEsBR0ZgDQtr8M.3Bci3ud1fGKKksnpcu09Vmbz3qoncty', '[]', 0, '', 1, 0, '', '', '2026-02-02 04:05:41'),
+(7, 1, 0, 0, 'Pham', 'Dat Dat', 'datphoam5196@gmail.com', '', '$2y$10$FGAhajtpJFRQfSH4oiVR6urAHd0hcsDELYj29cVySjbb2G3a6IqLe', '[]', 0, '', 1, 0, '', '', '2026-02-02 10:25:00'),
+(8, 1, 0, 0, 'Le', 'Gege', 'gegsa@yahoo.com', '', '$2y$10$r71vpVtq0U7/zEF1djoG5.2xwZV/hM5ZoYqjnm.TiEP8584.uyzPS', '[]', 0, '', 1, 0, '', '', '2026-02-05 10:46:50'),
+(13, 1, 0, 0, 'tuong', 'huynh', 'tuonghuynh@yopmail.com', '', '$2y$10$11Lto2015mUpu5oqCa76OeVsPwzHeoaeAAtA0f1lrEQ4L.D9Jcx5u', '[]', 0, '', 1, 0, '', '', '2026-04-19 13:00:57');
 
 -- --------------------------------------------------------
 
@@ -1138,6 +1406,7 @@ INSERT INTO `oc_customer` (`customer_id`, `customer_group_id`, `store_id`, `lang
 -- Table structure for table `oc_customer_activity`
 --
 
+DROP TABLE IF EXISTS `oc_customer_activity`;
 CREATE TABLE `oc_customer_activity` (
   `customer_activity_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
@@ -1147,12 +1416,18 @@ CREATE TABLE `oc_customer_activity` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_customer_activity`
+--
+
+TRUNCATE TABLE `oc_customer_activity`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_customer_affiliate`
 --
 
+DROP TABLE IF EXISTS `oc_customer_affiliate`;
 CREATE TABLE `oc_customer_affiliate` (
   `customer_id` int(11) NOT NULL,
   `company` varchar(60) NOT NULL,
@@ -1174,12 +1449,18 @@ CREATE TABLE `oc_customer_affiliate` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_customer_affiliate`
+--
+
+TRUNCATE TABLE `oc_customer_affiliate`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_customer_affiliate_report`
 --
 
+DROP TABLE IF EXISTS `oc_customer_affiliate_report`;
 CREATE TABLE `oc_customer_affiliate_report` (
   `customer_affiliate_report_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
@@ -1189,12 +1470,18 @@ CREATE TABLE `oc_customer_affiliate_report` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_customer_affiliate_report`
+--
+
+TRUNCATE TABLE `oc_customer_affiliate_report`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_customer_approval`
 --
 
+DROP TABLE IF EXISTS `oc_customer_approval`;
 CREATE TABLE `oc_customer_approval` (
   `customer_approval_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
@@ -1202,18 +1489,29 @@ CREATE TABLE `oc_customer_approval` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_customer_approval`
+--
+
+TRUNCATE TABLE `oc_customer_approval`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_customer_group`
 --
 
+DROP TABLE IF EXISTS `oc_customer_group`;
 CREATE TABLE `oc_customer_group` (
   `customer_group_id` int(11) NOT NULL,
   `approval` int(1) NOT NULL,
   `sort_order` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_customer_group`
+--
+
+TRUNCATE TABLE `oc_customer_group`;
 --
 -- Dumping data for table `oc_customer_group`
 --
@@ -1227,6 +1525,7 @@ INSERT INTO `oc_customer_group` (`customer_group_id`, `approval`, `sort_order`) 
 -- Table structure for table `oc_customer_group_description`
 --
 
+DROP TABLE IF EXISTS `oc_customer_group_description`;
 CREATE TABLE `oc_customer_group_description` (
   `customer_group_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
@@ -1235,11 +1534,17 @@ CREATE TABLE `oc_customer_group_description` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
+-- Truncate table before insert `oc_customer_group_description`
+--
+
+TRUNCATE TABLE `oc_customer_group_description`;
+--
 -- Dumping data for table `oc_customer_group_description`
 --
 
 INSERT INTO `oc_customer_group_description` (`customer_group_id`, `language_id`, `name`, `description`) VALUES
-(1, 1, 'Default', 'test');
+(1, 1, 'Default', 'test'),
+(1, 2, 'Default', 'test');
 
 -- --------------------------------------------------------
 
@@ -1247,6 +1552,7 @@ INSERT INTO `oc_customer_group_description` (`customer_group_id`, `language_id`,
 -- Table structure for table `oc_customer_history`
 --
 
+DROP TABLE IF EXISTS `oc_customer_history`;
 CREATE TABLE `oc_customer_history` (
   `customer_history_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
@@ -1254,12 +1560,18 @@ CREATE TABLE `oc_customer_history` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_customer_history`
+--
+
+TRUNCATE TABLE `oc_customer_history`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_customer_ip`
 --
 
+DROP TABLE IF EXISTS `oc_customer_ip`;
 CREATE TABLE `oc_customer_ip` (
   `customer_ip_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
@@ -1269,12 +1581,18 @@ CREATE TABLE `oc_customer_ip` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_customer_ip`
+--
+
+TRUNCATE TABLE `oc_customer_ip`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_customer_login`
 --
 
+DROP TABLE IF EXISTS `oc_customer_login`;
 CREATE TABLE `oc_customer_login` (
   `customer_login_id` int(11) NOT NULL,
   `email` varchar(96) NOT NULL,
@@ -1284,6 +1602,11 @@ CREATE TABLE `oc_customer_login` (
   `date_modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_customer_login`
+--
+
+TRUNCATE TABLE `oc_customer_login`;
 --
 -- Dumping data for table `oc_customer_login`
 --
@@ -1297,6 +1620,7 @@ INSERT INTO `oc_customer_login` (`customer_login_id`, `email`, `ip`, `total`, `d
 -- Table structure for table `oc_customer_online`
 --
 
+DROP TABLE IF EXISTS `oc_customer_online`;
 CREATE TABLE `oc_customer_online` (
   `ip` varchar(40) NOT NULL,
   `customer_id` int(11) NOT NULL,
@@ -1305,12 +1629,18 @@ CREATE TABLE `oc_customer_online` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_customer_online`
+--
+
+TRUNCATE TABLE `oc_customer_online`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_customer_reward`
 --
 
+DROP TABLE IF EXISTS `oc_customer_reward`;
 CREATE TABLE `oc_customer_reward` (
   `customer_reward_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL DEFAULT 0,
@@ -1320,12 +1650,18 @@ CREATE TABLE `oc_customer_reward` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_customer_reward`
+--
+
+TRUNCATE TABLE `oc_customer_reward`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_customer_search`
 --
 
+DROP TABLE IF EXISTS `oc_customer_search`;
 CREATE TABLE `oc_customer_search` (
   `customer_search_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL,
@@ -1340,12 +1676,18 @@ CREATE TABLE `oc_customer_search` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_customer_search`
+--
+
+TRUNCATE TABLE `oc_customer_search`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_customer_transaction`
 --
 
+DROP TABLE IF EXISTS `oc_customer_transaction`;
 CREATE TABLE `oc_customer_transaction` (
   `customer_transaction_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
@@ -1355,24 +1697,36 @@ CREATE TABLE `oc_customer_transaction` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_customer_transaction`
+--
+
+TRUNCATE TABLE `oc_customer_transaction`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_customer_wishlist`
 --
 
+DROP TABLE IF EXISTS `oc_customer_wishlist`;
 CREATE TABLE `oc_customer_wishlist` (
   `customer_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_customer_wishlist`
+--
+
+TRUNCATE TABLE `oc_customer_wishlist`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_custom_field`
 --
 
+DROP TABLE IF EXISTS `oc_custom_field`;
 CREATE TABLE `oc_custom_field` (
   `custom_field_id` int(11) NOT NULL,
   `type` varchar(32) NOT NULL,
@@ -1383,6 +1737,11 @@ CREATE TABLE `oc_custom_field` (
   `sort_order` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_custom_field`
+--
+
+TRUNCATE TABLE `oc_custom_field`;
 --
 -- Dumping data for table `oc_custom_field`
 --
@@ -1422,12 +1781,18 @@ INSERT INTO `oc_custom_field` (`custom_field_id`, `type`, `value`, `validation`,
 -- Table structure for table `oc_custom_field_customer_group`
 --
 
+DROP TABLE IF EXISTS `oc_custom_field_customer_group`;
 CREATE TABLE `oc_custom_field_customer_group` (
   `custom_field_id` int(11) NOT NULL,
   `customer_group_id` int(11) NOT NULL,
   `required` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_custom_field_customer_group`
+--
+
+TRUNCATE TABLE `oc_custom_field_customer_group`;
 --
 -- Dumping data for table `oc_custom_field_customer_group`
 --
@@ -1467,6 +1832,7 @@ INSERT INTO `oc_custom_field_customer_group` (`custom_field_id`, `customer_group
 -- Table structure for table `oc_custom_field_description`
 --
 
+DROP TABLE IF EXISTS `oc_custom_field_description`;
 CREATE TABLE `oc_custom_field_description` (
   `custom_field_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
@@ -1474,37 +1840,69 @@ CREATE TABLE `oc_custom_field_description` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
+-- Truncate table before insert `oc_custom_field_description`
+--
+
+TRUNCATE TABLE `oc_custom_field_description`;
+--
 -- Dumping data for table `oc_custom_field_description`
 --
 
 INSERT INTO `oc_custom_field_description` (`custom_field_id`, `language_id`, `name`) VALUES
 (1, 1, 'Select'),
+(1, 2, 'Select'),
 (2, 1, 'Radio'),
+(2, 2, 'Radio'),
 (3, 1, 'Checkbox'),
+(3, 2, 'Checkbox'),
 (4, 1, 'Text'),
+(4, 2, 'Text'),
 (5, 1, 'Textarea'),
+(5, 2, 'Textarea'),
 (6, 1, 'File'),
+(6, 2, 'File'),
 (7, 1, 'Date'),
+(7, 2, 'Date'),
 (8, 1, 'Time'),
+(8, 2, 'Time'),
 (9, 1, 'Date &amp; Time'),
+(9, 2, 'Date &amp; Time'),
 (11, 1, 'Checkbox'),
+(11, 2, 'Checkbox'),
 (12, 1, 'Time'),
+(12, 2, 'Time'),
 (13, 1, 'Date'),
+(13, 2, 'Date'),
 (14, 1, 'Date &amp; Time'),
+(14, 2, 'Date &amp; Time'),
 (15, 1, 'File'),
+(15, 2, 'File'),
 (16, 1, 'Radio'),
+(16, 2, 'Radio'),
 (17, 1, 'Select'),
+(17, 2, 'Select'),
 (18, 1, 'Text'),
+(18, 2, 'Text'),
 (19, 1, 'Textarea'),
+(19, 2, 'Textarea'),
 (20, 1, 'Checkbox'),
+(20, 2, 'Checkbox'),
 (21, 1, 'Date'),
+(21, 2, 'Date'),
 (22, 1, 'Date &amp; Time'),
+(22, 2, 'Date &amp; Time'),
 (23, 1, 'File'),
+(23, 2, 'File'),
 (24, 1, 'Radio'),
+(24, 2, 'Radio'),
 (25, 1, 'Select'),
+(25, 2, 'Select'),
 (26, 1, 'Text'),
+(26, 2, 'Text'),
 (27, 1, 'Textarea'),
-(28, 1, 'Time');
+(27, 2, 'Textarea'),
+(28, 1, 'Time'),
+(28, 2, 'Time');
 
 -- --------------------------------------------------------
 
@@ -1512,12 +1910,18 @@ INSERT INTO `oc_custom_field_description` (`custom_field_id`, `language_id`, `na
 -- Table structure for table `oc_custom_field_value`
 --
 
+DROP TABLE IF EXISTS `oc_custom_field_value`;
 CREATE TABLE `oc_custom_field_value` (
   `custom_field_value_id` int(11) NOT NULL,
   `custom_field_id` int(11) NOT NULL,
   `sort_order` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_custom_field_value`
+--
+
+TRUNCATE TABLE `oc_custom_field_value`;
 --
 -- Dumping data for table `oc_custom_field_value`
 --
@@ -1557,6 +1961,7 @@ INSERT INTO `oc_custom_field_value` (`custom_field_value_id`, `custom_field_id`,
 -- Table structure for table `oc_custom_field_value_description`
 --
 
+DROP TABLE IF EXISTS `oc_custom_field_value_description`;
 CREATE TABLE `oc_custom_field_value_description` (
   `custom_field_value_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
@@ -1565,37 +1970,69 @@ CREATE TABLE `oc_custom_field_value_description` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
+-- Truncate table before insert `oc_custom_field_value_description`
+--
+
+TRUNCATE TABLE `oc_custom_field_value_description`;
+--
 -- Dumping data for table `oc_custom_field_value_description`
 --
 
 INSERT INTO `oc_custom_field_value_description` (`custom_field_value_id`, `language_id`, `custom_field_id`, `name`) VALUES
 (1, 1, 1, 'Test 1'),
+(1, 2, 1, 'Test 1'),
 (2, 1, 1, 'test 2'),
+(2, 2, 1, 'test 2'),
 (3, 1, 1, 'Test 3'),
+(3, 2, 1, 'Test 3'),
 (4, 1, 2, 'Test 1'),
+(4, 2, 2, 'Test 1'),
 (5, 1, 2, 'Test 2'),
+(5, 2, 2, 'Test 2'),
 (6, 1, 2, 'Test 3'),
+(6, 2, 2, 'Test 3'),
 (7, 1, 3, 'Test 1'),
+(7, 2, 3, 'Test 1'),
 (8, 1, 3, 'Test 2'),
+(8, 2, 3, 'Test 2'),
 (9, 1, 3, 'Test 3'),
+(9, 2, 3, 'Test 3'),
 (20, 1, 11, 'Test 1'),
+(20, 2, 11, 'Test 1'),
 (21, 1, 11, 'Test 2'),
+(21, 2, 11, 'Test 2'),
 (22, 1, 11, 'Test 3'),
+(22, 2, 11, 'Test 3'),
 (32, 1, 16, 'Test 1'),
+(32, 2, 16, 'Test 1'),
 (33, 1, 16, 'Test 2'),
+(33, 2, 16, 'Test 2'),
 (34, 1, 16, 'Test 3'),
+(34, 2, 16, 'Test 3'),
 (35, 1, 17, 'Test 1'),
+(35, 2, 17, 'Test 1'),
 (36, 1, 17, 'Test 2'),
+(36, 2, 17, 'Test 2'),
 (37, 1, 17, 'Test 3'),
+(37, 2, 17, 'Test 3'),
 (38, 1, 20, 'Test 1'),
+(38, 2, 20, 'Test 1'),
 (39, 1, 20, 'Test 2'),
+(39, 2, 20, 'Test 2'),
 (40, 1, 20, 'Test 3'),
+(40, 2, 20, 'Test 3'),
 (41, 1, 24, 'Test 1'),
+(41, 2, 24, 'Test 1'),
 (42, 1, 24, 'Test 2'),
+(42, 2, 24, 'Test 2'),
 (43, 1, 24, 'Test 3'),
+(43, 2, 24, 'Test 3'),
 (44, 1, 25, 'Test 1'),
+(44, 2, 25, 'Test 1'),
 (45, 1, 25, 'Test 2'),
-(46, 1, 25, 'Test 3');
+(45, 2, 25, 'Test 2'),
+(46, 1, 25, 'Test 3'),
+(46, 2, 25, 'Test 3');
 
 -- --------------------------------------------------------
 
@@ -1603,6 +2040,7 @@ INSERT INTO `oc_custom_field_value_description` (`custom_field_value_id`, `langu
 -- Table structure for table `oc_download`
 --
 
+DROP TABLE IF EXISTS `oc_download`;
 CREATE TABLE `oc_download` (
   `download_id` int(11) NOT NULL,
   `filename` varchar(160) NOT NULL,
@@ -1610,24 +2048,36 @@ CREATE TABLE `oc_download` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_download`
+--
+
+TRUNCATE TABLE `oc_download`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_download_description`
 --
 
+DROP TABLE IF EXISTS `oc_download_description`;
 CREATE TABLE `oc_download_description` (
   `download_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_download_description`
+--
+
+TRUNCATE TABLE `oc_download_description`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_download_report`
 --
 
+DROP TABLE IF EXISTS `oc_download_report`;
 CREATE TABLE `oc_download_report` (
   `download_report_id` int(11) NOT NULL,
   `download_id` int(11) NOT NULL,
@@ -1637,12 +2087,18 @@ CREATE TABLE `oc_download_report` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_download_report`
+--
+
+TRUNCATE TABLE `oc_download_report`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_event`
 --
 
+DROP TABLE IF EXISTS `oc_event`;
 CREATE TABLE `oc_event` (
   `event_id` int(11) NOT NULL,
   `code` varchar(128) NOT NULL,
@@ -1653,6 +2109,11 @@ CREATE TABLE `oc_event` (
   `sort_order` int(3) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_event`
+--
+
+TRUNCATE TABLE `oc_event`;
 --
 -- Dumping data for table `oc_event`
 --
@@ -1709,6 +2170,7 @@ INSERT INTO `oc_event` (`event_id`, `code`, `description`, `trigger`, `action`, 
 -- Table structure for table `oc_extension`
 --
 
+DROP TABLE IF EXISTS `oc_extension`;
 CREATE TABLE `oc_extension` (
   `extension_id` int(11) NOT NULL,
   `extension` varchar(255) NOT NULL,
@@ -1716,6 +2178,11 @@ CREATE TABLE `oc_extension` (
   `code` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_extension`
+--
+
+TRUNCATE TABLE `oc_extension`;
 --
 -- Dumping data for table `oc_extension`
 --
@@ -1770,6 +2237,7 @@ INSERT INTO `oc_extension` (`extension_id`, `extension`, `type`, `code`) VALUES
 -- Table structure for table `oc_extension_install`
 --
 
+DROP TABLE IF EXISTS `oc_extension_install`;
 CREATE TABLE `oc_extension_install` (
   `extension_install_id` int(11) NOT NULL,
   `extension_id` int(11) NOT NULL,
@@ -1783,6 +2251,11 @@ CREATE TABLE `oc_extension_install` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_extension_install`
+--
+
+TRUNCATE TABLE `oc_extension_install`;
 --
 -- Dumping data for table `oc_extension_install`
 --
@@ -1799,12 +2272,18 @@ INSERT INTO `oc_extension_install` (`extension_install_id`, `extension_id`, `ext
 -- Table structure for table `oc_extension_path`
 --
 
+DROP TABLE IF EXISTS `oc_extension_path`;
 CREATE TABLE `oc_extension_path` (
   `extension_path_id` int(11) NOT NULL,
   `extension_install_id` int(11) NOT NULL,
   `path` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_extension_path`
+--
+
+TRUNCATE TABLE `oc_extension_path`;
 --
 -- Dumping data for table `oc_extension_path`
 --
@@ -2218,18 +2697,25 @@ INSERT INTO `oc_extension_path` (`extension_path_id`, `extension_install_id`, `p
 -- Table structure for table `oc_filter`
 --
 
+DROP TABLE IF EXISTS `oc_filter`;
 CREATE TABLE `oc_filter` (
   `filter_id` int(11) NOT NULL,
   `filter_group_id` int(11) NOT NULL,
   `sort_order` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_filter`
+--
+
+TRUNCATE TABLE `oc_filter`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_filter_description`
 --
 
+DROP TABLE IF EXISTS `oc_filter_description`;
 CREATE TABLE `oc_filter_description` (
   `filter_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
@@ -2237,35 +2723,53 @@ CREATE TABLE `oc_filter_description` (
   `name` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_filter_description`
+--
+
+TRUNCATE TABLE `oc_filter_description`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_filter_group`
 --
 
+DROP TABLE IF EXISTS `oc_filter_group`;
 CREATE TABLE `oc_filter_group` (
   `filter_group_id` int(11) NOT NULL,
   `sort_order` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_filter_group`
+--
+
+TRUNCATE TABLE `oc_filter_group`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_filter_group_description`
 --
 
+DROP TABLE IF EXISTS `oc_filter_group_description`;
 CREATE TABLE `oc_filter_group_description` (
   `filter_group_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_filter_group_description`
+--
+
+TRUNCATE TABLE `oc_filter_group_description`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_gdpr`
 --
 
+DROP TABLE IF EXISTS `oc_gdpr`;
 CREATE TABLE `oc_gdpr` (
   `gdpr_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL,
@@ -2277,12 +2781,18 @@ CREATE TABLE `oc_gdpr` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_gdpr`
+--
+
+TRUNCATE TABLE `oc_gdpr`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_geo_zone`
 --
 
+DROP TABLE IF EXISTS `oc_geo_zone`;
 CREATE TABLE `oc_geo_zone` (
   `geo_zone_id` int(11) NOT NULL,
   `name` varchar(32) NOT NULL,
@@ -2291,6 +2801,11 @@ CREATE TABLE `oc_geo_zone` (
   `date_modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_geo_zone`
+--
+
+TRUNCATE TABLE `oc_geo_zone`;
 --
 -- Dumping data for table `oc_geo_zone`
 --
@@ -2305,6 +2820,7 @@ INSERT INTO `oc_geo_zone` (`geo_zone_id`, `name`, `description`, `date_added`, `
 -- Table structure for table `oc_information`
 --
 
+DROP TABLE IF EXISTS `oc_information`;
 CREATE TABLE `oc_information` (
   `information_id` int(11) NOT NULL,
   `bottom` int(1) NOT NULL DEFAULT 0,
@@ -2312,6 +2828,11 @@ CREATE TABLE `oc_information` (
   `status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_information`
+--
+
+TRUNCATE TABLE `oc_information`;
 --
 -- Dumping data for table `oc_information`
 --
@@ -2328,6 +2849,7 @@ INSERT INTO `oc_information` (`information_id`, `bottom`, `sort_order`, `status`
 -- Table structure for table `oc_information_description`
 --
 
+DROP TABLE IF EXISTS `oc_information_description`;
 CREATE TABLE `oc_information_description` (
   `information_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
@@ -2339,14 +2861,23 @@ CREATE TABLE `oc_information_description` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
+-- Truncate table before insert `oc_information_description`
+--
+
+TRUNCATE TABLE `oc_information_description`;
+--
 -- Dumping data for table `oc_information_description`
 --
 
 INSERT INTO `oc_information_description` (`information_id`, `language_id`, `title`, `description`, `meta_title`, `meta_description`, `meta_keyword`) VALUES
 (1, 1, 'About Us', '&lt;p&gt;\r\n	About Us&lt;/p&gt;\r\n', 'About Us', '', ''),
+(1, 2, 'About Us', '&lt;p&gt;\r\n	About Us&lt;/p&gt;\r\n', 'About Us', '', ''),
 (2, 1, 'Terms &amp; Conditions', '&lt;p&gt;\r\n	Terms &amp;amp; Conditions&lt;/p&gt;\r\n', 'Terms &amp; Conditions', '', ''),
+(2, 2, 'Terms &amp; Conditions', '&lt;p&gt;\r\n	Terms &amp;amp; Conditions&lt;/p&gt;\r\n', 'Terms &amp; Conditions', '', ''),
 (3, 1, 'Privacy Policy', '&lt;p&gt;\r\n	Privacy Policy&lt;/p&gt;\r\n', 'Privacy Policy', '', ''),
-(4, 1, 'Delivery Information', '&lt;p&gt;\r\n	Delivery Information&lt;/p&gt;\r\n', 'Delivery Information', '', '');
+(3, 2, 'Privacy Policy', '&lt;p&gt;\r\n	Privacy Policy&lt;/p&gt;\r\n', 'Privacy Policy', '', ''),
+(4, 1, 'Delivery Information', '&lt;p&gt;\r\n	Delivery Information&lt;/p&gt;\r\n', 'Delivery Information', '', ''),
+(4, 2, 'Delivery Information', '&lt;p&gt;\r\n	Delivery Information&lt;/p&gt;\r\n', 'Delivery Information', '', '');
 
 -- --------------------------------------------------------
 
@@ -2354,23 +2885,35 @@ INSERT INTO `oc_information_description` (`information_id`, `language_id`, `titl
 -- Table structure for table `oc_information_to_layout`
 --
 
+DROP TABLE IF EXISTS `oc_information_to_layout`;
 CREATE TABLE `oc_information_to_layout` (
   `information_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL,
   `layout_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_information_to_layout`
+--
+
+TRUNCATE TABLE `oc_information_to_layout`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_information_to_store`
 --
 
+DROP TABLE IF EXISTS `oc_information_to_store`;
 CREATE TABLE `oc_information_to_store` (
   `information_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_information_to_store`
+--
+
+TRUNCATE TABLE `oc_information_to_store`;
 --
 -- Dumping data for table `oc_information_to_store`
 --
@@ -2387,6 +2930,7 @@ INSERT INTO `oc_information_to_store` (`information_id`, `store_id`) VALUES
 -- Table structure for table `oc_language`
 --
 
+DROP TABLE IF EXISTS `oc_language`;
 CREATE TABLE `oc_language` (
   `language_id` int(11) NOT NULL,
   `name` varchar(32) NOT NULL,
@@ -2398,11 +2942,17 @@ CREATE TABLE `oc_language` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
+-- Truncate table before insert `oc_language`
+--
+
+TRUNCATE TABLE `oc_language`;
+--
 -- Dumping data for table `oc_language`
 --
 
 INSERT INTO `oc_language` (`language_id`, `name`, `code`, `locale`, `extension`, `sort_order`, `status`) VALUES
-(1, 'English', 'en-gb', 'en-gb,en', '', 1, 1);
+(1, 'English', 'en-gb', 'en-gb,en', '', 2, 1),
+(2, 'Tiếng Việt', 'vi-vn', 'vi-vn,vi', '', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -2410,11 +2960,17 @@ INSERT INTO `oc_language` (`language_id`, `name`, `code`, `locale`, `extension`,
 -- Table structure for table `oc_layout`
 --
 
+DROP TABLE IF EXISTS `oc_layout`;
 CREATE TABLE `oc_layout` (
   `layout_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_layout`
+--
+
+TRUNCATE TABLE `oc_layout`;
 --
 -- Dumping data for table `oc_layout`
 --
@@ -2440,6 +2996,7 @@ INSERT INTO `oc_layout` (`layout_id`, `name`) VALUES
 -- Table structure for table `oc_layout_module`
 --
 
+DROP TABLE IF EXISTS `oc_layout_module`;
 CREATE TABLE `oc_layout_module` (
   `layout_module_id` int(11) NOT NULL,
   `layout_id` int(11) NOT NULL,
@@ -2448,6 +3005,11 @@ CREATE TABLE `oc_layout_module` (
   `sort_order` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_layout_module`
+--
+
+TRUNCATE TABLE `oc_layout_module`;
 --
 -- Dumping data for table `oc_layout_module`
 --
@@ -2467,6 +3029,7 @@ INSERT INTO `oc_layout_module` (`layout_module_id`, `layout_id`, `code`, `positi
 -- Table structure for table `oc_layout_route`
 --
 
+DROP TABLE IF EXISTS `oc_layout_route`;
 CREATE TABLE `oc_layout_route` (
   `layout_route_id` int(11) NOT NULL,
   `layout_id` int(11) NOT NULL,
@@ -2474,6 +3037,11 @@ CREATE TABLE `oc_layout_route` (
   `route` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_layout_route`
+--
+
+TRUNCATE TABLE `oc_layout_route`;
 --
 -- Dumping data for table `oc_layout_route`
 --
@@ -2500,11 +3068,17 @@ INSERT INTO `oc_layout_route` (`layout_route_id`, `layout_id`, `store_id`, `rout
 -- Table structure for table `oc_length_class`
 --
 
+DROP TABLE IF EXISTS `oc_length_class`;
 CREATE TABLE `oc_length_class` (
   `length_class_id` int(11) NOT NULL,
   `value` decimal(15,8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_length_class`
+--
+
+TRUNCATE TABLE `oc_length_class`;
 --
 -- Dumping data for table `oc_length_class`
 --
@@ -2520,6 +3094,7 @@ INSERT INTO `oc_length_class` (`length_class_id`, `value`) VALUES
 -- Table structure for table `oc_length_class_description`
 --
 
+DROP TABLE IF EXISTS `oc_length_class_description`;
 CREATE TABLE `oc_length_class_description` (
   `length_class_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
@@ -2528,13 +3103,21 @@ CREATE TABLE `oc_length_class_description` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
+-- Truncate table before insert `oc_length_class_description`
+--
+
+TRUNCATE TABLE `oc_length_class_description`;
+--
 -- Dumping data for table `oc_length_class_description`
 --
 
 INSERT INTO `oc_length_class_description` (`length_class_id`, `language_id`, `title`, `unit`) VALUES
 (1, 1, 'Centimeter', 'cm'),
+(1, 2, 'Centimeter', 'cm'),
 (2, 1, 'Millimeter', 'mm'),
-(3, 1, 'Inch', 'in');
+(2, 2, 'Millimeter', 'mm'),
+(3, 1, 'Inch', 'in'),
+(3, 2, 'Inch', 'in');
 
 -- --------------------------------------------------------
 
@@ -2542,6 +3125,7 @@ INSERT INTO `oc_length_class_description` (`length_class_id`, `language_id`, `ti
 -- Table structure for table `oc_location`
 --
 
+DROP TABLE IF EXISTS `oc_location`;
 CREATE TABLE `oc_location` (
   `location_id` int(11) NOT NULL,
   `name` varchar(32) NOT NULL,
@@ -2553,12 +3137,18 @@ CREATE TABLE `oc_location` (
   `comment` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_location`
+--
+
+TRUNCATE TABLE `oc_location`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_manufacturer`
 --
 
+DROP TABLE IF EXISTS `oc_manufacturer`;
 CREATE TABLE `oc_manufacturer` (
   `manufacturer_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
@@ -2566,6 +3156,11 @@ CREATE TABLE `oc_manufacturer` (
   `sort_order` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_manufacturer`
+--
+
+TRUNCATE TABLE `oc_manufacturer`;
 --
 -- Dumping data for table `oc_manufacturer`
 --
@@ -2584,23 +3179,35 @@ INSERT INTO `oc_manufacturer` (`manufacturer_id`, `name`, `image`, `sort_order`)
 -- Table structure for table `oc_manufacturer_to_layout`
 --
 
+DROP TABLE IF EXISTS `oc_manufacturer_to_layout`;
 CREATE TABLE `oc_manufacturer_to_layout` (
   `manufacturer_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL,
   `layout_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_manufacturer_to_layout`
+--
+
+TRUNCATE TABLE `oc_manufacturer_to_layout`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_manufacturer_to_store`
 --
 
+DROP TABLE IF EXISTS `oc_manufacturer_to_store`;
 CREATE TABLE `oc_manufacturer_to_store` (
   `manufacturer_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_manufacturer_to_store`
+--
+
+TRUNCATE TABLE `oc_manufacturer_to_store`;
 --
 -- Dumping data for table `oc_manufacturer_to_store`
 --
@@ -2619,6 +3226,7 @@ INSERT INTO `oc_manufacturer_to_store` (`manufacturer_id`, `store_id`) VALUES
 -- Table structure for table `oc_marketing`
 --
 
+DROP TABLE IF EXISTS `oc_marketing`;
 CREATE TABLE `oc_marketing` (
   `marketing_id` int(11) NOT NULL,
   `name` varchar(32) NOT NULL,
@@ -2628,12 +3236,18 @@ CREATE TABLE `oc_marketing` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_marketing`
+--
+
+TRUNCATE TABLE `oc_marketing`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_marketing_report`
 --
 
+DROP TABLE IF EXISTS `oc_marketing_report`;
 CREATE TABLE `oc_marketing_report` (
   `marketing_report_id` int(11) NOT NULL,
   `marketing_id` int(11) NOT NULL,
@@ -2643,12 +3257,18 @@ CREATE TABLE `oc_marketing_report` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_marketing_report`
+--
+
+TRUNCATE TABLE `oc_marketing_report`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_module`
 --
 
+DROP TABLE IF EXISTS `oc_module`;
 CREATE TABLE `oc_module` (
   `module_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
@@ -2656,6 +3276,11 @@ CREATE TABLE `oc_module` (
   `setting` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_module`
+--
+
+TRUNCATE TABLE `oc_module`;
 --
 -- Dumping data for table `oc_module`
 --
@@ -2672,6 +3297,7 @@ INSERT INTO `oc_module` (`module_id`, `name`, `code`, `setting`) VALUES
 -- Table structure for table `oc_notification`
 --
 
+DROP TABLE IF EXISTS `oc_notification`;
 CREATE TABLE `oc_notification` (
   `notification_id` int(11) NOT NULL,
   `title` varchar(64) NOT NULL,
@@ -2680,18 +3306,29 @@ CREATE TABLE `oc_notification` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_notification`
+--
+
+TRUNCATE TABLE `oc_notification`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_option`
 --
 
+DROP TABLE IF EXISTS `oc_option`;
 CREATE TABLE `oc_option` (
   `option_id` int(11) NOT NULL,
   `type` varchar(32) NOT NULL,
   `sort_order` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_option`
+--
+
+TRUNCATE TABLE `oc_option`;
 --
 -- Dumping data for table `oc_option`
 --
@@ -2715,6 +3352,7 @@ INSERT INTO `oc_option` (`option_id`, `type`, `sort_order`) VALUES
 -- Table structure for table `oc_option_description`
 --
 
+DROP TABLE IF EXISTS `oc_option_description`;
 CREATE TABLE `oc_option_description` (
   `option_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
@@ -2722,21 +3360,37 @@ CREATE TABLE `oc_option_description` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
+-- Truncate table before insert `oc_option_description`
+--
+
+TRUNCATE TABLE `oc_option_description`;
+--
 -- Dumping data for table `oc_option_description`
 --
 
 INSERT INTO `oc_option_description` (`option_id`, `language_id`, `name`) VALUES
 (1, 1, 'Radio'),
+(1, 2, 'Radio'),
 (2, 1, 'Checkbox'),
+(2, 2, 'Checkbox'),
 (4, 1, 'Text'),
+(4, 2, 'Text'),
 (5, 1, 'Select'),
+(5, 2, 'Select'),
 (6, 1, 'Textarea'),
+(6, 2, 'Textarea'),
 (7, 1, 'File'),
+(7, 2, 'File'),
 (8, 1, 'Date'),
+(8, 2, 'Date'),
 (9, 1, 'Time'),
+(9, 2, 'Time'),
 (10, 1, 'Date &amp; Time'),
+(10, 2, 'Date &amp; Time'),
 (11, 1, 'Size'),
-(12, 1, 'Delivery Date');
+(11, 2, 'Size'),
+(12, 1, 'Delivery Date'),
+(12, 2, 'Delivery Date');
 
 -- --------------------------------------------------------
 
@@ -2744,6 +3398,7 @@ INSERT INTO `oc_option_description` (`option_id`, `language_id`, `name`) VALUES
 -- Table structure for table `oc_option_value`
 --
 
+DROP TABLE IF EXISTS `oc_option_value`;
 CREATE TABLE `oc_option_value` (
   `option_value_id` int(11) NOT NULL,
   `option_id` int(11) NOT NULL,
@@ -2751,6 +3406,11 @@ CREATE TABLE `oc_option_value` (
   `sort_order` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_option_value`
+--
+
+TRUNCATE TABLE `oc_option_value`;
 --
 -- Dumping data for table `oc_option_value`
 --
@@ -2777,6 +3437,7 @@ INSERT INTO `oc_option_value` (`option_value_id`, `option_id`, `image`, `sort_or
 -- Table structure for table `oc_option_value_description`
 --
 
+DROP TABLE IF EXISTS `oc_option_value_description`;
 CREATE TABLE `oc_option_value_description` (
   `option_value_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
@@ -2785,24 +3446,43 @@ CREATE TABLE `oc_option_value_description` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
+-- Truncate table before insert `oc_option_value_description`
+--
+
+TRUNCATE TABLE `oc_option_value_description`;
+--
 -- Dumping data for table `oc_option_value_description`
 --
 
 INSERT INTO `oc_option_value_description` (`option_value_id`, `language_id`, `option_id`, `name`) VALUES
 (23, 1, 2, 'Checkbox 1'),
+(23, 2, 2, 'Checkbox 1'),
 (24, 1, 2, 'Checkbox 2'),
+(24, 2, 2, 'Checkbox 2'),
 (31, 1, 1, 'Medium'),
+(31, 2, 1, 'Medium'),
 (32, 1, 1, 'Small'),
+(32, 2, 1, 'Small'),
 (39, 1, 5, 'Red'),
+(39, 2, 5, 'Red'),
 (40, 1, 5, 'Blue'),
+(40, 2, 5, 'Blue'),
 (41, 1, 5, 'Green'),
+(41, 2, 5, 'Green'),
 (42, 1, 5, 'Yellow'),
+(42, 2, 5, 'Yellow'),
 (43, 1, 1, 'Large'),
+(43, 2, 1, 'Large'),
 (44, 1, 2, 'Checkbox 3'),
+(44, 2, 2, 'Checkbox 3'),
 (45, 1, 2, 'Checkbox 4'),
+(45, 2, 2, 'Checkbox 4'),
 (46, 1, 11, 'Small'),
+(46, 2, 11, 'Small'),
 (47, 1, 11, 'Medium'),
-(48, 1, 11, 'Large');
+(47, 2, 11, 'Medium'),
+(48, 1, 11, 'Large'),
+(48, 2, 11, 'Large');
 
 -- --------------------------------------------------------
 
@@ -2810,6 +3490,7 @@ INSERT INTO `oc_option_value_description` (`option_value_id`, `language_id`, `op
 -- Table structure for table `oc_order`
 --
 
+DROP TABLE IF EXISTS `oc_order`;
 CREATE TABLE `oc_order` (
   `order_id` int(11) NOT NULL,
   `subscription_id` int(11) NOT NULL,
@@ -2876,12 +3557,18 @@ CREATE TABLE `oc_order` (
   `date_modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_order`
+--
+
+TRUNCATE TABLE `oc_order`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_order_history`
 --
 
+DROP TABLE IF EXISTS `oc_order_history`;
 CREATE TABLE `oc_order_history` (
   `order_history_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
@@ -2891,12 +3578,18 @@ CREATE TABLE `oc_order_history` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_order_history`
+--
+
+TRUNCATE TABLE `oc_order_history`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_order_option`
 --
 
+DROP TABLE IF EXISTS `oc_order_option`;
 CREATE TABLE `oc_order_option` (
   `order_option_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
@@ -2908,12 +3601,18 @@ CREATE TABLE `oc_order_option` (
   `type` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_order_option`
+--
+
+TRUNCATE TABLE `oc_order_option`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_order_product`
 --
 
+DROP TABLE IF EXISTS `oc_order_product`;
 CREATE TABLE `oc_order_product` (
   `order_product_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
@@ -2928,12 +3627,18 @@ CREATE TABLE `oc_order_product` (
   `reward` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_order_product`
+--
+
+TRUNCATE TABLE `oc_order_product`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_order_status`
 --
 
+DROP TABLE IF EXISTS `oc_order_status`;
 CREATE TABLE `oc_order_status` (
   `order_status_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
@@ -2941,24 +3646,43 @@ CREATE TABLE `oc_order_status` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
+-- Truncate table before insert `oc_order_status`
+--
+
+TRUNCATE TABLE `oc_order_status`;
+--
 -- Dumping data for table `oc_order_status`
 --
 
 INSERT INTO `oc_order_status` (`order_status_id`, `language_id`, `name`) VALUES
 (1, 1, 'Pending'),
+(1, 2, 'Pending'),
 (2, 1, 'Processing'),
+(2, 2, 'Processing'),
 (3, 1, 'Shipped'),
+(3, 2, 'Shipped'),
 (5, 1, 'Complete'),
+(5, 2, 'Complete'),
 (7, 1, 'Canceled'),
+(7, 2, 'Canceled'),
 (8, 1, 'Denied'),
+(8, 2, 'Denied'),
 (9, 1, 'Canceled Reversal'),
+(9, 2, 'Canceled Reversal'),
 (10, 1, 'Failed'),
+(10, 2, 'Failed'),
 (11, 1, 'Refunded'),
+(11, 2, 'Refunded'),
 (12, 1, 'Reversed'),
+(12, 2, 'Reversed'),
 (13, 1, 'Chargeback'),
+(13, 2, 'Chargeback'),
 (14, 1, 'Expired'),
+(14, 2, 'Expired'),
 (15, 1, 'Processed'),
-(16, 1, 'Voided');
+(15, 2, 'Processed'),
+(16, 1, 'Voided'),
+(16, 2, 'Voided');
 
 -- --------------------------------------------------------
 
@@ -2966,6 +3690,7 @@ INSERT INTO `oc_order_status` (`order_status_id`, `language_id`, `name`) VALUES
 -- Table structure for table `oc_order_subscription`
 --
 
+DROP TABLE IF EXISTS `oc_order_subscription`;
 CREATE TABLE `oc_order_subscription` (
   `order_subscription_id` int(11) NOT NULL,
   `order_product_id` int(11) NOT NULL,
@@ -2986,12 +3711,18 @@ CREATE TABLE `oc_order_subscription` (
   `duration` smallint(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_order_subscription`
+--
+
+TRUNCATE TABLE `oc_order_subscription`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_order_total`
 --
 
+DROP TABLE IF EXISTS `oc_order_total`;
 CREATE TABLE `oc_order_total` (
   `order_total_id` int(10) NOT NULL,
   `order_id` int(11) NOT NULL,
@@ -3002,12 +3733,18 @@ CREATE TABLE `oc_order_total` (
   `sort_order` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_order_total`
+--
+
+TRUNCATE TABLE `oc_order_total`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_order_voucher`
 --
 
+DROP TABLE IF EXISTS `oc_order_voucher`;
 CREATE TABLE `oc_order_voucher` (
   `order_voucher_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
@@ -3023,12 +3760,18 @@ CREATE TABLE `oc_order_voucher` (
   `amount` decimal(15,4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_order_voucher`
+--
+
+TRUNCATE TABLE `oc_order_voucher`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_product`
 --
 
+DROP TABLE IF EXISTS `oc_product`;
 CREATE TABLE `oc_product` (
   `product_id` int(11) NOT NULL,
   `master_id` int(11) NOT NULL DEFAULT 0,
@@ -3067,6 +3810,11 @@ CREATE TABLE `oc_product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
+-- Truncate table before insert `oc_product`
+--
+
+TRUNCATE TABLE `oc_product`;
+--
 -- Dumping data for table `oc_product`
 --
 
@@ -3097,6 +3845,7 @@ INSERT INTO `oc_product` (`product_id`, `master_id`, `model`, `sku`, `upc`, `ean
 -- Table structure for table `oc_product_attribute`
 --
 
+DROP TABLE IF EXISTS `oc_product_attribute`;
 CREATE TABLE `oc_product_attribute` (
   `product_id` int(11) NOT NULL,
   `attribute_id` int(11) NOT NULL,
@@ -3105,15 +3854,25 @@ CREATE TABLE `oc_product_attribute` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
+-- Truncate table before insert `oc_product_attribute`
+--
+
+TRUNCATE TABLE `oc_product_attribute`;
+--
 -- Dumping data for table `oc_product_attribute`
 --
 
 INSERT INTO `oc_product_attribute` (`product_id`, `attribute_id`, `language_id`, `text`) VALUES
 (42, 3, 1, '100mhz'),
+(42, 3, 2, '100mhz'),
 (43, 2, 1, '1'),
+(43, 2, 2, '1'),
 (43, 4, 1, '8gb'),
+(43, 4, 2, '8gb'),
 (47, 2, 1, '4'),
-(47, 4, 1, '16GB');
+(47, 2, 2, '4'),
+(47, 4, 1, '16GB'),
+(47, 4, 2, '16GB');
 
 -- --------------------------------------------------------
 
@@ -3121,6 +3880,7 @@ INSERT INTO `oc_product_attribute` (`product_id`, `attribute_id`, `language_id`,
 -- Table structure for table `oc_product_description`
 --
 
+DROP TABLE IF EXISTS `oc_product_description`;
 CREATE TABLE `oc_product_description` (
   `product_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
@@ -3133,29 +3893,54 @@ CREATE TABLE `oc_product_description` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
+-- Truncate table before insert `oc_product_description`
+--
+
+TRUNCATE TABLE `oc_product_description`;
+--
 -- Dumping data for table `oc_product_description`
 --
 
 INSERT INTO `oc_product_description` (`product_id`, `language_id`, `name`, `description`, `tag`, `meta_title`, `meta_description`, `meta_keyword`) VALUES
 (28, 1, 'HTC Touch HD', '&lt;p&gt;\r\n	HTC Touch - in High Definition. Watch music videos and streaming content in awe-inspiring high definition clarity for a mobile experience you never thought possible. Seductively sleek, the HTC Touch HD provides the next generation of mobile functionality, all at a simple touch. Fully integrated with Windows Mobile Professional 6.1, ultrafast 3.5G, GPS, 5MP camera, plus lots more - all delivered on a breathtakingly crisp 3.8&amp;quot; WVGA touchscreen - you can take control of your mobile world with the HTC Touch HD.&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;strong&gt;Features&lt;/strong&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Processor Qualcomm&amp;reg; MSM 7201A&amp;trade; 528 MHz&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Windows Mobile&amp;reg; 6.1 Professional Operating System&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Memory: 512 MB ROM, 288 MB RAM&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Dimensions: 115 mm x 62.8 mm x 12 mm / 146.4 grams&lt;/li&gt;\r\n	&lt;li&gt;\r\n		3.8-inch TFT-LCD flat touch-sensitive screen with 480 x 800 WVGA resolution&lt;/li&gt;\r\n	&lt;li&gt;\r\n		HSDPA/WCDMA: Europe/Asia: 900/2100 MHz; Up to 2 Mbps up-link and 7.2 Mbps down-link speeds&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Quad-band GSM/GPRS/EDGE: Europe/Asia: 850/900/1800/1900 MHz (Band frequency, HSUPA availability, and data speed are operator dependent.)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Device Control via HTC TouchFLO&amp;trade; 3D &amp;amp; Touch-sensitive front panel buttons&lt;/li&gt;\r\n	&lt;li&gt;\r\n		GPS and A-GPS ready&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Bluetooth&amp;reg; 2.0 with Enhanced Data Rate and A2DP for wireless stereo headsets&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Wi-Fi&amp;reg;: IEEE 802.11 b/g&lt;/li&gt;\r\n	&lt;li&gt;\r\n		HTC ExtUSB&amp;trade; (11-pin mini-USB 2.0)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		5 megapixel color camera with auto focus&lt;/li&gt;\r\n	&lt;li&gt;\r\n		VGA CMOS color camera&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Built-in 3.5 mm audio jack, microphone, speaker, and FM radio&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Ring tone formats: AAC, AAC+, eAAC+, AMR-NB, AMR-WB, QCP, MP3, WMA, WAV&lt;/li&gt;\r\n	&lt;li&gt;\r\n		40 polyphonic and standard MIDI format 0 and 1 (SMF)/SP MIDI&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Rechargeable Lithium-ion or Lithium-ion polymer 1350 mAh battery&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Expansion Slot: microSD&amp;trade; memory card (SD 2.0 compatible)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		AC Adapter Voltage range/frequency: 100 ~ 240V AC, 50/60 Hz DC output: 5V and 1A&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Special Features: FM Radio, G-Sensor&lt;/li&gt;\r\n&lt;/ul&gt;\r\n', '', '	 HTC Touch HD', '', ''),
+(28, 2, 'HTC Touch HD', '&lt;p&gt;\r\n	HTC Touch - in High Definition. Watch music videos and streaming content in awe-inspiring high definition clarity for a mobile experience you never thought possible. Seductively sleek, the HTC Touch HD provides the next generation of mobile functionality, all at a simple touch. Fully integrated with Windows Mobile Professional 6.1, ultrafast 3.5G, GPS, 5MP camera, plus lots more - all delivered on a breathtakingly crisp 3.8&amp;quot; WVGA touchscreen - you can take control of your mobile world with the HTC Touch HD.&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;strong&gt;Features&lt;/strong&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Processor Qualcomm&amp;reg; MSM 7201A&amp;trade; 528 MHz&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Windows Mobile&amp;reg; 6.1 Professional Operating System&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Memory: 512 MB ROM, 288 MB RAM&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Dimensions: 115 mm x 62.8 mm x 12 mm / 146.4 grams&lt;/li&gt;\r\n	&lt;li&gt;\r\n		3.8-inch TFT-LCD flat touch-sensitive screen with 480 x 800 WVGA resolution&lt;/li&gt;\r\n	&lt;li&gt;\r\n		HSDPA/WCDMA: Europe/Asia: 900/2100 MHz; Up to 2 Mbps up-link and 7.2 Mbps down-link speeds&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Quad-band GSM/GPRS/EDGE: Europe/Asia: 850/900/1800/1900 MHz (Band frequency, HSUPA availability, and data speed are operator dependent.)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Device Control via HTC TouchFLO&amp;trade; 3D &amp;amp; Touch-sensitive front panel buttons&lt;/li&gt;\r\n	&lt;li&gt;\r\n		GPS and A-GPS ready&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Bluetooth&amp;reg; 2.0 with Enhanced Data Rate and A2DP for wireless stereo headsets&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Wi-Fi&amp;reg;: IEEE 802.11 b/g&lt;/li&gt;\r\n	&lt;li&gt;\r\n		HTC ExtUSB&amp;trade; (11-pin mini-USB 2.0)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		5 megapixel color camera with auto focus&lt;/li&gt;\r\n	&lt;li&gt;\r\n		VGA CMOS color camera&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Built-in 3.5 mm audio jack, microphone, speaker, and FM radio&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Ring tone formats: AAC, AAC+, eAAC+, AMR-NB, AMR-WB, QCP, MP3, WMA, WAV&lt;/li&gt;\r\n	&lt;li&gt;\r\n		40 polyphonic and standard MIDI format 0 and 1 (SMF)/SP MIDI&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Rechargeable Lithium-ion or Lithium-ion polymer 1350 mAh battery&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Expansion Slot: microSD&amp;trade; memory card (SD 2.0 compatible)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		AC Adapter Voltage range/frequency: 100 ~ 240V AC, 50/60 Hz DC output: 5V and 1A&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Special Features: FM Radio, G-Sensor&lt;/li&gt;\r\n&lt;/ul&gt;\r\n', '', '	 HTC Touch HD', '', ''),
 (29, 1, 'Palm Treo Pro', '&lt;p&gt;\r\n	Redefine your workday with the Palm Treo Pro smartphone. Perfectly balanced, you can respond to business and personal email, stay on top of appointments and contacts, and use Wi-Fi or GPS when you&amp;rsquo;re out and about. Then watch a video on YouTube, catch up with news and sports on the web, or listen to a few songs. Balance your work and play the way you like it, with the Palm Treo Pro.&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;strong&gt;Features&lt;/strong&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Windows Mobile&amp;reg; 6.1 Professional Edition&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Qualcomm&amp;reg; MSM7201 400MHz Processor&lt;/li&gt;\r\n	&lt;li&gt;\r\n		320x320 transflective colour TFT touchscreen&lt;/li&gt;\r\n	&lt;li&gt;\r\n		HSDPA/UMTS/EDGE/GPRS/GSM radio&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Tri-band UMTS &amp;mdash; 850MHz, 1900MHz, 2100MHz&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Quad-band GSM &amp;mdash; 850/900/1800/1900&lt;/li&gt;\r\n	&lt;li&gt;\r\n		802.11b/g with WPA, WPA2, and 801.1x authentication&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Built-in GPS&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Bluetooth Version: 2.0 + Enhanced Data Rate&lt;/li&gt;\r\n	&lt;li&gt;\r\n		256MB storage (100MB user available), 128MB RAM&lt;/li&gt;\r\n	&lt;li&gt;\r\n		2.0 megapixel camera, up to 8x digital zoom and video capture&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Removable, rechargeable 1500mAh lithium-ion battery&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Up to 5.0 hours talk time and up to 250 hours standby&lt;/li&gt;\r\n	&lt;li&gt;\r\n		MicroSDHC card expansion (up to 32GB supported)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		MicroUSB 2.0 for synchronization and charging&lt;/li&gt;\r\n	&lt;li&gt;\r\n		3.5mm stereo headset jack&lt;/li&gt;\r\n	&lt;li&gt;\r\n		60mm (W) x 114mm (L) x 13.5mm (D) / 133g&lt;/li&gt;\r\n&lt;/ul&gt;\r\n', '', 'Palm Treo Pro', '', ''),
+(29, 2, 'Palm Treo Pro', '&lt;p&gt;\r\n	Redefine your workday with the Palm Treo Pro smartphone. Perfectly balanced, you can respond to business and personal email, stay on top of appointments and contacts, and use Wi-Fi or GPS when you&amp;rsquo;re out and about. Then watch a video on YouTube, catch up with news and sports on the web, or listen to a few songs. Balance your work and play the way you like it, with the Palm Treo Pro.&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;strong&gt;Features&lt;/strong&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Windows Mobile&amp;reg; 6.1 Professional Edition&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Qualcomm&amp;reg; MSM7201 400MHz Processor&lt;/li&gt;\r\n	&lt;li&gt;\r\n		320x320 transflective colour TFT touchscreen&lt;/li&gt;\r\n	&lt;li&gt;\r\n		HSDPA/UMTS/EDGE/GPRS/GSM radio&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Tri-band UMTS &amp;mdash; 850MHz, 1900MHz, 2100MHz&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Quad-band GSM &amp;mdash; 850/900/1800/1900&lt;/li&gt;\r\n	&lt;li&gt;\r\n		802.11b/g with WPA, WPA2, and 801.1x authentication&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Built-in GPS&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Bluetooth Version: 2.0 + Enhanced Data Rate&lt;/li&gt;\r\n	&lt;li&gt;\r\n		256MB storage (100MB user available), 128MB RAM&lt;/li&gt;\r\n	&lt;li&gt;\r\n		2.0 megapixel camera, up to 8x digital zoom and video capture&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Removable, rechargeable 1500mAh lithium-ion battery&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Up to 5.0 hours talk time and up to 250 hours standby&lt;/li&gt;\r\n	&lt;li&gt;\r\n		MicroSDHC card expansion (up to 32GB supported)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		MicroUSB 2.0 for synchronization and charging&lt;/li&gt;\r\n	&lt;li&gt;\r\n		3.5mm stereo headset jack&lt;/li&gt;\r\n	&lt;li&gt;\r\n		60mm (W) x 114mm (L) x 13.5mm (D) / 133g&lt;/li&gt;\r\n&lt;/ul&gt;\r\n', '', 'Palm Treo Pro', '', ''),
 (30, 1, 'Canon EOS 5D', '&lt;p&gt;\r\n	Canon\'s press material for the EOS 5D states that it \'defines (a) new D-SLR category\', while we\'re not typically too concerned with marketing talk this particular statement is clearly pretty accurate. The EOS 5D is unlike any previous digital SLR in that it combines a full-frame (35 mm sized) high resolution sensor (12.8 megapixels) with a relatively compact body (slightly larger than the EOS 20D, although in your hand it feels noticeably \'chunkier\'). The EOS 5D is aimed to slot in between the EOS 20D and the EOS-1D professional digital SLR\'s, an important difference when compared to the latter is that the EOS 5D doesn\'t have any environmental seals. While Canon don\'t specifically refer to the EOS 5D as a \'professional\' digital SLR it will have obvious appeal to professionals who want a high quality digital SLR in a body lighter than the EOS-1D. It will also no doubt appeal to current EOS 20D owners (although lets hope they\'ve not bought too many EF-S lenses...) äë&lt;/p&gt;\r\n', '', 'sdf', '', ''),
+(30, 2, 'Canon EOS 5D', '&lt;p&gt;\r\n	Canon\'s press material for the EOS 5D states that it \'defines (a) new D-SLR category\', while we\'re not typically too concerned with marketing talk this particular statement is clearly pretty accurate. The EOS 5D is unlike any previous digital SLR in that it combines a full-frame (35 mm sized) high resolution sensor (12.8 megapixels) with a relatively compact body (slightly larger than the EOS 20D, although in your hand it feels noticeably \'chunkier\'). The EOS 5D is aimed to slot in between the EOS 20D and the EOS-1D professional digital SLR\'s, an important difference when compared to the latter is that the EOS 5D doesn\'t have any environmental seals. While Canon don\'t specifically refer to the EOS 5D as a \'professional\' digital SLR it will have obvious appeal to professionals who want a high quality digital SLR in a body lighter than the EOS-1D. It will also no doubt appeal to current EOS 20D owners (although lets hope they\'ve not bought too many EF-S lenses...) äë&lt;/p&gt;\r\n', '', 'sdf', '', ''),
 (31, 1, 'Nikon D300', '&lt;div class=&quot;cpt_product_description &quot;&gt;\r\n	&lt;div&gt;\r\n		Engineered with pro-level features and performance, the 12.3-effective-megapixel D300 combines brand new technologies with advanced features inherited from Nikon&amp;#39;s newly announced D3 professional digital SLR camera to offer serious photographers remarkable performance combined with agility.&lt;br /&gt;\r\n		&lt;br /&gt;\r\n		Similar to the D3, the D300 features Nikon&amp;#39;s exclusive EXPEED Image Processing System that is central to driving the speed and processing power needed for many of the camera&amp;#39;s new features. The D300 features a new 51-point autofocus system with Nikon&amp;#39;s 3D Focus Tracking feature and two new LiveView shooting modes that allow users to frame a photograph using the camera&amp;#39;s high-resolution LCD monitor. The D300 shares a similar Scene Recognition System as is found in the D3; it promises to greatly enhance the accuracy of autofocus, autoexposure, and auto white balance by recognizing the subject or scene being photographed and applying this information to the calculations for the three functions.&lt;br /&gt;\r\n		&lt;br /&gt;\r\n		The D300 reacts with lightning speed, powering up in a mere 0.13 seconds and shooting with an imperceptible 45-millisecond shutter release lag time. The D300 is capable of shooting at a rapid six frames per second and can go as fast as eight frames per second when using the optional MB-D10 multi-power battery pack. In continuous bursts, the D300 can shoot up to 100 shots at full 12.3-megapixel resolution. (NORMAL-LARGE image setting, using a SanDisk Extreme IV 1GB CompactFlash card.)&lt;br /&gt;\r\n		&lt;br /&gt;\r\n		The D300 incorporates a range of innovative technologies and features that will significantly improve the accuracy, control, and performance photographers can get from their equipment. Its new Scene Recognition System advances the use of Nikon&amp;#39;s acclaimed 1,005-segment sensor to recognize colors and light patterns that help the camera determine the subject and the type of scene being photographed before a picture is taken. This information is used to improve the accuracy of autofocus, autoexposure, and auto white balance functions in the D300. For example, the camera can track moving subjects better and by identifying them, it can also automatically select focus points faster and with greater accuracy. It can also analyze highlights and more accurately determine exposure, as well as infer light sources to deliver more accurate white balance detection.&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;!-- cpt_container_end --&gt;', '', 'Nikon D300', '', ''),
+(31, 2, 'Nikon D300', '&lt;div class=&quot;cpt_product_description &quot;&gt;\r\n	&lt;div&gt;\r\n		Engineered with pro-level features and performance, the 12.3-effective-megapixel D300 combines brand new technologies with advanced features inherited from Nikon&amp;#39;s newly announced D3 professional digital SLR camera to offer serious photographers remarkable performance combined with agility.&lt;br /&gt;\r\n		&lt;br /&gt;\r\n		Similar to the D3, the D300 features Nikon&amp;#39;s exclusive EXPEED Image Processing System that is central to driving the speed and processing power needed for many of the camera&amp;#39;s new features. The D300 features a new 51-point autofocus system with Nikon&amp;#39;s 3D Focus Tracking feature and two new LiveView shooting modes that allow users to frame a photograph using the camera&amp;#39;s high-resolution LCD monitor. The D300 shares a similar Scene Recognition System as is found in the D3; it promises to greatly enhance the accuracy of autofocus, autoexposure, and auto white balance by recognizing the subject or scene being photographed and applying this information to the calculations for the three functions.&lt;br /&gt;\r\n		&lt;br /&gt;\r\n		The D300 reacts with lightning speed, powering up in a mere 0.13 seconds and shooting with an imperceptible 45-millisecond shutter release lag time. The D300 is capable of shooting at a rapid six frames per second and can go as fast as eight frames per second when using the optional MB-D10 multi-power battery pack. In continuous bursts, the D300 can shoot up to 100 shots at full 12.3-megapixel resolution. (NORMAL-LARGE image setting, using a SanDisk Extreme IV 1GB CompactFlash card.)&lt;br /&gt;\r\n		&lt;br /&gt;\r\n		The D300 incorporates a range of innovative technologies and features that will significantly improve the accuracy, control, and performance photographers can get from their equipment. Its new Scene Recognition System advances the use of Nikon&amp;#39;s acclaimed 1,005-segment sensor to recognize colors and light patterns that help the camera determine the subject and the type of scene being photographed before a picture is taken. This information is used to improve the accuracy of autofocus, autoexposure, and auto white balance functions in the D300. For example, the camera can track moving subjects better and by identifying them, it can also automatically select focus points faster and with greater accuracy. It can also analyze highlights and more accurately determine exposure, as well as infer light sources to deliver more accurate white balance detection.&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;!-- cpt_container_end --&gt;', '', 'Nikon D300', '', ''),
 (32, 1, 'iPod Touch', '&lt;p&gt;\r\n	&lt;strong&gt;Revolutionary multi-touch interface.&lt;/strong&gt;&lt;br /&gt;\r\n	iPod touch features the same multi-touch screen technology as iPhone. Pinch to zoom in on a photo. Scroll through your songs and videos with a flick. Flip through your library by album artwork with Cover Flow.&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;strong&gt;Gorgeous 3.5-inch widescreen display.&lt;/strong&gt;&lt;br /&gt;\r\n	Watch your movies, TV shows, and photos come alive with bright, vivid color on the 320-by-480-pixel display.&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;strong&gt;Music downloads straight from iTunes.&lt;/strong&gt;&lt;br /&gt;\r\n	Shop the iTunes Wi-Fi Music Store from anywhere with Wi-Fi.1 Browse or search to find the music youre looking for, preview it, and buy it with just a tap.&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;strong&gt;Surf the web with Wi-Fi.&lt;/strong&gt;&lt;br /&gt;\r\n	Browse the web using Safari and watch YouTube videos on the first iPod with Wi-Fi built in&lt;br /&gt;\r\n	&amp;nbsp;&lt;/p&gt;\r\n', '', '	 iPod Touch', '', ''),
+(32, 2, 'iPod Touch', '&lt;p&gt;\r\n	&lt;strong&gt;Revolutionary multi-touch interface.&lt;/strong&gt;&lt;br /&gt;\r\n	iPod touch features the same multi-touch screen technology as iPhone. Pinch to zoom in on a photo. Scroll through your songs and videos with a flick. Flip through your library by album artwork with Cover Flow.&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;strong&gt;Gorgeous 3.5-inch widescreen display.&lt;/strong&gt;&lt;br /&gt;\r\n	Watch your movies, TV shows, and photos come alive with bright, vivid color on the 320-by-480-pixel display.&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;strong&gt;Music downloads straight from iTunes.&lt;/strong&gt;&lt;br /&gt;\r\n	Shop the iTunes Wi-Fi Music Store from anywhere with Wi-Fi.1 Browse or search to find the music youre looking for, preview it, and buy it with just a tap.&lt;/p&gt;\r\n&lt;p&gt;\r\n	&lt;strong&gt;Surf the web with Wi-Fi.&lt;/strong&gt;&lt;br /&gt;\r\n	Browse the web using Safari and watch YouTube videos on the first iPod with Wi-Fi built in&lt;br /&gt;\r\n	&amp;nbsp;&lt;/p&gt;\r\n', '', '	 iPod Touch', '', ''),
 (33, 1, 'Samsung SyncMaster 941BW', '&lt;div&gt;\r\n	Imagine the advantages of going big without slowing down. The big 19&amp;quot; 941BW monitor combines wide aspect ratio with fast pixel response time, for bigger images, more room to work and crisp motion. In addition, the exclusive MagicBright 2, MagicColor and MagicTune technologies help deliver the ideal image in every situation, while sleek, narrow bezels and adjustable stands deliver style just the way you want it. With the Samsung 941BW widescreen analog/digital LCD monitor, it&amp;#39;s not hard to imagine.&lt;/div&gt;\r\n', '', 'Samsung SyncMaster 941BW', '', ''),
+(33, 2, 'Samsung SyncMaster 941BW', '&lt;div&gt;\r\n	Imagine the advantages of going big without slowing down. The big 19&amp;quot; 941BW monitor combines wide aspect ratio with fast pixel response time, for bigger images, more room to work and crisp motion. In addition, the exclusive MagicBright 2, MagicColor and MagicTune technologies help deliver the ideal image in every situation, while sleek, narrow bezels and adjustable stands deliver style just the way you want it. With the Samsung 941BW widescreen analog/digital LCD monitor, it&amp;#39;s not hard to imagine.&lt;/div&gt;\r\n', '', 'Samsung SyncMaster 941BW', '', ''),
 (34, 1, 'iPod Shuffle', '&lt;div&gt;\r\n	&lt;strong&gt;Born to be worn.&lt;/strong&gt;\r\n	&lt;p&gt;\r\n		Clip on the worlds most wearable music player and take up to 240 songs with you anywhere. Choose from five colors including four new hues to make your musical fashion statement.&lt;/p&gt;\r\n	&lt;p&gt;\r\n		&lt;strong&gt;Random meets rhythm.&lt;/strong&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		With iTunes autofill, iPod shuffle can deliver a new musical experience every time you sync. For more randomness, you can shuffle songs during playback with the slide of a switch.&lt;/p&gt;\r\n	&lt;strong&gt;Everything is easy.&lt;/strong&gt;\r\n	&lt;p&gt;\r\n		Charge and sync with the included USB dock. Operate the iPod shuffle controls with one hand. Enjoy up to 12 hours straight of skip-free music playback.&lt;/p&gt;\r\n&lt;/div&gt;\r\n', '', 'iPod Shuffle', '', ''),
+(34, 2, 'iPod Shuffle', '&lt;div&gt;\r\n	&lt;strong&gt;Born to be worn.&lt;/strong&gt;\r\n	&lt;p&gt;\r\n		Clip on the worlds most wearable music player and take up to 240 songs with you anywhere. Choose from five colors including four new hues to make your musical fashion statement.&lt;/p&gt;\r\n	&lt;p&gt;\r\n		&lt;strong&gt;Random meets rhythm.&lt;/strong&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		With iTunes autofill, iPod shuffle can deliver a new musical experience every time you sync. For more randomness, you can shuffle songs during playback with the slide of a switch.&lt;/p&gt;\r\n	&lt;strong&gt;Everything is easy.&lt;/strong&gt;\r\n	&lt;p&gt;\r\n		Charge and sync with the included USB dock. Operate the iPod shuffle controls with one hand. Enjoy up to 12 hours straight of skip-free music playback.&lt;/p&gt;\r\n&lt;/div&gt;\r\n', '', 'iPod Shuffle', '', ''),
 (35, 1, 'Product 8', '&lt;p&gt;\r\n	Product 8&lt;/p&gt;\r\n', '', 'Product 8', '', ''),
+(35, 2, 'Product 8', '&lt;p&gt;\r\n	Product 8&lt;/p&gt;\r\n', '', 'Product 8', '', ''),
 (36, 1, 'iPod Nano', '&lt;div&gt;\r\n	&lt;p&gt;\r\n		&lt;strong&gt;Video in your pocket.&lt;/strong&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		Its the small iPod with one very big idea: video. The worlds most popular music player now lets you enjoy movies, TV shows, and more on a two-inch display thats 65% brighter than before.&lt;/p&gt;\r\n	&lt;p&gt;\r\n		&lt;strong&gt;Cover Flow.&lt;/strong&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		Browse through your music collection by flipping through album art. Select an album to turn it over and see the track list.&lt;strong&gt;&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		&lt;strong&gt;Enhanced interface.&lt;/strong&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		Experience a whole new way to browse and view your music and video.&lt;/p&gt;\r\n	&lt;p&gt;\r\n		&lt;strong&gt;Sleek and colorful.&lt;/strong&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		With an anodized aluminum and polished stainless steel enclosure and a choice of five colors, iPod nano is dressed to impress.&lt;/p&gt;\r\n	&lt;p&gt;\r\n		&lt;strong&gt;iTunes.&lt;/strong&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		Available as a free download, iTunes makes it easy to browse and buy millions of songs, movies, TV shows, audiobooks, and games and download free podcasts all at the iTunes Store. And you can import your own music, manage your whole media library, and sync your iPod or iPhone with ease.&lt;/p&gt;\r\n&lt;/div&gt;\r\n', '', 'iPod Nano', '', ''),
+(36, 2, 'iPod Nano', '&lt;div&gt;\r\n	&lt;p&gt;\r\n		&lt;strong&gt;Video in your pocket.&lt;/strong&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		Its the small iPod with one very big idea: video. The worlds most popular music player now lets you enjoy movies, TV shows, and more on a two-inch display thats 65% brighter than before.&lt;/p&gt;\r\n	&lt;p&gt;\r\n		&lt;strong&gt;Cover Flow.&lt;/strong&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		Browse through your music collection by flipping through album art. Select an album to turn it over and see the track list.&lt;strong&gt;&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		&lt;strong&gt;Enhanced interface.&lt;/strong&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		Experience a whole new way to browse and view your music and video.&lt;/p&gt;\r\n	&lt;p&gt;\r\n		&lt;strong&gt;Sleek and colorful.&lt;/strong&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		With an anodized aluminum and polished stainless steel enclosure and a choice of five colors, iPod nano is dressed to impress.&lt;/p&gt;\r\n	&lt;p&gt;\r\n		&lt;strong&gt;iTunes.&lt;/strong&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		Available as a free download, iTunes makes it easy to browse and buy millions of songs, movies, TV shows, audiobooks, and games and download free podcasts all at the iTunes Store. And you can import your own music, manage your whole media library, and sync your iPod or iPhone with ease.&lt;/p&gt;\r\n&lt;/div&gt;\r\n', '', 'iPod Nano', '', ''),
 (40, 1, 'iPhone', '&lt;p class=&quot;intro&quot;&gt;\r\n	iPhone is a revolutionary new mobile phone that allows you to make a call by simply tapping a name or number in your address book, a favorites list, or a call log. It also automatically syncs all your contacts from a PC, Mac, or Internet service. And it lets you select and listen to voicemail messages in whatever order you want just like email.&lt;/p&gt;\r\n', '', 'iPhone', '', ''),
+(40, 2, 'iPhone', '&lt;p class=&quot;intro&quot;&gt;\r\n	iPhone is a revolutionary new mobile phone that allows you to make a call by simply tapping a name or number in your address book, a favorites list, or a call log. It also automatically syncs all your contacts from a PC, Mac, or Internet service. And it lets you select and listen to voicemail messages in whatever order you want just like email.&lt;/p&gt;\r\n', '', 'iPhone', '', ''),
 (41, 1, 'iMac', '&lt;div&gt;\r\n	Just when you thought iMac had everything, now there&acute;s even more. More powerful Intel Core 2 Duo processors. And more memory standard. Combine this with Mac OS X Leopard and iLife &acute;08, and it&acute;s more all-in-one than ever. iMac packs amazing performance into a stunningly slim space.&lt;/div&gt;\r\n', '', 'iMac', '', ''),
+(41, 2, 'iMac', '&lt;div&gt;\r\n	Just when you thought iMac had everything, now there&acute;s even more. More powerful Intel Core 2 Duo processors. And more memory standard. Combine this with Mac OS X Leopard and iLife &acute;08, and it&acute;s more all-in-one than ever. iMac packs amazing performance into a stunningly slim space.&lt;/div&gt;\r\n', '', 'iMac', '', ''),
 (42, 1, 'Apple Cinema 30&quot;', '&lt;p&gt;\r\n	&lt;font face=&quot;helvetica,geneva,arial&quot; size=&quot;2&quot;&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;The 30-inch Apple Cinema HD Display delivers an amazing 2560 x 1600 pixel resolution. Designed specifically for the creative professional, this display provides more space for easier access to all the tools and palettes needed to edit, format and composite your work. Combine this display with a Mac Pro, MacBook Pro, or PowerMac G5 and there\'s no limit to what you can achieve. &lt;br&gt;\r\n	&lt;br&gt;\r\n	&lt;/font&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;The Cinema HD features an active-matrix liquid crystal display that produces flicker-free images that deliver twice the brightness, twice the sharpness and twice the contrast ratio of a typical CRT display. Unlike other flat panels, it\'s designed with a pure digital interface to deliver distortion-free images that never need adjusting. With over 4 million digital pixels, the display is uniquely suited for scientific and technical applications such as visualizing molecular structures or analyzing geological data. &lt;br&gt;\r\n	&lt;br&gt;\r\n	&lt;/font&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;Offering accurate, brilliant color performance, the Cinema HD delivers up to 16.7 million colors across a wide gamut allowing you to see subtle nuances between colors from soft pastels to rich jewel tones. A wide viewing angle ensures uniform color from edge to edge. Apple\'s ColorSync technology allows you to create custom profiles to maintain consistent color onscreen and in print. The result: You can confidently use this display in all your color-critical applications. &lt;br&gt;\r\n	&lt;br&gt;\r\n	&lt;/font&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;Housed in a new aluminum design, the display has a very thin bezel that enhances visual accuracy. Each display features two FireWire 400 ports and two USB 2.0 ports, making attachment of desktop peripherals, such as iSight, iPod, digital and still cameras, hard drives, printers and scanners, even more accessible and convenient. Taking advantage of the much thinner and lighter footprint of an LCD, the new displays support the VESA (Video Electronics Standards Association) mounting interface standard. Customers with the optional Cinema Display VESA Mount Adapter kit gain the flexibility to mount their display in locations most appropriate for their work environment. &lt;br&gt;\r\n	&lt;br&gt;\r\n	&lt;/font&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;The Cinema HD features a single cable design with elegant breakout for the USB 2.0, FireWire 400 and a pure digital connection using the industry standard Digital Video Interface (DVI) interface. The DVI connection allows for a direct pure-digital connection.&lt;br&gt;\r\n	&lt;/font&gt;&lt;/font&gt;&lt;/p&gt;\r\n&lt;h3&gt;\r\n	Features:&lt;/h3&gt;\r\n&lt;p&gt;\r\n	Unrivaled display performance&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		30-inch (viewable) active-matrix liquid crystal display provides breathtaking image quality and vivid, richly saturated color.&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Support for 2560-by-1600 pixel resolution for display of high definition still and video imagery.&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Wide-format design for simultaneous display of two full pages of text and graphics.&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Industry standard DVI connector for direct attachment to Mac- and Windows-based desktops and notebooks&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Incredibly wide (170 degree) horizontal and vertical viewing angle for maximum visibility and color performance.&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Lightning-fast pixel response for full-motion digital video playback.&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Support for 16.7 million saturated colors, for use in all graphics-intensive applications.&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	Simple setup and operation&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Single cable with elegant breakout for connection to DVI, USB and FireWire ports&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Built-in two-port USB 2.0 hub for easy connection of desktop peripheral devices.&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Two FireWire 400 ports to support iSight and other desktop peripherals&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	Sleek, elegant design&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Huge virtual workspace, very small footprint.&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Narrow Bezel design to minimize visual impact of using dual displays&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Unique hinge design for effortless adjustment&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Support for VESA mounting solutions (Apple Cinema Display VESA Mount Adapter sold separately)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;h3&gt;\r\n	Technical specifications&lt;/h3&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Screen size (diagonal viewable image size)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Apple Cinema HD Display: 30 inches (29.7-inch viewable)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Screen type&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Thin film transistor (TFT) active-matrix liquid crystal display (AMLCD)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Resolutions&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		2560 x 1600 pixels (optimum resolution)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		2048 x 1280&lt;/li&gt;\r\n	&lt;li&gt;\r\n		1920 x 1200&lt;/li&gt;\r\n	&lt;li&gt;\r\n		1280 x 800&lt;/li&gt;\r\n	&lt;li&gt;\r\n		1024 x 640&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Display colors (maximum)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		16.7 million&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Viewing angle (typical)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		170° horizontal; 170° vertical&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Brightness (typical)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		30-inch Cinema HD Display: 400 cd/m2&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Contrast ratio (typical)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		700:1&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Response time (typical)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		16 ms&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Pixel pitch&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		30-inch Cinema HD Display: 0.250 mm&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Screen treatment&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Antiglare hardcoat&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;User controls (hardware and software)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Display Power,&lt;/li&gt;\r\n	&lt;li&gt;\r\n		System sleep, wake&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Brightness&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Monitor tilt&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Connectors and cables&lt;/b&gt;&lt;br&gt;\r\n	Cable&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		DVI (Digital Visual Interface)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		FireWire 400&lt;/li&gt;\r\n	&lt;li&gt;\r\n		USB 2.0&lt;/li&gt;\r\n	&lt;li&gt;\r\n		DC power (24 V)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	Connectors&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Two-port, self-powered USB 2.0 hub&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Two FireWire 400 ports&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Kensington security port&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;VESA mount adapter&lt;/b&gt;&lt;br&gt;\r\n	Requires optional Cinema Display VESA Mount Adapter (M9649G/A)&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Compatible with VESA FDMI (MIS-D, 100, C) compliant mounting solutions&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Electrical requirements&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Input voltage: 100-240 VAC 50-60Hz&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Maximum power when operating: 150W&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Energy saver mode: 3W or less&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Environmental requirements&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Operating temperature: 50° to 95° F (10° to 35° C)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Storage temperature: -40° to 116° F (-40° to 47° C)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Operating humidity: 20% to 80% noncondensing&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Maximum operating altitude: 10,000 feet&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Agency approvals&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		FCC Part 15 Class B&lt;/li&gt;\r\n	&lt;li&gt;\r\n		EN55022 Class B&lt;/li&gt;\r\n	&lt;li&gt;\r\n		EN55024&lt;/li&gt;\r\n	&lt;li&gt;\r\n		VCCI Class B&lt;/li&gt;\r\n	&lt;li&gt;\r\n		AS/NZS 3548 Class B&lt;/li&gt;\r\n	&lt;li&gt;\r\n		CNS 13438 Class B&lt;/li&gt;\r\n	&lt;li&gt;\r\n		ICES-003 Class B&lt;/li&gt;\r\n	&lt;li&gt;\r\n		ISO 13406 part 2&lt;/li&gt;\r\n	&lt;li&gt;\r\n		MPR II&lt;/li&gt;\r\n	&lt;li&gt;\r\n		IEC 60950&lt;/li&gt;\r\n	&lt;li&gt;\r\n		UL 60950&lt;/li&gt;\r\n	&lt;li&gt;\r\n		CSA 60950&lt;/li&gt;\r\n	&lt;li&gt;\r\n		EN60950&lt;/li&gt;\r\n	&lt;li&gt;\r\n		ENERGY STAR&lt;/li&gt;\r\n	&lt;li&gt;\r\n		TCO \'03&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Size and weight&lt;/b&gt;&lt;br&gt;\r\n	30-inch Apple Cinema HD Display&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Height: 21.3 inches (54.3 cm)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Width: 27.2 inches (68.8 cm)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Depth: 8.46 inches (21.5 cm)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Weight: 27.5 pounds (12.5 kg)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;System Requirements&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Mac Pro, all graphic options&lt;/li&gt;\r\n	&lt;li&gt;\r\n		MacBook Pro&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Power Mac G5 (PCI-X) with ATI Radeon 9650 or better or NVIDIA GeForce 6800 GT DDL or better&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Power Mac G5 (PCI Express), all graphics options&lt;/li&gt;\r\n	&lt;li&gt;\r\n		PowerBook G4 with dual-link DVI support&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Windows PC and graphics card that supports DVI ports with dual-link digital bandwidth and VESA DDC standard for plug-and-play setup&lt;/li&gt;\r\n&lt;/ul&gt;\r\n', '', 'Apple Cinema 30', '', ''),
+(42, 2, 'Apple Cinema 30&quot;', '&lt;p&gt;\r\n	&lt;font face=&quot;helvetica,geneva,arial&quot; size=&quot;2&quot;&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;The 30-inch Apple Cinema HD Display delivers an amazing 2560 x 1600 pixel resolution. Designed specifically for the creative professional, this display provides more space for easier access to all the tools and palettes needed to edit, format and composite your work. Combine this display with a Mac Pro, MacBook Pro, or PowerMac G5 and there\'s no limit to what you can achieve. &lt;br&gt;\r\n	&lt;br&gt;\r\n	&lt;/font&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;The Cinema HD features an active-matrix liquid crystal display that produces flicker-free images that deliver twice the brightness, twice the sharpness and twice the contrast ratio of a typical CRT display. Unlike other flat panels, it\'s designed with a pure digital interface to deliver distortion-free images that never need adjusting. With over 4 million digital pixels, the display is uniquely suited for scientific and technical applications such as visualizing molecular structures or analyzing geological data. &lt;br&gt;\r\n	&lt;br&gt;\r\n	&lt;/font&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;Offering accurate, brilliant color performance, the Cinema HD delivers up to 16.7 million colors across a wide gamut allowing you to see subtle nuances between colors from soft pastels to rich jewel tones. A wide viewing angle ensures uniform color from edge to edge. Apple\'s ColorSync technology allows you to create custom profiles to maintain consistent color onscreen and in print. The result: You can confidently use this display in all your color-critical applications. &lt;br&gt;\r\n	&lt;br&gt;\r\n	&lt;/font&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;Housed in a new aluminum design, the display has a very thin bezel that enhances visual accuracy. Each display features two FireWire 400 ports and two USB 2.0 ports, making attachment of desktop peripherals, such as iSight, iPod, digital and still cameras, hard drives, printers and scanners, even more accessible and convenient. Taking advantage of the much thinner and lighter footprint of an LCD, the new displays support the VESA (Video Electronics Standards Association) mounting interface standard. Customers with the optional Cinema Display VESA Mount Adapter kit gain the flexibility to mount their display in locations most appropriate for their work environment. &lt;br&gt;\r\n	&lt;br&gt;\r\n	&lt;/font&gt;&lt;font face=&quot;Helvetica&quot; size=&quot;2&quot;&gt;The Cinema HD features a single cable design with elegant breakout for the USB 2.0, FireWire 400 and a pure digital connection using the industry standard Digital Video Interface (DVI) interface. The DVI connection allows for a direct pure-digital connection.&lt;br&gt;\r\n	&lt;/font&gt;&lt;/font&gt;&lt;/p&gt;\r\n&lt;h3&gt;\r\n	Features:&lt;/h3&gt;\r\n&lt;p&gt;\r\n	Unrivaled display performance&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		30-inch (viewable) active-matrix liquid crystal display provides breathtaking image quality and vivid, richly saturated color.&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Support for 2560-by-1600 pixel resolution for display of high definition still and video imagery.&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Wide-format design for simultaneous display of two full pages of text and graphics.&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Industry standard DVI connector for direct attachment to Mac- and Windows-based desktops and notebooks&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Incredibly wide (170 degree) horizontal and vertical viewing angle for maximum visibility and color performance.&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Lightning-fast pixel response for full-motion digital video playback.&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Support for 16.7 million saturated colors, for use in all graphics-intensive applications.&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	Simple setup and operation&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Single cable with elegant breakout for connection to DVI, USB and FireWire ports&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Built-in two-port USB 2.0 hub for easy connection of desktop peripheral devices.&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Two FireWire 400 ports to support iSight and other desktop peripherals&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	Sleek, elegant design&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Huge virtual workspace, very small footprint.&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Narrow Bezel design to minimize visual impact of using dual displays&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Unique hinge design for effortless adjustment&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Support for VESA mounting solutions (Apple Cinema Display VESA Mount Adapter sold separately)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;h3&gt;\r\n	Technical specifications&lt;/h3&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Screen size (diagonal viewable image size)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Apple Cinema HD Display: 30 inches (29.7-inch viewable)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Screen type&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Thin film transistor (TFT) active-matrix liquid crystal display (AMLCD)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Resolutions&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		2560 x 1600 pixels (optimum resolution)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		2048 x 1280&lt;/li&gt;\r\n	&lt;li&gt;\r\n		1920 x 1200&lt;/li&gt;\r\n	&lt;li&gt;\r\n		1280 x 800&lt;/li&gt;\r\n	&lt;li&gt;\r\n		1024 x 640&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Display colors (maximum)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		16.7 million&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Viewing angle (typical)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		170° horizontal; 170° vertical&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Brightness (typical)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		30-inch Cinema HD Display: 400 cd/m2&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Contrast ratio (typical)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		700:1&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Response time (typical)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		16 ms&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Pixel pitch&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		30-inch Cinema HD Display: 0.250 mm&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Screen treatment&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Antiglare hardcoat&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;User controls (hardware and software)&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Display Power,&lt;/li&gt;\r\n	&lt;li&gt;\r\n		System sleep, wake&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Brightness&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Monitor tilt&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Connectors and cables&lt;/b&gt;&lt;br&gt;\r\n	Cable&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		DVI (Digital Visual Interface)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		FireWire 400&lt;/li&gt;\r\n	&lt;li&gt;\r\n		USB 2.0&lt;/li&gt;\r\n	&lt;li&gt;\r\n		DC power (24 V)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	Connectors&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Two-port, self-powered USB 2.0 hub&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Two FireWire 400 ports&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Kensington security port&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;VESA mount adapter&lt;/b&gt;&lt;br&gt;\r\n	Requires optional Cinema Display VESA Mount Adapter (M9649G/A)&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Compatible with VESA FDMI (MIS-D, 100, C) compliant mounting solutions&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Electrical requirements&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Input voltage: 100-240 VAC 50-60Hz&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Maximum power when operating: 150W&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Energy saver mode: 3W or less&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Environmental requirements&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Operating temperature: 50° to 95° F (10° to 35° C)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Storage temperature: -40° to 116° F (-40° to 47° C)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Operating humidity: 20% to 80% noncondensing&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Maximum operating altitude: 10,000 feet&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Agency approvals&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		FCC Part 15 Class B&lt;/li&gt;\r\n	&lt;li&gt;\r\n		EN55022 Class B&lt;/li&gt;\r\n	&lt;li&gt;\r\n		EN55024&lt;/li&gt;\r\n	&lt;li&gt;\r\n		VCCI Class B&lt;/li&gt;\r\n	&lt;li&gt;\r\n		AS/NZS 3548 Class B&lt;/li&gt;\r\n	&lt;li&gt;\r\n		CNS 13438 Class B&lt;/li&gt;\r\n	&lt;li&gt;\r\n		ICES-003 Class B&lt;/li&gt;\r\n	&lt;li&gt;\r\n		ISO 13406 part 2&lt;/li&gt;\r\n	&lt;li&gt;\r\n		MPR II&lt;/li&gt;\r\n	&lt;li&gt;\r\n		IEC 60950&lt;/li&gt;\r\n	&lt;li&gt;\r\n		UL 60950&lt;/li&gt;\r\n	&lt;li&gt;\r\n		CSA 60950&lt;/li&gt;\r\n	&lt;li&gt;\r\n		EN60950&lt;/li&gt;\r\n	&lt;li&gt;\r\n		ENERGY STAR&lt;/li&gt;\r\n	&lt;li&gt;\r\n		TCO \'03&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;Size and weight&lt;/b&gt;&lt;br&gt;\r\n	30-inch Apple Cinema HD Display&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Height: 21.3 inches (54.3 cm)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Width: 27.2 inches (68.8 cm)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Depth: 8.46 inches (21.5 cm)&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Weight: 27.5 pounds (12.5 kg)&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;p&gt;\r\n	&lt;b&gt;System Requirements&lt;/b&gt;&lt;/p&gt;\r\n&lt;ul&gt;\r\n	&lt;li&gt;\r\n		Mac Pro, all graphic options&lt;/li&gt;\r\n	&lt;li&gt;\r\n		MacBook Pro&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Power Mac G5 (PCI-X) with ATI Radeon 9650 or better or NVIDIA GeForce 6800 GT DDL or better&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Power Mac G5 (PCI Express), all graphics options&lt;/li&gt;\r\n	&lt;li&gt;\r\n		PowerBook G4 with dual-link DVI support&lt;/li&gt;\r\n	&lt;li&gt;\r\n		Windows PC and graphics card that supports DVI ports with dual-link digital bandwidth and VESA DDC standard for plug-and-play setup&lt;/li&gt;\r\n&lt;/ul&gt;\r\n', '', 'Apple Cinema 30', '', ''),
 (43, 1, 'MacBook', '&lt;div&gt;\r\n	&lt;p&gt;\r\n		&lt;b&gt;Intel Core 2 Duo processor&lt;/b&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		Powered by an Intel Core 2 Duo processor at speeds up to 2.16GHz, the new MacBook is the fastest ever.&lt;/p&gt;\r\n	&lt;p&gt;\r\n		&lt;b&gt;1GB memory, larger hard drives&lt;/b&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		The new MacBook now comes with 1GB of memory standard and larger hard drives for the entire line perfect for running more of your favorite applications and storing growing media collections.&lt;/p&gt;\r\n	&lt;p&gt;\r\n		&lt;b&gt;Sleek, 1.08-inch-thin design&lt;/b&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		MacBook makes it easy to hit the road thanks to its tough polycarbonate case, built-in wireless technologies, and innovative MagSafe Power Adapter that releases automatically if someone accidentally trips on the cord.&lt;/p&gt;\r\n	&lt;p&gt;\r\n		&lt;b&gt;Built-in iSight camera&lt;/b&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		Right out of the box, you can have a video chat with friends or family,2 record a video at your desk, or take fun pictures with Photo Booth&lt;/p&gt;\r\n&lt;/div&gt;\r\n', '', 'MacBook', '', ''),
-(44, 1, 'MacBook Air', '&lt;div&gt;\r\n	MacBook Air is ultrathin, ultraportable, and ultra unlike anything else. But you don&amp;rsquo;t lose inches and pounds overnight. It&amp;rsquo;s the result of rethinking conventions. Of multiple wireless innovations. And of breakthrough design. With MacBook Air, mobile computing suddenly has a new standard.&lt;/div&gt;\r\n', '', 'MacBook Air', '', ''),
+(43, 2, 'MacBook', '&lt;div&gt;\r\n	&lt;p&gt;\r\n		&lt;b&gt;Intel Core 2 Duo processor&lt;/b&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		Powered by an Intel Core 2 Duo processor at speeds up to 2.16GHz, the new MacBook is the fastest ever.&lt;/p&gt;\r\n	&lt;p&gt;\r\n		&lt;b&gt;1GB memory, larger hard drives&lt;/b&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		The new MacBook now comes with 1GB of memory standard and larger hard drives for the entire line perfect for running more of your favorite applications and storing growing media collections.&lt;/p&gt;\r\n	&lt;p&gt;\r\n		&lt;b&gt;Sleek, 1.08-inch-thin design&lt;/b&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		MacBook makes it easy to hit the road thanks to its tough polycarbonate case, built-in wireless technologies, and innovative MagSafe Power Adapter that releases automatically if someone accidentally trips on the cord.&lt;/p&gt;\r\n	&lt;p&gt;\r\n		&lt;b&gt;Built-in iSight camera&lt;/b&gt;&lt;/p&gt;\r\n	&lt;p&gt;\r\n		Right out of the box, you can have a video chat with friends or family,2 record a video at your desk, or take fun pictures with Photo Booth&lt;/p&gt;\r\n&lt;/div&gt;\r\n', '', 'MacBook', '', ''),
+(44, 1, 'MacBook Air', '&lt;div&gt;\r\n	MacBook Air is ultrathin, ultraportable, and ultra unlike anything else. But you don&amp;rsquo;t lose inches and pounds overnight. It&amp;rsquo;s the result of rethinking conventions. Of multiple wireless innovations. And of breakthrough design. With MacBook Air, mobile computing suddenly has a new standard.&lt;/div&gt;\r\n', '', 'MacBook Air', '', '');
+INSERT INTO `oc_product_description` (`product_id`, `language_id`, `name`, `description`, `tag`, `meta_title`, `meta_description`, `meta_keyword`) VALUES
+(44, 2, 'MacBook Air', '&lt;div&gt;\r\n	MacBook Air is ultrathin, ultraportable, and ultra unlike anything else. But you don&amp;rsquo;t lose inches and pounds overnight. It&amp;rsquo;s the result of rethinking conventions. Of multiple wireless innovations. And of breakthrough design. With MacBook Air, mobile computing suddenly has a new standard.&lt;/div&gt;\r\n', '', 'MacBook Air', '', ''),
 (45, 1, 'MacBook Pro', '&lt;div class=&quot;cpt_product_description &quot;&gt;\r\n	&lt;div&gt;\r\n		&lt;p&gt;\r\n			&lt;b&gt;Latest Intel mobile architecture&lt;/b&gt;&lt;/p&gt;\r\n		&lt;p&gt;\r\n			Powered by the most advanced mobile processors from Intel, the new Core 2 Duo MacBook Pro is over 50% faster than the original Core Duo MacBook Pro and now supports up to 4GB of RAM.&lt;/p&gt;\r\n		&lt;p&gt;\r\n			&lt;b&gt;Leading-edge graphics&lt;/b&gt;&lt;/p&gt;\r\n		&lt;p&gt;\r\n			The NVIDIA GeForce 8600M GT delivers exceptional graphics processing power. For the ultimate creative canvas, you can even configure the 17-inch model with a 1920-by-1200 resolution display.&lt;/p&gt;\r\n		&lt;p&gt;\r\n			&lt;b&gt;Designed for life on the road&lt;/b&gt;&lt;/p&gt;\r\n		&lt;p&gt;\r\n			Innovations such as a magnetic power connection and an illuminated keyboard with ambient light sensor put the MacBook Pro in a class by itself.&lt;/p&gt;\r\n		&lt;p&gt;\r\n			&lt;b&gt;Connect. Create. Communicate.&lt;/b&gt;&lt;/p&gt;\r\n		&lt;p&gt;\r\n			Quickly set up a video conference with the built-in iSight camera. Control presentations and media from up to 30 feet away with the included Apple Remote. Connect to high-bandwidth peripherals with FireWire 800 and DVI.&lt;/p&gt;\r\n		&lt;p&gt;\r\n			&lt;b&gt;Next-generation wireless&lt;/b&gt;&lt;/p&gt;\r\n		&lt;p&gt;\r\n			Featuring 802.11n wireless technology, the MacBook Pro delivers up to five times the performance and up to twice the range of previous-generation technologies.&lt;/p&gt;\r\n	&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;!-- cpt_container_end --&gt;', '', 'MacBook Pro', '', ''),
+(45, 2, 'MacBook Pro', '&lt;div class=&quot;cpt_product_description &quot;&gt;\r\n	&lt;div&gt;\r\n		&lt;p&gt;\r\n			&lt;b&gt;Latest Intel mobile architecture&lt;/b&gt;&lt;/p&gt;\r\n		&lt;p&gt;\r\n			Powered by the most advanced mobile processors from Intel, the new Core 2 Duo MacBook Pro is over 50% faster than the original Core Duo MacBook Pro and now supports up to 4GB of RAM.&lt;/p&gt;\r\n		&lt;p&gt;\r\n			&lt;b&gt;Leading-edge graphics&lt;/b&gt;&lt;/p&gt;\r\n		&lt;p&gt;\r\n			The NVIDIA GeForce 8600M GT delivers exceptional graphics processing power. For the ultimate creative canvas, you can even configure the 17-inch model with a 1920-by-1200 resolution display.&lt;/p&gt;\r\n		&lt;p&gt;\r\n			&lt;b&gt;Designed for life on the road&lt;/b&gt;&lt;/p&gt;\r\n		&lt;p&gt;\r\n			Innovations such as a magnetic power connection and an illuminated keyboard with ambient light sensor put the MacBook Pro in a class by itself.&lt;/p&gt;\r\n		&lt;p&gt;\r\n			&lt;b&gt;Connect. Create. Communicate.&lt;/b&gt;&lt;/p&gt;\r\n		&lt;p&gt;\r\n			Quickly set up a video conference with the built-in iSight camera. Control presentations and media from up to 30 feet away with the included Apple Remote. Connect to high-bandwidth peripherals with FireWire 800 and DVI.&lt;/p&gt;\r\n		&lt;p&gt;\r\n			&lt;b&gt;Next-generation wireless&lt;/b&gt;&lt;/p&gt;\r\n		&lt;p&gt;\r\n			Featuring 802.11n wireless technology, the MacBook Pro delivers up to five times the performance and up to twice the range of previous-generation technologies.&lt;/p&gt;\r\n	&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;!-- cpt_container_end --&gt;', '', 'MacBook Pro', '', ''),
 (46, 1, 'Sony VAIO', '&lt;div&gt;\r\n	Unprecedented power. The next generation of processing technology has arrived. Built into the newest VAIO notebooks lies Intel&amp;#39;s latest, most powerful innovation yet: Intel&amp;reg; Centrino&amp;reg; 2 processor technology. Boasting incredible speed, expanded wireless connectivity, enhanced multimedia support and greater energy efficiency, all the high-performance essentials are seamlessly combined into a single chip.&lt;/div&gt;\r\n', '', 'Sony VAIO', '', ''),
+(46, 2, 'Sony VAIO', '&lt;div&gt;\r\n	Unprecedented power. The next generation of processing technology has arrived. Built into the newest VAIO notebooks lies Intel&amp;#39;s latest, most powerful innovation yet: Intel&amp;reg; Centrino&amp;reg; 2 processor technology. Boasting incredible speed, expanded wireless connectivity, enhanced multimedia support and greater energy efficiency, all the high-performance essentials are seamlessly combined into a single chip.&lt;/div&gt;\r\n', '', 'Sony VAIO', '', ''),
 (47, 1, 'HP LP3065', '&lt;p&gt;\r\n	Stop your co-workers in their tracks with the stunning new 30-inch diagonal HP LP3065 Flat Panel Monitor. This flagship monitor features best-in-class performance and presentation features on a huge wide-aspect screen while letting you work as comfortably as possible - you might even forget you&amp;#39;re at the office&lt;/p&gt;\r\n', '', 'HP LP3065', '', ''),
+(47, 2, 'HP LP3065', '&lt;p&gt;\r\n	Stop your co-workers in their tracks with the stunning new 30-inch diagonal HP LP3065 Flat Panel Monitor. This flagship monitor features best-in-class performance and presentation features on a huge wide-aspect screen while letting you work as comfortably as possible - you might even forget you&amp;#39;re at the office&lt;/p&gt;\r\n', '', 'HP LP3065', '', ''),
 (48, 1, 'iPod Classic', '&lt;div class=&quot;cpt_product_description &quot;&gt;\r\n	&lt;div&gt;\r\n		&lt;p&gt;\r\n			&lt;strong&gt;More room to move.&lt;/strong&gt;&lt;/p&gt;\r\n		&lt;p&gt;\r\n			With 80GB or 160GB of storage and up to 40 hours of battery life, the new iPod classic lets you enjoy up to 40,000 songs or up to 200 hours of video or any combination wherever you go.&lt;/p&gt;\r\n		&lt;p&gt;\r\n			&lt;strong&gt;Cover Flow.&lt;/strong&gt;&lt;/p&gt;\r\n		&lt;p&gt;\r\n			Browse through your music collection by flipping through album art. Select an album to turn it over and see the track list.&lt;/p&gt;\r\n		&lt;p&gt;\r\n			&lt;strong&gt;Enhanced interface.&lt;/strong&gt;&lt;/p&gt;\r\n		&lt;p&gt;\r\n			Experience a whole new way to browse and view your music and video.&lt;/p&gt;\r\n		&lt;p&gt;\r\n			&lt;strong&gt;Sleeker design.&lt;/strong&gt;&lt;/p&gt;\r\n		&lt;p&gt;\r\n			Beautiful, durable, and sleeker than ever, iPod classic now features an anodized aluminum and polished stainless steel enclosure with rounded edges.&lt;/p&gt;\r\n	&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;!-- cpt_container_end --&gt;', '', 'iPod Classic', '', ''),
-(49, 1, 'Samsung Galaxy Tab 10.1', '&lt;p&gt;\r\n	Samsung Galaxy Tab 10.1, is the world&amp;rsquo;s thinnest tablet, measuring 8.6 mm thickness, running with Android 3.0 Honeycomb OS on a 1GHz dual-core Tegra 2 processor, similar to its younger brother Samsung Galaxy Tab 8.9.&lt;/p&gt;\r\n&lt;p&gt;\r\n	Samsung Galaxy Tab 10.1 gives pure Android 3.0 experience, adding its new TouchWiz UX or TouchWiz 4.0 &amp;ndash; includes a live panel, which lets you to customize with different content, such as your pictures, bookmarks, and social feeds, sporting a 10.1 inches WXGA capacitive touch screen with 1280 x 800 pixels of resolution, equipped with 3 megapixel rear camera with LED flash and a 2 megapixel front camera, HSPA+ connectivity up to 21Mbps, 720p HD video recording capability, 1080p HD playback, DLNA support, Bluetooth 2.1, USB 2.0, gyroscope, Wi-Fi 802.11 a/b/g/n, micro-SD slot, 3.5mm headphone jack, and SIM slot, including the Samsung Stick &amp;ndash; a Bluetooth microphone that can be carried in a pocket like a pen and sound dock with powered subwoofer.&lt;/p&gt;\r\n&lt;p&gt;\r\n	Samsung Galaxy Tab 10.1 will come in 16GB / 32GB / 64GB verities and pre-loaded with Social Hub, Reader&amp;rsquo;s Hub, Music Hub and Samsung Mini Apps Tray &amp;ndash; which gives you access to more commonly used apps to help ease multitasking and it is capable of Adobe Flash Player 10.2, powered by 6860mAh battery that gives you 10hours of video-playback time.&amp;nbsp;&amp;auml;&amp;ouml;&lt;/p&gt;\r\n', '', 'Samsung Galaxy Tab 10.1', '', '');
+(48, 2, 'iPod Classic', '&lt;div class=&quot;cpt_product_description &quot;&gt;\r\n	&lt;div&gt;\r\n		&lt;p&gt;\r\n			&lt;strong&gt;More room to move.&lt;/strong&gt;&lt;/p&gt;\r\n		&lt;p&gt;\r\n			With 80GB or 160GB of storage and up to 40 hours of battery life, the new iPod classic lets you enjoy up to 40,000 songs or up to 200 hours of video or any combination wherever you go.&lt;/p&gt;\r\n		&lt;p&gt;\r\n			&lt;strong&gt;Cover Flow.&lt;/strong&gt;&lt;/p&gt;\r\n		&lt;p&gt;\r\n			Browse through your music collection by flipping through album art. Select an album to turn it over and see the track list.&lt;/p&gt;\r\n		&lt;p&gt;\r\n			&lt;strong&gt;Enhanced interface.&lt;/strong&gt;&lt;/p&gt;\r\n		&lt;p&gt;\r\n			Experience a whole new way to browse and view your music and video.&lt;/p&gt;\r\n		&lt;p&gt;\r\n			&lt;strong&gt;Sleeker design.&lt;/strong&gt;&lt;/p&gt;\r\n		&lt;p&gt;\r\n			Beautiful, durable, and sleeker than ever, iPod classic now features an anodized aluminum and polished stainless steel enclosure with rounded edges.&lt;/p&gt;\r\n	&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;!-- cpt_container_end --&gt;', '', 'iPod Classic', '', ''),
+(49, 1, 'Samsung Galaxy Tab 10.1', '&lt;p&gt;\r\n	Samsung Galaxy Tab 10.1, is the world&amp;rsquo;s thinnest tablet, measuring 8.6 mm thickness, running with Android 3.0 Honeycomb OS on a 1GHz dual-core Tegra 2 processor, similar to its younger brother Samsung Galaxy Tab 8.9.&lt;/p&gt;\r\n&lt;p&gt;\r\n	Samsung Galaxy Tab 10.1 gives pure Android 3.0 experience, adding its new TouchWiz UX or TouchWiz 4.0 &amp;ndash; includes a live panel, which lets you to customize with different content, such as your pictures, bookmarks, and social feeds, sporting a 10.1 inches WXGA capacitive touch screen with 1280 x 800 pixels of resolution, equipped with 3 megapixel rear camera with LED flash and a 2 megapixel front camera, HSPA+ connectivity up to 21Mbps, 720p HD video recording capability, 1080p HD playback, DLNA support, Bluetooth 2.1, USB 2.0, gyroscope, Wi-Fi 802.11 a/b/g/n, micro-SD slot, 3.5mm headphone jack, and SIM slot, including the Samsung Stick &amp;ndash; a Bluetooth microphone that can be carried in a pocket like a pen and sound dock with powered subwoofer.&lt;/p&gt;\r\n&lt;p&gt;\r\n	Samsung Galaxy Tab 10.1 will come in 16GB / 32GB / 64GB verities and pre-loaded with Social Hub, Reader&amp;rsquo;s Hub, Music Hub and Samsung Mini Apps Tray &amp;ndash; which gives you access to more commonly used apps to help ease multitasking and it is capable of Adobe Flash Player 10.2, powered by 6860mAh battery that gives you 10hours of video-playback time.&amp;nbsp;&amp;auml;&amp;ouml;&lt;/p&gt;\r\n', '', 'Samsung Galaxy Tab 10.1', '', ''),
+(49, 2, 'Samsung Galaxy Tab 10.1', '&lt;p&gt;\r\n	Samsung Galaxy Tab 10.1, is the world&amp;rsquo;s thinnest tablet, measuring 8.6 mm thickness, running with Android 3.0 Honeycomb OS on a 1GHz dual-core Tegra 2 processor, similar to its younger brother Samsung Galaxy Tab 8.9.&lt;/p&gt;\r\n&lt;p&gt;\r\n	Samsung Galaxy Tab 10.1 gives pure Android 3.0 experience, adding its new TouchWiz UX or TouchWiz 4.0 &amp;ndash; includes a live panel, which lets you to customize with different content, such as your pictures, bookmarks, and social feeds, sporting a 10.1 inches WXGA capacitive touch screen with 1280 x 800 pixels of resolution, equipped with 3 megapixel rear camera with LED flash and a 2 megapixel front camera, HSPA+ connectivity up to 21Mbps, 720p HD video recording capability, 1080p HD playback, DLNA support, Bluetooth 2.1, USB 2.0, gyroscope, Wi-Fi 802.11 a/b/g/n, micro-SD slot, 3.5mm headphone jack, and SIM slot, including the Samsung Stick &amp;ndash; a Bluetooth microphone that can be carried in a pocket like a pen and sound dock with powered subwoofer.&lt;/p&gt;\r\n&lt;p&gt;\r\n	Samsung Galaxy Tab 10.1 will come in 16GB / 32GB / 64GB verities and pre-loaded with Social Hub, Reader&amp;rsquo;s Hub, Music Hub and Samsung Mini Apps Tray &amp;ndash; which gives you access to more commonly used apps to help ease multitasking and it is capable of Adobe Flash Player 10.2, powered by 6860mAh battery that gives you 10hours of video-playback time.&amp;nbsp;&amp;auml;&amp;ouml;&lt;/p&gt;\r\n', '', 'Samsung Galaxy Tab 10.1', '', '');
 
 -- --------------------------------------------------------
 
@@ -3163,6 +3948,7 @@ INSERT INTO `oc_product_description` (`product_id`, `language_id`, `name`, `desc
 -- Table structure for table `oc_product_discount`
 --
 
+DROP TABLE IF EXISTS `oc_product_discount`;
 CREATE TABLE `oc_product_discount` (
   `product_discount_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
@@ -3174,6 +3960,11 @@ CREATE TABLE `oc_product_discount` (
   `date_end` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_product_discount`
+--
+
+TRUNCATE TABLE `oc_product_discount`;
 --
 -- Dumping data for table `oc_product_discount`
 --
@@ -3189,17 +3980,24 @@ INSERT INTO `oc_product_discount` (`product_discount_id`, `product_id`, `custome
 -- Table structure for table `oc_product_filter`
 --
 
+DROP TABLE IF EXISTS `oc_product_filter`;
 CREATE TABLE `oc_product_filter` (
   `product_id` int(11) NOT NULL,
   `filter_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_product_filter`
+--
+
+TRUNCATE TABLE `oc_product_filter`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_product_image`
 --
 
+DROP TABLE IF EXISTS `oc_product_image`;
 CREATE TABLE `oc_product_image` (
   `product_image_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
@@ -3207,6 +4005,11 @@ CREATE TABLE `oc_product_image` (
   `sort_order` int(3) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_product_image`
+--
+
+TRUNCATE TABLE `oc_product_image`;
 --
 -- Dumping data for table `oc_product_image`
 --
@@ -3280,6 +4083,7 @@ INSERT INTO `oc_product_image` (`product_image_id`, `product_id`, `image`, `sort
 -- Table structure for table `oc_product_option`
 --
 
+DROP TABLE IF EXISTS `oc_product_option`;
 CREATE TABLE `oc_product_option` (
   `product_option_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
@@ -3288,6 +4092,11 @@ CREATE TABLE `oc_product_option` (
   `required` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_product_option`
+--
+
+TRUNCATE TABLE `oc_product_option`;
 --
 -- Dumping data for table `oc_product_option`
 --
@@ -3312,6 +4121,7 @@ INSERT INTO `oc_product_option` (`product_option_id`, `product_id`, `option_id`,
 -- Table structure for table `oc_product_option_value`
 --
 
+DROP TABLE IF EXISTS `oc_product_option_value`;
 CREATE TABLE `oc_product_option_value` (
   `product_option_value_id` int(11) NOT NULL,
   `product_option_id` int(11) NOT NULL,
@@ -3328,6 +4138,11 @@ CREATE TABLE `oc_product_option_value` (
   `weight_prefix` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_product_option_value`
+--
+
+TRUNCATE TABLE `oc_product_option_value`;
 --
 -- Dumping data for table `oc_product_option_value`
 --
@@ -3356,11 +4171,17 @@ INSERT INTO `oc_product_option_value` (`product_option_value_id`, `product_optio
 -- Table structure for table `oc_product_related`
 --
 
+DROP TABLE IF EXISTS `oc_product_related`;
 CREATE TABLE `oc_product_related` (
   `product_id` int(11) NOT NULL,
   `related_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_product_related`
+--
+
+TRUNCATE TABLE `oc_product_related`;
 --
 -- Dumping data for table `oc_product_related`
 --
@@ -3377,6 +4198,7 @@ INSERT INTO `oc_product_related` (`product_id`, `related_id`) VALUES
 -- Table structure for table `oc_product_report`
 --
 
+DROP TABLE IF EXISTS `oc_product_report`;
 CREATE TABLE `oc_product_report` (
   `product_report_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
@@ -3386,12 +4208,18 @@ CREATE TABLE `oc_product_report` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_product_report`
+--
+
+TRUNCATE TABLE `oc_product_report`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_product_reward`
 --
 
+DROP TABLE IF EXISTS `oc_product_reward`;
 CREATE TABLE `oc_product_reward` (
   `product_reward_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL DEFAULT 0,
@@ -3399,6 +4227,11 @@ CREATE TABLE `oc_product_reward` (
   `points` int(8) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_product_reward`
+--
+
+TRUNCATE TABLE `oc_product_reward`;
 --
 -- Dumping data for table `oc_product_reward`
 --
@@ -3430,6 +4263,7 @@ INSERT INTO `oc_product_reward` (`product_reward_id`, `product_id`, `customer_gr
 -- Table structure for table `oc_product_special`
 --
 
+DROP TABLE IF EXISTS `oc_product_special`;
 CREATE TABLE `oc_product_special` (
   `product_special_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
@@ -3440,6 +4274,11 @@ CREATE TABLE `oc_product_special` (
   `date_end` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_product_special`
+--
+
+TRUNCATE TABLE `oc_product_special`;
 --
 -- Dumping data for table `oc_product_special`
 --
@@ -3455,6 +4294,7 @@ INSERT INTO `oc_product_special` (`product_special_id`, `product_id`, `customer_
 -- Table structure for table `oc_product_subscription`
 --
 
+DROP TABLE IF EXISTS `oc_product_subscription`;
 CREATE TABLE `oc_product_subscription` (
   `product_id` int(11) NOT NULL,
   `subscription_plan_id` int(11) NOT NULL,
@@ -3463,17 +4303,28 @@ CREATE TABLE `oc_product_subscription` (
   `price` decimal(10,4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_product_subscription`
+--
+
+TRUNCATE TABLE `oc_product_subscription`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_product_to_category`
 --
 
+DROP TABLE IF EXISTS `oc_product_to_category`;
 CREATE TABLE `oc_product_to_category` (
   `product_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_product_to_category`
+--
+
+TRUNCATE TABLE `oc_product_to_category`;
 --
 -- Dumping data for table `oc_product_to_category`
 --
@@ -3516,34 +4367,52 @@ INSERT INTO `oc_product_to_category` (`product_id`, `category_id`) VALUES
 -- Table structure for table `oc_product_to_download`
 --
 
+DROP TABLE IF EXISTS `oc_product_to_download`;
 CREATE TABLE `oc_product_to_download` (
   `product_id` int(11) NOT NULL,
   `download_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_product_to_download`
+--
+
+TRUNCATE TABLE `oc_product_to_download`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_product_to_layout`
 --
 
+DROP TABLE IF EXISTS `oc_product_to_layout`;
 CREATE TABLE `oc_product_to_layout` (
   `product_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL,
   `layout_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_product_to_layout`
+--
+
+TRUNCATE TABLE `oc_product_to_layout`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_product_to_store`
 --
 
+DROP TABLE IF EXISTS `oc_product_to_store`;
 CREATE TABLE `oc_product_to_store` (
   `product_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_product_to_store`
+--
+
+TRUNCATE TABLE `oc_product_to_store`;
 --
 -- Dumping data for table `oc_product_to_store`
 --
@@ -3575,17 +4444,24 @@ INSERT INTO `oc_product_to_store` (`product_id`, `store_id`) VALUES
 -- Table structure for table `oc_product_viewed`
 --
 
+DROP TABLE IF EXISTS `oc_product_viewed`;
 CREATE TABLE `oc_product_viewed` (
   `product_id` int(11) NOT NULL,
   `viewed` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_product_viewed`
+--
+
+TRUNCATE TABLE `oc_product_viewed`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_return`
 --
 
+DROP TABLE IF EXISTS `oc_return`;
 CREATE TABLE `oc_return` (
   `return_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
@@ -3608,12 +4484,18 @@ CREATE TABLE `oc_return` (
   `date_modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_return`
+--
+
+TRUNCATE TABLE `oc_return`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_return_action`
 --
 
+DROP TABLE IF EXISTS `oc_return_action`;
 CREATE TABLE `oc_return_action` (
   `return_action_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL DEFAULT 0,
@@ -3621,13 +4503,21 @@ CREATE TABLE `oc_return_action` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
+-- Truncate table before insert `oc_return_action`
+--
+
+TRUNCATE TABLE `oc_return_action`;
+--
 -- Dumping data for table `oc_return_action`
 --
 
 INSERT INTO `oc_return_action` (`return_action_id`, `language_id`, `name`) VALUES
 (1, 1, 'Refunded'),
+(1, 2, 'Refunded'),
 (2, 1, 'Credit Issued'),
-(3, 1, 'Replacement Sent');
+(2, 2, 'Credit Issued'),
+(3, 1, 'Replacement Sent'),
+(3, 2, 'Replacement Sent');
 
 -- --------------------------------------------------------
 
@@ -3635,6 +4525,7 @@ INSERT INTO `oc_return_action` (`return_action_id`, `language_id`, `name`) VALUE
 -- Table structure for table `oc_return_history`
 --
 
+DROP TABLE IF EXISTS `oc_return_history`;
 CREATE TABLE `oc_return_history` (
   `return_history_id` int(11) NOT NULL,
   `return_id` int(11) NOT NULL,
@@ -3644,12 +4535,18 @@ CREATE TABLE `oc_return_history` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_return_history`
+--
+
+TRUNCATE TABLE `oc_return_history`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_return_reason`
 --
 
+DROP TABLE IF EXISTS `oc_return_reason`;
 CREATE TABLE `oc_return_reason` (
   `return_reason_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL DEFAULT 0,
@@ -3657,15 +4554,25 @@ CREATE TABLE `oc_return_reason` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
+-- Truncate table before insert `oc_return_reason`
+--
+
+TRUNCATE TABLE `oc_return_reason`;
+--
 -- Dumping data for table `oc_return_reason`
 --
 
 INSERT INTO `oc_return_reason` (`return_reason_id`, `language_id`, `name`) VALUES
 (1, 1, 'Dead On Arrival'),
+(1, 2, 'Dead On Arrival'),
 (2, 1, 'Received Wrong Item'),
+(2, 2, 'Received Wrong Item'),
 (3, 1, 'Order Error'),
+(3, 2, 'Order Error'),
 (4, 1, 'Faulty, please supply details'),
-(5, 1, 'Other, please supply details');
+(4, 2, 'Faulty, please supply details'),
+(5, 1, 'Other, please supply details'),
+(5, 2, 'Other, please supply details');
 
 -- --------------------------------------------------------
 
@@ -3673,6 +4580,7 @@ INSERT INTO `oc_return_reason` (`return_reason_id`, `language_id`, `name`) VALUE
 -- Table structure for table `oc_return_status`
 --
 
+DROP TABLE IF EXISTS `oc_return_status`;
 CREATE TABLE `oc_return_status` (
   `return_status_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL DEFAULT 0,
@@ -3680,13 +4588,21 @@ CREATE TABLE `oc_return_status` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
+-- Truncate table before insert `oc_return_status`
+--
+
+TRUNCATE TABLE `oc_return_status`;
+--
 -- Dumping data for table `oc_return_status`
 --
 
 INSERT INTO `oc_return_status` (`return_status_id`, `language_id`, `name`) VALUES
 (1, 1, 'Pending'),
+(1, 2, 'Pending'),
 (2, 1, 'Awaiting Products'),
-(3, 1, 'Complete');
+(2, 2, 'Awaiting Products'),
+(3, 1, 'Complete'),
+(3, 2, 'Complete');
 
 -- --------------------------------------------------------
 
@@ -3694,6 +4610,7 @@ INSERT INTO `oc_return_status` (`return_status_id`, `language_id`, `name`) VALUE
 -- Table structure for table `oc_review`
 --
 
+DROP TABLE IF EXISTS `oc_review`;
 CREATE TABLE `oc_review` (
   `review_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
@@ -3706,12 +4623,18 @@ CREATE TABLE `oc_review` (
   `date_modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_review`
+--
+
+TRUNCATE TABLE `oc_review`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_seo_url`
 --
 
+DROP TABLE IF EXISTS `oc_seo_url`;
 CREATE TABLE `oc_seo_url` (
   `seo_url_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL,
@@ -3722,6 +4645,11 @@ CREATE TABLE `oc_seo_url` (
   `sort_order` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_seo_url`
+--
+
+TRUNCATE TABLE `oc_seo_url`;
 --
 -- Dumping data for table `oc_seo_url`
 --
@@ -3801,7 +4729,82 @@ INSERT INTO `oc_seo_url` (`seo_url_id`, `store_id`, `language_id`, `key`, `value
 (72, 0, 1, 'route', 'information/information', 'information', -1),
 (73, 0, 1, 'route', 'product/product', 'product', -1),
 (74, 0, 1, 'route', 'product/category', 'catalog', -1),
-(75, 0, 1, 'route', 'product/manufacturer', 'brands', -1);
+(75, 0, 1, 'route', 'product/manufacturer', 'brands', -1),
+(76, 0, 2, 'product_id', '47', 'hp-lp3065', 1),
+(77, 0, 2, 'product_id', '48', 'ipod-classic', 1),
+(78, 0, 2, 'product_id', '28', 'htc-touch-hd', 1),
+(79, 0, 2, 'product_id', '43', 'macbook', 1),
+(80, 0, 2, 'product_id', '44', 'macbook-air', 1),
+(81, 0, 2, 'product_id', '45', 'macbook-pro', 1),
+(82, 0, 2, 'product_id', '30', 'canon-eos-5d', 1),
+(83, 0, 2, 'product_id', '31', 'nikon-d300', 1),
+(84, 0, 2, 'product_id', '29', 'palm-treo-pro', 1),
+(85, 0, 2, 'product_id', '35', 'product-8', 1),
+(86, 0, 2, 'product_id', '49', 'samsung-galaxy-tab-10-1', 1),
+(87, 0, 2, 'product_id', '33', 'samsung-syncmaster-941bw', 1),
+(88, 0, 2, 'product_id', '46', 'sony-vaio', 1),
+(89, 0, 2, 'product_id', '41', 'imac', 1),
+(90, 0, 2, 'product_id', '40', 'iphone', 1),
+(91, 0, 2, 'product_id', '36', 'ipod-nano', 1),
+(92, 0, 2, 'product_id', '34', 'ipod-shuffle', 1),
+(93, 0, 2, 'product_id', '32', 'ipod-touch', 1),
+(94, 0, 2, 'product_id', '50', 'apple-4', 1),
+(95, 0, 2, 'product_id', '42', 'apple-cinema', 1),
+(96, 0, 2, 'manufacturer_id', '5', 'htc', 0),
+(97, 0, 2, 'manufacturer_id', '7', 'hewlett-packard', 0),
+(98, 0, 2, 'manufacturer_id', '6', 'palm', 0),
+(99, 0, 2, 'manufacturer_id', '10', 'sony', 0),
+(100, 0, 2, 'manufacturer_id', '9', 'canon', 0),
+(101, 0, 2, 'manufacturer_id', '8', 'apple', 0),
+(102, 0, 2, 'path', '30', 'printer', 0),
+(103, 0, 2, 'path', '20_27', 'desktops/mac', 0),
+(104, 0, 2, 'path', '20_26', 'desktops/pc', 0),
+(105, 0, 2, 'path', '25', 'component', 0),
+(106, 0, 2, 'path', '25_29', 'component/mouse', 0),
+(107, 0, 2, 'path', '33', 'cameras', 0),
+(108, 0, 2, 'path', '25_28', 'component/monitor', 0),
+(109, 0, 2, 'path', '25_28_35', 'component/monitor/test-1', 0),
+(110, 0, 2, 'path', '25_28_36', 'component/monitor/test-2', 0),
+(111, 0, 2, 'path', '25_30', 'component/printers', 0),
+(112, 0, 2, 'path', '25_31', 'component/scanner', 0),
+(113, 0, 2, 'path', '25_32', 'component/web-camera', 0),
+(114, 0, 2, 'path', '20', 'desktops', 0),
+(115, 0, 2, 'path', '18', 'laptop-notebook', 0),
+(116, 0, 2, 'path', '18_46', 'laptop-notebook/macs', 0),
+(117, 0, 2, 'path', '18_45', 'laptop-notebook/windows', 0),
+(118, 0, 2, 'path', '34', 'mp3-players', 0),
+(119, 0, 2, 'path', '34_43', 'mp3-players/test-11', 0),
+(120, 0, 2, 'path', '34_44', 'mp3-players/test-12', 0),
+(121, 0, 2, 'path', '34_47', 'mp3-players/test-15', 0),
+(122, 0, 2, 'path', '34_48', 'mp3-players/test-16', 0),
+(123, 0, 2, 'path', '34_49', 'mp3-players/test-17', 0),
+(124, 0, 2, 'path', '34_50', 'mp3-players/test-18', 0),
+(125, 0, 2, 'path', '34_51', 'mp3-players/test-19', 0),
+(126, 0, 2, 'path', '34_52', 'mp3-players/test-20', 0),
+(127, 0, 2, 'path', '34_52_58', 'mp3-players/test-20/test-25', 0),
+(128, 0, 2, 'path', '34_53', 'mp3-players/test-21', 0),
+(129, 0, 2, 'path', '34_54', 'mp3-players/test-22', 0),
+(130, 0, 2, 'path', '34_55', 'mp3-players/test-23', 0),
+(131, 0, 2, 'path', '34_56', 'mp3-players/test-24', 0),
+(132, 0, 2, 'path', '34_38', 'mp3-players/test-4', 0),
+(133, 0, 2, 'path', '34_37', 'mp3-players/test-5', 0),
+(134, 0, 2, 'path', '34_39', 'mp3-players/test-6', 0),
+(135, 0, 2, 'path', '34_40', 'mp3-players/test-7', 0),
+(136, 0, 2, 'path', '34_41', 'mp3-players/test-8', 0),
+(137, 0, 2, 'path', '34_42', 'mp3-players/test-9', 0),
+(138, 0, 2, 'path', '24', 'smartphone', 0),
+(139, 0, 2, 'path', '17', 'software', 0),
+(140, 0, 2, 'path', '57', 'tablet', 0),
+(141, 0, 2, 'information_id', '1', 'about-us', 0),
+(142, 0, 2, 'information_id', '2', 'terms', 0),
+(143, 0, 2, 'information_id', '4', 'delivery', 0),
+(144, 0, 2, 'information_id', '3', 'privacy', 0),
+(145, 0, 2, 'language', 'en-gb', 'en-gb', -2),
+(146, 0, 2, 'route', 'information/information.info', 'info', 0),
+(147, 0, 2, 'route', 'information/information', 'information', -1),
+(148, 0, 2, 'route', 'product/product', 'product', -1),
+(149, 0, 2, 'route', 'product/category', 'catalog', -1),
+(150, 0, 2, 'route', 'product/manufacturer', 'brands', -1);
 
 -- --------------------------------------------------------
 
@@ -3809,6 +4812,7 @@ INSERT INTO `oc_seo_url` (`seo_url_id`, `store_id`, `language_id`, `key`, `value
 -- Table structure for table `oc_session`
 --
 
+DROP TABLE IF EXISTS `oc_session`;
 CREATE TABLE `oc_session` (
   `session_id` varchar(32) NOT NULL,
   `data` text NOT NULL,
@@ -3816,13 +4820,22 @@ CREATE TABLE `oc_session` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
+-- Truncate table before insert `oc_session`
+--
+
+TRUNCATE TABLE `oc_session`;
+--
 -- Dumping data for table `oc_session`
 --
 
 INSERT INTO `oc_session` (`session_id`, `data`, `expire`) VALUES
-('1473d31b90a4ccd9c9863ab89d', '{\"user_id\":\"1\",\"user_token\":\"06a05e128a09bb69b673fd8852563673\"}', '2024-10-28 14:48:14'),
-('bdc09942184768781e953b1eb3', '{\"currency\":\"USD\",\"login_token\":\"5144905793cc9ada2dafd1e30d\",\"wishlist\":[42],\"review_token\":\"19fec4c14957d7ae6c22e9cf4775c438\"}', '2024-10-28 16:00:21'),
-('d48b68db14a13bf7bc27e334cd', '{\"login_token\":\"3ee0dfe8b86a12c85616d963e655a0e6\"}', '2024-10-28 15:35:38');
+('25f0511a2741f611fd569199da', '{\"user_id\":\"1\",\"user_token\":\"0ec1aaa108071c62ef836cfb0b87dc62\",\"login_token\":\"0a156012821dbf37a09d69c86c1f5647\"}', '2026-04-25 04:07:55'),
+('9629bc081615cc2c2f7e3a163e', '{\"login_token\":\"e4ca2ed1c699fb0dd5d1db561d259f66\"}', '2026-04-25 16:16:14'),
+('ad6d22a7041404f4c5b711c80f', '{\"user_id\":\"1\",\"user_token\":\"7db175a2b12a1cec3414d89cb4d6acd2\"}', '2026-04-25 16:40:39'),
+('cc00cfefe4cb87d59819634cf9', '{\"login_token\":\"d0823059d5d76fdc0fdb163f1f05431e\"}', '2026-04-25 17:13:37'),
+('dbb8198d418548c76487622277', '{\"user_id\":\"1\",\"user_token\":\"4ba97ab3a5c36098abe9f7a71866be1a\"}', '2026-04-25 04:08:07'),
+('de19bb8771fa063c1e49235687', '{\"user_id\":\"1\",\"user_token\":\"f551487bbd52affc2c2573d807b8ecdc\"}', '2026-04-26 03:47:26'),
+('fd6ac2ad732f36999c2b3c3c45', '{\"currency\":\"USD\",\"login_token\":\"34634e5b79ceaeca16b1a6f31e\"}', '2026-04-26 03:40:42');
 
 -- --------------------------------------------------------
 
@@ -3830,6 +4843,7 @@ INSERT INTO `oc_session` (`session_id`, `data`, `expire`) VALUES
 -- Table structure for table `oc_setting`
 --
 
+DROP TABLE IF EXISTS `oc_setting`;
 CREATE TABLE `oc_setting` (
   `setting_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL DEFAULT 0,
@@ -3839,6 +4853,11 @@ CREATE TABLE `oc_setting` (
   `serialized` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_setting`
+--
+
+TRUNCATE TABLE `oc_setting`;
 --
 -- Dumping data for table `oc_setting`
 --
@@ -4065,6 +5084,7 @@ INSERT INTO `oc_setting` (`setting_id`, `store_id`, `code`, `key`, `value`, `ser
 -- Table structure for table `oc_startup`
 --
 
+DROP TABLE IF EXISTS `oc_startup`;
 CREATE TABLE `oc_startup` (
   `startup_id` int(11) NOT NULL,
   `code` varchar(64) NOT NULL,
@@ -4073,18 +5093,29 @@ CREATE TABLE `oc_startup` (
   `sort_order` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_startup`
+--
+
+TRUNCATE TABLE `oc_startup`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_statistics`
 --
 
+DROP TABLE IF EXISTS `oc_statistics`;
 CREATE TABLE `oc_statistics` (
   `statistics_id` int(11) NOT NULL,
   `code` varchar(64) NOT NULL,
   `value` decimal(15,4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_statistics`
+--
+
+TRUNCATE TABLE `oc_statistics`;
 --
 -- Dumping data for table `oc_statistics`
 --
@@ -4104,6 +5135,7 @@ INSERT INTO `oc_statistics` (`statistics_id`, `code`, `value`) VALUES
 -- Table structure for table `oc_stock_status`
 --
 
+DROP TABLE IF EXISTS `oc_stock_status`;
 CREATE TABLE `oc_stock_status` (
   `stock_status_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
@@ -4111,14 +5143,23 @@ CREATE TABLE `oc_stock_status` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
+-- Truncate table before insert `oc_stock_status`
+--
+
+TRUNCATE TABLE `oc_stock_status`;
+--
 -- Dumping data for table `oc_stock_status`
 --
 
 INSERT INTO `oc_stock_status` (`stock_status_id`, `language_id`, `name`) VALUES
 (5, 1, 'Out Of Stock'),
+(5, 2, 'Out Of Stock'),
 (6, 1, '2-3 Days'),
+(6, 2, '2-3 Days'),
 (7, 1, 'In Stock'),
-(8, 1, 'Pre-Order');
+(7, 2, 'In Stock'),
+(8, 1, 'Pre-Order'),
+(8, 2, 'Pre-Order');
 
 -- --------------------------------------------------------
 
@@ -4126,18 +5167,25 @@ INSERT INTO `oc_stock_status` (`stock_status_id`, `language_id`, `name`) VALUES
 -- Table structure for table `oc_store`
 --
 
+DROP TABLE IF EXISTS `oc_store`;
 CREATE TABLE `oc_store` (
   `store_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
   `url` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_store`
+--
+
+TRUNCATE TABLE `oc_store`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_subscription`
 --
 
+DROP TABLE IF EXISTS `oc_subscription`;
 CREATE TABLE `oc_subscription` (
   `subscription_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
@@ -4178,12 +5226,18 @@ CREATE TABLE `oc_subscription` (
   `date_modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_subscription`
+--
+
+TRUNCATE TABLE `oc_subscription`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_subscription_history`
 --
 
+DROP TABLE IF EXISTS `oc_subscription_history`;
 CREATE TABLE `oc_subscription_history` (
   `subscription_history_id` int(11) NOT NULL,
   `subscription_id` int(11) NOT NULL,
@@ -4193,12 +5247,18 @@ CREATE TABLE `oc_subscription_history` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_subscription_history`
+--
+
+TRUNCATE TABLE `oc_subscription_history`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_subscription_plan`
 --
 
+DROP TABLE IF EXISTS `oc_subscription_plan`;
 CREATE TABLE `oc_subscription_plan` (
   `subscription_plan_id` int(11) NOT NULL,
   `trial_frequency` enum('day','week','semi_month','month','year') NOT NULL,
@@ -4212,6 +5272,11 @@ CREATE TABLE `oc_subscription_plan` (
   `sort_order` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_subscription_plan`
+--
+
+TRUNCATE TABLE `oc_subscription_plan`;
 --
 -- Dumping data for table `oc_subscription_plan`
 --
@@ -4227,12 +5292,18 @@ INSERT INTO `oc_subscription_plan` (`subscription_plan_id`, `trial_frequency`, `
 -- Table structure for table `oc_subscription_plan_description`
 --
 
+DROP TABLE IF EXISTS `oc_subscription_plan_description`;
 CREATE TABLE `oc_subscription_plan_description` (
   `subscription_plan_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_subscription_plan_description`
+--
+
+TRUNCATE TABLE `oc_subscription_plan_description`;
 --
 -- Dumping data for table `oc_subscription_plan_description`
 --
@@ -4248,6 +5319,7 @@ INSERT INTO `oc_subscription_plan_description` (`subscription_plan_id`, `languag
 -- Table structure for table `oc_subscription_status`
 --
 
+DROP TABLE IF EXISTS `oc_subscription_status`;
 CREATE TABLE `oc_subscription_status` (
   `subscription_status_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
@@ -4255,17 +5327,29 @@ CREATE TABLE `oc_subscription_status` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
+-- Truncate table before insert `oc_subscription_status`
+--
+
+TRUNCATE TABLE `oc_subscription_status`;
+--
 -- Dumping data for table `oc_subscription_status`
 --
 
 INSERT INTO `oc_subscription_status` (`subscription_status_id`, `language_id`, `name`) VALUES
 (1, 1, 'Pending'),
+(1, 2, 'Pending'),
 (2, 1, 'Active'),
+(2, 2, 'Active'),
 (3, 1, 'Expired'),
+(3, 2, 'Expired'),
 (4, 1, 'Suspended'),
+(4, 2, 'Suspended'),
 (5, 1, 'Cancelled'),
+(5, 2, 'Cancelled'),
 (6, 1, 'Failed'),
-(7, 1, 'Denied');
+(6, 2, 'Failed'),
+(7, 1, 'Denied'),
+(7, 2, 'Denied');
 
 -- --------------------------------------------------------
 
@@ -4273,6 +5357,7 @@ INSERT INTO `oc_subscription_status` (`subscription_status_id`, `language_id`, `
 -- Table structure for table `oc_tax_class`
 --
 
+DROP TABLE IF EXISTS `oc_tax_class`;
 CREATE TABLE `oc_tax_class` (
   `tax_class_id` int(11) NOT NULL,
   `title` varchar(32) NOT NULL,
@@ -4281,6 +5366,11 @@ CREATE TABLE `oc_tax_class` (
   `date_modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_tax_class`
+--
+
+TRUNCATE TABLE `oc_tax_class`;
 --
 -- Dumping data for table `oc_tax_class`
 --
@@ -4295,6 +5385,7 @@ INSERT INTO `oc_tax_class` (`tax_class_id`, `title`, `description`, `date_added`
 -- Table structure for table `oc_tax_rate`
 --
 
+DROP TABLE IF EXISTS `oc_tax_rate`;
 CREATE TABLE `oc_tax_rate` (
   `tax_rate_id` int(11) NOT NULL,
   `geo_zone_id` int(11) NOT NULL DEFAULT 0,
@@ -4305,6 +5396,11 @@ CREATE TABLE `oc_tax_rate` (
   `date_modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_tax_rate`
+--
+
+TRUNCATE TABLE `oc_tax_rate`;
 --
 -- Dumping data for table `oc_tax_rate`
 --
@@ -4319,11 +5415,17 @@ INSERT INTO `oc_tax_rate` (`tax_rate_id`, `geo_zone_id`, `name`, `rate`, `type`,
 -- Table structure for table `oc_tax_rate_to_customer_group`
 --
 
+DROP TABLE IF EXISTS `oc_tax_rate_to_customer_group`;
 CREATE TABLE `oc_tax_rate_to_customer_group` (
   `tax_rate_id` int(11) NOT NULL,
   `customer_group_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_tax_rate_to_customer_group`
+--
+
+TRUNCATE TABLE `oc_tax_rate_to_customer_group`;
 --
 -- Dumping data for table `oc_tax_rate_to_customer_group`
 --
@@ -4338,6 +5440,7 @@ INSERT INTO `oc_tax_rate_to_customer_group` (`tax_rate_id`, `customer_group_id`)
 -- Table structure for table `oc_tax_rule`
 --
 
+DROP TABLE IF EXISTS `oc_tax_rule`;
 CREATE TABLE `oc_tax_rule` (
   `tax_rule_id` int(11) NOT NULL,
   `tax_class_id` int(11) NOT NULL,
@@ -4346,6 +5449,11 @@ CREATE TABLE `oc_tax_rule` (
   `priority` int(5) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_tax_rule`
+--
+
+TRUNCATE TABLE `oc_tax_rule`;
 --
 -- Dumping data for table `oc_tax_rule`
 --
@@ -4362,6 +5470,7 @@ INSERT INTO `oc_tax_rule` (`tax_rule_id`, `tax_class_id`, `tax_rate_id`, `based`
 -- Table structure for table `oc_theme`
 --
 
+DROP TABLE IF EXISTS `oc_theme`;
 CREATE TABLE `oc_theme` (
   `theme_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL,
@@ -4370,24 +5479,36 @@ CREATE TABLE `oc_theme` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_theme`
+--
+
+TRUNCATE TABLE `oc_theme`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_topic`
 --
 
+DROP TABLE IF EXISTS `oc_topic`;
 CREATE TABLE `oc_topic` (
   `topic_id` int(11) NOT NULL,
   `sort_order` int(3) NOT NULL DEFAULT 0,
   `status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_topic`
+--
+
+TRUNCATE TABLE `oc_topic`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_topic_description`
 --
 
+DROP TABLE IF EXISTS `oc_topic_description`;
 CREATE TABLE `oc_topic_description` (
   `topic_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
@@ -4399,23 +5520,35 @@ CREATE TABLE `oc_topic_description` (
   `meta_keyword` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_topic_description`
+--
+
+TRUNCATE TABLE `oc_topic_description`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_topic_to_store`
 --
 
+DROP TABLE IF EXISTS `oc_topic_to_store`;
 CREATE TABLE `oc_topic_to_store` (
   `topic_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_topic_to_store`
+--
+
+TRUNCATE TABLE `oc_topic_to_store`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_translation`
 --
 
+DROP TABLE IF EXISTS `oc_translation`;
 CREATE TABLE `oc_translation` (
   `translation_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL,
@@ -4426,12 +5559,18 @@ CREATE TABLE `oc_translation` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_translation`
+--
+
+TRUNCATE TABLE `oc_translation`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_upload`
 --
 
+DROP TABLE IF EXISTS `oc_upload`;
 CREATE TABLE `oc_upload` (
   `upload_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -4440,12 +5579,18 @@ CREATE TABLE `oc_upload` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_upload`
+--
+
+TRUNCATE TABLE `oc_upload`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_user`
 --
 
+DROP TABLE IF EXISTS `oc_user`;
 CREATE TABLE `oc_user` (
   `user_id` int(11) NOT NULL,
   `user_group_id` int(11) NOT NULL,
@@ -4462,11 +5607,22 @@ CREATE TABLE `oc_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
+-- Truncate table before insert `oc_user`
+--
+
+TRUNCATE TABLE `oc_user`;
+--
 -- Dumping data for table `oc_user`
 --
 
 INSERT INTO `oc_user` (`user_id`, `user_group_id`, `username`, `password`, `firstname`, `lastname`, `email`, `image`, `code`, `ip`, `status`, `date_added`) VALUES
-(1, 1, 'admin', '$2y$10$AM5JNmWzTkrKv.idOfhBAOH1GruvUFZYkybQ1SQIWff7wGTOk9U86', 'John', 'Doe', 'dangquangk53a3@gmail.com', '', '', '::1', 1, '2024-10-27 14:45:37');
+(1, 1, 'admin', '$2y$10$AM5JNmWzTkrKv.idOfhBAOH1GruvUFZYkybQ1SQIWff7wGTOk9U86', 'John', 'Doe', 'dangquangk53a3@gmail.com', '', '', '113.23.123.200', 1, '2024-10-27 14:45:37'),
+(3, 1, 'testuser', '$2y$10$CYrC4xTOFqVW4faCs8yj2eSHYpNtjJKsKlEXsfsBRyFVw1hjXRVz6', 'Test', 'User', 'testuser@test.com', '', '', '', 0, '2026-02-01 14:54:33'),
+(4, 1, 'tuser', '$2y$10$tBtQ8xVtGMYYb0dqJLkJresDDltephkz1LC7EiuaEtEoRWqMqOUGm', 't', 'user', 'tuser@yopmail.com', '', '', '1.55.49.54', 1, '2026-04-19 13:04:36'),
+(5, 1, 'testusername', '$2y$10$VrnWqnFarFekCxkveQeS9ehAPX6vOqxF/GcttWTQw4tKFi1epY.Pu', 'First', 'Last', 'testuser@gmail.com', '', '', '118.70.231.134', 1, '2026-04-20 07:21:45'),
+(8, 1, 'user1', '$2y$10$H.AvuCgfrMGSgXtLQ.YHoehTNipVoRLYBtPTZwecLvReqZ/5PaQoa', 'user1', 'user1', 'user1@test.com', '', '', '171.247.83.212', 1, '2026-04-20 09:19:26'),
+(9, 1, 'user7', '$2y$10$WrMs0jjgUwJx.Cu1abSFsOaVzSJbVtZMCVvB75VSSMsBKN16vKfAG', 'user', 'user7', 'testuser7@gmail.com', '', '', '171.243.49.20', 1, '2026-04-20 10:25:44'),
+(10, 2, 'Lys', '$2y$10$DH.pDWDlnBLMpfEDdlSFQeooNldqa/a.IYoMVpyoKOaI.D5xodqG2', 'Ly', 'Vu', 'vly@gmail.com', '', '', '118.70.26.63', 1, '2026-04-20 10:39:17');
 
 -- --------------------------------------------------------
 
@@ -4474,6 +5630,7 @@ INSERT INTO `oc_user` (`user_id`, `user_group_id`, `username`, `password`, `firs
 -- Table structure for table `oc_user_authorize`
 --
 
+DROP TABLE IF EXISTS `oc_user_authorize`;
 CREATE TABLE `oc_user_authorize` (
   `user_authorize_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -4485,12 +5642,18 @@ CREATE TABLE `oc_user_authorize` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_user_authorize`
+--
+
+TRUNCATE TABLE `oc_user_authorize`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_user_group`
 --
 
+DROP TABLE IF EXISTS `oc_user_group`;
 CREATE TABLE `oc_user_group` (
   `user_group_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
@@ -4498,12 +5661,18 @@ CREATE TABLE `oc_user_group` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
+-- Truncate table before insert `oc_user_group`
+--
+
+TRUNCATE TABLE `oc_user_group`;
+--
 -- Dumping data for table `oc_user_group`
 --
 
 INSERT INTO `oc_user_group` (`user_group_id`, `name`, `permission`) VALUES
 (1, 'Administrator', '{\"access\":[\"catalog\\/attribute\",\"catalog\\/attribute_group\",\"catalog\\/category\",\"catalog\\/download\",\"catalog\\/filter\",\"catalog\\/information\",\"catalog\\/manufacturer\",\"catalog\\/option\",\"catalog\\/product\",\"catalog\\/review\",\"catalog\\/subscription_plan\",\"common\\/column_left\",\"common\\/developer\",\"common\\/filemanager\",\"common\\/pagination\",\"common\\/security\",\"cron\\/cron\",\"cron\\/currency\",\"cron\\/gdpr\",\"cron\\/subscription\",\"customer\\/custom_field\",\"customer\\/customer\",\"customer\\/customer_approval\",\"customer\\/customer_group\",\"customer\\/gdpr\",\"design\\/banner\",\"design\\/layout\",\"design\\/seo_url\",\"design\\/theme\",\"design\\/translation\",\"error\\/exception\",\"extension\\/analytics\",\"extension\\/captcha\",\"extension\\/currency\",\"extension\\/dashboard\",\"extension\\/feed\",\"extension\\/fraud\",\"extension\\/language\",\"extension\\/marketplace\",\"extension\\/module\",\"extension\\/other\",\"extension\\/payment\",\"extension\\/report\",\"extension\\/shipping\",\"extension\\/theme\",\"extension\\/total\",\"localisation\\/address_format\",\"localisation\\/country\",\"localisation\\/currency\",\"localisation\\/geo_zone\",\"localisation\\/language\",\"localisation\\/length_class\",\"localisation\\/location\",\"localisation\\/order_status\",\"localisation\\/return_action\",\"localisation\\/return_reason\",\"localisation\\/return_status\",\"localisation\\/stock_status\",\"localisation\\/subscription_status\",\"localisation\\/tax_class\",\"localisation\\/tax_rate\",\"localisation\\/weight_class\",\"localisation\\/zone\",\"mail\\/affiliate\",\"mail\\/authorize\",\"mail\\/customer\",\"mail\\/forgotten\",\"mail\\/gdpr\",\"mail\\/returns\",\"mail\\/reward\",\"mail\\/subscription\",\"mail\\/transaction\",\"mail\\/voucher\",\"marketing\\/affiliate\",\"marketing\\/contact\",\"marketing\\/coupon\",\"marketing\\/marketing\",\"marketplace\\/api\",\"marketplace\\/cron\",\"marketplace\\/event\",\"marketplace\\/extension\",\"marketplace\\/installer\",\"marketplace\\/marketplace\",\"marketplace\\/promotion\",\"marketplace\\/startup\",\"report\\/online\",\"report\\/report\",\"report\\/statistics\",\"sale\\/order\",\"sale\\/returns\",\"sale\\/subscription\",\"sale\\/voucher\",\"sale\\/voucher_theme\",\"setting\\/setting\",\"setting\\/store\",\"startup\\/authorize\",\"tool\\/backup\",\"tool\\/log\",\"tool\\/notification\",\"tool\\/upgrade\",\"tool\\/upload\",\"user\\/api\",\"user\\/profile\",\"user\\/user\",\"user\\/user_permission\",\"extension\\/opencart\\/captcha\\/basic\",\"extension\\/opencart\\/currency\\/ecb\",\"extension\\/opencart\\/currency\\/fixer\",\"extension\\/opencart\\/dashboard\\/activity\",\"extension\\/opencart\\/dashboard\\/chart\",\"extension\\/opencart\\/dashboard\\/customer\",\"extension\\/opencart\\/dashboard\\/map\",\"extension\\/opencart\\/dashboard\\/online\",\"extension\\/opencart\\/dashboard\\/order\",\"extension\\/opencart\\/dashboard\\/recent\",\"extension\\/opencart\\/dashboard\\/sale\",\"extension\\/opencart\\/fraud\\/ip\",\"extension\\/opencart\\/module\\/account\",\"extension\\/opencart\\/module\\/banner\",\"extension\\/opencart\\/module\\/bestseller\",\"extension\\/opencart\\/module\\/category\",\"extension\\/opencart\\/module\\/featured\",\"extension\\/opencart\\/module\\/filter\",\"extension\\/opencart\\/module\\/html\",\"extension\\/opencart\\/module\\/information\",\"extension\\/opencart\\/module\\/latest\",\"extension\\/opencart\\/module\\/special\",\"extension\\/opencart\\/module\\/store\",\"extension\\/opencart\\/payment\\/bank_transfer\",\"extension\\/opencart\\/payment\\/cheque\",\"extension\\/opencart\\/payment\\/cod\",\"extension\\/opencart\\/payment\\/free_checkout\",\"extension\\/opencart\\/report\\/customer\",\"extension\\/opencart\\/report\\/customer_activity\",\"extension\\/opencart\\/report\\/customer_order\",\"extension\\/opencart\\/report\\/customer_reward\",\"extension\\/opencart\\/report\\/customer_search\",\"extension\\/opencart\\/report\\/customer_transaction\",\"extension\\/opencart\\/report\\/customer_subscription\",\"extension\\/opencart\\/report\\/marketing\",\"extension\\/opencart\\/report\\/product_purchased\",\"extension\\/opencart\\/report\\/product_viewed\",\"extension\\/opencart\\/report\\/sale_coupon\",\"extension\\/opencart\\/report\\/sale_order\",\"extension\\/opencart\\/report\\/sale_return\",\"extension\\/opencart\\/report\\/sale_shipping\",\"extension\\/opencart\\/report\\/sale_tax\",\"extension\\/opencart\\/shipping\\/flat\",\"extension\\/opencart\\/shipping\\/free\",\"extension\\/opencart\\/shipping\\/item\",\"extension\\/opencart\\/shipping\\/pickup\",\"extension\\/opencart\\/shipping\\/weight\",\"extension\\/opencart\\/theme\\/basic\",\"extension\\/opencart\\/total\\/coupon\",\"extension\\/opencart\\/total\\/credit\",\"extension\\/opencart\\/total\\/handling\",\"extension\\/opencart\\/total\\/low_order_fee\",\"extension\\/opencart\\/total\\/reward\",\"extension\\/opencart\\/total\\/shipping\",\"extension\\/opencart\\/total\\/sub_total\",\"extension\\/opencart\\/total\\/tax\",\"extension\\/opencart\\/total\\/total\",\"extension\\/opencart\\/total\\/voucher\"],\"modify\":[\"catalog\\/attribute\",\"catalog\\/attribute_group\",\"catalog\\/category\",\"catalog\\/download\",\"catalog\\/filter\",\"catalog\\/information\",\"catalog\\/manufacturer\",\"catalog\\/option\",\"catalog\\/product\",\"catalog\\/review\",\"catalog\\/subscription_plan\",\"common\\/column_left\",\"common\\/developer\",\"common\\/filemanager\",\"common\\/pagination\",\"common\\/security\",\"cron\\/cron\",\"cron\\/currency\",\"cron\\/gdpr\",\"cron\\/subscription\",\"customer\\/custom_field\",\"customer\\/customer\",\"customer\\/customer_approval\",\"customer\\/customer_group\",\"customer\\/gdpr\",\"design\\/banner\",\"design\\/layout\",\"design\\/seo_url\",\"design\\/theme\",\"design\\/translation\",\"error\\/exception\",\"extension\\/analytics\",\"extension\\/captcha\",\"extension\\/currency\",\"extension\\/dashboard\",\"extension\\/feed\",\"extension\\/fraud\",\"extension\\/language\",\"extension\\/marketplace\",\"extension\\/module\",\"extension\\/other\",\"extension\\/payment\",\"extension\\/report\",\"extension\\/shipping\",\"extension\\/theme\",\"extension\\/total\",\"localisation\\/address_format\",\"localisation\\/country\",\"localisation\\/currency\",\"localisation\\/geo_zone\",\"localisation\\/language\",\"localisation\\/length_class\",\"localisation\\/location\",\"localisation\\/order_status\",\"localisation\\/return_action\",\"localisation\\/return_reason\",\"localisation\\/return_status\",\"localisation\\/stock_status\",\"localisation\\/subscription_status\",\"localisation\\/tax_class\",\"localisation\\/tax_rate\",\"localisation\\/weight_class\",\"localisation\\/zone\",\"mail\\/affiliate\",\"mail\\/authorize\",\"mail\\/customer\",\"mail\\/forgotten\",\"mail\\/gdpr\",\"mail\\/returns\",\"mail\\/reward\",\"mail\\/subscription\",\"mail\\/transaction\",\"mail\\/voucher\",\"marketing\\/affiliate\",\"marketing\\/contact\",\"marketing\\/coupon\",\"marketing\\/marketing\",\"marketplace\\/api\",\"marketplace\\/cron\",\"marketplace\\/event\",\"marketplace\\/extension\",\"marketplace\\/installer\",\"marketplace\\/marketplace\",\"marketplace\\/promotion\",\"marketplace\\/startup\",\"report\\/online\",\"report\\/report\",\"report\\/statistics\",\"sale\\/order\",\"sale\\/returns\",\"sale\\/subscription\",\"sale\\/voucher\",\"sale\\/voucher_theme\",\"setting\\/setting\",\"setting\\/store\",\"startup\\/authorize\",\"tool\\/backup\",\"tool\\/log\",\"tool\\/notification\",\"tool\\/upgrade\",\"tool\\/upload\",\"user\\/api\",\"user\\/profile\",\"user\\/user\",\"user\\/user_permission\",\"extension\\/opencart\\/captcha\\/basic\",\"extension\\/opencart\\/currency\\/ecb\",\"extension\\/opencart\\/currency\\/fixer\",\"extension\\/opencart\\/dashboard\\/activity\",\"extension\\/opencart\\/dashboard\\/chart\",\"extension\\/opencart\\/dashboard\\/customer\",\"extension\\/opencart\\/dashboard\\/map\",\"extension\\/opencart\\/dashboard\\/online\",\"extension\\/opencart\\/dashboard\\/order\",\"extension\\/opencart\\/dashboard\\/recent\",\"extension\\/opencart\\/dashboard\\/sale\",\"extension\\/opencart\\/fraud\\/ip\",\"extension\\/opencart\\/module\\/account\",\"extension\\/opencart\\/module\\/banner\",\"extension\\/opencart\\/module\\/bestseller\",\"extension\\/opencart\\/module\\/category\",\"extension\\/opencart\\/module\\/featured\",\"extension\\/opencart\\/module\\/filter\",\"extension\\/opencart\\/module\\/html\",\"extension\\/opencart\\/module\\/information\",\"extension\\/opencart\\/module\\/latest\",\"extension\\/opencart\\/module\\/special\",\"extension\\/opencart\\/module\\/store\",\"extension\\/opencart\\/payment\\/bank_transfer\",\"extension\\/opencart\\/payment\\/cheque\",\"extension\\/opencart\\/payment\\/cod\",\"extension\\/opencart\\/payment\\/free_checkout\",\"extension\\/opencart\\/report\\/customer\",\"extension\\/opencart\\/report\\/customer_activity\",\"extension\\/opencart\\/report\\/customer_order\",\"extension\\/opencart\\/report\\/customer_reward\",\"extension\\/opencart\\/report\\/customer_search\",\"extension\\/opencart\\/report\\/customer_transaction\",\"extension\\/opencart\\/report\\/customer_subscription\",\"extension\\/opencart\\/report\\/marketing\",\"extension\\/opencart\\/report\\/product_purchased\",\"extension\\/opencart\\/report\\/product_viewed\",\"extension\\/opencart\\/report\\/sale_coupon\",\"extension\\/opencart\\/report\\/sale_order\",\"extension\\/opencart\\/report\\/sale_return\",\"extension\\/opencart\\/report\\/sale_shipping\",\"extension\\/opencart\\/report\\/sale_tax\",\"extension\\/opencart\\/shipping\\/flat\",\"extension\\/opencart\\/shipping\\/free\",\"extension\\/opencart\\/shipping\\/item\",\"extension\\/opencart\\/shipping\\/pickup\",\"extension\\/opencart\\/shipping\\/weight\",\"extension\\/opencart\\/theme\\/basic\",\"extension\\/opencart\\/total\\/coupon\",\"extension\\/opencart\\/total\\/credit\",\"extension\\/opencart\\/total\\/handling\",\"extension\\/opencart\\/total\\/low_order_fee\",\"extension\\/opencart\\/total\\/reward\",\"extension\\/opencart\\/total\\/shipping\",\"extension\\/opencart\\/total\\/sub_total\",\"extension\\/opencart\\/total\\/tax\",\"extension\\/opencart\\/total\\/total\",\"extension\\/opencart\\/total\\/voucher\"]}'),
-(2, 'Demonstration', '');
+(2, 'Demonstration', ''),
+(3, 'DM1', '');
 
 -- --------------------------------------------------------
 
@@ -4511,6 +5680,7 @@ INSERT INTO `oc_user_group` (`user_group_id`, `name`, `permission`) VALUES
 -- Table structure for table `oc_user_login`
 --
 
+DROP TABLE IF EXISTS `oc_user_login`;
 CREATE TABLE `oc_user_login` (
   `user_login_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -4519,6 +5689,11 @@ CREATE TABLE `oc_user_login` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_user_login`
+--
+
+TRUNCATE TABLE `oc_user_login`;
 --
 -- Dumping data for table `oc_user_login`
 --
@@ -4529,7 +5704,1088 @@ INSERT INTO `oc_user_login` (`user_login_id`, `user_id`, `ip`, `user_agent`, `da
 (3, 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', '2024-10-27 14:48:20'),
 (4, 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', '2024-10-27 14:49:11'),
 (5, 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', '2024-10-27 14:50:08'),
-(6, 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', '2024-10-27 14:59:38');
+(6, 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', '2024-10-27 14:59:38'),
+(7, 1, '171.255.64.225', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-18 11:54:35'),
+(8, 1, '171.255.64.225', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-18 11:56:34'),
+(9, 1, '113.190.252.86', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-18 12:13:22'),
+(10, 1, '113.190.252.86', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-18 12:21:45'),
+(11, 1, '113.190.252.86', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-18 12:22:38'),
+(12, 1, '113.190.252.86', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-18 12:59:11'),
+(13, 1, '113.190.252.86', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-18 12:59:22'),
+(14, 1, '113.190.252.86', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-18 13:00:22'),
+(15, 1, '1.55.211.114', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-18 17:34:27'),
+(16, 1, '1.55.211.114', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-18 19:47:23'),
+(17, 1, '1.55.211.114', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-18 20:45:37'),
+(18, 1, '1.55.211.114', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 02:15:59'),
+(19, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 10:31:40'),
+(20, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0', '2026-01-19 10:33:34'),
+(21, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 10:58:49'),
+(22, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 11:17:03'),
+(23, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 11:18:44'),
+(24, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 11:19:52'),
+(25, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 11:21:08'),
+(26, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 11:21:59'),
+(27, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 11:24:49'),
+(28, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 11:25:43'),
+(29, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 11:30:44'),
+(30, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 11:32:15'),
+(31, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 11:34:21'),
+(32, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 11:35:14'),
+(33, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 11:37:11'),
+(34, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 11:38:56'),
+(35, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 11:43:56'),
+(36, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 11:44:28'),
+(37, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 11:46:06'),
+(38, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 11:47:41'),
+(39, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 11:51:57'),
+(40, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 11:53:48'),
+(41, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 11:55:50'),
+(42, 1, '42.113.162.21', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 12:19:01'),
+(43, 1, '171.255.75.210', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-19 12:20:17'),
+(44, 1, '171.255.75.210', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-19 12:25:42'),
+(45, 1, '113.190.252.86', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 12:58:15'),
+(46, 1, '113.190.252.86', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 12:58:33'),
+(47, 1, '113.190.252.86', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 12:58:56'),
+(48, 1, '113.190.252.86', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 12:59:19'),
+(49, 1, '113.190.252.86', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 12:59:24'),
+(50, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 13:11:24'),
+(51, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 13:18:13'),
+(52, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 13:20:23'),
+(53, 1, '113.190.252.86', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 13:22:19'),
+(54, 1, '113.190.252.86', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 13:26:42'),
+(55, 1, '171.241.21.18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-19 13:33:03'),
+(56, 1, '171.255.75.210', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-19 13:48:52'),
+(57, 1, '171.255.75.210', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-19 14:32:44'),
+(58, 1, '171.255.75.210', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-19 14:36:00'),
+(59, 1, '171.255.75.210', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-19 14:37:05'),
+(60, 1, '171.255.75.210', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-19 14:40:52'),
+(61, 1, '171.255.75.210', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-19 14:47:16'),
+(62, 1, '171.255.75.210', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-19 14:48:39'),
+(63, 1, '171.255.75.210', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-19 14:50:39'),
+(64, 1, '171.255.75.210', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-19 14:54:49'),
+(65, 1, '171.253.233.53', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-20 06:04:09'),
+(66, 1, '171.253.233.53', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-20 06:17:37'),
+(67, 1, '171.253.233.53', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-20 06:17:42'),
+(68, 1, '171.253.233.53', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-20 06:17:53'),
+(69, 1, '171.253.233.53', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-20 06:35:58'),
+(70, 1, '171.253.233.53', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-20 06:36:02'),
+(71, 1, '171.253.233.53', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-20 06:36:07'),
+(72, 1, '171.253.233.53', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-20 06:38:54'),
+(73, 1, '171.253.233.53', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-20 06:39:40'),
+(74, 1, '171.253.233.53', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-20 06:41:28'),
+(75, 1, '171.253.233.53', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-20 06:42:31'),
+(76, 1, '171.253.233.53', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-20 06:50:55'),
+(77, 1, '171.253.233.53', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-20 06:53:49'),
+(78, 1, '171.253.233.53', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-20 06:54:48'),
+(79, 1, '171.253.233.53', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-20 06:55:25'),
+(80, 1, '171.253.233.53', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-20 06:55:53'),
+(81, 1, '171.253.233.53', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-20 06:58:20'),
+(82, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 06:31:52'),
+(83, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 06:33:01'),
+(84, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 09:23:09'),
+(85, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 09:27:08'),
+(86, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 09:31:26'),
+(87, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 09:36:55'),
+(88, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 09:39:58'),
+(89, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 09:41:37'),
+(90, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 09:45:43'),
+(91, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 09:48:33'),
+(92, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 09:58:09'),
+(93, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 10:04:35'),
+(94, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 10:05:17'),
+(95, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 10:05:55'),
+(96, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 10:07:10'),
+(97, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 10:10:02'),
+(98, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 10:15:57'),
+(99, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 10:17:24'),
+(100, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 10:18:28'),
+(101, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 10:21:32'),
+(102, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 10:27:03'),
+(103, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 10:28:26'),
+(104, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 10:30:55'),
+(105, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 10:33:18'),
+(106, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 10:36:11'),
+(107, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 10:37:34'),
+(108, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 10:39:47'),
+(109, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 10:44:17'),
+(110, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 10:44:38'),
+(111, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 10:46:14'),
+(112, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 10:51:16'),
+(113, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 10:52:39'),
+(114, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 10:59:52'),
+(115, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 11:00:30'),
+(116, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 11:01:43'),
+(117, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 11:02:28'),
+(118, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 11:03:20'),
+(119, 1, '171.253.241.144', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 11:05:06'),
+(120, 1, '59.153.238.232', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 11:13:47'),
+(121, 1, '59.153.238.232', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 11:17:52'),
+(122, 1, '59.153.238.232', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 11:18:28'),
+(123, 1, '171.255.57.81', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 11:28:58'),
+(124, 1, '171.255.57.81', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 11:30:07'),
+(125, 1, '171.255.57.81', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 11:31:00'),
+(126, 1, '171.255.57.81', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 11:32:00'),
+(127, 1, '171.255.57.81', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 11:44:25'),
+(128, 1, '171.255.57.81', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 11:45:00'),
+(129, 1, '171.255.57.81', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 12:05:32'),
+(130, 1, '171.255.57.81', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 12:07:24'),
+(131, 1, '171.255.57.81', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 12:10:00'),
+(132, 1, '171.255.57.81', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 12:11:15'),
+(133, 1, '171.255.57.81', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 12:23:00'),
+(134, 1, '171.255.57.81', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 13:00:04'),
+(135, 1, '171.255.57.81', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 13:14:54'),
+(136, 1, '171.255.57.81', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 13:32:00'),
+(137, 1, '171.255.57.81', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 13:36:08'),
+(138, 1, '171.255.57.81', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 13:38:37'),
+(139, 1, '171.255.57.81', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 13:48:50'),
+(140, 1, '171.255.57.81', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 13:52:01'),
+(141, 1, '171.255.57.81', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 13:58:30'),
+(142, 1, '171.255.57.81', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 14:00:35'),
+(143, 1, '171.255.57.81', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 14:03:21'),
+(144, 1, '171.255.57.81', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 14:07:30'),
+(145, 1, '171.255.57.81', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 14:09:53'),
+(146, 1, '171.255.57.81', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 14:12:36'),
+(147, 1, '171.255.57.81', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-21 14:20:00'),
+(148, 1, '171.224.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-22 15:08:35'),
+(149, 1, '171.224.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-22 15:08:44'),
+(150, 1, '171.224.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-22 15:08:52'),
+(151, 1, '171.224.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-22 15:09:01'),
+(152, 1, '171.224.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-22 15:14:24'),
+(153, 1, '113.23.43.32', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-22 16:56:55'),
+(154, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0', '2026-01-22 17:11:55'),
+(155, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-22 18:00:08'),
+(156, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-22 18:04:16'),
+(157, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-22 18:05:34'),
+(158, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-22 18:17:32'),
+(159, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-22 18:17:47'),
+(160, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-22 18:20:47'),
+(161, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-22 18:25:15'),
+(162, 1, '42.114.151.14', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 03:29:48'),
+(163, 1, '42.114.151.14', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 03:38:43'),
+(164, 1, '42.114.151.14', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 03:39:26'),
+(165, 1, '42.114.151.14', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 03:39:40'),
+(166, 1, '42.114.151.14', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 03:39:59'),
+(167, 1, '42.114.151.14', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 03:40:14'),
+(168, 1, '42.114.151.14', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 03:40:41'),
+(169, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 12:49:18'),
+(170, 1, '171.224.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 12:52:09'),
+(171, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 12:52:41'),
+(172, 1, '171.224.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 12:52:48'),
+(173, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 12:53:32'),
+(174, 1, '171.224.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 12:54:50'),
+(175, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 12:55:21'),
+(176, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 12:55:53'),
+(177, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 13:04:05'),
+(178, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 13:04:52'),
+(179, 1, '171.224.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 13:08:03'),
+(180, 1, '171.224.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 13:09:44'),
+(181, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 13:29:12'),
+(182, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 13:29:28'),
+(183, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 13:39:17'),
+(184, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 13:43:26'),
+(185, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 14:03:15'),
+(186, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 14:13:43'),
+(187, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 14:25:43'),
+(188, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 14:30:44'),
+(189, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 14:35:25'),
+(190, 1, '171.255.68.24', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 14:41:43'),
+(191, 1, '171.255.68.24', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 14:42:16'),
+(192, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 14:43:07'),
+(193, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 14:45:14'),
+(194, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 14:47:00'),
+(195, 1, '171.255.68.24', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 14:50:13'),
+(196, 1, '171.255.68.24', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 14:54:17'),
+(197, 1, '171.255.68.24', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 14:55:25'),
+(198, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 15:00:05'),
+(199, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 15:00:37'),
+(200, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 15:04:59'),
+(201, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 15:10:24'),
+(202, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 15:32:01'),
+(203, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 15:33:54'),
+(204, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 15:34:23'),
+(205, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 15:35:04'),
+(206, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 15:44:02'),
+(207, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 15:44:30'),
+(208, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 15:45:37'),
+(209, 1, '1.55.210.123', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 20:11:59'),
+(210, 1, '1.55.210.123', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 20:13:06'),
+(211, 1, '1.55.210.123', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 20:15:29'),
+(212, 1, '1.55.210.123', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 20:17:54'),
+(213, 1, '1.55.210.123', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-23 20:21:40'),
+(214, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0', '2026-01-24 08:06:19'),
+(215, 1, '171.241.21.18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-25 04:39:43'),
+(216, 1, '171.241.21.18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-25 04:47:14'),
+(217, 1, '171.241.21.18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-25 04:47:43'),
+(218, 1, '171.241.21.18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-25 04:58:09'),
+(219, 1, '171.241.21.18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-25 05:09:27'),
+(220, 1, '171.241.21.18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-25 05:21:07'),
+(221, 1, '171.241.21.18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-25 05:26:44'),
+(222, 1, '171.241.21.18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-25 05:27:56'),
+(223, 1, '171.241.21.18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-25 05:37:29'),
+(224, 1, '171.241.21.18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-26 12:06:31'),
+(225, 1, '171.241.21.18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-26 12:37:40'),
+(226, 1, '171.241.21.18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-26 12:59:19'),
+(227, 1, '171.241.21.18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-26 13:00:18'),
+(228, 1, '171.241.21.18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-26 13:01:07'),
+(229, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-26 13:02:35'),
+(230, 1, '113.172.36.243', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-26 13:04:13'),
+(231, 1, '118.71.132.115', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-26 13:15:12'),
+(232, 1, '42.113.162.21', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-26 13:29:14'),
+(233, 1, '42.113.162.21', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-26 13:34:58'),
+(234, 1, '42.113.162.21', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-26 13:38:33'),
+(235, 1, '171.241.21.18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-26 13:42:37'),
+(236, 1, '171.241.21.18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-26 13:44:26'),
+(237, 1, '42.113.162.21', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-26 13:46:49'),
+(238, 1, '116.106.97.156', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-26 13:58:29'),
+(239, 1, '116.106.97.156', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-26 14:38:38'),
+(240, 1, '116.106.97.156', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-26 14:59:51'),
+(241, 1, '116.106.97.156', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-26 15:07:30'),
+(242, 1, '116.106.97.156', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-26 15:08:57'),
+(243, 1, '116.106.97.156', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-26 15:11:02'),
+(244, 1, '116.106.97.156', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-26 15:14:55'),
+(245, 1, '116.106.97.156', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-26 15:17:35'),
+(246, 1, '116.106.97.156', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-26 15:18:15'),
+(247, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36', '2026-01-28 08:47:37'),
+(248, 1, '171.241.21.18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-28 15:53:46'),
+(249, 1, '171.241.21.18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-28 16:00:42'),
+(250, 1, '171.241.21.18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-28 16:08:43'),
+(251, 1, '171.241.21.18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-28 16:09:11'),
+(252, 1, '171.241.21.18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-28 16:11:31'),
+(253, 1, '171.241.21.18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-28 16:21:07'),
+(254, 1, '171.241.21.18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-28 16:21:28'),
+(255, 1, '171.241.21.18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-28 16:35:31'),
+(256, 1, '171.241.21.18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-28 16:35:52'),
+(257, 1, '171.241.21.18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-28 16:40:35'),
+(258, 1, '171.241.21.18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-28 16:40:56'),
+(259, 1, '115.146.120.166', 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Zalo iOS/694 ZaloTheme/light ZaloLanguage/vn', '2026-01-29 07:37:31'),
+(260, 1, '115.146.120.166', 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Zalo iOS/694 ZaloTheme/light ZaloLanguage/vn', '2026-01-29 09:38:31'),
+(261, 1, '42.118.25.81', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-29 14:34:17'),
+(262, 1, '123.20.163.16', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0', '2026-01-29 15:10:43'),
+(263, 1, '123.20.163.16', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-29 16:05:28'),
+(264, 1, '123.20.163.16', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-29 16:06:37'),
+(265, 1, '123.20.163.16', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-29 16:09:08'),
+(266, 1, '123.20.163.16', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-29 16:09:44'),
+(267, 1, '123.20.163.16', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-29 16:11:46'),
+(268, 1, '123.20.163.16', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-29 16:12:04'),
+(269, 1, '123.20.163.16', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-29 16:21:45'),
+(270, 1, '123.20.163.16', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-29 16:22:32'),
+(271, 1, '123.20.163.16', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-29 16:23:25'),
+(272, 1, '123.20.163.16', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-29 16:24:32'),
+(273, 1, '171.224.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0', '2026-01-29 17:59:33'),
+(274, 1, '171.224.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-01-29 18:03:40'),
+(275, 1, '171.224.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-01-29 18:12:10'),
+(276, 1, '171.224.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-01-29 18:15:15'),
+(277, 1, '171.224.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-01-29 18:25:28'),
+(278, 1, '171.224.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-01-29 18:31:42'),
+(279, 1, '171.224.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-01-29 18:34:21'),
+(280, 1, '171.224.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-01-29 18:35:52'),
+(281, 1, '171.224.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-01-29 18:41:28'),
+(282, 1, '171.224.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-01-29 18:47:23'),
+(283, 1, '171.224.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-01-29 18:47:54'),
+(284, 1, '171.224.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-01-29 18:52:35'),
+(285, 1, '171.224.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-01-29 18:56:50'),
+(286, 1, '115.146.120.166', 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Zalo iOS/694 ZaloTheme/light ZaloLanguage/vn', '2026-01-30 04:02:21'),
+(287, 1, '115.146.120.166', 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Zalo iOS/694 ZaloTheme/light ZaloLanguage/vn', '2026-01-30 04:07:25'),
+(288, 1, '115.146.120.166', 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Zalo iOS/694 ZaloTheme/light ZaloLanguage/vn', '2026-01-30 06:28:40'),
+(289, 1, '115.146.120.166', 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Zalo iOS/694 ZaloTheme/light ZaloLanguage/vn', '2026-01-30 06:31:07'),
+(290, 1, '115.146.120.166', 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Zalo iOS/694 ZaloTheme/light ZaloLanguage/vn', '2026-01-30 06:54:41'),
+(291, 1, '171.224.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-01-30 15:16:51'),
+(292, 1, '171.224.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-01-30 15:17:14'),
+(293, 1, '171.241.61.210', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-01-31 15:02:18'),
+(294, 1, '42.118.51.255', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-01 06:13:35'),
+(295, 1, '171.224.177.221', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-01 13:27:49'),
+(296, 1, '171.224.177.221', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0', '2026-02-01 14:10:41'),
+(297, 1, '171.224.177.221', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-01 14:23:49'),
+(298, 1, '171.224.177.221', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-01 14:48:16'),
+(299, 1, '171.224.177.221', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-01 14:49:57'),
+(300, 1, '171.224.177.221', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-01 14:53:08');
+INSERT INTO `oc_user_login` (`user_login_id`, `user_id`, `ip`, `user_agent`, `date_added`) VALUES
+(301, 1, '171.224.177.221', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-01 14:53:32'),
+(302, 1, '171.224.177.221', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-01 14:53:57'),
+(303, 1, '171.224.177.221', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-01 14:54:22'),
+(304, 1, '42.113.155.122', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 04:04:10'),
+(305, 1, '42.113.155.122', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 08:32:22'),
+(306, 1, '42.113.155.122', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 08:53:32'),
+(307, 1, '42.113.155.122', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 08:54:10'),
+(308, 1, '42.113.155.122', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 08:55:08'),
+(309, 1, '42.113.155.122', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 08:56:44'),
+(310, 1, '42.113.155.122', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 09:00:54'),
+(311, 1, '42.113.155.122', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 09:03:30'),
+(312, 1, '42.113.155.122', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 09:04:44'),
+(313, 1, '42.113.155.122', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 09:05:07'),
+(314, 1, '42.113.155.122', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 09:05:58'),
+(315, 1, '42.113.155.122', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 09:08:27'),
+(316, 1, '42.113.155.122', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 09:10:32'),
+(317, 1, '42.113.155.122', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 09:11:22'),
+(318, 1, '42.113.155.122', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 09:14:25'),
+(319, 1, '42.113.155.122', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 09:23:31'),
+(320, 1, '42.113.155.122', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 09:27:04'),
+(321, 1, '42.113.155.122', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 10:03:47'),
+(322, 1, '42.113.155.122', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 10:05:01'),
+(323, 1, '42.113.155.122', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 10:06:36'),
+(324, 1, '42.113.155.122', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 10:07:18'),
+(325, 1, '42.113.155.122', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 10:46:36'),
+(326, 1, '42.113.155.122', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 10:49:33'),
+(327, 1, '171.241.61.210', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 12:46:45'),
+(328, 1, '123.20.163.16', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0', '2026-02-02 12:50:48'),
+(329, 1, '123.20.163.16', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 12:57:37'),
+(330, 1, '171.241.61.210', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 12:57:49'),
+(331, 1, '171.241.61.210', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 12:59:42'),
+(332, 1, '123.20.163.16', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 13:03:03'),
+(333, 1, '123.20.163.16', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 13:04:03'),
+(334, 1, '123.20.163.16', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 13:17:50'),
+(335, 1, '123.20.163.16', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 13:18:14'),
+(336, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 13:24:37'),
+(337, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 13:25:01'),
+(338, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 13:26:59'),
+(339, 1, '123.20.163.16', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 13:27:57'),
+(340, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 13:28:16'),
+(341, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 13:29:26'),
+(342, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 13:30:11'),
+(343, 1, '123.20.163.16', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 13:32:46'),
+(344, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 13:34:06'),
+(345, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 13:35:18'),
+(346, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 13:36:14'),
+(347, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 13:36:59'),
+(348, 1, '123.20.163.16', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 13:36:59'),
+(349, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 13:40:59'),
+(350, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 13:44:52'),
+(351, 1, '42.118.25.81', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 14:09:30'),
+(352, 1, '42.118.25.81', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 14:11:46'),
+(353, 1, '42.118.25.81', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 14:13:02'),
+(354, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 14:19:34'),
+(355, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 14:26:38'),
+(356, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 14:27:36'),
+(357, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 14:29:11'),
+(358, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-02 14:29:31'),
+(359, 1, '118.70.168.222', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 08:06:22'),
+(360, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 08:23:09'),
+(361, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 08:49:42'),
+(362, 1, '118.70.168.222', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 08:56:43'),
+(363, 1, '118.70.168.222', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 09:02:29'),
+(364, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 09:02:49'),
+(365, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 09:30:57'),
+(366, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 09:31:28'),
+(367, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 09:31:48'),
+(368, 1, '118.70.168.222', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 09:34:01'),
+(369, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 09:34:20'),
+(370, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 09:56:12'),
+(371, 1, '118.70.168.222', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 09:58:30'),
+(372, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0', '2026-02-05 14:13:19'),
+(373, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 15:34:39'),
+(374, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 15:35:49'),
+(375, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 15:39:11'),
+(376, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 15:40:57'),
+(377, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 15:44:39'),
+(378, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 15:46:44'),
+(379, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 15:50:03'),
+(380, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 15:50:46'),
+(381, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 15:51:30'),
+(382, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 15:52:45'),
+(383, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 15:54:15'),
+(384, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 15:56:27'),
+(385, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 15:56:52'),
+(386, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 15:58:04'),
+(387, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 16:04:21'),
+(388, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 16:08:03'),
+(389, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 16:16:37'),
+(390, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 16:19:22'),
+(391, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 16:21:28'),
+(392, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 16:24:52'),
+(393, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 16:27:43'),
+(394, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 16:31:40'),
+(395, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 16:34:21'),
+(396, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 16:38:42'),
+(397, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 16:43:24'),
+(398, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 16:44:45'),
+(399, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 16:46:34'),
+(400, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 16:49:06'),
+(401, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 16:49:31'),
+(402, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 16:54:43'),
+(403, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 17:02:20'),
+(404, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 17:03:45'),
+(405, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 17:07:00'),
+(406, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 17:07:34'),
+(407, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 17:22:11'),
+(408, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 17:24:20'),
+(409, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 17:26:52'),
+(410, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 17:30:31'),
+(411, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 17:35:39'),
+(412, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-05 17:38:22'),
+(413, 1, '118.70.168.222', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 02:45:20'),
+(414, 1, '118.70.168.222', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 02:46:32'),
+(415, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 03:08:00'),
+(416, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 03:18:23'),
+(417, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 03:25:30'),
+(418, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 03:33:33'),
+(419, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 03:36:12'),
+(420, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 03:38:52'),
+(421, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 03:40:10'),
+(422, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 03:42:09'),
+(423, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 03:44:03'),
+(424, 1, '118.70.168.222', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 03:45:23'),
+(425, 1, '118.70.168.222', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 03:46:07'),
+(426, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 03:50:33'),
+(427, 1, '118.70.168.222', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 03:51:47'),
+(428, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 03:53:32'),
+(429, 1, '118.70.168.222', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 03:54:28'),
+(430, 1, '118.70.168.222', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 03:54:57'),
+(431, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 03:55:30'),
+(432, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 06:22:07'),
+(433, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 06:23:45'),
+(434, 1, '118.70.168.222', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 06:24:10'),
+(435, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 06:25:02'),
+(436, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 06:26:34'),
+(437, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 06:26:56'),
+(438, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 06:28:11'),
+(439, 1, '118.70.168.222', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 07:23:41'),
+(440, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 07:25:03'),
+(441, 1, '118.70.168.222', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 08:04:34'),
+(442, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 08:07:29'),
+(443, 1, '118.70.168.222', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 08:15:17'),
+(444, 1, '118.70.168.222', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 10:11:37'),
+(445, 1, '118.70.168.222', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 10:17:01'),
+(446, 1, '118.70.168.222', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 10:19:26'),
+(447, 1, '118.70.168.222', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 10:23:36'),
+(448, 1, '118.70.168.222', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 10:28:51'),
+(449, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 10:29:16'),
+(450, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 10:29:40'),
+(451, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 10:29:58'),
+(452, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 10:30:57'),
+(453, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 10:31:34'),
+(454, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 12:43:34'),
+(455, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 12:44:44'),
+(456, 1, '171.241.124.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 12:47:58'),
+(457, 1, '116.106.99.22', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 12:48:17'),
+(458, 1, '171.241.124.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 12:48:28'),
+(459, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 12:48:46'),
+(460, 1, '171.241.124.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 12:50:46'),
+(461, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 12:53:13'),
+(462, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 13:01:07'),
+(463, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 13:08:00'),
+(464, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 13:10:08'),
+(465, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 13:10:39'),
+(466, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 13:11:37'),
+(467, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 13:12:22'),
+(468, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 13:13:40'),
+(469, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 13:14:09'),
+(470, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 13:16:04'),
+(471, 1, '171.241.124.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 13:18:42'),
+(472, 1, '171.241.124.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 13:19:24'),
+(473, 1, '171.241.124.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 13:21:49'),
+(474, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 13:23:37'),
+(475, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 13:25:04'),
+(476, 1, '171.241.124.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 13:32:25'),
+(477, 1, '171.241.124.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 13:35:55'),
+(478, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 13:41:00'),
+(479, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 13:43:35'),
+(480, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 13:44:14'),
+(481, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 13:44:34'),
+(482, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 13:46:36'),
+(483, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 13:47:16'),
+(484, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 13:47:48'),
+(485, 1, '171.241.124.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 13:51:02'),
+(486, 1, '171.241.124.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 13:54:17'),
+(487, 1, '171.241.124.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 13:56:52'),
+(488, 1, '116.106.99.22', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 14:17:23'),
+(489, 1, '1.55.142.207', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 14:17:33'),
+(490, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0', '2026-02-06 14:29:30'),
+(491, 1, '171.241.124.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 14:29:40'),
+(492, 1, '14.191.166.198', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-06 17:30:11'),
+(493, 1, '14.191.166.198', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-07 10:33:15'),
+(494, 1, '14.191.166.198', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-07 13:48:13'),
+(495, 1, '14.191.166.198', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-07 14:18:47'),
+(496, 1, '14.191.166.198', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-07 14:31:24'),
+(497, 1, '14.191.166.198', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-07 14:32:13'),
+(498, 1, '14.191.166.198', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-07 14:36:24'),
+(499, 1, '14.191.166.198', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-07 14:37:25'),
+(500, 1, '14.191.166.198', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-07 14:41:31'),
+(501, 1, '14.191.166.198', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-07 14:43:20'),
+(502, 1, '14.191.166.198', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-07 14:59:05'),
+(503, 1, '115.146.120.166', 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Zalo iOS/696 ZaloTheme/light ZaloLanguage/vn', '2026-02-09 10:28:15'),
+(504, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0', '2026-02-09 12:22:43'),
+(505, 1, '42.114.248.173', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-09 12:30:10'),
+(506, 1, '42.118.25.81', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-09 12:38:50'),
+(507, 1, '14.191.162.252', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-09 12:40:48'),
+(508, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-09 12:43:17'),
+(509, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-09 12:43:53'),
+(510, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0', '2026-02-09 12:58:09'),
+(511, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0', '2026-02-09 13:02:51'),
+(512, 1, '171.241.124.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-09 13:08:17'),
+(513, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-09 13:16:51'),
+(514, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-09 13:25:57'),
+(515, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-09 13:27:00'),
+(516, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-09 13:33:33'),
+(517, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-09 13:34:27'),
+(518, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-09 13:35:47'),
+(519, 1, '171.241.124.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-09 13:43:37'),
+(520, 1, '171.241.124.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-09 13:44:10'),
+(521, 1, '171.241.124.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-09 14:03:27'),
+(522, 1, '171.241.124.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-09 14:04:57'),
+(523, 1, '171.241.124.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-09 14:06:11'),
+(524, 1, '42.114.248.173', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-09 14:12:58'),
+(525, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-09 14:34:10'),
+(526, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-09 14:34:57'),
+(527, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-09 14:36:06'),
+(528, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-09 14:37:36'),
+(529, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-09 14:38:21'),
+(530, 1, '171.251.236.65', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-02-12 02:57:39'),
+(531, 1, '14.191.162.252', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-26 03:14:40'),
+(532, 1, '14.191.162.252', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-26 03:30:16'),
+(533, 1, '14.191.162.252', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-26 03:34:38'),
+(534, 1, '14.191.162.252', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-26 03:35:05'),
+(535, 1, '14.191.162.252', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-26 03:35:33'),
+(536, 1, '14.191.162.252', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-26 04:30:01'),
+(537, 1, '1.55.255.175', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-26 19:00:44'),
+(538, 1, '14.191.162.252', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-27 07:38:01'),
+(539, 1, '14.191.162.252', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-27 07:43:41'),
+(540, 1, '14.191.162.252', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-27 09:14:40'),
+(541, 1, '1.55.255.175', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-27 12:55:17'),
+(542, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0', '2026-02-27 12:55:30'),
+(543, 1, '1.55.255.175', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-27 13:26:48'),
+(544, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-27 13:30:54'),
+(545, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-27 13:31:26'),
+(546, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-27 13:32:04'),
+(547, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-27 13:33:20'),
+(548, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-27 13:34:46'),
+(549, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-27 13:36:03'),
+(550, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-27 13:36:45'),
+(551, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-27 13:37:38'),
+(552, 1, '14.191.162.252', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-27 13:37:51'),
+(553, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-27 13:38:02'),
+(554, 1, '14.191.162.252', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-27 13:38:27'),
+(555, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-27 13:38:49'),
+(556, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-27 13:39:35'),
+(557, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-27 13:42:14'),
+(558, 1, '1.55.255.175', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-27 14:11:30'),
+(559, 1, '1.55.255.175', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-27 14:13:41'),
+(560, 1, '1.55.255.175', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-27 14:13:58'),
+(561, 1, '1.55.255.175', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-27 14:14:09'),
+(562, 1, '1.55.255.175', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-02-27 14:42:04'),
+(563, 1, '116.104.196.119', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-02 09:32:12'),
+(564, 1, '116.104.196.119', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-02 09:33:09'),
+(565, 1, '116.104.196.119', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-02 09:37:31'),
+(566, 1, '116.104.196.119', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-02 09:38:12'),
+(567, 1, '116.104.196.119', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-02 09:42:34'),
+(568, 1, '116.104.196.119', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-02 09:42:52'),
+(569, 1, '116.104.196.119', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-02 09:43:13'),
+(570, 1, '116.104.196.119', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-02 09:45:17'),
+(571, 1, '116.104.196.119', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-02 09:47:51'),
+(572, 1, '116.104.196.119', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-02 10:19:44'),
+(573, 1, '116.104.196.119', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-02 10:55:37'),
+(574, 1, '1.55.14.65', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-02 12:39:04'),
+(575, 1, '1.55.14.65', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-02 12:39:55'),
+(576, 1, '1.55.14.65', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-02 12:40:31'),
+(577, 1, '1.55.14.65', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-02 12:42:39'),
+(578, 1, '1.55.14.65', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-02 12:43:34'),
+(579, 1, '1.55.14.65', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-02 13:06:55'),
+(580, 1, '1.55.14.65', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-02 13:28:23'),
+(581, 1, '116.96.47.61', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-02 13:29:58'),
+(582, 1, '1.55.14.65', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-02 13:37:26'),
+(583, 1, '1.55.14.65', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-02 14:01:49'),
+(584, 1, '1.55.14.65', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-02 14:02:11'),
+(585, 1, '1.55.14.65', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-02 14:02:57'),
+(586, 1, '1.55.14.65', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-02 14:18:11'),
+(587, 1, '1.55.14.65', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/145.0.0.0 Safari/537.36', '2026-03-02 14:33:54'),
+(588, 1, '171.253.241.116', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-03 06:24:10'),
+(589, 1, '171.253.241.116', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-03 06:26:26'),
+(590, 1, '171.253.241.116', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-03 06:27:19'),
+(591, 1, '171.253.241.116', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-03 06:28:13'),
+(592, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 17:25:43'),
+(593, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 17:26:16'),
+(594, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 17:26:46'),
+(595, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 17:27:22'),
+(596, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 17:27:50'),
+(597, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 17:28:21'),
+(598, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-04 17:29:32'),
+(599, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 17:32:19'),
+(600, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 17:33:19'),
+(601, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 17:35:01'),
+(602, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-04 17:53:41'),
+(603, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 17:54:23'),
+(604, 1, '1.55.14.47', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15', '2026-03-04 17:54:23');
+INSERT INTO `oc_user_login` (`user_login_id`, `user_id`, `ip`, `user_agent`, `date_added`) VALUES
+(605, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1', '2026-03-04 17:54:25'),
+(606, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 18:16:45'),
+(607, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 18:19:20'),
+(608, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 18:21:37'),
+(609, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 18:21:38'),
+(610, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1', '2026-03-04 18:21:41'),
+(611, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1', '2026-03-04 18:21:42'),
+(612, 1, '1.55.14.47', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15', '2026-03-04 18:21:48'),
+(613, 1, '1.55.14.47', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15', '2026-03-04 18:21:48'),
+(614, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 18:22:49'),
+(615, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 18:22:50'),
+(616, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1', '2026-03-04 18:22:52'),
+(617, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1', '2026-03-04 18:22:53'),
+(618, 1, '1.55.14.47', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15', '2026-03-04 18:22:56'),
+(619, 1, '1.55.14.47', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15', '2026-03-04 18:22:57'),
+(620, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 18:23:21'),
+(621, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 18:23:21'),
+(622, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1', '2026-03-04 18:23:23'),
+(623, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1', '2026-03-04 18:23:23'),
+(624, 1, '1.55.14.47', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15', '2026-03-04 18:23:27'),
+(625, 1, '1.55.14.47', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15', '2026-03-04 18:23:27'),
+(626, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 18:26:37'),
+(627, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 18:28:55'),
+(628, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 18:31:52'),
+(629, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 18:59:30'),
+(630, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 18:59:30'),
+(631, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 19:02:37'),
+(632, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 19:02:37'),
+(633, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1', '2026-03-04 19:07:41'),
+(634, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1', '2026-03-04 19:07:43'),
+(635, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1', '2026-03-04 19:14:31'),
+(636, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1', '2026-03-04 19:14:33'),
+(637, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 19:23:25'),
+(638, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 19:23:25'),
+(639, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1', '2026-03-04 19:23:27'),
+(640, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1', '2026-03-04 19:23:28'),
+(641, 1, '1.55.14.47', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15', '2026-03-04 19:23:34'),
+(642, 1, '1.55.14.47', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15', '2026-03-04 19:23:34'),
+(643, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 19:28:59'),
+(644, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.7632.6 Safari/537.36', '2026-03-04 19:29:00'),
+(645, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1', '2026-03-04 19:29:03'),
+(646, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:146.0.1) Gecko/20100101 Firefox/146.0.1', '2026-03-04 19:29:05'),
+(647, 1, '1.55.14.47', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15', '2026-03-04 19:29:09'),
+(648, 1, '1.55.14.47', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Safari/605.1.15', '2026-03-04 19:29:09'),
+(649, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-05 16:01:44'),
+(650, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 12:33:43'),
+(651, 1, '1.55.108.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 12:40:28'),
+(652, 1, '1.54.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 12:43:31'),
+(653, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0', '2026-03-06 12:43:49'),
+(654, 1, '116.96.46.137', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0', '2026-03-06 12:45:23'),
+(655, 1, '1.54.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 12:45:53'),
+(656, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 12:48:30'),
+(657, 1, '1.54.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 12:48:57'),
+(658, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 12:50:22'),
+(659, 1, '116.96.46.137', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-06 12:50:57'),
+(660, 1, '116.96.46.137', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-06 12:52:22'),
+(661, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 12:59:03'),
+(662, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 12:59:59'),
+(663, 1, '116.96.46.137', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-06 13:02:57'),
+(664, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 13:03:37'),
+(665, 1, '116.96.46.137', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-06 13:07:16'),
+(666, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 13:08:44'),
+(667, 1, '1.55.108.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 13:11:23'),
+(668, 1, '1.54.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 13:13:31'),
+(669, 1, '1.55.108.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 13:13:35'),
+(670, 1, '116.96.46.137', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-06 13:13:39'),
+(671, 1, '1.54.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 13:15:27'),
+(672, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 13:15:31'),
+(673, 1, '1.55.108.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 13:16:18'),
+(674, 1, '1.55.108.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 13:16:55'),
+(675, 1, '1.54.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36', '2026-03-06 13:21:06'),
+(676, 1, '1.54.181.126', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 14:17:35'),
+(677, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 14:22:45'),
+(678, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 14:40:51'),
+(679, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 14:52:49'),
+(680, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 14:52:50'),
+(681, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 14:53:31'),
+(682, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 14:53:32'),
+(683, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 14:53:43'),
+(684, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 14:54:18'),
+(685, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 14:54:19'),
+(686, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 14:54:20'),
+(687, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 14:55:01'),
+(688, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 14:55:02'),
+(689, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 14:55:04'),
+(690, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 14:57:25'),
+(691, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 14:57:26'),
+(692, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 14:57:28'),
+(693, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 14:58:43'),
+(694, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 14:58:43'),
+(695, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 14:58:45'),
+(696, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 14:59:14'),
+(697, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 14:59:15'),
+(698, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 15:01:20'),
+(699, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 15:01:21'),
+(700, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 15:02:19'),
+(701, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 15:04:12'),
+(702, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 15:04:41'),
+(703, 1, '1.55.14.47', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-06 15:04:46'),
+(704, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0', '2026-03-08 09:34:51'),
+(705, 1, '1.55.14.232', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-09 12:46:24'),
+(706, 1, '1.55.14.232', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-09 12:48:39'),
+(707, 1, '1.55.14.232', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-09 12:48:44'),
+(708, 1, '1.55.14.232', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-09 12:52:12'),
+(709, 1, '1.55.108.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-09 13:06:02'),
+(710, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0', '2026-03-09 13:15:44'),
+(711, 1, '1.55.108.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-09 13:23:28'),
+(712, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-09 13:45:10'),
+(713, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-09 13:45:14'),
+(714, 1, '1.55.108.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-09 13:46:03'),
+(715, 1, '1.55.108.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-09 13:48:24'),
+(716, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0', '2026-03-09 13:49:10'),
+(717, 1, '1.55.108.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-09 13:52:36'),
+(718, 1, '1.55.108.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-09 14:05:40'),
+(719, 1, '1.55.108.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-09 14:09:49'),
+(720, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-09 14:19:12'),
+(721, 1, '123.20.36.201', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-09 14:21:53'),
+(722, 1, '1.55.108.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-09 14:27:29'),
+(723, 1, '1.55.108.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36', '2026-03-09 14:41:30'),
+(724, 1, '14.160.24.131', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-12 03:31:15'),
+(725, 1, '42.116.109.91', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-24 15:23:11'),
+(726, 1, '42.116.109.91', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-24 15:24:28'),
+(727, 1, '42.116.109.91', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-24 15:29:33'),
+(728, 1, '14.191.163.30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-24 15:39:02'),
+(729, 1, '42.116.109.91', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-24 15:41:08'),
+(730, 1, '42.116.109.91', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-24 15:45:36'),
+(731, 1, '42.116.109.91', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-24 15:48:58'),
+(732, 1, '42.116.109.91', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-24 16:07:09'),
+(733, 1, '42.116.109.91', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '2026-03-24 16:31:23'),
+(734, 1, '14.191.163.30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-24 16:55:01'),
+(735, 1, '14.191.163.30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-24 17:18:15'),
+(736, 1, '14.191.163.30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-24 17:18:21'),
+(737, 1, '14.191.163.30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-24 17:20:08'),
+(738, 1, '14.191.163.30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-24 17:20:24'),
+(739, 1, '14.191.163.30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-24 17:21:30'),
+(740, 1, '14.191.163.30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-24 17:21:45'),
+(741, 1, '14.191.163.30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-24 17:23:26'),
+(742, 1, '14.191.163.30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-24 17:24:48'),
+(743, 1, '14.191.163.30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-24 17:27:13'),
+(744, 1, '14.191.163.30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-24 17:28:49'),
+(745, 1, '14.191.163.30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-24 17:30:52'),
+(746, 1, '42.116.109.91', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '2026-03-25 15:47:21'),
+(747, 1, '42.116.109.91', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '2026-03-25 15:49:26'),
+(748, 1, '42.116.109.91', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-25 15:54:36'),
+(749, 1, '42.116.109.91', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '2026-03-25 15:54:40'),
+(750, 1, '42.116.109.91', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-25 15:56:34'),
+(751, 1, '42.116.109.91', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '2026-03-25 15:56:37'),
+(752, 1, '42.116.109.91', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-25 15:56:42'),
+(753, 1, '42.116.109.91', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-25 15:56:45'),
+(754, 1, '42.116.109.91', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '2026-03-25 15:56:52'),
+(755, 1, '42.116.109.91', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '2026-03-25 16:10:50'),
+(756, 1, '42.116.109.72', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-25 17:56:53'),
+(757, 1, '42.116.109.72', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '2026-03-25 17:56:58'),
+(758, 1, '42.116.109.72', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-25 18:30:58'),
+(759, 1, '42.116.109.72', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '2026-03-25 18:31:01'),
+(760, 1, '14.191.163.30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-27 07:38:52'),
+(761, 1, '14.191.163.30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-27 07:38:56'),
+(762, 1, '14.191.163.30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-27 07:45:55'),
+(763, 1, '14.191.163.30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-27 07:53:25'),
+(764, 1, '14.191.163.30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-27 07:53:33'),
+(765, 1, '14.191.163.30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-27 07:54:19'),
+(766, 1, '14.191.163.30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-27 07:54:27'),
+(767, 1, '14.191.163.30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-27 07:56:28'),
+(768, 1, '14.191.163.30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-27 07:56:35'),
+(769, 1, '14.191.163.30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-27 07:58:41'),
+(770, 1, '14.191.163.30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-27 07:58:46'),
+(771, 1, '14.191.163.30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-27 10:09:52'),
+(772, 1, '14.191.163.30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-27 10:10:48'),
+(773, 1, '14.191.163.30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-27 10:13:57'),
+(774, 1, '42.114.14.39', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-27 14:51:56'),
+(775, 1, '42.114.14.39', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-27 14:53:13'),
+(776, 1, '42.114.14.39', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-27 14:59:34'),
+(777, 1, '42.114.14.39', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-27 15:02:38'),
+(778, 1, '42.114.14.39', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-27 15:11:33'),
+(779, 1, '42.114.14.39', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-27 15:14:00'),
+(780, 1, '42.114.14.39', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-27 15:14:34'),
+(781, 1, '42.114.14.39', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-03-27 15:15:32'),
+(782, 1, '42.114.14.39', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '2026-03-27 15:23:44'),
+(783, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '2026-04-01 17:38:33'),
+(784, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '2026-04-01 17:39:10'),
+(785, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '2026-04-01 17:49:59'),
+(786, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 18:06:40'),
+(787, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 18:32:40'),
+(788, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 18:32:40'),
+(789, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 18:32:40'),
+(790, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 18:32:40'),
+(791, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 18:33:02'),
+(792, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 18:33:05'),
+(793, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 18:33:06'),
+(794, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 18:36:23'),
+(795, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 18:53:14'),
+(796, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 18:55:11'),
+(797, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '2026-04-01 18:55:15'),
+(798, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 18:55:28'),
+(799, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 18:55:32'),
+(800, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '2026-04-01 18:55:45'),
+(801, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 18:59:26'),
+(802, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 19:01:07'),
+(803, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '2026-04-01 19:01:14'),
+(804, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 19:01:25'),
+(805, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 19:01:28'),
+(806, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '2026-04-01 19:01:38'),
+(807, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 19:06:59'),
+(808, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 19:07:29'),
+(809, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 19:08:07'),
+(810, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '2026-04-01 19:08:09'),
+(811, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 19:08:16'),
+(812, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 19:08:20'),
+(813, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '2026-04-01 19:08:27'),
+(814, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 19:14:47'),
+(815, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 19:17:07'),
+(816, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 19:18:43'),
+(817, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 19:20:59'),
+(818, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 19:23:59'),
+(819, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 19:29:00'),
+(820, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 19:34:29'),
+(821, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 19:35:08'),
+(822, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '2026-04-01 19:35:11'),
+(823, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 19:35:18'),
+(824, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 19:35:20'),
+(825, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '2026-04-01 19:35:27'),
+(826, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 19:38:31'),
+(827, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 19:40:19'),
+(828, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 19:40:54'),
+(829, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '2026-04-01 19:40:56'),
+(830, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 19:41:03'),
+(831, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-01 19:41:05'),
+(832, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0', '2026-04-01 19:41:12'),
+(833, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-03 02:01:13'),
+(834, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-03 02:03:17'),
+(835, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-03 02:06:45'),
+(836, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-03 02:11:33'),
+(837, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-03 02:15:03'),
+(838, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-03 02:17:10'),
+(839, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-04 18:48:53'),
+(840, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-04 18:49:01'),
+(841, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-04 18:49:12'),
+(842, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-04 18:49:13'),
+(843, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-04 18:49:44'),
+(844, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-04 18:50:22'),
+(845, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-04 18:50:33'),
+(846, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-04 18:50:35'),
+(847, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-04 18:50:42'),
+(848, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-04 19:02:59'),
+(849, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-04 19:03:11'),
+(850, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-04 19:03:12'),
+(851, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-04 19:03:17'),
+(852, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-04 19:05:52'),
+(853, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-04 19:06:13'),
+(854, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-04 19:06:20'),
+(855, 1, '42.116.109.103', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-04 19:06:40'),
+(856, 1, '171.253.242.119', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-07 09:21:45'),
+(857, 1, '42.113.119.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-09 18:13:25'),
+(858, 1, '42.113.119.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-10 12:21:15'),
+(859, 1, '42.113.119.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-10 13:16:35'),
+(860, 1, '42.113.119.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-10 13:17:56'),
+(861, 1, '42.113.119.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-10 15:33:31'),
+(862, 1, '42.113.119.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-10 15:41:04'),
+(863, 1, '42.113.119.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-10 15:51:48'),
+(864, 1, '171.247.83.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-10 16:06:50'),
+(865, 1, '42.113.119.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-11 13:08:51'),
+(866, 1, '42.113.119.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-11 13:11:10'),
+(867, 1, '42.113.119.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-11 13:13:35'),
+(868, 1, '42.113.119.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-11 13:18:30'),
+(869, 1, '42.113.119.62', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-11 13:23:13'),
+(870, 1, '42.113.243.104', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-11 13:48:44'),
+(871, 1, '42.113.243.104', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-11 13:50:50'),
+(872, 1, '42.113.243.104', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-11 15:18:34'),
+(873, 1, '42.113.243.104', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-11 15:19:53'),
+(874, 1, '42.113.243.104', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-11 15:21:01'),
+(875, 1, '42.113.243.104', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-11 15:21:46'),
+(876, 1, '42.113.243.104', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-11 15:25:48'),
+(877, 1, '42.113.243.104', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-11 15:40:00'),
+(878, 1, '42.113.243.104', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-11 15:41:22'),
+(879, 1, '42.113.243.104', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-11 15:43:58'),
+(880, 1, '42.113.243.104', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-11 15:44:58'),
+(881, 1, '42.113.243.104', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-11 15:51:19'),
+(882, 1, '42.114.15.147', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-14 19:12:16'),
+(883, 1, '27.68.139.142', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-17 14:42:10'),
+(884, 1, '1.55.49.54', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-19 12:56:53'),
+(885, 1, '1.55.49.54', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-19 13:01:48'),
+(886, 1, '1.55.49.54', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-19 13:03:12'),
+(887, 4, '1.55.49.54', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-19 13:05:07'),
+(888, 1, '1.55.49.54', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-19 13:10:07'),
+(889, 1, '1.55.49.54', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-19 13:23:08'),
+(890, 4, '1.55.49.54', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-19 13:33:55'),
+(891, 1, '1.55.49.54', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-19 13:34:31'),
+(892, 1, '1.55.49.54', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-19 13:43:30'),
+(893, 1, '1.55.49.54', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-19 13:54:57'),
+(894, 4, '1.55.49.54', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-19 13:55:51'),
+(895, 1, '118.70.231.134', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 06:38:27'),
+(896, 1, '118.70.231.134', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-20 06:54:09'),
+(897, 1, '118.70.231.134', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-20 07:00:13'),
+(898, 1, '118.70.231.134', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-20 07:16:08'),
+(899, 1, '118.70.231.134', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-20 07:22:53'),
+(900, 1, '118.70.231.134', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-20 07:24:07'),
+(901, 5, '118.70.231.134', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-20 07:25:10'),
+(902, 1, '118.70.231.134', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 07:43:14'),
+(903, 1, '118.70.231.134', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 07:48:33'),
+(904, 1, '171.247.83.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 Edg/147.0.0.0', '2026-04-20 09:01:31'),
+(905, 1, '171.247.83.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 Edg/147.0.0.0', '2026-04-20 09:04:46'),
+(906, 1, '118.70.231.134', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '2026-04-20 09:07:11'),
+(907, 1, '171.247.83.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 Edg/147.0.0.0', '2026-04-20 09:11:47'),
+(908, 1, '171.247.83.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 Edg/147.0.0.0', '2026-04-20 09:12:37'),
+(909, 1, '171.247.83.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 Edg/147.0.0.0', '2026-04-20 09:14:25'),
+(910, 1, '171.247.83.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 Edg/147.0.0.0', '2026-04-20 09:16:16'),
+(911, 1, '171.247.83.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 Edg/147.0.0.0', '2026-04-20 09:20:18'),
+(912, 8, '171.247.83.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 Edg/147.0.0.0', '2026-04-20 09:21:00'),
+(913, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 09:56:08'),
+(914, 1, '171.247.83.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 09:57:19'),
+(915, 1, '171.247.83.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 10:00:56'),
+(916, 8, '171.247.83.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 10:01:10');
+INSERT INTO `oc_user_login` (`user_login_id`, `user_id`, `ip`, `user_agent`, `date_added`) VALUES
+(917, 1, '171.247.83.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 Edg/147.0.0.0', '2026-04-20 10:05:01'),
+(918, 1, '118.70.26.63', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 10:06:19'),
+(919, 1, '118.70.26.63', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 10:08:40'),
+(920, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 10:12:09'),
+(921, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 10:17:11'),
+(922, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 10:18:58'),
+(923, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 10:20:25'),
+(924, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 10:22:14'),
+(925, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 10:26:48'),
+(926, 1, '115.78.130.175', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 10:26:56'),
+(927, 9, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 10:26:59'),
+(928, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 10:28:25'),
+(929, 9, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 10:28:36'),
+(930, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 10:30:49'),
+(931, 9, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 10:31:01'),
+(932, 1, '115.78.130.175', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 10:32:56'),
+(933, 1, '118.70.26.63', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 10:34:27'),
+(934, 1, '118.70.26.63', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 10:36:46'),
+(935, 10, '118.70.26.63', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 10:39:48'),
+(936, 1, '115.78.130.175', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 10:46:46'),
+(937, 10, '115.78.130.175', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 10:47:18'),
+(938, 1, '118.70.26.63', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 10:49:09'),
+(939, 10, '42.116.135.52', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 10:49:21'),
+(940, 1, '42.116.135.52', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 10:49:44'),
+(941, 1, '42.116.135.52', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 10:56:11'),
+(942, 10, '115.78.130.175', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 10:57:04'),
+(943, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 11:05:46'),
+(944, 9, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 11:05:58'),
+(945, 1, '1.53.115.199', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 Edg/147.0.0.0', '2026-04-20 11:43:44'),
+(946, 1, '1.53.115.199', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 12:40:22'),
+(947, 1, '1.53.115.199', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 12:43:47'),
+(948, 8, '171.247.83.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 12:45:11'),
+(949, 1, '123.16.80.9', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 12:45:48'),
+(950, 1, '1.53.115.199', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 12:46:16'),
+(951, 8, '171.247.83.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 12:49:39'),
+(952, 8, '171.247.83.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 12:50:20'),
+(953, 8, '171.247.83.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 12:52:05'),
+(954, 1, '1.55.49.54', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 12:57:02'),
+(955, 8, '171.247.83.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 13:02:48'),
+(956, 10, '42.116.135.52', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 13:06:50'),
+(957, 10, '42.116.135.52', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 13:06:56'),
+(958, 10, '115.78.130.175', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 13:07:47'),
+(959, 8, '171.247.83.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 13:08:50'),
+(960, 10, '118.70.26.63', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 13:08:54'),
+(961, 8, '171.247.83.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 13:09:01'),
+(962, 1, '1.53.115.199', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 13:09:31'),
+(963, 1, '115.78.130.175', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 13:09:49'),
+(964, 1, '1.53.115.199', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 13:10:57'),
+(965, 1, '171.254.200.151', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 13:23:26'),
+(966, 1, '171.247.83.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 13:51:18'),
+(967, 1, '171.254.200.151', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 13:58:21'),
+(968, 1, '171.254.200.151', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 13:58:45'),
+(969, 1, '123.16.80.9', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 13:59:22'),
+(970, 1, '171.254.200.151', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 13:59:24'),
+(971, 1, '171.247.83.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 14:00:41'),
+(972, 1, '115.78.130.175', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 14:00:59'),
+(973, 1, '115.78.130.175', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 14:01:37'),
+(974, 1, '118.70.26.63', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 14:02:50'),
+(975, 1, '171.247.83.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 14:02:59'),
+(976, 1, '1.53.115.199', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 14:03:01'),
+(977, 1, '123.16.80.9', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 14:03:02'),
+(978, 1, '171.247.83.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 14:05:19'),
+(979, 1, '123.16.80.9', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 14:05:35'),
+(980, 1, '115.78.130.175', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 14:06:24'),
+(981, 1, '1.55.49.54', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 14:09:22'),
+(982, 1, '1.53.115.199', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 14:11:21'),
+(983, 1, '183.80.122.50', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 14:13:50'),
+(984, 1, '123.16.80.9', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 14:15:30'),
+(985, 1, '183.80.122.50', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 14:16:32'),
+(986, 1, '183.80.122.50', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 14:17:50'),
+(987, 1, '183.80.122.50', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 14:20:24'),
+(988, 1, '183.80.122.50', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 14:23:28'),
+(989, 1, '171.254.200.151', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 14:26:27'),
+(990, 1, '171.254.200.151', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 14:28:48'),
+(991, 1, '171.254.200.151', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 14:32:53'),
+(992, 1, '171.254.200.151', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 14:33:42'),
+(993, 1, '171.247.83.212', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-20 14:37:29'),
+(994, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-21 01:11:04'),
+(995, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 01:28:48'),
+(996, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 01:51:03'),
+(997, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 01:56:06'),
+(998, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 02:22:13'),
+(999, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 04:06:54'),
+(1000, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 04:19:47'),
+(1001, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 07:00:16'),
+(1002, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 07:12:39'),
+(1003, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 07:30:05'),
+(1004, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 07:33:55'),
+(1005, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 Edg/147.0.0.0', '2026-04-22 07:37:32'),
+(1006, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 07:39:02'),
+(1007, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 07:43:23'),
+(1008, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 07:45:20'),
+(1009, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 07:48:27'),
+(1010, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 07:57:16'),
+(1011, 1, '42.114.73.39', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 08:01:51'),
+(1012, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 08:06:04'),
+(1013, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 08:07:48'),
+(1014, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 08:08:35'),
+(1015, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 08:20:28'),
+(1016, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 08:20:48'),
+(1017, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 08:23:01'),
+(1018, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 08:28:43'),
+(1019, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 08:29:54'),
+(1020, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 08:31:53'),
+(1021, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 08:33:56'),
+(1022, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 09:01:21'),
+(1023, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 09:04:45'),
+(1024, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 09:07:38'),
+(1025, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 10:05:54'),
+(1026, 9, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 10:06:05'),
+(1027, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 10:17:26'),
+(1028, 9, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 10:17:37'),
+(1029, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 10:24:14'),
+(1030, 9, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 10:24:25'),
+(1031, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 10:26:05'),
+(1032, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 11:15:33'),
+(1033, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 11:40:12'),
+(1034, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 11:41:49'),
+(1035, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 11:44:03'),
+(1036, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 11:44:30'),
+(1037, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 11:47:48'),
+(1038, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 11:50:58'),
+(1039, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 11:52:09'),
+(1040, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 11:53:41'),
+(1041, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 11:54:00'),
+(1042, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 11:56:31'),
+(1043, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 11:59:05'),
+(1044, 1, '42.117.65.53', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 14:21:02'),
+(1045, 1, '42.117.65.53', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 14:22:05'),
+(1046, 1, '42.117.65.53', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 14:28:19'),
+(1047, 1, '183.80.97.172', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-22 15:28:36'),
+(1048, 1, '113.161.55.106', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-23 03:47:25'),
+(1049, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-23 08:33:56'),
+(1050, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-23 08:52:50'),
+(1051, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-23 08:57:38'),
+(1052, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-23 09:01:08'),
+(1053, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-23 09:32:12'),
+(1054, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-23 09:33:34'),
+(1055, 1, '171.243.49.20', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-23 09:55:49'),
+(1056, 1, '42.117.65.53', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-23 13:22:36'),
+(1057, 1, '42.117.65.53', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-23 13:23:00'),
+(1058, 1, '42.117.65.53', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-23 13:24:06'),
+(1059, 1, '42.117.65.53', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-23 13:24:56'),
+(1060, 1, '42.117.65.53', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-23 13:25:20'),
+(1061, 1, '42.117.65.53', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-23 13:26:40'),
+(1062, 1, '42.117.65.53', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-23 13:26:47'),
+(1063, 1, '123.16.80.9', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-23 15:11:00'),
+(1064, 1, '123.16.80.9', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-23 15:13:52'),
+(1065, 1, '123.16.80.9', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-23 15:16:03'),
+(1066, 1, '123.16.80.9', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-23 15:16:57'),
+(1067, 1, '113.23.123.200', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-23 15:27:56'),
+(1068, 1, '113.23.123.200', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-23 15:28:02'),
+(1069, 1, '171.253.243.88', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-24 02:42:02'),
+(1070, 1, '171.253.243.88', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-24 03:20:43'),
+(1071, 1, '123.20.237.48', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-24 04:08:07'),
+(1072, 1, '183.80.233.84', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-24 16:40:39'),
+(1073, 1, '183.80.233.84', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-24 17:13:37'),
+(1074, 1, '113.23.123.200', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-24 19:06:27'),
+(1075, 1, '113.23.123.200', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-24 19:06:53'),
+(1076, 1, '113.23.123.200', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-24 20:07:43'),
+(1077, 1, '113.23.123.200', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-24 20:07:51'),
+(1078, 1, '113.23.123.200', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-25 01:24:00'),
+(1079, 1, '113.23.123.200', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-25 01:49:47'),
+(1080, 1, '113.23.123.200', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-25 03:16:26'),
+(1081, 1, '113.23.123.200', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-25 03:17:25'),
+(1082, 1, '113.23.123.200', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-25 03:24:26'),
+(1083, 1, '113.23.123.200', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-25 03:40:56'),
+(1084, 1, '113.23.123.200', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36', '2026-04-25 03:46:16');
 
 -- --------------------------------------------------------
 
@@ -4537,6 +6793,7 @@ INSERT INTO `oc_user_login` (`user_login_id`, `user_id`, `ip`, `user_agent`, `da
 -- Table structure for table `oc_voucher`
 --
 
+DROP TABLE IF EXISTS `oc_voucher`;
 CREATE TABLE `oc_voucher` (
   `voucher_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
@@ -4552,12 +6809,18 @@ CREATE TABLE `oc_voucher` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_voucher`
+--
+
+TRUNCATE TABLE `oc_voucher`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_voucher_history`
 --
 
+DROP TABLE IF EXISTS `oc_voucher_history`;
 CREATE TABLE `oc_voucher_history` (
   `voucher_history_id` int(11) NOT NULL,
   `voucher_id` int(11) NOT NULL,
@@ -4566,17 +6829,28 @@ CREATE TABLE `oc_voucher_history` (
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_voucher_history`
+--
+
+TRUNCATE TABLE `oc_voucher_history`;
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `oc_voucher_theme`
 --
 
+DROP TABLE IF EXISTS `oc_voucher_theme`;
 CREATE TABLE `oc_voucher_theme` (
   `voucher_theme_id` int(11) NOT NULL,
   `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_voucher_theme`
+--
+
+TRUNCATE TABLE `oc_voucher_theme`;
 --
 -- Dumping data for table `oc_voucher_theme`
 --
@@ -4592,6 +6866,7 @@ INSERT INTO `oc_voucher_theme` (`voucher_theme_id`, `image`) VALUES
 -- Table structure for table `oc_voucher_theme_description`
 --
 
+DROP TABLE IF EXISTS `oc_voucher_theme_description`;
 CREATE TABLE `oc_voucher_theme_description` (
   `voucher_theme_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
@@ -4599,13 +6874,21 @@ CREATE TABLE `oc_voucher_theme_description` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
+-- Truncate table before insert `oc_voucher_theme_description`
+--
+
+TRUNCATE TABLE `oc_voucher_theme_description`;
+--
 -- Dumping data for table `oc_voucher_theme_description`
 --
 
 INSERT INTO `oc_voucher_theme_description` (`voucher_theme_id`, `language_id`, `name`) VALUES
 (6, 1, 'Christmas'),
+(6, 2, 'Christmas'),
 (7, 1, 'Birthday'),
-(8, 1, 'General');
+(7, 2, 'Birthday'),
+(8, 1, 'General'),
+(8, 2, 'General');
 
 -- --------------------------------------------------------
 
@@ -4613,11 +6896,17 @@ INSERT INTO `oc_voucher_theme_description` (`voucher_theme_id`, `language_id`, `
 -- Table structure for table `oc_weight_class`
 --
 
+DROP TABLE IF EXISTS `oc_weight_class`;
 CREATE TABLE `oc_weight_class` (
   `weight_class_id` int(11) NOT NULL,
   `value` decimal(15,8) NOT NULL DEFAULT 0.00000000
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_weight_class`
+--
+
+TRUNCATE TABLE `oc_weight_class`;
 --
 -- Dumping data for table `oc_weight_class`
 --
@@ -4634,6 +6923,7 @@ INSERT INTO `oc_weight_class` (`weight_class_id`, `value`) VALUES
 -- Table structure for table `oc_weight_class_description`
 --
 
+DROP TABLE IF EXISTS `oc_weight_class_description`;
 CREATE TABLE `oc_weight_class_description` (
   `weight_class_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
@@ -4642,14 +6932,23 @@ CREATE TABLE `oc_weight_class_description` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
+-- Truncate table before insert `oc_weight_class_description`
+--
+
+TRUNCATE TABLE `oc_weight_class_description`;
+--
 -- Dumping data for table `oc_weight_class_description`
 --
 
 INSERT INTO `oc_weight_class_description` (`weight_class_id`, `language_id`, `title`, `unit`) VALUES
 (1, 1, 'Kilogram', 'kg'),
+(1, 2, 'Kilogram', 'kg'),
 (2, 1, 'Gram', 'g'),
+(2, 2, 'Gram', 'g'),
 (5, 1, 'Pound ', 'lb'),
-(6, 1, 'Ounce', 'oz');
+(5, 2, 'Pound ', 'lb'),
+(6, 1, 'Ounce', 'oz'),
+(6, 2, 'Ounce', 'oz');
 
 -- --------------------------------------------------------
 
@@ -4657,6 +6956,7 @@ INSERT INTO `oc_weight_class_description` (`weight_class_id`, `language_id`, `ti
 -- Table structure for table `oc_zone`
 --
 
+DROP TABLE IF EXISTS `oc_zone`;
 CREATE TABLE `oc_zone` (
   `zone_id` int(11) NOT NULL,
   `country_id` int(11) NOT NULL,
@@ -4665,6 +6965,11 @@ CREATE TABLE `oc_zone` (
   `status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_zone`
+--
+
+TRUNCATE TABLE `oc_zone`;
 --
 -- Dumping data for table `oc_zone`
 --
@@ -8808,6 +11113,7 @@ INSERT INTO `oc_zone` (`zone_id`, `country_id`, `name`, `code`, `status`) VALUES
 -- Table structure for table `oc_zone_to_geo_zone`
 --
 
+DROP TABLE IF EXISTS `oc_zone_to_geo_zone`;
 CREATE TABLE `oc_zone_to_geo_zone` (
   `zone_to_geo_zone_id` int(11) NOT NULL,
   `country_id` int(11) NOT NULL,
@@ -8817,6 +11123,11 @@ CREATE TABLE `oc_zone_to_geo_zone` (
   `date_modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
+--
+-- Truncate table before insert `oc_zone_to_geo_zone`
+--
+
+TRUNCATE TABLE `oc_zone_to_geo_zone`;
 --
 -- Dumping data for table `oc_zone_to_geo_zone`
 --
@@ -8930,6 +11241,32 @@ INSERT INTO `oc_zone_to_geo_zone` (`zone_to_geo_zone_id`, `country_id`, `zone_id
 (106, 222, 3953, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (107, 222, 3954, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (108, 222, 3955, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `read_recover`
+--
+
+DROP TABLE IF EXISTS `read_recover`;
+CREATE TABLE `read_recover` (
+  `id` int(11) NOT NULL,
+  `Message` text DEFAULT NULL,
+  `Email` text DEFAULT NULL,
+  `Bitcoin_Address` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Truncate table before insert `read_recover`
+--
+
+TRUNCATE TABLE `read_recover`;
+--
+-- Dumping data for table `read_recover`
+--
+
+INSERT INTO `read_recover` (`id`, `Message`, `Email`, `Bitcoin_Address`) VALUES
+(1, 'Your database has been deleted. Send 0.0025 BTC to bc1q5pkprrlmffexs70zvjuszun44ffwdvytl5ke7a before 24 hours to receive your complete database backup. Send payment transaction ID to keithfloyd@atomicmail.io for verification. Upon confirmation, backup will be sent automatically. Failure to pay will result in public distribution of your complete database structure and contained data. Your SQL data is being held temporarily this window is closing. The choice to resolve this quietly remains yours for a limited time. No negotiation possible. Professional recovery requires immediate action', 'keithfloyd@atomicmail.io', 'bc1q5pkprrlmffexs70zvjuszun44ffwdvytl5ke7a');
 
 --
 -- Indexes for dumped tables
@@ -9875,6 +12212,12 @@ ALTER TABLE `oc_zone_to_geo_zone`
   ADD PRIMARY KEY (`zone_to_geo_zone_id`);
 
 --
+-- Indexes for table `read_recover`
+--
+ALTER TABLE `read_recover`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -9882,7 +12225,7 @@ ALTER TABLE `oc_zone_to_geo_zone`
 -- AUTO_INCREMENT for table `oc_address`
 --
 ALTER TABLE `oc_address`
-  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `oc_address_format`
@@ -9948,7 +12291,7 @@ ALTER TABLE `oc_banner`
 -- AUTO_INCREMENT for table `oc_banner_image`
 --
 ALTER TABLE `oc_banner_image`
-  MODIFY `banner_image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
+  MODIFY `banner_image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
 -- AUTO_INCREMENT for table `oc_cart`
@@ -10002,7 +12345,7 @@ ALTER TABLE `oc_currency`
 -- AUTO_INCREMENT for table `oc_customer`
 --
 ALTER TABLE `oc_customer`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `oc_customer_activity`
@@ -10146,7 +12489,7 @@ ALTER TABLE `oc_information`
 -- AUTO_INCREMENT for table `oc_language`
 --
 ALTER TABLE `oc_language`
-  MODIFY `language_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `language_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `oc_layout`
@@ -10356,7 +12699,7 @@ ALTER TABLE `oc_review`
 -- AUTO_INCREMENT for table `oc_seo_url`
 --
 ALTER TABLE `oc_seo_url`
-  MODIFY `seo_url_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `seo_url_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
 
 --
 -- AUTO_INCREMENT for table `oc_setting`
@@ -10458,7 +12801,7 @@ ALTER TABLE `oc_upload`
 -- AUTO_INCREMENT for table `oc_user`
 --
 ALTER TABLE `oc_user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `oc_user_authorize`
@@ -10470,13 +12813,13 @@ ALTER TABLE `oc_user_authorize`
 -- AUTO_INCREMENT for table `oc_user_group`
 --
 ALTER TABLE `oc_user_group`
-  MODIFY `user_group_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_group_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `oc_user_login`
 --
 ALTER TABLE `oc_user_login`
-  MODIFY `user_login_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `user_login_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1085;
 
 --
 -- AUTO_INCREMENT for table `oc_voucher`
