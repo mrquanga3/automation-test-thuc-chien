@@ -1,14 +1,6 @@
 {
   "permissions": {
-    "allow": [
-      "Bash(xargs sed *)",
-      "Bash(grep -v \"^.*//.*Tính\")",
-      "Bash(grep -v \"//\")",
-      "Bash(mkdir -p \"D:/automation-test-thuc-chien/web for testing/opencart/administrator/language/vi-vn/catalog\")",
-      "Bash(mkdir -p \"D:/automation-test-thuc-chien/web for testing/opencart/administrator/language/vi-vn/cms\")",
-      "Bash(mkdir -p \"D:/automation-test-thuc-chien/web for testing/opencart/administrator/language/vi-vn/common\")",
-      "Bash(mkdir -p \"D:/automation-test-thuc-chien/web for testing/opencart/administrator/language/vi-vn/customer\")",
-      "Bash(mkdir -p \"D:/automation-test-thuc-chien/web for testing/opencart/administrator/language/vi-vn/design\")"
-    ]
-  }
+    "*": "allow"
+  },
+  "approval_mode": "auto"
 }
