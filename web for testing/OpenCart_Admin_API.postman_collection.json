@@ -1,0 +1,561 @@
+{
+	"info": {
+		"_postman_id": "8d9de16f-3374-4b38-a546-285d8e884434",
+		"name": "OpenCart Admin API Expanded",
+		"description": "Collection đầy đủ cho Admin API: Auth, User, User Group, Category, Product, Customer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"if (jsonData.success) {",
+									"    pm.collectionVariables.set(\"userToken\", jsonData.user_token);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{ "key": "username", "value": "{{username}}", "type": "text" },
+								{ "key": "password", "value": "{{password}}", "type": "text" }
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/index.php?route=api/login",
+							"host": ["{{baseUrl}}"],
+							"path": ["index.php"],
+							"query": [{ "key": "route", "value": "api/login" }]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "User Management",
+			"item": [
+				{
+					"name": "List Users",
+					"request": {
+						"method": "GET",
+						"header": [{ "key": "Authorization", "value": "Bearer {{userToken}}", "type": "text" }],
+						"url": {
+							"raw": "{{baseUrl}}/index.php?route=api/user",
+							"host": ["{{baseUrl}}"],
+							"path": ["index.php"],
+							"query": [{ "key": "route", "value": "api/user" }]
+						}
+					}
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [{ "key": "Authorization", "value": "Bearer {{userToken}}", "type": "text" }],
+						"url": {
+							"raw": "{{baseUrl}}/index.php?route=api/user.get&user_id=1",
+							"host": ["{{baseUrl}}"],
+							"path": ["index.php"],
+							"query": [
+								{ "key": "route", "value": "api/user.get" },
+								{ "key": "user_id", "value": "1" }
+							]
+						}
+					}
+				},
+				{
+					"name": "Add User",
+					"request": {
+						"method": "POST",
+						"header": [{ "key": "Authorization", "value": "Bearer {{userToken}}", "type": "text" }],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{ "key": "username", "value": "tester1", "type": "text" },
+								{ "key": "password", "value": "password123", "type": "text" },
+								{ "key": "firstname", "value": "First", "type": "text" },
+								{ "key": "lastname", "value": "Last", "type": "text" },
+								{ "key": "email", "value": "test@test.com", "type": "text" },
+								{ "key": "user_group_id", "value": "1", "type": "text" },
+								{ "key": "status", "value": "1", "type": "text" }
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/index.php?route=api/user.add",
+							"host": ["{{baseUrl}}"],
+							"path": ["index.php"],
+							"query": [{ "key": "route", "value": "api/user.add" }]
+						}
+					}
+				},
+				{
+					"name": "Edit User",
+					"request": {
+						"method": "POST",
+						"header": [{ "key": "Authorization", "value": "Bearer {{userToken}}", "type": "text" }],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{ "key": "firstname", "value": "Updated", "type": "text" },
+								{ "key": "lastname", "value": "Name", "type": "text" },
+								{ "key": "email", "value": "updated@test.com", "type": "text" },
+								{ "key": "user_group_id", "value": "1", "type": "text" },
+								{ "key": "status", "value": "1", "type": "text" }
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/index.php?route=api/user.edit&user_id=2",
+							"host": ["{{baseUrl}}"],
+							"path": ["index.php"],
+							"query": [
+								{ "key": "route", "value": "api/user.edit" },
+								{ "key": "user_id", "value": "2" }
+							]
+						}
+					}
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "POST",
+						"header": [{ "key": "Authorization", "value": "Bearer {{userToken}}", "type": "text" }],
+						"url": {
+							"raw": "{{baseUrl}}/index.php?route=api/user.delete&user_id=2",
+							"host": ["{{baseUrl}}"],
+							"path": ["index.php"],
+							"query": [
+								{ "key": "route", "value": "api/user.delete" },
+								{ "key": "user_id", "value": "2" }
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "User Group Management",
+			"item": [
+				{
+					"name": "List User Groups",
+					"request": {
+						"method": "GET",
+						"header": [{ "key": "Authorization", "value": "Bearer {{userToken}}", "type": "text" }],
+						"url": {
+							"raw": "{{baseUrl}}/index.php?route=api/user_group",
+							"host": ["{{baseUrl}}"],
+							"path": ["index.php"],
+							"query": [{ "key": "route", "value": "api/user_group" }]
+						}
+					}
+				},
+				{
+					"name": "Get User Group",
+					"request": {
+						"method": "GET",
+						"header": [{ "key": "Authorization", "value": "Bearer {{userToken}}", "type": "text" }],
+						"url": {
+							"raw": "{{baseUrl}}/index.php?route=api/user_group.get&user_group_id=1",
+							"host": ["{{baseUrl}}"],
+							"path": ["index.php"],
+							"query": [
+								{ "key": "route", "value": "api/user_group.get" },
+								{ "key": "user_group_id", "value": "1" }
+							]
+						}
+					}
+				},
+				{
+					"name": "Add User Group",
+					"request": {
+						"method": "POST",
+						"header": [{ "key": "Authorization", "value": "Bearer {{userToken}}", "type": "text" }],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{ "key": "name", "value": "Test Group", "type": "text" },
+								{ "key": "permission[access][]", "value": "catalog/product", "type": "text" },
+								{ "key": "permission[modify][]", "value": "catalog/product", "type": "text" }
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/index.php?route=api/user_group.add",
+							"host": ["{{baseUrl}}"],
+							"path": ["index.php"],
+							"query": [{ "key": "route", "value": "api/user_group.add" }]
+						}
+					}
+				},
+				{
+					"name": "Edit User Group",
+					"request": {
+						"method": "POST",
+						"header": [{ "key": "Authorization", "value": "Bearer {{userToken}}", "type": "text" }],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{ "key": "name", "value": "Updated Group", "type": "text" },
+								{ "key": "permission[access][]", "value": "catalog/product", "type": "text" },
+								{ "key": "permission[modify][]", "value": "catalog/product", "type": "text" }
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/index.php?route=api/user_group.edit&user_group_id=2",
+							"host": ["{{baseUrl}}"],
+							"path": ["index.php"],
+							"query": [
+								{ "key": "route", "value": "api/user_group.edit" },
+								{ "key": "user_group_id", "value": "2" }
+							]
+						}
+					}
+				},
+				{
+					"name": "Delete User Group",
+					"request": {
+						"method": "POST",
+						"header": [{ "key": "Authorization", "value": "Bearer {{userToken}}", "type": "text" }],
+						"url": {
+							"raw": "{{baseUrl}}/index.php?route=api/user_group.delete&user_group_id=2",
+							"host": ["{{baseUrl}}"],
+							"path": ["index.php"],
+							"query": [
+								{ "key": "route", "value": "api/user_group.delete" },
+								{ "key": "user_group_id", "value": "2" }
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Catalog Management",
+			"item": [
+				{
+					"name": "List Categories",
+					"request": {
+						"method": "GET",
+						"header": [{ "key": "Authorization", "value": "Bearer {{userToken}}", "type": "text" }],
+						"url": {
+							"raw": "{{baseUrl}}/index.php?route=api/category",
+							"host": ["{{baseUrl}}"],
+							"path": ["index.php"],
+							"query": [{ "key": "route", "value": "api/category" }]
+						}
+					}
+				},
+				{
+					"name": "Get Category",
+					"request": {
+						"method": "GET",
+						"header": [{ "key": "Authorization", "value": "Bearer {{userToken}}", "type": "text" }],
+						"url": {
+							"raw": "{{baseUrl}}/index.php?route=api/category.get&category_id=20",
+							"host": ["{{baseUrl}}"],
+							"path": ["index.php"],
+							"query": [
+								{ "key": "route", "value": "api/category.get" },
+								{ "key": "category_id", "value": "20" }
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Category",
+					"request": {
+						"method": "POST",
+						"header": [{ "key": "Authorization", "value": "Bearer {{userToken}}", "type": "text" }],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{ "key": "parent_id", "value": "0", "type": "text" },
+								{ "key": "image", "value": "", "type": "text" },
+								{ "key": "sort_order", "value": "1", "type": "text" },
+								{ "key": "status", "value": "1", "type": "text" },
+								{ "key": "category_description[1][name]", "value": "API Category", "type": "text" },
+								{ "key": "category_description[1][meta_title]", "value": "Meta Title", "type": "text" },
+								{ "key": "category_description[1][description]", "value": "Description", "type": "text" }
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/index.php?route=api/category.add",
+							"host": ["{{baseUrl}}"],
+							"path": ["index.php"],
+							"query": [{ "key": "route", "value": "api/category.add" }]
+						}
+					}
+				},
+				{
+					"name": "Edit Category",
+					"request": {
+						"method": "POST",
+						"header": [{ "key": "Authorization", "value": "Bearer {{userToken}}", "type": "text" }],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{ "key": "parent_id", "value": "0", "type": "text" },
+								{ "key": "sort_order", "value": "2", "type": "text" },
+								{ "key": "status", "value": "1", "type": "text" },
+								{ "key": "category_description[1][name]", "value": "Updated Category", "type": "text" },
+								{ "key": "category_description[1][meta_title]", "value": "Updated Meta", "type": "text" },
+								{ "key": "category_description[1][description]", "value": "Updated Desc", "type": "text" }
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/index.php?route=api/category.edit&category_id=20",
+							"host": ["{{baseUrl}}"],
+							"path": ["index.php"],
+							"query": [
+								{ "key": "route", "value": "api/category.edit" },
+								{ "key": "category_id", "value": "20" }
+							]
+						}
+					}
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"method": "POST",
+						"header": [{ "key": "Authorization", "value": "Bearer {{userToken}}", "type": "text" }],
+						"url": {
+							"raw": "{{baseUrl}}/index.php?route=api/category.delete&category_id=20",
+							"host": ["{{baseUrl}}"],
+							"path": ["index.php"],
+							"query": [
+								{ "key": "route", "value": "api/category.delete" },
+								{ "key": "category_id", "value": "20" }
+							]
+						}
+					}
+				},
+				{
+					"name": "List Products",
+					"request": {
+						"method": "GET",
+						"header": [{ "key": "Authorization", "value": "Bearer {{userToken}}", "type": "text" }],
+						"url": {
+							"raw": "{{baseUrl}}/index.php?route=api/product",
+							"host": ["{{baseUrl}}"],
+							"path": ["index.php"],
+							"query": [{ "key": "route", "value": "api/product" }]
+						}
+					}
+				},
+				{
+					"name": "Get Product",
+					"request": {
+						"method": "GET",
+						"header": [{ "key": "Authorization", "value": "Bearer {{userToken}}", "type": "text" }],
+						"url": {
+							"raw": "{{baseUrl}}/index.php?route=api/product.get&product_id=40",
+							"host": ["{{baseUrl}}"],
+							"path": ["index.php"],
+							"query": [
+								{ "key": "route", "value": "api/product.get" },
+								{ "key": "product_id", "value": "40" }
+							]
+						}
+					}
+				},
+				{
+					"name": "Add Product",
+					"request": {
+						"method": "POST",
+						"header": [{ "key": "Authorization", "value": "Bearer {{userToken}}", "type": "text" }],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{ "key": "model", "value": "TEST-001", "type": "text" },
+								{ "key": "price", "value": "99.99", "type": "text" },
+								{ "key": "quantity", "value": "10", "type": "text" },
+								{ "key": "status", "value": "1", "type": "text" },
+								{ "key": "image", "value": "catalog/demo/hp_1.jpg", "type": "text" },
+								{ "key": "product_description[1][name]", "value": "New Product", "type": "text" },
+								{ "key": "product_description[1][meta_title]", "value": "Meta Title", "type": "text" },
+								{ "key": "product_description[1][description]", "value": "Product Description", "type": "text" }
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/index.php?route=api/product.add",
+							"host": ["{{baseUrl}}"],
+							"path": ["index.php"],
+							"query": [{ "key": "route", "value": "api/product.add" }]
+						}
+					}
+				},
+				{
+					"name": "Edit Product",
+					"request": {
+						"method": "POST",
+						"header": [{ "key": "Authorization", "value": "Bearer {{userToken}}", "type": "text" }],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{ "key": "model", "value": "Product 1", "type": "text" },
+								{ "key": "price", "value": "100.00", "type": "text" },
+								{ "key": "quantity", "value": "10", "type": "text" },
+								{ "key": "status", "value": "1", "type": "text" },
+								{ "key": "product_description[1][name]", "value": "Updated Name", "type": "text" },
+								{ "key": "product_description[1][meta_title]", "value": "Meta", "type": "text" }
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/index.php?route=api/product.edit&product_id=40",
+							"host": ["{{baseUrl}}"],
+							"path": ["index.php"],
+							"query": [
+								{ "key": "route", "value": "api/product.edit" },
+								{ "key": "product_id", "value": "40" }
+							]
+						}
+					}
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "POST",
+						"header": [{ "key": "Authorization", "value": "Bearer {{userToken}}", "type": "text" }],
+						"url": {
+							"raw": "{{baseUrl}}/index.php?route=api/product.delete&product_id=40",
+							"host": ["{{baseUrl}}"],
+							"path": ["index.php"],
+							"query": [
+								{ "key": "route", "value": "api/product.delete" },
+								{ "key": "product_id", "value": "40" }
+							]
+						}
+					}
+				}
+			]
+		}
+	],
+		{
+			"name": "Customer Management",
+			"item": [
+				{
+					"name": "List Customers",
+					"request": {
+						"method": "GET",
+						"header": [{ "key": "Authorization", "value": "Bearer {{userToken}}", "type": "text" }],
+						"url": {
+							"raw": "{{baseUrl}}/index.php?route=api/customer",
+							"host": ["{{baseUrl}}"],
+							"path": ["index.php"],
+							"query": [{ "key": "route", "value": "api/customer" }]
+						}
+					}
+				},
+				{
+					"name": "Get Customer",
+					"request": {
+						"method": "GET",
+						"header": [{ "key": "Authorization", "value": "Bearer {{userToken}}", "type": "text" }],
+						"url": {
+							"raw": "{{baseUrl}}/index.php?route=api/customer.get&customer_id=1",
+							"host": ["{{baseUrl}}"],
+							"path": ["index.php"],
+							"query": [
+								{ "key": "route", "value": "api/customer.get" },
+								{ "key": "customer_id", "value": "1" }
+							]
+						}
+					}
+				},
+				{
+					"name": "Add Customer",
+					"request": {
+						"method": "POST",
+						"header": [{ "key": "Authorization", "value": "Bearer {{userToken}}", "type": "text" }],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{ "key": "firstname", "value": "John", "type": "text" },
+								{ "key": "lastname", "value": "Doe", "type": "text" },
+								{ "key": "email", "value": "john.doe@test.com", "type": "text" },
+								{ "key": "telephone", "value": "0123456789", "type": "text" },
+								{ "key": "password", "value": "password123", "type": "text" },
+								{ "key": "customer_group_id", "value": "1", "type": "text" },
+								{ "key": "store_id", "value": "0", "type": "text" },
+								{ "key": "status", "value": "1", "type": "text" },
+								{ "key": "newsletter", "value": "0", "type": "text" },
+								{ "key": "safe", "value": "0", "type": "text" }
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/index.php?route=api/customer.add",
+							"host": ["{{baseUrl}}"],
+							"path": ["index.php"],
+							"query": [{ "key": "route", "value": "api/customer.add" }]
+						}
+					}
+				},
+				{
+					"name": "Edit Customer",
+					"request": {
+						"method": "POST",
+						"header": [{ "key": "Authorization", "value": "Bearer {{userToken}}", "type": "text" }],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{ "key": "firstname", "value": "Jane", "type": "text" },
+								{ "key": "lastname", "value": "Doe", "type": "text" },
+								{ "key": "email", "value": "jane.doe@test.com", "type": "text" },
+								{ "key": "telephone", "value": "0987654321", "type": "text" },
+								{ "key": "password", "value": "", "type": "text" },
+								{ "key": "customer_group_id", "value": "1", "type": "text" },
+								{ "key": "store_id", "value": "0", "type": "text" },
+								{ "key": "status", "value": "1", "type": "text" },
+								{ "key": "newsletter", "value": "0", "type": "text" },
+								{ "key": "safe", "value": "0", "type": "text" }
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/index.php?route=api/customer.edit&customer_id=1",
+							"host": ["{{baseUrl}}"],
+							"path": ["index.php"],
+							"query": [
+								{ "key": "route", "value": "api/customer.edit" },
+								{ "key": "customer_id", "value": "1" }
+							]
+						}
+					}
+				},
+				{
+					"name": "Delete Customer",
+					"request": {
+						"method": "POST",
+						"header": [{ "key": "Authorization", "value": "Bearer {{userToken}}", "type": "text" }],
+						"url": {
+							"raw": "{{baseUrl}}/index.php?route=api/customer.delete&customer_id=1",
+							"host": ["{{baseUrl}}"],
+							"path": ["index.php"],
+							"query": [
+								{ "key": "route", "value": "api/customer.delete" },
+								{ "key": "customer_id", "value": "1" }
+							]
+						}
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{ "key": "baseUrl", "value": "http://localhost/opencart/administrator", "type": "string" },
+		{ "key": "username", "value": "admin", "type": "string" },
+		{ "key": "password", "value": "admin", "type": "string" },
+		{ "key": "userToken", "value": "", "type": "string" }
+	]
+}
