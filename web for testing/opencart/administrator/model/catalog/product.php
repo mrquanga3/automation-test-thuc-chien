@@ -16,13 +16,21 @@ class Product extends \Opencart\System\Engine\Model {
 
 		$product_id = $this->db->getLastId();
 
-		if ($data['image']) {
+		if (!empty($data['image'])) {
 			$this->db->query("UPDATE `" . DB_PREFIX . "product` SET `image` = '" . $this->db->escape((string)$data['image']) . "' WHERE `product_id` = '" . (int)$product_id . "'");
 		}
 
-		// Description
-		foreach ($data['product_description'] as $language_id => $value) {
-			$this->db->query("INSERT INTO `" . DB_PREFIX . "product_description` SET `product_id` = '" . (int)$product_id . "', `language_id` = '" . (int)$language_id . "', `name` = '" . $this->db->escape($value['name']) . "', `description` = '" . $this->db->escape($value['description']) . "', `tag` = '" . $this->db->escape($value['tag']) . "', `meta_title` = '" . $this->db->escape($value['meta_title']) . "', `meta_description` = '" . $this->db->escape($value['meta_description']) . "', `meta_keyword` = '" . $this->db->escape($value['meta_keyword']) . "'");
+		// Description — if not provided, insert a default row using model as name
+		// so the product always appears in the admin product list regardless of language filtering
+		if (!empty($data['product_description'])) {
+			foreach ($data['product_description'] as $language_id => $value) {
+				$this->db->query("INSERT INTO `" . DB_PREFIX . "product_description` SET `product_id` = '" . (int)$product_id . "', `language_id` = '" . (int)$language_id . "', `name` = '" . $this->db->escape((string)($value['name'] ?? '')) . "', `description` = '" . $this->db->escape((string)($value['description'] ?? '')) . "', `tag` = '" . $this->db->escape((string)($value['tag'] ?? '')) . "', `meta_title` = '" . $this->db->escape((string)($value['meta_title'] ?? '')) . "', `meta_description` = '" . $this->db->escape((string)($value['meta_description'] ?? '')) . "', `meta_keyword` = '" . $this->db->escape((string)($value['meta_keyword'] ?? '')) . "'");
+			}
+		} else {
+			$default_language_id = (int)$this->config->get('config_language_id') ?: 1;
+			$default_name = !empty($data['model']) ? (string)$data['model'] : 'Product #' . $product_id;
+
+			$this->db->query("INSERT INTO `" . DB_PREFIX . "product_description` SET `product_id` = '" . (int)$product_id . "', `language_id` = '" . $default_language_id . "', `name` = '" . $this->db->escape($default_name) . "', `description` = '', `tag` = '', `meta_title` = '" . $this->db->escape($default_name) . "', `meta_description` = '', `meta_keyword` = ''");
 		}
 
 		// Categories
@@ -39,11 +47,11 @@ class Product extends \Opencart\System\Engine\Model {
 			}
 		}
 
-		// Stores
-		if (isset($data['product_store'])) {
-			foreach ($data['product_store'] as $store_id) {
-				$this->db->query("INSERT INTO `" . DB_PREFIX . "product_to_store` SET `product_id` = '" . (int)$product_id . "', `store_id` = '" . (int)$store_id . "'");
-			}
+		// Stores — default to store 0 if not provided so the product is visible on the storefront
+		$stores = !empty($data['product_store']) ? $data['product_store'] : [0];
+
+		foreach ($stores as $store_id) {
+			$this->db->query("INSERT INTO `" . DB_PREFIX . "product_to_store` SET `product_id` = '" . (int)$product_id . "', `store_id` = '" . (int)$store_id . "'");
 		}
 
 		// Downloads
@@ -841,7 +849,7 @@ class Product extends \Opencart\System\Engine\Model {
 	 * @return array
 	 */
 	public function getProduct(int $product_id): array {
-		$query = $this->db->query("SELECT DISTINCT * FROM `" . DB_PREFIX . "product` p LEFT JOIN `" . DB_PREFIX . "product_description` pd ON (p.`product_id` = pd.`product_id`) WHERE p.`product_id` = '" . (int)$product_id . "' AND pd.`language_id` = '" . (int)$this->config->get('config_language_id') . "'");
+		$query = $this->db->query("SELECT DISTINCT p.*, pd.`name`, pd.`description`, pd.`tag`, pd.`meta_title`, pd.`meta_description`, pd.`meta_keyword` FROM `" . DB_PREFIX . "product` p LEFT JOIN `" . DB_PREFIX . "product_description` pd ON (p.`product_id` = pd.`product_id` AND pd.`language_id` = '" . (int)$this->config->get('config_language_id') . "') WHERE p.`product_id` = '" . (int)$product_id . "'");
 
 		return $query->row;
 	}
@@ -852,7 +860,9 @@ class Product extends \Opencart\System\Engine\Model {
 	 * @return array
 	 */
 	public function getProducts(array $data = []): array {
-		$sql = "SELECT * FROM `" . DB_PREFIX . "product` p LEFT JOIN `" . DB_PREFIX . "product_description` pd ON (p.`product_id` = pd.`product_id`) WHERE pd.`language_id` = '" . (int)$this->config->get('config_language_id') . "'";
+		$language_id = (int)$this->config->get('config_language_id');
+
+		$sql = "SELECT p.*, COALESCE(pd.`name`, (SELECT `name` FROM `" . DB_PREFIX . "product_description` WHERE `product_id` = p.`product_id` LIMIT 1)) AS `name`, pd.`description`, pd.`tag`, pd.`meta_title`, pd.`meta_description`, pd.`meta_keyword` FROM `" . DB_PREFIX . "product` p LEFT JOIN `" . DB_PREFIX . "product_description` pd ON (p.`product_id` = pd.`product_id` AND pd.`language_id` = '" . $language_id . "') WHERE 1";
 
 		if (!empty($data['filter_master_id'])) {
 			$sql .= " AND p.`master_id` = '" . (int)$data['filter_master_id'] . "'";
@@ -1224,7 +1234,7 @@ class Product extends \Opencart\System\Engine\Model {
 	 * @return int
 	 */
 	public function getTotalProducts(array $data = []): int {
-		$sql = "SELECT COUNT(DISTINCT p.`product_id`) AS `total` FROM `" . DB_PREFIX . "product` p LEFT JOIN `" . DB_PREFIX . "product_description` pd ON (p.`product_id` = pd.`product_id`) WHERE pd.`language_id` = '" . (int)$this->config->get('config_language_id') . "'";
+		$sql = "SELECT COUNT(DISTINCT p.`product_id`) AS `total` FROM `" . DB_PREFIX . "product` p LEFT JOIN `" . DB_PREFIX . "product_description` pd ON (p.`product_id` = pd.`product_id` AND pd.`language_id` = '" . (int)$this->config->get('config_language_id') . "') WHERE 1";
 
 		if (!empty($data['filter_master_id'])) {
 			$sql .= " AND p.`master_id` = '" . (int)$data['filter_master_id'] . "'";

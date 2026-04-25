@@ -56,6 +56,18 @@ class Notification extends \Opencart\System\Engine\Controller {
 			$page = 1;
 		}
 
+		if (isset($this->request->get['sort'])) {
+			$sort = (string)$this->request->get['sort'];
+		} else {
+			$sort = 'n.notification_id';
+		}
+
+		if (isset($this->request->get['order'])) {
+			$order = (string)$this->request->get['order'];
+		} else {
+			$order = 'ASC';
+		}
+
 		$url = '';
 
 		if (isset($this->request->get['page'])) {
@@ -90,15 +102,9 @@ class Notification extends \Opencart\System\Engine\Controller {
 
 		$filter_data = [
 			'start' => ($page - 1) * $this->config->get('config_pagination_admin'),
-			'limit' => $this->config->get('config_pagination_admin')
-		
-
+			'limit' => $this->config->get('config_pagination_admin'),
 			'sort'  => $sort,
-
-
 			'order' => $order,
-
-
 		];
 
 		$results = $this->model_tool_notification->getNotifications($filter_data);
