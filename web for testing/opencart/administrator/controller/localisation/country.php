@@ -206,6 +206,8 @@ class Country extends \Opencart\System\Engine\Controller {
 		$data['sort_iso_code_2'] = $this->url->link('localisation/country.list', 'user_token=' . $this->session->data['user_token'] . '&sort=iso_code_2' . $url);
 		$data['sort_iso_code_3'] = $this->url->link('localisation/country.list', 'user_token=' . $this->session->data['user_token'] . '&sort=iso_code_3' . $url);
 
+		$data['sort_country_id'] = $this->url->link('localisation/country.list', 'user_token=' . $this->session->data['user_token'] . '&sort=country_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['filter_name'])) {

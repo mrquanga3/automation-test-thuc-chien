@@ -177,6 +177,8 @@ class CustomField extends \Opencart\System\Engine\Controller {
 		$data['sort_status'] = $this->url->link('customer/custom_field.list', 'user_token=' . $this->session->data['user_token'] . '&sort=cf.status' . $url);
 		$data['sort_sort_order'] = $this->url->link('customer/custom_field.list', 'user_token=' . $this->session->data['user_token'] . '&sort=cf.sort_order' . $url);
 
+		$data['sort_custom_field_id'] = $this->url->link('customer/custom_field.list', 'user_token=' . $this->session->data['user_token'] . '&sort=cf.custom_field_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {

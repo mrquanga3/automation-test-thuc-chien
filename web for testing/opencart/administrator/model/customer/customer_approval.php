@@ -38,7 +38,48 @@ class CustomerApproval extends \Opencart\System\Engine\Model {
 			$sql .= " AND DATE(c.`date_added`) <= DATE('" . $this->db->escape((string)$data['filter_date_to']) . "')";
 		}
 
-		$sql .= " ORDER BY c.`date_added` DESC";
+		$sort_data = [
+
+
+			'ca.customer_approval_id',
+
+
+			'c.date_added'
+
+
+		];
+
+
+
+		if (isset($data['sort']) && in_array($data['sort'], $sort_data)) {
+
+
+			$sql .= " ORDER BY " . $data['sort'];
+
+
+		} else {
+
+
+			$sql .= " ORDER BY c.`date_added`";
+
+
+		}
+
+
+
+		if (isset($data['order']) && ($data['order'] == 'DESC')) {
+
+
+			$sql .= " DESC";
+
+
+		} else {
+
+
+			$sql .= " ASC";
+
+
+		}
 
 		if (isset($data['start']) || isset($data['limit'])) {
 			if ($data['start'] < 0) {

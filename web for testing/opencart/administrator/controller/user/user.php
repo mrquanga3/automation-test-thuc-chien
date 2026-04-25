@@ -138,6 +138,8 @@ class User extends \Opencart\System\Engine\Controller {
 		$data['sort_status'] = $this->url->link('user/user.list', 'user_token=' . $this->session->data['user_token'] . '&sort=status' . $url);
 		$data['sort_date_added'] = $this->url->link('user/user.list', 'user_token=' . $this->session->data['user_token'] . '&sort=date_added' . $url);
 
+		$data['sort_user_id'] = $this->url->link('user/user.list', 'user_token=' . $this->session->data['user_token'] . '&sort=user_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {

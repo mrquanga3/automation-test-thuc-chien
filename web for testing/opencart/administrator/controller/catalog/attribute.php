@@ -138,6 +138,8 @@ class Attribute extends \Opencart\System\Engine\Controller {
 		$data['sort_attribute_group'] = $this->url->link('catalog/attribute.list', 'user_token=' . $this->session->data['user_token'] . '&sort=attribute_group' . $url);
 		$data['sort_sort_order'] = $this->url->link('catalog/attribute.list', 'user_token=' . $this->session->data['user_token'] . '&sort=a.sort_order' . $url);
 
+		$data['sort_attribute_id'] = $this->url->link('catalog/attribute.list', 'user_token=' . $this->session->data['user_token'] . '&sort=a.attribute_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {

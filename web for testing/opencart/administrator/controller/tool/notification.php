@@ -62,6 +62,26 @@ class Notification extends \Opencart\System\Engine\Controller {
 			$url .= '&page=' . $this->request->get['page'];
 		}
 
+
+		if (isset($this->request->get['sort'])) {
+
+
+			$url .= '&sort=' . $this->request->get['sort'];
+
+
+		}
+
+
+
+		if (isset($this->request->get['order'])) {
+
+
+			$url .= '&order=' . $this->request->get['order'];
+
+
+		}
+
+
 		$data['notifications'] = [];
 
 		$this->load->model('tool/notification');
@@ -71,6 +91,14 @@ class Notification extends \Opencart\System\Engine\Controller {
 		$filter_data = [
 			'start' => ($page - 1) * $this->config->get('config_pagination_admin'),
 			'limit' => $this->config->get('config_pagination_admin')
+		
+
+			'sort'  => $sort,
+
+
+			'order' => $order,
+
+
 		];
 
 		$results = $this->model_tool_notification->getNotifications($filter_data);
@@ -104,6 +132,37 @@ class Notification extends \Opencart\System\Engine\Controller {
 				'delete'          => $this->url->link('tool/notification.delete', 'user_token=' . $this->session->data['user_token'] . '&notification_id=' . $result['notification_id'] . $url)
 			];
 		}
+
+
+		$sort_url = '';
+
+
+		if ($order == 'ASC') {
+
+
+			$sort_url .= '&order=DESC';
+
+
+		} else {
+
+
+			$sort_url .= '&order=ASC';
+
+
+		}
+
+
+
+		$data['sort_notification_id'] = $this->url->link('tool/notification.list', 'user_token=' . $this->session->data['user_token'] . '&sort=notification_id' . $sort_url);
+
+
+
+		$data['sort'] = $sort;
+
+
+		$data['order'] = $order;
+
+
 
 		$data['pagination'] = $this->load->controller('common/pagination', [
 			'total' => $notification_total,

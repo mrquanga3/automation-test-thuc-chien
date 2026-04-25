@@ -156,6 +156,8 @@ class Translation extends \Opencart\System\Engine\Controller {
 		$data['sort_key'] = $this->url->link('design/translation.list', 'user_token=' . $this->session->data['user_token'] . '&sort=key' . $url);
 		$data['sort_value'] = $this->url->link('design/translation.list', 'user_token=' . $this->session->data['user_token'] . '&sort=value' . $url);
 
+		$data['sort_translation_id'] = $this->url->link('design/translation.list', 'user_token=' . $this->session->data['user_token'] . '&sort=t.translation_id' . $url);
+
 		$data['pagination'] = $this->load->controller('common/pagination', [
 			'total' => $translation_total,
 			'page'  => $page,

@@ -140,6 +140,8 @@ class Api extends \Opencart\System\Engine\Controller {
 		$data['sort_date_added'] = $this->url->link('user/api.list', 'user_token=' . $this->session->data['user_token'] . '&sort=date_added' . $url);
 		$data['sort_date_modified'] = $this->url->link('user/api.list', 'user_token=' . $this->session->data['user_token'] . '&sort=date_modified' . $url);
 
+		$data['sort_api_id'] = $this->url->link('user/api.list', 'user_token=' . $this->session->data['user_token'] . '&sort=api_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {

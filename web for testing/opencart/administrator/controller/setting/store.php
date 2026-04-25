@@ -20,6 +20,26 @@ class Store extends \Opencart\System\Engine\Controller {
 			$url .= '&page=' . $this->request->get['page'];
 		}
 
+
+		if (isset($this->request->get['sort'])) {
+
+
+			$url .= '&sort=' . $this->request->get['sort'];
+
+
+		}
+
+
+
+		if (isset($this->request->get['order'])) {
+
+
+			$url .= '&order=' . $this->request->get['order'];
+
+
+		}
+
+
 		$data['breadcrumbs'] = [];
 
 		$data['breadcrumbs'][] = [
@@ -104,6 +124,37 @@ class Store extends \Opencart\System\Engine\Controller {
 				'edit'     => $this->url->link('setting/store.form', 'user_token=' . $this->session->data['user_token'] . '&store_id=' . $result['store_id'])
 			];
 		}
+
+
+		$sort_url = '';
+
+
+		if ($order == 'ASC') {
+
+
+			$sort_url .= '&order=DESC';
+
+
+		} else {
+
+
+			$sort_url .= '&order=ASC';
+
+
+		}
+
+
+
+		$data['sort_store_id'] = $this->url->link('setting/store.list', 'user_token=' . $this->session->data['user_token'] . '&sort=store_id' . $sort_url);
+
+
+
+		$data['sort'] = $sort;
+
+
+		$data['order'] = $order;
+
+
 
 		$data['pagination'] = $this->load->controller('common/pagination', [
 			'total' => $store_total,

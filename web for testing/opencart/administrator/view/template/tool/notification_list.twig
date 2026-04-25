@@ -4,7 +4,7 @@
       <thead>
         <tr>
           <td class="text-center" style="width: 1px;"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', $(this).prop('checked'));" class="form-check-input"/></td>
-          <td class="text-end" style="width: 1px;">ID</td>
+          <td class="text-end" style="width: 1px;"><a href="{{ sort_notification_id }}"{% if sort == 'notification_id' %} class="{{ order|lower }}"{%endif%}>ID</a></td>
           <td class="text-start">{{ column_message }}</td>
           <td class="text-end">{{ column_action }}</td>
         </tr>

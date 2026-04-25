@@ -118,6 +118,7 @@ class Review extends \Opencart\System\Engine\Model {
 		}
 
 		$sort_data = [
+			'r.review_id',
 			'pd.name',
 			'r.author',
 			'r.rating',

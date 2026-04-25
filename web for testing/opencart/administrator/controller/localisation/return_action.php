@@ -135,6 +135,9 @@ class ReturnAction extends \Opencart\System\Engine\Controller {
 
 		$data['sort_name'] = $this->url->link('localisation/return_action.list', 'user_token=' . $this->session->data['user_token'] . '&sort=name' . $url);
 
+
+		$data['sort_return_action_id'] = $this->url->link('localisation/return_action.list', 'user_token=' . $this->session->data['user_token'] . '&sort=return_action_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {

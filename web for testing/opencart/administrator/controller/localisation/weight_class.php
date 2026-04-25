@@ -136,6 +136,8 @@ class WeightClass extends \Opencart\System\Engine\Controller {
 		$data['sort_unit'] = $this->url->link('localisation/weight_class.list', 'user_token=' . $this->session->data['user_token'] . '&sort=unit' . $url);
 		$data['sort_value'] = $this->url->link('localisation/weight_class.list', 'user_token=' . $this->session->data['user_token'] . '&sort=value' . $url);
 
+		$data['sort_weight_class_id'] = $this->url->link('localisation/weight_class.list', 'user_token=' . $this->session->data['user_token'] . '&sort=wc.weight_class_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {

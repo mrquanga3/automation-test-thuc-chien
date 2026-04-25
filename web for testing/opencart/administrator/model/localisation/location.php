@@ -56,6 +56,7 @@ class Location extends \Opencart\System\Engine\Model {
 		$sql = "SELECT `location_id`, `name`, `address` FROM `" . DB_PREFIX . "location`";
 
 		$sort_data = [
+			'location_id',
 			'name',
 			'address',
 		];

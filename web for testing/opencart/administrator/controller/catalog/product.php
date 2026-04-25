@@ -289,6 +289,8 @@ class Product extends \Opencart\System\Engine\Controller {
 		$data['sort_quantity'] = $this->url->link('catalog/product.list', 'user_token=' . $this->session->data['user_token'] . '&sort=p.quantity' . $url);
 		$data['sort_order'] = $this->url->link('catalog/product.list', 'user_token=' . $this->session->data['user_token'] . '&sort=p.sort_order' . $url);
 
+		$data['sort_product_id'] = $this->url->link('catalog/product.list', 'user_token=' . $this->session->data['user_token'] . '&sort=p.product_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['filter_name'])) {

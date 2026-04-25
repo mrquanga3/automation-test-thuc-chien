@@ -155,6 +155,8 @@ class Currency extends \Opencart\System\Engine\Controller {
 		$data['sort_status'] = $this->url->link('localisation/currency.list', 'user_token=' . $this->session->data['user_token'] . '&sort=status' . $url);
 		$data['sort_date_modified'] = $this->url->link('localisation/currency.list', 'user_token=' . $this->session->data['user_token'] . '&sort=date_modified' . $url);
 
+		$data['sort_currency_id'] = $this->url->link('localisation/currency.list', 'user_token=' . $this->session->data['user_token'] . '&sort=currency_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {

@@ -134,6 +134,9 @@ class ReturnReason extends \Opencart\System\Engine\Controller {
 
 		$data['sort_name'] = $this->url->link('localisation/return_reason.list', 'user_token=' . $this->session->data['user_token'] . '&sort=name' . $url);
 
+
+		$data['sort_return_reason_id'] = $this->url->link('localisation/return_reason.list', 'user_token=' . $this->session->data['user_token'] . '&sort=return_reason_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {

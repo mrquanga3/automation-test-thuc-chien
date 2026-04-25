@@ -134,6 +134,9 @@ class StockStatus extends \Opencart\System\Engine\Controller {
 
 		$data['sort_name'] = $this->url->link('localisation/stock_status.list', 'user_token=' . $this->session->data['user_token'] . '&sort=name' . $url);
 
+
+		$data['sort_stock_status_id'] = $this->url->link('localisation/stock_status.list', 'user_token=' . $this->session->data['user_token'] . '&sort=stock_status_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {

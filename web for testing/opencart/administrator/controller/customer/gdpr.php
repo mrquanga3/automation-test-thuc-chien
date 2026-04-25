@@ -94,6 +94,18 @@ class Gdpr extends \Opencart\System\Engine\Controller {
 			$page = 1;
 		}
 
+
+		if (isset($this->request->get['sort'])) {
+			$sort = (string)$this->request->get['sort'];
+		} else {
+			$sort = 'gdpr_id';
+		}
+
+		if (isset($this->request->get['order'])) {
+			$order = (string)$this->request->get['order'];
+		} else {
+			$order = 'ASC';
+		}
 		$url = '';
 
 		if (isset($this->request->get['filter_email'])) {
@@ -128,6 +140,9 @@ class Gdpr extends \Opencart\System\Engine\Controller {
 			'filter_date_to'   => $filter_date_to,
 			'start'            => ($page - 1) * $this->config->get('config_pagination_admin'),
 			'limit'            => $this->config->get('config_pagination_admin')
+			'sort'  => $sort,
+			'order' => $order,
+
 		];
 
 		$this->load->model('customer/gdpr');
@@ -180,6 +195,36 @@ class Gdpr extends \Opencart\System\Engine\Controller {
 		if (isset($this->request->get['filter_date_to'])) {
 			$url .= '&filter_date_to=' . $this->request->get['filter_date_to'];
 		}
+
+
+		if (isset($this->request->get['sort'])) {
+			$url .= '&sort=' . $this->request->get['sort'];
+		}
+
+		if (isset($this->request->get['order'])) {
+			$url .= '&order=' . $this->request->get['order'];
+		}
+
+		$sort_url = '';
+
+		if ($order == 'ASC') {
+
+			$sort_url .= '&order=DESC';
+
+		} else {
+
+			$sort_url .= '&order=ASC';
+
+		}
+
+
+		$data['sort_gdpr_id'] = $this->url->link('customer/gdpr.list', 'user_token=' . $this->session->data['user_token'] . '&sort=gdpr_id' . $sort_url);
+
+
+		$data['sort'] = $sort;
+
+		$data['order'] = $order;
+
 
 		$data['pagination'] = $this->load->controller('common/pagination', [
 			'total' => $gdpr_total,

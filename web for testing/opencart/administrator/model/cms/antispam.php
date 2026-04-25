@@ -64,7 +64,7 @@ class Antispam extends \Opencart\System\Engine\Model {
 			$sql .= " WHERE " . implode(" AND ", $implode);
 		}
 
-		$sort_data = ['keyword'];
+		$sort_data = ['antispam_id', 'keyword'];
 
 		if (isset($data['sort']) && in_array($data['sort'], $sort_data)) {
 			$sql .= " ORDER BY " . $data['sort'];

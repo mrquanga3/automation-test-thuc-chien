@@ -352,6 +352,7 @@ class Language extends \Opencart\System\Engine\Model {
 		$sql = "SELECT * FROM `" . DB_PREFIX . "language`";
 
 		$sort_data = [
+			'language_id',
 			'name',
 			'code',
 			'sort_order'

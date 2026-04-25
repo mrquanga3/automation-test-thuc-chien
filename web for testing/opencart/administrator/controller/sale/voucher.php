@@ -153,6 +153,8 @@ class Voucher extends \Opencart\System\Engine\Controller {
 		$data['sort_status'] = $this->url->link('sale/voucher.list', 'user_token=' . $this->session->data['user_token'] . '&sort=v.status' . $url);
 		$data['sort_date_added'] = $this->url->link('sale/voucher.list', 'user_token=' . $this->session->data['user_token'] . '&sort=v.date_added' . $url);
 
+		$data['sort_voucher_id'] = $this->url->link('sale/voucher.list', 'user_token=' . $this->session->data['user_token'] . '&sort=v.voucher_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {

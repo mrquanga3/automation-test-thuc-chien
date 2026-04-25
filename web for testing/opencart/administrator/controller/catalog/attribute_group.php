@@ -136,6 +136,8 @@ class AttributeGroup extends \Opencart\System\Engine\Controller {
 		$data['sort_name'] = $this->url->link('catalog/attribute_group.list', 'user_token=' . $this->session->data['user_token'] . '&sort=agd.name' . $url);
 		$data['sort_sort_order'] = $this->url->link('catalog/attribute_group.list', 'user_token=' . $this->session->data['user_token'] . '&sort=ag.sort_order' . $url);
 
+		$data['sort_attribute_group_id'] = $this->url->link('catalog/attribute_group.list', 'user_token=' . $this->session->data['user_token'] . '&sort=ag.attribute_group_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {

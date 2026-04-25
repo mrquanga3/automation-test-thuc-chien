@@ -136,6 +136,8 @@ class Manufacturer extends \Opencart\System\Engine\Controller {
 		$data['sort_name'] = $this->url->link('catalog/manufacturer.list', 'user_token=' . $this->session->data['user_token'] . '&sort=name' . $url);
 		$data['sort_sort_order'] = $this->url->link('catalog/manufacturer.list', 'user_token=' . $this->session->data['user_token'] . '&sort=sort_order' . $url);
 
+		$data['sort_manufacturer_id'] = $this->url->link('catalog/manufacturer.list', 'user_token=' . $this->session->data['user_token'] . '&sort=manufacturer_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {

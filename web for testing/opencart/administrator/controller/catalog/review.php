@@ -266,6 +266,8 @@ class Review extends \Opencart\System\Engine\Controller {
 		$data['sort_rating'] = $this->url->link('catalog/review.list', 'user_token=' . $this->session->data['user_token'] . '&sort=r.rating' . $url);
 		$data['sort_date_added'] = $this->url->link('catalog/review.list', 'user_token=' . $this->session->data['user_token'] . '&sort=r.date_added' . $url);
 
+		$data['sort_review_id'] = $this->url->link('catalog/review.list', 'user_token=' . $this->session->data['user_token'] . '&sort=r.review_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['filter_product'])) {

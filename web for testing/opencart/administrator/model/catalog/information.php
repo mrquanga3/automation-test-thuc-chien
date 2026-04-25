@@ -125,6 +125,7 @@ class Information extends \Opencart\System\Engine\Model {
 		$sql = "SELECT * FROM `" . DB_PREFIX . "information` i LEFT JOIN `" . DB_PREFIX . "information_description` id ON (i.`information_id` = id.`information_id`) WHERE id.`language_id` = '" . (int)$this->config->get('config_language_id') . "'";
 
 		$sort_data = [
+			'i.information_id',
 			'id.title',
 			'i.sort_order'
 		];

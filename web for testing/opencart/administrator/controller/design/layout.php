@@ -135,6 +135,9 @@ class Layout extends \Opencart\System\Engine\Controller {
 
 		$data['sort_name'] = $this->url->link('design/layout.list', 'user_token=' . $this->session->data['user_token'] . '&sort=name' . $url);
 
+
+		$data['sort_layout_id'] = $this->url->link('design/layout.list', 'user_token=' . $this->session->data['user_token'] . '&sort=layout_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {

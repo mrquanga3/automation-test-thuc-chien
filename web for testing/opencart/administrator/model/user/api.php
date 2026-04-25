@@ -76,6 +76,7 @@ class Api extends \Opencart\System\Engine\Model {
 		$sql = "SELECT * FROM `" . DB_PREFIX . "api`";
 
 		$sort_data = [
+			'api_id',
 			'username',
 			'status',
 			'date_added',

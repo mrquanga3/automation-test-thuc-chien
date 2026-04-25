@@ -76,6 +76,7 @@ class Event extends \Opencart\System\Engine\Model {
 		$sql = "SELECT * FROM `" . DB_PREFIX . "event`";
 
 		$sort_data = [
+			'event_id',
 			'code',
 			'trigger',
 			'action',
