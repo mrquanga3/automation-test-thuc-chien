@@ -1,0 +1,133 @@
+<?php
+// Heading
+$_['heading_title']           = 'Sản Phẩm';
+
+// Text
+$_['text_success']            = 'Thành công: Bạn đã chỉnh sửa sản phẩm!';
+$_['text_variant']            = 'Lưu ý: Đây là sản phẩm biến thể, bạn phải ghi đè dữ liệu <a href="%s" target="_blank" class="alert-link">sản phẩm chính</a>. Nếu không, dữ liệu sẽ bị thay thế bằng dữ liệu <a href="%s" target="_blank" class="alert-link">sản phẩm chính</a> khi lưu.';
+$_['text_list']               = 'Danh Sách Sản Phẩm';
+$_['text_add']                = 'Thêm Sản Phẩm';
+$_['text_edit']               = 'Chỉnh Sửa Sản Phẩm';
+$_['text_variant_add']        = 'Thêm Biến Thể';
+$_['text_model']              = 'Model';
+$_['text_price']              = 'Giá';
+$_['text_stock']              = 'Tồn Kho';
+$_['text_specification']      = 'Thông Số Kỹ Thuật';
+$_['text_filter']             = 'Bộ Lọc';
+$_['text_default']            = 'Mặc Định';
+$_['text_keyword']            = 'Không dùng dấu cách, thay vào đó dùng dấu gạch ngang - và đảm bảo URL SEO là duy nhất trên toàn hệ thống.';
+$_['text_option_add']         = 'Thêm Tùy Chọn';
+$_['text_option_value']       = 'Giá Trị Tùy Chọn';
+$_['text_select']             = 'Chọn';
+$_['text_radio']              = 'Nút Tròn';
+$_['text_checkbox']           = 'Hộp Kiểm';
+$_['text_input']              = 'Nhập Liệu';
+$_['text_text']               = 'Văn Bản';
+$_['text_textarea']           = 'Vùng Văn Bản';
+$_['text_file']               = 'Tệp';
+$_['text_date']               = 'Ngày';
+$_['text_datetime']           = 'Ngày &amp; Giờ';
+$_['text_time']               = 'Giờ';
+$_['text_image']              = 'Hình Ảnh';
+$_['text_image_additional']   = 'Hình Ảnh Bổ Sung';
+$_['text_reward']             = 'Điểm Mua Hàng';
+$_['text_points']             = 'Điểm Thưởng';
+$_['text_report']             = 'Báo Cáo';
+
+// Column
+$_['column_name']             = 'Tên Sản Phẩm';
+$_['column_model']            = 'Model';
+$_['column_image']            = 'Hình Ảnh';
+$_['column_price']            = 'Giá';
+$_['column_quantity']         = 'Số Lượng';
+$_['column_status']           = 'Trạng Thái';
+$_['column_ip']               = 'IP';
+$_['column_store']            = 'Cửa Hàng';
+$_['column_country']          = 'Quốc Gia';
+$_['column_date_added']       = 'Ngày Tạo';
+$_['column_action']           = 'Hành Động';
+
+// Entry
+$_['entry_name']              = 'Tên Sản Phẩm';
+$_['entry_description']       = 'Mô Tả';
+$_['entry_meta_title']        = 'Tiêu Đề Meta';
+$_['entry_meta_keyword']      = 'Từ Khóa Meta';
+$_['entry_meta_description']  = 'Mô Tả Meta';
+$_['entry_store']             = 'Cửa Hàng';
+$_['entry_keyword']           = 'Từ Khóa';
+$_['entry_model']             = 'Model';
+$_['entry_sku']               = 'SKU';
+$_['entry_upc']               = 'UPC';
+$_['entry_ean']               = 'EAN';
+$_['entry_jan']               = 'JAN';
+$_['entry_isbn']              = 'ISBN';
+$_['entry_mpn']               = 'MPN';
+$_['entry_location']          = 'Vị Trí';
+$_['entry_shipping']          = 'Yêu Cầu Vận Chuyển';
+$_['entry_manufacturer']      = 'Nhà Sản Xuất';
+$_['entry_date_available']    = 'Ngày Có Hàng';
+$_['entry_quantity']          = 'Số Lượng';
+$_['entry_minimum']           = 'Số Lượng Tối Thiểu';
+$_['entry_stock_status']      = 'Trạng Thái Hết Hàng';
+$_['entry_price']             = 'Giá';
+$_['entry_trial_price']       = 'Giá Dùng Thử';
+$_['entry_tax_class']         = 'Nhóm Thuế';
+$_['entry_points']            = 'Điểm';
+$_['entry_subtract']          = 'Trừ Tồn Kho';
+$_['entry_weight_class']      = 'Đơn Vị Khối Lượng';
+$_['entry_weight']            = 'Khối Lượng';
+$_['entry_dimension']         = 'Kích Thước (D x R x C)';
+$_['entry_length_class']      = 'Đơn Vị Độ Dài';
+$_['entry_length']            = 'Độ Dài';
+$_['entry_width']             = 'Chiều Rộng';
+$_['entry_height']            = 'Chiều Cao';
+$_['entry_option']            = 'Tùy Chọn';
+$_['entry_option_value']      = 'Giá Trị Tùy Chọn';
+$_['entry_customer_group']    = 'Nhóm Khách Hàng';
+$_['entry_date_start']        = 'Ngày Bắt Đầu';
+$_['entry_date_end']          = 'Ngày Kết Thúc';
+$_['entry_priority']          = 'Ưu Tiên';
+$_['entry_attribute']         = 'Thuộc Tính';
+$_['entry_attribute_group']   = 'Nhóm Thuộc Tính';
+$_['entry_image']             = 'Hình Ảnh';
+$_['entry_text']              = 'Văn Bản';
+$_['entry_required']          = 'Bắt Buộc';
+$_['entry_status']            = 'Trạng Thái';
+$_['entry_sort_order']        = 'Thứ Tự Sắp Xếp';
+$_['entry_category']          = 'Danh Mục';
+$_['entry_filter']            = 'Bộ Lọc';
+$_['entry_download']          = 'Tải Xuống';
+$_['entry_related']           = 'Sản Phẩm Liên Quan';
+$_['entry_tag']               = 'Thẻ Sản Phẩm';
+$_['entry_reward']            = 'Điểm Thưởng';
+$_['entry_layout']            = 'Ghi Đè Bố Cục';
+$_['entry_subscription']      = 'Gói Đăng Ký';
+
+// Help
+$_['help_tag']                = 'Phân cách bằng dấu phẩy';
+$_['help_sku']                = 'Mã Lưu Kho';
+$_['help_upc']                = 'Mã Sản Phẩm Toàn Cầu';
+$_['help_ean']                = 'Mã Sản Phẩm Châu Âu';
+$_['help_jan']                = 'Mã Sản Phẩm Nhật Bản';
+$_['help_isbn']               = 'Mã Sách Quốc Tế';
+$_['help_mpn']                = 'Mã Phụ Tùng Nhà Sản Xuất';
+$_['help_minimum']            = 'Đặt số lượng đặt hàng tối thiểu bắt buộc';
+$_['help_stock_status']       = 'Trạng thái hiển thị khi sản phẩm hết hàng';
+$_['help_manufacturer']       = '(Tự động hoàn thành)';
+$_['help_category']           = '(Tự động hoàn thành)';
+$_['help_filter']             = '(Tự động hoàn thành)';
+$_['help_download']           = '(Tự động hoàn thành)';
+$_['help_related']            = '(Tự động hoàn thành)';
+$_['help_option']             = '(Tự động hoàn thành)';
+$_['help_points']             = 'Số điểm cần để mua sản phẩm này. Nếu không muốn mua bằng điểm, để là 0.';
+
+// Error
+$_['error_warning']           = 'Cảnh báo: Vui lòng kiểm tra lại biểu mẫu!';
+$_['error_permission']        = 'Cảnh báo: Bạn không có quyền chỉnh sửa sản phẩm!';
+$_['error_name']              = 'Tên sản phẩm phải từ 1 đến 255 ký tự!';
+$_['error_meta_title']        = 'Tiêu đề Meta phải từ 1 đến 255 ký tự!';
+$_['error_model']             = 'Model sản phẩm phải từ 1 đến 64 ký tự!';
+$_['error_keyword']           = 'URL SEO phải từ 1 đến 64 ký tự!';
+$_['error_keyword_exists']    = 'URL SEO phải là duy nhất!';
+$_['error_keyword_character'] = 'Từ khóa chỉ được dùng ký tự a-z, 0-9, - và _!';
+$_['error_required']          = '%s là bắt buộc!';

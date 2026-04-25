@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd /tmp)",
+      "Bash(npm pack *)",
+      "Bash(mkdir -p ck422)",
+      "Bash(tar -xzf ckeditor4-4.22.1.tgz -C ck422)",
+      "Bash(python3 *)",
+      "Bash(xargs grep *)",
+      "Bash(xargs ls *)",
+      "Bash(cd /d \"D:/xampp\")",
+      "Bash(mysql -u root -e \"SELECT language_id, name, code, status FROM opencart.oc_language;\")",
+      "Bash(D:/xampp/mysql/bin/mysql.exe *)"
+    ],
+    "*": "allow"
+  },
+  "approval_mode": "auto"
+}
