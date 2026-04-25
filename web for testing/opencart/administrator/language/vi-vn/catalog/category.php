@@ -47,3 +47,6 @@ $_['error_parent']            = 'Danh mục cha bạn đã chọn là con của 
 $_['error_keyword']           = 'URL SEO phải từ 1 đến 64 ký tự!';
 $_['error_keyword_exists']    = 'URL SEO phải là duy nhất!';
 $_['error_keyword_character'] = 'Từ khóa chỉ được dùng ký tự a-z, 0-9, - và _!';
+$_['error_not_found']         = 'Cảnh báo: Không tìm thấy danh mục!';
+$_['error_category_id']       = 'Cảnh báo: Thiếu category_id!';
+$_['error_delete_disabled']   = 'Cảnh báo: Tính năng xóa đã bị vô hiệu hóa!';

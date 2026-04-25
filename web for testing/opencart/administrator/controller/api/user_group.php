@@ -36,8 +36,9 @@ class UserGroup extends \Opencart\System\Engine\Controller {
 
 	public function index(): void {
 		$error = $this->validate();
+		$this->load->language('user/user_group');
 		if ($error) { $this->sendJson(['error' => $error], 401); return; }
-		if (!$this->user->hasPermission('access', 'user/user_group')) { $this->sendJson(['error' => 'Permission denied.'], 403); return; }
+		if (!$this->user->hasPermission('access', 'user/user_group')) { $this->sendJson(['error' => $this->language->get('error_permission')], 403); return; }
 
 		$this->load->model('user/user_group');
 		$results = $this->model_user_user_group->getUserGroups();
@@ -46,8 +47,9 @@ class UserGroup extends \Opencart\System\Engine\Controller {
 
 	public function add(): void {
 		$error = $this->validate();
+		$this->load->language('user/user_group');
 		if ($error) { $this->sendJson(['error' => $error], 401); return; }
-		if (!$this->user->hasPermission('modify', 'user/user_group')) { $this->sendJson(['error' => 'Permission denied.'], 403); return; }
+		if (!$this->user->hasPermission('modify', 'user/user_group')) { $this->sendJson(['error' => $this->language->get('error_permission')], 403); return; }
 
 		$this->load->model('user/user_group');
 		$user_group_id = $this->model_user_user_group->addUserGroup($this->request->post);
@@ -56,42 +58,43 @@ class UserGroup extends \Opencart\System\Engine\Controller {
 
 	public function edit(): void {
 		$error = $this->validate();
+		$this->load->language('user/user_group');
 		if ($error) { $this->sendJson(['error' => $error], 401); return; }
-		if (!$this->user->hasPermission('modify', 'user/user_group')) { $this->sendJson(['error' => 'Permission denied.'], 403); return; }
+		if (!$this->user->hasPermission('modify', 'user/user_group')) { $this->sendJson(['error' => $this->language->get('error_permission')], 403); return; }
 
 		$user_group_id = isset($this->request->get['user_group_id']) ? (int)$this->request->get['user_group_id'] : 0;
-		if (!$user_group_id) { $this->sendJson(['error' => 'Missing user_group_id.'], 400); return; }
+		if (!$user_group_id) { $this->sendJson(['error' => $this->language->get('error_user_group_id')], 400); return; }
 
 		$this->load->model('user/user_group');
+		$user_group_info = $this->model_user_user_group->getUserGroup($user_group_id);
+		if (!$user_group_info) { $this->sendJson(['error' => $this->language->get('error_not_found')], 404); return; }
+
 		$this->model_user_user_group->editUserGroup($user_group_id, $this->request->post);
 		$this->sendJson(['success' => true]);
 	}
 
 	public function delete(): void {
 		$error = $this->validate();
+		$this->load->language('user/user_group');
 		if ($error) { $this->sendJson(['error' => $error], 401); return; }
-		if (!$this->user->hasPermission('modify', 'user/user_group')) { $this->sendJson(['error' => 'Permission denied.'], 403); return; }
 
-		$user_group_id = isset($this->request->get['user_group_id']) ? (int)$this->request->get['user_group_id'] : 0;
-		if (!$user_group_id) { $this->sendJson(['error' => 'Missing user_group_id.'], 400); return; }
-
-		$this->load->model('user/user_group');
-		$this->model_user_user_group->deleteUserGroup($user_group_id);
-		$this->sendJson(['success' => true]);
+		// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+		$this->sendJson(['error' => $this->language->get('error_delete_disabled')], 403);
 	}
 
 	public function get(): void {
 		$error = $this->validate();
+		$this->load->language('user/user_group');
 		if ($error) { $this->sendJson(['error' => $error], 401); return; }
-		if (!$this->user->hasPermission('access', 'user/user_group')) { $this->sendJson(['error' => 'Permission denied.'], 403); return; }
+		if (!$this->user->hasPermission('access', 'user/user_group')) { $this->sendJson(['error' => $this->language->get('error_permission')], 403); return; }
 
 		$user_group_id = isset($this->request->get['user_group_id']) ? (int)$this->request->get['user_group_id'] : 0;
-		if (!$user_group_id) { $this->sendJson(['error' => 'Missing user_group_id.'], 400); return; }
+		if (!$user_group_id) { $this->sendJson(['error' => $this->language->get('error_user_group_id')], 400); return; }
 
 		$this->load->model('user/user_group');
 		$user_group = $this->model_user_user_group->getUserGroup($user_group_id);
 
-		if (!$user_group) { $this->sendJson(['error' => 'User group not found.'], 404); return; }
+		if (!$user_group) { $this->sendJson(['error' => $this->language->get('error_not_found')], 404); return; }
 
 		$this->sendJson(['success' => true, 'user_group' => $user_group]);
 	}

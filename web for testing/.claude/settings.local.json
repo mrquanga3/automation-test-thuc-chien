@@ -14,7 +14,8 @@
       "Bash(python add_id_columns.py)",
       "Bash(del *)",
       "Bash(python \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\scan.py\")",
-      "PowerShell(& \"C:\\\\Program Files\\\\Python313\\\\python.exe\" \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\scan.py\")"
+      "PowerShell(& \"C:\\\\Program Files\\\\Python313\\\\python.exe\" \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\scan.py\")",
+      "PowerShell(& \"C:\\\\Program Files\\\\Python313\\\\python.exe\" \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\discover_id_cols.py\" 2>&1)"
     ],
     "*": "allow"
   },

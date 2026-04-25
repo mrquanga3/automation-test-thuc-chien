@@ -47,3 +47,5 @@ $_['error_parent']            = 'The parent category you have chosen is a child 
 $_['error_keyword']           = 'SEO URL must be between 1 and 64 characters!';
 $_['error_keyword_exists']    = 'SEO URL must be unique!';
 $_['error_keyword_character'] = 'Keyword can only use characters a-z, 0-9, - and _!';
+$_['error_not_found']         = 'Warning: Category not found!';
+$_['error_category_id']       = 'Warning: Missing category_id!';$_['error_delete_disabled']   = 'Warning: Delete feature is disabled!';

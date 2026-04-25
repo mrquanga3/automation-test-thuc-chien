@@ -12,7 +12,7 @@ class UserGroup extends \Opencart\System\Engine\Model {
 	 * @return int
 	 */
 	public function addUserGroup(array $data): int {
-		$this->db->query("INSERT INTO `" . DB_PREFIX . "user_group` SET `name` = '" . $this->db->escape((string)$data['name']) . "', `permission` = '" . (isset($data['permission']) ? $this->db->escape(json_encode($data['permission'])) : '') . "'");
+		$this->db->query("INSERT INTO `" . DB_PREFIX . "user_group` SET `name` = '" . $this->db->escape((string)($data['name'] ?? '')) . "', `permission` = '" . (isset($data['permission']) ? $this->db->escape(json_encode($data['permission'])) : '') . "'");
 	
 		return $this->db->getLastId();
 	}
@@ -24,7 +24,7 @@ class UserGroup extends \Opencart\System\Engine\Model {
 	 * @return void
 	 */
 	public function editUserGroup(int $user_group_id, array $data): void {
-		$this->db->query("UPDATE `" . DB_PREFIX . "user_group` SET `name` = '" . $this->db->escape((string)$data['name']) . "', `permission` = '" . (isset($data['permission']) ? $this->db->escape(json_encode($data['permission'])) : '') . "' WHERE `user_group_id` = '" . (int)$user_group_id . "'");
+		$this->db->query("UPDATE `" . DB_PREFIX . "user_group` SET `name` = '" . $this->db->escape((string)($data['name'] ?? '')) . "', `permission` = '" . (isset($data['permission']) ? $this->db->escape(json_encode($data['permission'])) : '') . "' WHERE `user_group_id` = '" . (int)$user_group_id . "'");
 	}
 
 	/**
@@ -44,12 +44,16 @@ class UserGroup extends \Opencart\System\Engine\Model {
 	public function getUserGroup(int $user_group_id): array {
 		$query = $this->db->query("SELECT DISTINCT * FROM `" . DB_PREFIX . "user_group` WHERE `user_group_id` = '" . (int)$user_group_id . "'");
 
-		$user_group = [
-			'name'       => $query->row['name'],
-			'permission' => json_decode($query->row['permission'], true)
-		];
+		if ($query->num_rows) {
+			$user_group = [
+				'name'       => $query->row['name'],
+				'permission' => json_decode($query->row['permission'], true)
+			];
 
-		return $user_group;
+			return $user_group;
+		}
+
+		return [];
 	}
 
 	/**

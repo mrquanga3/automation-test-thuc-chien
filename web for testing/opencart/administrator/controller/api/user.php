@@ -50,7 +50,7 @@ class User extends \Opencart\System\Engine\Controller {
 		if ($error) { $this->sendJson(['error' => $error], 401); return; }
 
 		if (!$this->user->hasPermission('access', 'user/user')) {
-			$this->sendJson(['error' => 'Permission denied.'], 403); return;
+			$this->sendJson(['error' => $this->language->get('error_permission')], 403); return;
 		}
 
 		$page  = isset($this->request->get['page'])  ? max(1, (int)$this->request->get['page']) : 1;
@@ -83,7 +83,7 @@ class User extends \Opencart\System\Engine\Controller {
 		if ($error) { $this->sendJson(['error' => $error], 401); return; }
 
 		if (!$this->user->hasPermission('modify', 'user/user')) {
-			$this->sendJson(['error' => 'Permission denied.'], 403); return;
+			$this->sendJson(['error' => $this->language->get('error_permission')], 403); return;
 		}
 
 		if ($this->request->server['REQUEST_METHOD'] !== 'POST') {
@@ -99,49 +99,52 @@ class User extends \Opencart\System\Engine\Controller {
 		$error = $this->validate();
 		if ($error) { $this->sendJson(['error' => $error], 401); return; }
 
+		$this->load->language('user/user');
+
 		if (!$this->user->hasPermission('modify', 'user/user')) {
-			$this->sendJson(['error' => 'Permission denied.'], 403); return;
+			$this->sendJson(['error' => $this->language->get('error_permission')], 403); return;
 		}
 
 		$user_id = isset($this->request->get['user_id']) ? (int)$this->request->get['user_id'] : 0;
-		if (!$user_id) { $this->sendJson(['error' => 'Missing user_id.'], 400); return; }
+		if (!$user_id) { $this->sendJson(['error' => $this->language->get('error_user_id')], 400); return; }
 
 		$this->load->model('user/user');
+
+		$user_info = $this->model_user_user->getUser($user_id);
+		if (!$user_info) {
+			$this->sendJson(['error' => $this->language->get('error_not_found')], 404); return;
+		}
+
 		$this->model_user_user->editUser($user_id, $this->request->post);
 		$this->sendJson(['success' => true]);
 	}
 
 	public function delete(): void {
 		$error = $this->validate();
+		$this->load->language('user/user');
 		if ($error) { $this->sendJson(['error' => $error], 401); return; }
 
-		if (!$this->user->hasPermission('modify', 'user/user')) {
-			$this->sendJson(['error' => 'Permission denied.'], 403); return;
-		}
-
-		$user_id = isset($this->request->get['user_id']) ? (int)$this->request->get['user_id'] : 0;
-		if (!$user_id) { $this->sendJson(['error' => 'Missing user_id.'], 400); return; }
-
-		$this->load->model('user/user');
-		$this->model_user_user->deleteUser($user_id);
-		$this->sendJson(['success' => true]);
+		// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+		$this->sendJson(['error' => $this->language->get('error_delete_disabled')], 403);
 	}
 
 	public function get(): void {
 		$error = $this->validate();
 		if ($error) { $this->sendJson(['error' => $error], 401); return; }
 
+		$this->load->language('user/user');
+
 		if (!$this->user->hasPermission('access', 'user/user')) {
-			$this->sendJson(['error' => 'Permission denied.'], 403); return;
+			$this->sendJson(['error' => $this->language->get('error_permission')], 403); return;
 		}
 
 		$user_id = isset($this->request->get['user_id']) ? (int)$this->request->get['user_id'] : 0;
-		if (!$user_id) { $this->sendJson(['error' => 'Missing user_id.'], 400); return; }
+		if (!$user_id) { $this->sendJson(['error' => $this->language->get('error_user_id')], 400); return; }
 
 		$this->load->model('user/user');
 		$user = $this->model_user_user->getUser($user_id);
 
-		if (!$user) { $this->sendJson(['error' => 'User not found.'], 404); return; }
+		if (empty($user)) { $this->sendJson(['error' => $this->language->get('error_not_found')], 404); return; }
 
 		unset($user['password'], $user['salt']);
 		$this->sendJson(['success' => true, 'user' => $user]);
