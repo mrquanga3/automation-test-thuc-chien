@@ -85,6 +85,18 @@ class AddressFormat extends \Opencart\System\Engine\Controller {
 			$page = 1;
 		}
 
+		if (isset($this->request->get['sort'])) {
+			$sort = (string)$this->request->get['sort'];
+		} else {
+			$sort = 'af.address_format_id';
+		}
+
+		if (isset($this->request->get['order'])) {
+			$order = (string)$this->request->get['order'];
+		} else {
+			$order = 'ASC';
+		}
+
 		$url = '';
 
 		if (isset($this->request->get['page'])) {
@@ -97,15 +109,9 @@ class AddressFormat extends \Opencart\System\Engine\Controller {
 
 		$filter_data = [
 			'start' => ($page - 1) * $this->config->get('config_pagination_admin'),
-			'limit' => $this->config->get('config_pagination_admin')
-		
-
+			'limit' => $this->config->get('config_pagination_admin'),
 			'sort'  => $sort,
-
-
 			'order' => $order,
-
-
 		];
 
 		$this->load->model('localisation/address_format');

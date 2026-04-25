@@ -99,6 +99,18 @@ class CustomerApproval extends \Opencart\System\Engine\Controller {
 			$page = 1;
 		}
 
+		if (isset($this->request->get['sort'])) {
+			$sort = $this->request->get['sort'];
+		} else {
+			$sort = 'ca.customer_approval_id';
+		}
+
+		if (isset($this->request->get['order'])) {
+			$order = $this->request->get['order'];
+		} else {
+			$order = 'ASC';
+		}
+
 		$url = '';
 
 		if (isset($this->request->get['filter_customer'])) {
@@ -161,15 +173,9 @@ class CustomerApproval extends \Opencart\System\Engine\Controller {
 			'filter_date_from'         => $filter_date_from,
 			'filter_date_to'           => $filter_date_to,
 			'start'                    => ($page - 1) * $this->config->get('config_pagination_admin'),
-			'limit'                    => $this->config->get('config_pagination_admin')
-		
-
-			'sort'  => $sort,
-
-
-			'order' => $order,
-
-
+			'limit'                    => $this->config->get('config_pagination_admin'),
+			'sort'                     => $sort,
+			'order'                    => $order,
 		];
 
 		$this->load->model('customer/customer_approval');	

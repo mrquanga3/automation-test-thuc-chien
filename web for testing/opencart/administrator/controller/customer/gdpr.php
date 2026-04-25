@@ -139,10 +139,9 @@ class Gdpr extends \Opencart\System\Engine\Controller {
 			'filter_date_from' => $filter_date_from,
 			'filter_date_to'   => $filter_date_to,
 			'start'            => ($page - 1) * $this->config->get('config_pagination_admin'),
-			'limit'            => $this->config->get('config_pagination_admin')
-			'sort'  => $sort,
-			'order' => $order,
-
+			'limit'            => $this->config->get('config_pagination_admin'),
+			'sort'             => $sort,
+			'order'            => $order,
 		];
 
 		$this->load->model('customer/gdpr');
