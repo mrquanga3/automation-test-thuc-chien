@@ -17,3 +17,4 @@ $_['button_login']   = 'Đăng nhập';
 // Error
 $_['error_login']    = 'Tên đăng nhập và/hoặc mật khẩu không khớp.';
 $_['error_token']    = 'Phiên token không hợp lệ. Vui lòng đăng nhập lại.';
+$_['error_required'] = 'Vui lòng điền vào trường này.';
