@@ -89,6 +89,7 @@ class Cron extends \Opencart\System\Engine\Model {
 		$sql = "SELECT * FROM `" . DB_PREFIX . "cron`";
 
 		$sort_data = [
+			'cron_id',
 			'code',
 			'cycle',
 			'action',

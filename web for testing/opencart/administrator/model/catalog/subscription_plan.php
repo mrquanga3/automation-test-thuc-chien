@@ -105,6 +105,7 @@ class SubscriptionPlan extends \Opencart\System\Engine\Model {
 		}
 
 		$sort_data = [
+			'sp.subscription_plan_id',
 			'spd.name',
 			'sp.sort_order'
 		];

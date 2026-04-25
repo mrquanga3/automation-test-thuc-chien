@@ -144,6 +144,8 @@ class Coupon extends \Opencart\System\Engine\Controller {
 		$data['sort_date_end'] = $this->url->link('marketing/coupon.list', 'user_token=' . $this->session->data['user_token'] . '&sort=date_end' . $url);
 		$data['sort_status'] = $this->url->link('marketing/coupon.list', 'user_token=' . $this->session->data['user_token'] . '&sort=status' . $url);
 
+		$data['sort_coupon_id'] = $this->url->link('marketing/coupon.list', 'user_token=' . $this->session->data['user_token'] . '&sort=coupon_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {

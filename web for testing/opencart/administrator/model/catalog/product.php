@@ -879,6 +879,7 @@ class Product extends \Opencart\System\Engine\Model {
 		$sql .= " GROUP BY p.`product_id`";
 
 		$sort_data = [
+			'p.product_id',
 			'pd.name',
 			'p.model',
 			'p.price',

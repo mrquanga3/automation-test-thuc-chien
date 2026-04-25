@@ -97,6 +97,7 @@ class Marketing extends \Opencart\System\Engine\Model {
 		}
 
 		$sort_data = [
+			'm.marketing_id',
 			'm.name',
 			'm.code',
 			'm.date_added'

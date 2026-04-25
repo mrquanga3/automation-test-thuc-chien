@@ -64,6 +64,7 @@ class WeightClass extends \Opencart\System\Engine\Model {
 		$sql = "SELECT * FROM `" . DB_PREFIX . "weight_class` wc LEFT JOIN `" . DB_PREFIX . "weight_class_description` wcd ON (wc.`weight_class_id` = wcd.`weight_class_id`) WHERE wcd.`language_id` = '" . (int)$this->config->get('config_language_id') . "'";
 
 		$sort_data = [
+			'wc.weight_class_id',
 			'title',
 			'unit',
 			'value'

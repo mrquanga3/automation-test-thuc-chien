@@ -137,6 +137,8 @@ class Topic extends \Opencart\System\Engine\Controller {
 		$data['sort_name'] = $this->url->link('cms/topic.list', 'user_token=' . $this->session->data['user_token'] . '&sort=bcd.name' . $url);
 		$data['sort_sort_order'] = $this->url->link('cms/topic.list', 'user_token=' . $this->session->data['user_token'] . '&sort=bc.sort_order' . $url);
 
+		$data['sort_topic_id'] = $this->url->link('cms/topic.list', 'user_token=' . $this->session->data['user_token'] . '&sort=t.topic_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {

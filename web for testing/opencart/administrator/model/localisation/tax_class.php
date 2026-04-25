@@ -76,7 +76,19 @@ class TaxClass extends \Opencart\System\Engine\Model {
 	 * @return array
 	 */
 	public function getTaxClasses(array $data = []): array {
-		$sql = "SELECT * FROM `" . DB_PREFIX . "tax_class` ORDER BY `title`";
+		$sql = "SELECT * FROM `" . DB_PREFIX . "tax_class`";
+
+
+		$sort_data = [
+			'tax_class_id',
+			'title'
+		];
+
+		if (isset($data['sort']) && in_array($data['sort'], $sort_data)) {
+			$sql .= " ORDER BY " . $data['sort'];
+		} else {
+			$sql .= " ORDER BY `title`";
+		}
 
 		if (isset($data['order']) && ($data['order'] == 'DESC')) {
 			$sql .= " DESC";

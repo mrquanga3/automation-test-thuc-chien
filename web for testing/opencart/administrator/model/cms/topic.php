@@ -115,6 +115,7 @@ class Topic extends \Opencart\System\Engine\Model {
 		$sql = "SELECT * FROM `" . DB_PREFIX . "topic` `t` LEFT JOIN `" . DB_PREFIX . "topic_description` `td` ON (`t`.`topic_id` = `td`.`topic_id`) WHERE `td`.`language_id` = '" . (int)$this->config->get('config_language_id') . "'";
 
 		$sort_data = [
+			't.topic_id',
 			'td.name',
 			't.sort_order'
 		];

@@ -115,6 +115,7 @@ class User extends \Opencart\System\Engine\Model {
 		$sql = "SELECT * FROM `" . DB_PREFIX . "user`";
 
 		$sort_data = [
+			'user_id',
 			'username',
 			'status',
 			'date_added'

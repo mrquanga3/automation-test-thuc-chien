@@ -296,6 +296,8 @@ class SeoUrl extends \Opencart\System\Engine\Controller {
 		$data['sort_store'] = $this->url->link('design/seo_url.list', 'user_token=' . $this->session->data['user_token'] . '&sort=store' . $url);
 		$data['sort_language'] = $this->url->link('design/seo_url.list', 'user_token=' . $this->session->data['user_token'] . '&sort=language' . $url);
 
+		$data['sort_seo_url_id'] = $this->url->link('design/seo_url.list', 'user_token=' . $this->session->data['user_token'] . '&sort=seo_url_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['filter_keyword'])) {

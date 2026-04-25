@@ -206,6 +206,8 @@ class Zone extends \Opencart\System\Engine\Controller {
 		$data['sort_name'] = $this->url->link('localisation/zone.list', 'user_token=' . $this->session->data['user_token'] . '&sort=z.name' . $url);
 		$data['sort_code'] = $this->url->link('localisation/zone.list', 'user_token=' . $this->session->data['user_token'] . '&sort=z.code' . $url);
 
+		$data['sort_zone_id'] = $this->url->link('localisation/zone.list', 'user_token=' . $this->session->data['user_token'] . '&sort=z.zone_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['filter_name'])) {

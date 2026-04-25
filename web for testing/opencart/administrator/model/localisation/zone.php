@@ -80,6 +80,7 @@ class Zone extends \Opencart\System\Engine\Model {
 		}
 
 		$sort_data = [
+			'z.zone_id',
 			'c.name',
 			'z.name',
 			'z.code'

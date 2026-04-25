@@ -187,6 +187,8 @@ class Upload extends \Opencart\System\Engine\Controller {
 		$data['sort_code'] = $this->url->link('tool/upload.list', 'user_token=' . $this->session->data['user_token'] . '&sort=code' . $url);
 		$data['sort_date_added'] = $this->url->link('tool/upload.list', 'user_token=' . $this->session->data['user_token'] . '&sort=date_added' . $url);
 
+		$data['sort_upload_id'] = $this->url->link('tool/upload.list', 'user_token=' . $this->session->data['user_token'] . '&sort=upload_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['filter_name'])) {

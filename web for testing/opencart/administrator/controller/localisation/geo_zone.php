@@ -136,6 +136,8 @@ class GeoZone extends \Opencart\System\Engine\Controller {
 		$data['sort_name'] = $this->url->link('localisation/geo_zone.list', 'user_token=' . $this->session->data['user_token'] . '&sort=name' . $url);
 		$data['sort_description'] = $this->url->link('localisation/geo_zone.list', 'user_token=' . $this->session->data['user_token'] . '&sort=description' . $url);
 
+		$data['sort_geo_zone_id'] = $this->url->link('localisation/geo_zone.list', 'user_token=' . $this->session->data['user_token'] . '&sort=geo_zone_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {

@@ -100,6 +100,7 @@ class Coupon extends \Opencart\System\Engine\Model {
 		$sql = "SELECT `coupon_id`, `name`, `code`, `discount`, `date_start`, `date_end`, `status` FROM `" . DB_PREFIX . "coupon`";
 
 		$sort_data = [
+			'coupon_id',
 			'name',
 			'code',
 			'discount',

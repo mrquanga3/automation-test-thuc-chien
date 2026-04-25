@@ -15,7 +15,9 @@
       "Bash(del *)",
       "Bash(python \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\scan.py\")",
       "PowerShell(& \"C:\\\\Program Files\\\\Python313\\\\python.exe\" \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\scan.py\")",
-      "PowerShell(& \"C:\\\\Program Files\\\\Python313\\\\python.exe\" \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\discover_id_cols.py\" 2>&1)"
+      "PowerShell(& \"C:\\\\Program Files\\\\Python313\\\\python.exe\" \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\discover_id_cols.py\" 2>&1)",
+      "PowerShell(& \"C:\\\\Program Files\\\\Python313\\\\python.exe\" \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\add_id_sort.py\" 2>&1)",
+      "PowerShell(& \"C:\\\\Program Files\\\\Python313\\\\python.exe\" \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\fix_duplicate_ob.py\" 2>&1)"
     ],
     "*": "allow"
   },

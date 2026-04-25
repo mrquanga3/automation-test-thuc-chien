@@ -144,6 +144,8 @@ class TaxRate extends \Opencart\System\Engine\Controller {
 		$data['sort_date_added'] = $this->url->link('localisation/tax_rate.list', 'user_token=' . $this->session->data['user_token'] . '&sort=tr.date_added' . $url);
 		$data['sort_date_modified'] = $this->url->link('localisation/tax_rate.list', 'user_token=' . $this->session->data['user_token'] . '&sort=tr.date_modified' . $url);
 
+		$data['sort_tax_rate_id'] = $this->url->link('localisation/tax_rate.list', 'user_token=' . $this->session->data['user_token'] . '&sort=tr.tax_rate_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {

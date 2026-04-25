@@ -305,6 +305,7 @@ class Category extends \Opencart\System\Engine\Model {
 		$sql .= " GROUP BY cp.`category_id`";
 
 		$sort_data = [
+			'cp.category_id',
 			'name',
 			'sort_order'
 		];

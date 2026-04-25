@@ -245,6 +245,8 @@ class Marketing extends \Opencart\System\Engine\Controller {
 		$data['sort_code'] = $this->url->link('marketing/marketing.list', 'user_token=' . $this->session->data['user_token'] . '&sort=m.code' . $url);
 		$data['sort_date_added'] = $this->url->link('marketing/marketing.list', 'user_token=' . $this->session->data['user_token'] . '&sort=m.date_added' . $url);
 
+		$data['sort_marketing_id'] = $this->url->link('marketing/marketing.list', 'user_token=' . $this->session->data['user_token'] . '&sort=m.marketing_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['filter_name'])) {

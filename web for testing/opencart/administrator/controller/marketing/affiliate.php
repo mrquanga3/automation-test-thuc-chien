@@ -401,6 +401,8 @@ class Affiliate extends \Opencart\System\Engine\Controller {
 		$data['sort_commission'] = $this->url->link('marketing/affiliate.list', 'user_token=' . $this->session->data['user_token'] . '&sort=ca.commission' . $url);
 		$data['sort_date_added'] = $this->url->link('marketing/affiliate.list', 'user_token=' . $this->session->data['user_token'] . '&sort=ca.date_added' . $url);
 
+		$data['sort_customer_id'] = $this->url->link('marketing/affiliate.list', 'user_token=' . $this->session->data['user_token'] . '&sort=ca.customer_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['filter_customer'])) {

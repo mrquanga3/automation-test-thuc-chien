@@ -64,6 +64,7 @@ class LengthClass extends \Opencart\System\Engine\Model {
 		$sql = "SELECT * FROM `" . DB_PREFIX . "length_class` lc LEFT JOIN `" . DB_PREFIX . "length_class_description` lcd ON (lc.`length_class_id` = lcd.`length_class_id`) WHERE lcd.`language_id` = '" . (int)$this->config->get('config_language_id') . "'";
 
 		$sort_data = [
+			'lc.length_class_id',
 			'title',
 			'unit',
 			'value'

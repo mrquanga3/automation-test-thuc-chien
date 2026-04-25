@@ -92,7 +92,7 @@ class Layout extends \Opencart\System\Engine\Model {
 	public function getLayouts(array $data = []): array {
 		$sql = "SELECT * FROM `" . DB_PREFIX . "layout`";
 
-		$sort_data = ['name'];
+		$sort_data = ['layout_id', 'name'];
 
 		if (isset($data['sort']) && in_array($data['sort'], $sort_data)) {
 			$sql .= " ORDER BY " . $data['sort'];

@@ -136,6 +136,8 @@ class Download extends \Opencart\System\Engine\Controller {
 		$data['sort_name'] = $this->url->link('catalog/download.list', 'user_token=' . $this->session->data['user_token'] . '&sort=dd.name' . $url);
 		$data['sort_date_added'] = $this->url->link('catalog/download.list', 'user_token=' . $this->session->data['user_token'] . '&sort=d.date_added' . $url);
 
+		$data['sort_download_id'] = $this->url->link('catalog/download.list', 'user_token=' . $this->session->data['user_token'] . '&sort=d.download_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {

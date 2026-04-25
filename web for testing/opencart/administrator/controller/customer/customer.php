@@ -360,6 +360,8 @@ class Customer extends \Opencart\System\Engine\Controller {
 		$data['sort_status'] = $this->url->link('customer/customer.list', 'user_token=' . $this->session->data['user_token'] . '&sort=c.status' . $url);
 		$data['sort_date_added'] = $this->url->link('customer/customer.list', 'user_token=' . $this->session->data['user_token'] . '&sort=c.date_added' . $url);
 
+		$data['sort_customer_id'] = $this->url->link('customer/customer.list', 'user_token=' . $this->session->data['user_token'] . '&sort=c.customer_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['filter_name'])) {

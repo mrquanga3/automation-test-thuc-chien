@@ -136,6 +136,8 @@ class Location extends \Opencart\System\Engine\Controller {
 		$data['sort_name'] = $this->url->link('localisation/location.list', 'user_token=' . $this->session->data['user_token'] . '&sort=name' . $url);
 		$data['sort_address'] = $this->url->link('localisation/location.list', 'user_token=' . $this->session->data['user_token'] . '&sort=address' . $url);
 
+		$data['sort_location_id'] = $this->url->link('localisation/location.list', 'user_token=' . $this->session->data['user_token'] . '&sort=location_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {

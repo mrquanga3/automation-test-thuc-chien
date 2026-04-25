@@ -134,6 +134,9 @@ class TaxClass extends \Opencart\System\Engine\Controller {
 
 		$data['sort_title'] = $this->url->link('localisation/tax_class.list', 'user_token=' . $this->session->data['user_token'] . '&sort=title' . $url);
 
+
+		$data['sort_tax_class_id'] = $this->url->link('localisation/tax_class.list', 'user_token=' . $this->session->data['user_token'] . '&sort=tax_class_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {

@@ -129,6 +129,26 @@ class CustomerApproval extends \Opencart\System\Engine\Controller {
 			$url .= '&page=' . $this->request->get['page'];
 		}
 
+
+		if (isset($this->request->get['sort'])) {
+
+
+			$url .= '&sort=' . $this->request->get['sort'];
+
+
+		}
+
+
+
+		if (isset($this->request->get['order'])) {
+
+
+			$url .= '&order=' . $this->request->get['order'];
+
+
+		}
+
+
 		$data['action'] = $this->url->link('customer/customer_approval.list', 'user_token=' . $this->session->data['user_token'] . $url, true);
 
 		$data['customer_approvals'] = [];
@@ -142,6 +162,14 @@ class CustomerApproval extends \Opencart\System\Engine\Controller {
 			'filter_date_to'           => $filter_date_to,
 			'start'                    => ($page - 1) * $this->config->get('config_pagination_admin'),
 			'limit'                    => $this->config->get('config_pagination_admin')
+		
+
+			'sort'  => $sort,
+
+
+			'order' => $order,
+
+
 		];
 
 		$this->load->model('customer/customer_approval');	
@@ -190,6 +218,37 @@ class CustomerApproval extends \Opencart\System\Engine\Controller {
 		if (isset($this->request->get['filter_date_to'])) {
 			$url .= '&filter_date_to=' . $this->request->get['filter_date_to'];
 		}
+
+
+		$sort_url = '';
+
+
+		if ($order == 'ASC') {
+
+
+			$sort_url .= '&order=DESC';
+
+
+		} else {
+
+
+			$sort_url .= '&order=ASC';
+
+
+		}
+
+
+
+		$data['sort_customer_approval_id'] = $this->url->link('customer/customer_approval.list', 'user_token=' . $this->session->data['user_token'] . '&sort=ca.customer_approval_id' . $sort_url);
+
+
+
+		$data['sort'] = $sort;
+
+
+		$data['order'] = $order;
+
+
 
 		$data['pagination'] = $this->load->controller('common/pagination', [
 			'total' => $customer_approval_total,

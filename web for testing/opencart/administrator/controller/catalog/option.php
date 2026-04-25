@@ -136,6 +136,8 @@ class Option extends \Opencart\System\Engine\Controller {
 		$data['sort_name'] = $this->url->link('catalog/option.list', 'user_token=' . $this->session->data['user_token'] . '&sort=od.name' . $url);
 		$data['sort_sort_order'] = $this->url->link('catalog/option.list', 'user_token=' . $this->session->data['user_token'] . '&sort=o.sort_order' . $url);
 
+		$data['sort_option_id'] = $this->url->link('catalog/option.list', 'user_token=' . $this->session->data['user_token'] . '&sort=o.option_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {

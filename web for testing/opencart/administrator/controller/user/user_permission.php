@@ -134,6 +134,9 @@ class UserPermission extends \Opencart\System\Engine\Controller {
 
 		$data['sort_name'] = $this->url->link('user/user_permission.list', 'user_token=' . $this->session->data['user_token'] . '&sort=name' . $url);
 
+
+		$data['sort_user_group_id'] = $this->url->link('user/user_permission.list', 'user_token=' . $this->session->data['user_token'] . '&sort=user_group_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {

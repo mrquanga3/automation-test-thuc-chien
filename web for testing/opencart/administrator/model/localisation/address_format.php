@@ -55,6 +55,48 @@ class AddressFormat extends \Opencart\System\Engine\Model {
 	public function getAddressFormats(array $data = []): array {
 		$sql = "SELECT * FROM `" . DB_PREFIX . "address_format`";
 
+		$sort_data = [
+
+
+			'address_format_id'
+
+
+		];
+
+
+
+		if (isset($data['sort']) && in_array($data['sort'], $sort_data)) {
+
+
+			$sql .= " ORDER BY " . $data['sort'];
+
+
+		} else {
+
+
+			$sql .= " ORDER BY `address_format_id`";
+
+
+		}
+
+
+
+		if (isset($data['order']) && ($data['order'] == 'DESC')) {
+
+
+			$sql .= " DESC";
+
+
+		} else {
+
+
+			$sql .= " ASC";
+
+
+		}
+
+
+
 		if (isset($data['start']) || isset($data['limit'])) {
 			if ($data['start'] < 0) {
 				$data['start'] = 0;

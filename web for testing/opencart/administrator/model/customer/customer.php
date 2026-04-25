@@ -141,6 +141,7 @@ class Customer extends \Opencart\System\Engine\Model {
 		}
 
 		$sort_data = [
+			'c.customer_id',
 			'name',
 			'c.email',
 			'customer_group',
