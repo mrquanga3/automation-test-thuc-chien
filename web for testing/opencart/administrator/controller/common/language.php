@@ -87,8 +87,10 @@ class Language extends \Opencart\System\Engine\Controller {
 
 			if ($redirect && substr($redirect, 0, strlen($this->config->get('config_url'))) == $this->config->get('config_url')) {
 				$json['redirect'] = $redirect;
-			} else {
+			} elseif (isset($this->session->data['user_token'])) {
 				$json['redirect'] = $this->url->link('common/dashboard', 'user_token=' . $this->session->data['user_token'], true);
+			} else {
+				$json['redirect'] = $this->url->link('common/login', '', true);
 			}
 		}
 

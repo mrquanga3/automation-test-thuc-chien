@@ -656,6 +656,7 @@ class ColumnLeft extends \Opencart\System\Engine\Controller {
 				];
 			}
 
+			/*
 			if ($maintenance) {
 				$system[] = [
 					'name'	   => $this->language->get('text_maintenance'),
@@ -663,6 +664,7 @@ class ColumnLeft extends \Opencart\System\Engine\Controller {
 					'children' => $maintenance
 				];
 			}
+			*/
 
 			if ($system) {
 				$data['menus'][] = [

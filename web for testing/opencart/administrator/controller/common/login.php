@@ -68,10 +68,47 @@ class Login extends \Opencart\System\Engine\Controller {
 			$data['redirect'] = '';
 		}
 
+		$this->load->model('localisation/language');
+
+		$data['languages'] = [];
+
+		$results = $this->model_localisation_language->getLanguages();
+
+		foreach ($results as $result) {
+			$data['languages'][] = [
+				'name'  => $result['name'],
+				'code'  => $result['code'],
+				'image' => $result['image']
+			];
+		}
+
+		if (isset($this->request->cookie['language'])) {
+			$data['language_code'] = $this->request->cookie['language'];
+		} else {
+			$data['language_code'] = $this->config->get('config_language_admin');
+		}
+
 		$data['header'] = $this->load->controller('common/header');
 		$data['footer'] = $this->load->controller('common/footer');
 
 		$this->response->setOutput($this->load->view('common/login', $data));
+	}
+
+	/**
+	 * @return void
+	 */
+	public function setlang(): void {
+		if (isset($this->request->get['code'])) {
+			$this->load->model('localisation/language');
+
+			$language_info = $this->model_localisation_language->getLanguageByCode((string)$this->request->get['code']);
+
+			if ($language_info) {
+				setcookie('language', $language_info['code'], time() + 60 * 60 * 24 * 365 * 10);
+			}
+		}
+
+		$this->response->redirect($this->url->link('common/login', '', true));
 	}
 
 	/**
