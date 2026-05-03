@@ -9,13 +9,16 @@ $_['text_add']                = 'Add Category';
 $_['text_edit']               = 'Edit Category';
 $_['text_default']            = 'Default';
 $_['text_keyword']            = 'Do not use spaces, instead replace spaces with - and make sure the SEO URL is globally unique.';
+$_['text_filter']             = 'Filter';
 
 // Column
 $_['column_name']             = 'Category Name';
+$_['column_status']           = 'Status';
 $_['column_sort_order']       = 'Sort Order';
 $_['column_action']           = 'Action';
 
 // Entry
+$_['entry_category_id']       = 'Category ID';
 $_['entry_name']              = 'Category Name';
 $_['entry_description']       = 'Description';
 $_['entry_meta_title']        = 'Meta Tag Title';

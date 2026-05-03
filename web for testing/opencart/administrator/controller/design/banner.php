@@ -134,8 +134,10 @@ class Banner extends \Opencart\System\Engine\Controller {
 			$url .= '&order=ASC';
 		}
 
-		$data['sort_name'] = $this->url->link('design/banner.list', 'user_token=' . $this->session->data['user_token'] . '&sort=name' . $url);
+		$data['column_status'] = $this->language->get('column_status');
 
+		$data['sort_name'] = $this->url->link('design/banner.list', 'user_token=' . $this->session->data['user_token'] . '&sort=name' . $url);
+		$data['sort_status'] = $this->url->link('design/banner.list', 'user_token=' . $this->session->data['user_token'] . '&sort=status' . $url);
 
 		$data['sort_banner_id'] = $this->url->link('design/banner.list', 'user_token=' . $this->session->data['user_token'] . '&sort=banner_id' . $url);
 

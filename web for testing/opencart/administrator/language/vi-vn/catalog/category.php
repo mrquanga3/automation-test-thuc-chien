@@ -9,13 +9,16 @@ $_['text_add']                = 'Thêm danh mục';
 $_['text_edit']               = 'Sửa danh mục';
 $_['text_default']            = 'Mặc định';
 $_['text_keyword']            = 'Không dùng dấu cách, thay thế bằng - và đảm bảo URL SEO là duy nhất toàn cục.';
+$_['text_filter']             = 'Bộ lọc';
 
 // Column
 $_['column_name']             = 'Tên danh mục';
+$_['column_status']           = 'Trạng thái';
 $_['column_sort_order']       = 'Thứ tự sắp xếp';
 $_['column_action']           = 'Thao tác';
 
 // Entry
+$_['entry_category_id']       = 'ID Danh mục';
 $_['entry_name']              = 'Tên danh mục';
 $_['entry_description']       = 'Mô tả';
 $_['entry_meta_title']        = 'Tiêu đề thẻ Meta';

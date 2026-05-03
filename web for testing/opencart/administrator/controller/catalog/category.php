@@ -14,7 +14,27 @@ class Category extends \Opencart\System\Engine\Controller {
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
+		if (isset($this->request->get['filter_category_id'])) {
+			$filter_category_id = (int)$this->request->get['filter_category_id'];
+		} else {
+			$filter_category_id = '';
+		}
+
+		if (isset($this->request->get['filter_name'])) {
+			$filter_name = $this->request->get['filter_name'];
+		} else {
+			$filter_name = '';
+		}
+
 		$url = '';
+
+		if (isset($this->request->get['filter_category_id'])) {
+			$url .= '&filter_category_id=' . (int)$this->request->get['filter_category_id'];
+		}
+
+		if (isset($this->request->get['filter_name'])) {
+			$url .= '&filter_name=' . urlencode(html_entity_decode($this->request->get['filter_name'], ENT_QUOTES, 'UTF-8'));
+		}
 
 		if (isset($this->request->get['sort'])) {
 			$url .= '&sort=' . $this->request->get['sort'];
@@ -46,6 +66,9 @@ class Category extends \Opencart\System\Engine\Controller {
 
 		$data['list'] = $this->getList();
 
+		$data['filter_category_id'] = $filter_category_id;
+		$data['filter_name'] = $filter_name;
+
 		$data['user_token'] = $this->session->data['user_token'];
 
 		$data['header'] = $this->load->controller('common/header');
@@ -68,6 +91,18 @@ class Category extends \Opencart\System\Engine\Controller {
 	 * @return string
 	 */
 	protected function getList(): string {
+		if (isset($this->request->get['filter_category_id'])) {
+			$filter_category_id = (int)$this->request->get['filter_category_id'];
+		} else {
+			$filter_category_id = '';
+		}
+
+		if (isset($this->request->get['filter_name'])) {
+			$filter_name = $this->request->get['filter_name'];
+		} else {
+			$filter_name = '';
+		}
+
 		if (isset($this->request->get['sort'])) {
 			$sort = (string)$this->request->get['sort'];
 		} else {
@@ -88,6 +123,14 @@ class Category extends \Opencart\System\Engine\Controller {
 
 		$url = '';
 
+		if (isset($this->request->get['filter_category_id'])) {
+			$url .= '&filter_category_id=' . (int)$this->request->get['filter_category_id'];
+		}
+
+		if (isset($this->request->get['filter_name'])) {
+			$url .= '&filter_name=' . urlencode(html_entity_decode($this->request->get['filter_name'], ENT_QUOTES, 'UTF-8'));
+		}
+
 		if (isset($this->request->get['sort'])) {
 			$url .= '&sort=' . $this->request->get['sort'];
 		}
@@ -105,15 +148,17 @@ class Category extends \Opencart\System\Engine\Controller {
 		$data['categories'] = [];
 
 		$filter_data = [
-			'sort'  => $sort,
-			'order' => $order,
-			'start' => ($page - 1) * $this->config->get('config_pagination_admin'),
-			'limit' => $this->config->get('config_pagination_admin')
+			'filter_category_id' => $filter_category_id,
+			'filter_name'        => $filter_name,
+			'sort'               => $sort,
+			'order'              => $order,
+			'start'              => ($page - 1) * $this->config->get('config_pagination_admin'),
+			'limit'              => $this->config->get('config_pagination_admin')
 		];
 
 		$this->load->model('catalog/category');
 
-		$category_total = $this->model_catalog_category->getTotalCategories();
+		$category_total = $this->model_catalog_category->getTotalCategories($filter_data);
 
 		$results = $this->model_catalog_category->getCategories($filter_data);
 
@@ -129,18 +174,37 @@ class Category extends \Opencart\System\Engine\Controller {
 
 		$url = '';
 
+		if (isset($this->request->get['filter_category_id'])) {
+			$url .= '&filter_category_id=' . (int)$this->request->get['filter_category_id'];
+		}
+
+		if (isset($this->request->get['filter_name'])) {
+			$url .= '&filter_name=' . urlencode(html_entity_decode($this->request->get['filter_name'], ENT_QUOTES, 'UTF-8'));
+		}
+
 		if ($order == 'ASC') {
 			$url .= '&order=DESC';
 		} else {
 			$url .= '&order=ASC';
 		}
 
+		$data['column_status'] = $this->language->get('column_status');
+
 		$data['sort_name'] = $this->url->link('catalog/category.list', 'user_token=' . $this->session->data['user_token'] . '&sort=name' . $url);
+		$data['sort_status'] = $this->url->link('catalog/category.list', 'user_token=' . $this->session->data['user_token'] . '&sort=status' . $url);
 		$data['sort_sort_order'] = $this->url->link('catalog/category.list', 'user_token=' . $this->session->data['user_token'] . '&sort=sort_order' . $url);
 
 		$data['sort_category_id'] = $this->url->link('catalog/category.list', 'user_token=' . $this->session->data['user_token'] . '&sort=cp.category_id' . $url);
 
 		$url = '';
+
+		if (isset($this->request->get['filter_category_id'])) {
+			$url .= '&filter_category_id=' . (int)$this->request->get['filter_category_id'];
+		}
+
+		if (isset($this->request->get['filter_name'])) {
+			$url .= '&filter_name=' . urlencode(html_entity_decode($this->request->get['filter_name'], ENT_QUOTES, 'UTF-8'));
+		}
 
 		if (isset($this->request->get['sort'])) {
 			$url .= '&sort=' . $this->request->get['sort'];
@@ -179,6 +243,14 @@ class Category extends \Opencart\System\Engine\Controller {
 		$data['text_form'] = !isset($this->request->get['category_id']) ? $this->language->get('text_add') : $this->language->get('text_edit');
 
 		$url = '';
+
+		if (isset($this->request->get['filter_category_id'])) {
+			$url .= '&filter_category_id=' . (int)$this->request->get['filter_category_id'];
+		}
+
+		if (isset($this->request->get['filter_name'])) {
+			$url .= '&filter_name=' . urlencode(html_entity_decode($this->request->get['filter_name'], ENT_QUOTES, 'UTF-8'));
+		}
 
 		if (isset($this->request->get['sort'])) {
 			$url .= '&sort=' . $this->request->get['sort'];

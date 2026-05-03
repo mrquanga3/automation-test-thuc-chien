@@ -12,6 +12,7 @@ $_['text_keyword']            = 'Không dùng khoảng trắng, hãy thay bằng
 
 // Column
 $_['column_name']             = 'Tên Bài Viết';
+$_['column_status']           = 'Trạng thái';
 $_['column_author']           = 'Tác giả';
 $_['column_date_added']       = 'Ngày thêm';
 $_['column_action']           = 'Hành động';
