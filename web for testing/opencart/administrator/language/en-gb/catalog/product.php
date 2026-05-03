@@ -48,6 +48,7 @@ $_['column_date_added']       = 'Date Added';
 $_['column_action']           = 'Action';
 
 // Entry
+$_['entry_product_id']        = 'Product ID';
 $_['entry_name']              = 'Product Name';
 $_['entry_description']       = 'Description';
 $_['entry_meta_title']        = 'Meta Tag Title';

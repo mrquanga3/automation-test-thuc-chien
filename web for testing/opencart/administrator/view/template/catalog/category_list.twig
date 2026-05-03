@@ -6,6 +6,7 @@
           <td class="text-center" style="width: 1px;"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', $(this).prop('checked'));" class="form-check-input"/></td>
           <td class="text-end" style="width: 1px;"><a href="{{ sort_category_id }}"{% if sort == 'cp.category_id' %} class="{{ order|lower }}"{%endif%}>ID</a></td>
           <td class="text-start"><a href="{{ sort_name }}"{% if sort == 'name' %} class="{{ order|lower }}"{% endif %}>{{ column_name }}</a></td>
+          <td class="text-center"><a href="{{ sort_status }}"{% if sort == 'status' %} class="{{ order|lower }}"{% endif %}>{{ column_status }}</a></td>
           <td class="text-end"><a href="{{ sort_sort_order }}"{% if sort == 'sort_order' %} class="{{ order|lower }}"{% endif %}>{{ column_sort_order }}</a></td>
           <td class="text-end">{{ column_action }}</td>
         </tr>
@@ -16,20 +17,21 @@
             <tr>
               <td class="text-center"><input type="checkbox" name="selected[]" value="{{ category.category_id }}" class="form-check-input"/></td>
               <td class="text-end"><span class="badge bg-secondary">{{ category.category_id }}</span></td>
-              <td class="text-start">{{ category.name }}
-                <br/>
+              <td class="text-start">{{ category.name }}</td>
+              <td class="text-center">
                 {% if category.status %}
                   <small class="text-success">{{ text_enabled }}</small>
                 {% else %}
                   <small class="text-danger">{{ text_disabled }}</small>
-                {% endif %}</td>
+                {% endif %}
+              </td>
               <td class="text-end">{{ category.sort_order }}</td>
               <td class="text-end"><a href="{{ category.edit }}" data-bs-toggle="tooltip" title="{{ button_edit }}" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a></td>
             </tr>
           {% endfor %}
         {% else %}
           <tr>
-            <td class="text-center" colspan="5">{{ text_no_results }}</td>
+            <td class="text-center" colspan="6">{{ text_no_results }}</td>
           </tr>
         {% endif %}
       </tbody>

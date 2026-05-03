@@ -12,6 +12,7 @@ $_['text_keyword']            = 'Không dùng khoảng trắng, hãy thay bằng
 
 // Column
 $_['column_title']            = 'Tiêu Đề Thông Tin';
+$_['column_status']           = 'Trạng thái';
 $_['column_sort_order']       = 'Thứ tự sắp xếp';
 $_['column_action']           = 'Hành động';
 
