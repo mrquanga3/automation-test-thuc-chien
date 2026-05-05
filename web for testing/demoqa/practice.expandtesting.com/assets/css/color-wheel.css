@@ -1,0 +1,82 @@
+﻿/*!
+ * Extend Bootstrap v2.3.1 to provide cell alignment (doh)
+ *
+ */
+.table td.tdRight {
+  text-align: right;
+}
+
+.table td.tdCenter {
+  text-align: center;
+}
+
+.table-nonfluid {
+  width: auto;
+}
+
+
+
+.result {
+  font-size: 1em;
+  text-align: center;
+  margin-bottom: 5%;
+  text-shadow: 5px 5px 5px silver;
+}
+
+
+
+#picker {
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+#pointer {
+  /*margin-left: 240px;*/
+  border: 10px solid transparent;
+  border-top: none;
+  border-top: 30px solid #0c264f;
+  height: 0px;
+  width: 0px;
+
+
+}
+
+.centered {
+  margin: 0 auto;
+}
+
+
+
+button {
+  display: inline;
+
+  margin-top: 1px;
+
+  font-size: 1.1em;
+  border: none;
+  color: white;
+  padding: 8px;
+  background-color: #0c264f;
+  text-transform: capitalize;
+  /*box-shadow: 1px 10px 5px #0c264f;*/
+}
+
+#answers button {
+  margin-left: 0%;
+
+
+  display: inline-block;
+}
+
+
+
+alert {
+  color: red;
+}
+
+
+hr {
+  background-color: red;
+  height: 1px;
+  border: 0;
+}

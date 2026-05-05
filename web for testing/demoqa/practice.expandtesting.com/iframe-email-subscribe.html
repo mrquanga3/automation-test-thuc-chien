@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from practice.expandtesting.com/iframe-email-subscribe by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 27 Feb 2026 06:36:10 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Practice WebApp | Iframe Subscribe</title>
+    <link href="../cdn.jsdelivr.net/npm/bootstrap%405.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        h1 {
+            opacity: 0.7;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column h-100" marginwidth="0" marginheight="0">
+    <div class="container">
+        <div class="row">
+            <div id="subscribe" class="col-md-4">
+                <h1 id="prompt-message" stle="display:block">Send updates to my inbox ...</h1>
+
+                <form id="subscription-form" class="needs-validation" novalidate="">
+                    <div class="form-group mb-3">
+                        <input type="email" class="form-control" id="email" name="email" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid email address.
+                        </div>
+                    </div>
+                    <button id="btn-subscribe" type="submit" class="btn btn-outline-primary">Subscribe</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+
+        const subscribe = document.querySelector('#subscribe');
+        const form = document.querySelector('#subscription-form');
+        const emailInput = form.elements.email;
+        const successMessage = document.querySelector('#success-message');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            if (!emailInput.checkValidity()) {
+                return;
+            }
+            subscribe.innerHTML = '<div id="success-message" class="alert alert-info mt-3">You are now subscribed!</div>';
+        });
+
+        (function () {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
+
+</body>
+
+
+<!-- Mirrored from practice.expandtesting.com/iframe-email-subscribe by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 27 Feb 2026 06:36:10 GMT -->
+</html>
