@@ -1,0 +1,34 @@
+HTTrack3.49-2+htsswf+htsjava launched on Fri, 27 Feb 2026 13:18:14 at https://practice.expandtesting.com/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://practice.expandtesting.com/ -O1 "C:\xampp\htdocs\demoqa" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+13:18:51	Error: 	"Unauthorized" (401) at link https://practice.expandtesting.com/download-secure (from https://practice.expandtesting.com/)
+13:19:31	Warning: 	Link https://practice.expandtesting.com/infinite-scroll not scanned (follow robots meta tag)
+13:31:35	Warning: 	link is probably looping, type unknown, aborting: https://practice.expandtesting.com/status-codes/301
+13:33:16	Error: 	"Unauthorized" (401) at link https://practice.expandtesting.com/basic-auth (from https://practice.expandtesting.com/)
+13:33:16	Error: 	"Unauthorized" (401) at link https://practice.expandtesting.com/digest-auth (from https://practice.expandtesting.com/)
+13:33:47	Error: 	"Error when decompressing" (-1) at link https://practice.expandtesting.com/tracalorie (from https://practice.expandtesting.com/)
+13:35:41	Error: 	"Not Found" (404) at link https://practice.expandtesting.com/assets/images/robot.svg (from https://practice.expandtesting.com/assets/images/logo.svg)
+13:36:06	Error: 	"Not Found" (404) at link https://practice.expandtesting.com/assets/images/flags/${data.location_details.short_name}.svg (from https://practice.expandtesting.com/spies-stubs-clocks)
+13:36:06	Error: 	"Not Found" (404) at link https://practice.expandtesting.com/asdf.jpg (from https://practice.expandtesting.com/broken-images)
+13:36:06	Error: 	"Not Found" (404) at link https://practice.expandtesting.com/hjkl.jpg (from https://practice.expandtesting.com/broken-images)
+13:36:40	Error: 	"Not Found" (404) at link https://practice.expandtesting.com/status-codes/404 (from https://practice.expandtesting.com/status-codes)
+13:36:40	Warning: 	Retry after error 500 (Internal Server Error) at link https://practice.expandtesting.com/status-codes/500 (from https://practice.expandtesting.com/status-codes)
+13:36:53	Error: 	"Not Found" (404) at link https://practice.expandtesting.com/css/jqueryui/menu/images/animated-overlay.gif (from https://practice.expandtesting.com/css/jqueryui/menu/menu.css)
+13:36:53	Error: 	"Not Found" (404) at link https://practice.expandtesting.com/img/jqueryui/menu/ui-bg_highlight-soft_75_cccccc_1x100.png (from https://practice.expandtesting.com/css/jqueryui/menu/menu.css)
+13:36:53	Error: 	"Not Found" (404) at link https://practice.expandtesting.com/img/jqueryui/menu/ui-bg_glass_75_e6e6e6_1x400.png (from https://practice.expandtesting.com/css/jqueryui/menu/menu.css)
+13:36:53	Error: 	"Not Found" (404) at link https://practice.expandtesting.com/img/jqueryui/menu/ui-bg_glass_55_fbf9ee_1x400.png (from https://practice.expandtesting.com/css/jqueryui/menu/menu.css)
+13:36:53	Error: 	"Not Found" (404) at link https://practice.expandtesting.com/img/jqueryui/menu/ui-bg_glass_95_fef1ec_1x400.png (from https://practice.expandtesting.com/css/jqueryui/menu/menu.css)
+13:36:53	Error: 	"Not Found" (404) at link https://practice.expandtesting.com/img/jqueryui/menu/ui-icons_888888_256x240.png (from https://practice.expandtesting.com/css/jqueryui/menu/menu.css)
+13:36:53	Error: 	"Not Found" (404) at link https://practice.expandtesting.com/img/jqueryui/menu/ui-icons_2e83ff_256x240.png (from https://practice.expandtesting.com/css/jqueryui/menu/menu.css)
+13:36:53	Error: 	"Not Found" (404) at link https://practice.expandtesting.com/img/jqueryui/menu/ui-icons_cd0a0a_256x240.png (from https://practice.expandtesting.com/css/jqueryui/menu/menu.css)
+13:36:53	Error: 	"Not Found" (404) at link https://practice.expandtesting.com/img/jqueryui/menu/ui-bg_flat_0_aaaaaa_40x100.png (from https://practice.expandtesting.com/css/jqueryui/menu/menu.css)
+13:36:53	Warning: 	Retry after error 500 (Internal Server Error) at link https://practice.expandtesting.com/status-codes/500 (from https://practice.expandtesting.com/status-codes)
+13:36:57	Error: 	"Internal Server Error" (500) after 2 retries at link https://practice.expandtesting.com/status-codes/500 (from https://practice.expandtesting.com/status-codes)
+
+HTTrack Website Copier/3.49-2 mirror complete in 18 minutes 43 seconds : 342 links scanned, 319 files written (16717476 bytes overall), 173 files updated [2571024 bytes received at 2289 bytes/sec], 3865351 bytes transferred using HTTP compression in 218 files, ratio 37%, 2.9 requests per connection
+(19 errors, 4 warnings, 0 messages)

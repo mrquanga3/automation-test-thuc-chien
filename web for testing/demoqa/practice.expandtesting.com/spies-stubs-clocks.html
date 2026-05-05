@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+
+
+<!-- Mirrored from practice.expandtesting.com/spies-stubs-clocks by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 27 Feb 2026 06:18:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta charset="utf-8">
+	<meta name=viewport content="width=device-width,initial-scale=1">
+	<title>Cypress spies, stubs and clocks page for Automation Testing Practice</title>
+	<meta name="description"
+		content="Examples of using (cy.spy, cy.stub, cy.clock) stubs, spies, and controlling clock time are useful for practicing automated tests | USA">
+
+	<meta property="og:locale" content="en_US">
+
+
+
+	<meta property="og:type" content="article" />
+	<link rel="canonical" href="spies-stubs-clocks.html" />
+
+	<meta property="og:title" content="Cypress spies, stubs and clocks page for Automation Testing Practice">
+
+
+
+
+	<meta name="google-adsense-account" content="ca-pub-1056034821646296">
+	<meta name="msvalidate.01" content="C7DB002AC3EF3CA1AFB65068DA704F2B" />
+
+
+	<link rel='shortcut icon' , href='assets/images/favicon.png' type="image/png">
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+	<link href="../cdn.jsdelivr.net/npm/bootstrap%405.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel='stylesheet' , href='assets/css/main3d19.css?v=e64cd80e'>
+
+	<style>
+		ins.adsbygoogle[data-ad-status="unfilled"] {
+			display: none !important;
+		}
+
+
+		#contentbody {
+			position: relative;
+			margin: 0 auto;
+			padding: 2px;
+		}
+
+
+		#menuleft {
+			position: relative;
+			overflow: hidden;
+			float: left;
+			width: 15%;
+			height: auto;
+			margin-top: 1em;
+			z-index: 1;
+		}
+
+
+		#core {
+			position: relative;
+			margin-top: 1em;
+			overflow: hidden;
+			float: left;
+			width: 65%;
+			min-width: 500px;
+			border-left: 1px solid #c3c3c3;
+			border-right: 1px solid #c3c3c3;
+		}
+
+
+		#menuright {
+			overflow: hidden;
+			position: relative;
+			float: left;
+			width: 15%;
+			height: auto;
+			text-align: center;
+			margin-top: 1em;
+			z-index: 1;
+		}
+	</style>
+
+	<script src="../code.jquery.com/jquery-3.6.3.min.js"></script>
+	<script src="../cdn.jsdelivr.net/npm/bootstrap%405.2.0/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="../cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		crossorigin="anonymous"></script>
+
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-90GRT6N40B"></script>
+
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+		gtag('config', 'G-90GRT6N40B');
+	</script>
+
+	<!-- Google Ads -->
+
+	<script async src="../pagead2.googlesyndication.com/pagead/js/f79da.txt?client=ca-pub-1056034821646296"
+		crossorigin="anonymous"></script>
+
+
+
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "WebPage",
+			"name":  "Cypress spies, stubs and clocks page for Automation Testing Practice",
+			"inLanguage":"en-US",
+			"url": "https://practice.expandtesting.com/spies-stubs-clocks",
+			"description": "Examples of using (cy.spy, cy.stub, cy.clock) stubs, spies, and controlling clock time are useful for practicing automated tests | USA"
+		}
+	</script>
+
+
+
+
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+	
+	<div class="ad-bar">
+	
+	
+	  <p class="text-center ad-bar-text me-1 ms-1"><a href="https://pmp.expandtesting.com/">PMP Practice</a>
+	    | Free PMP Certification Mock Exam Test +900 Questions & Quizzes
+	  </p>
+	
+	</div>
+	
+	<div class="horizontal-divider" </div></div>
+	
+	
+	
+	<header class="navbar navbar-expand-md navbar-dark sticky-top main-navbar">
+	  <nav class="container flex-wrap flex-md-nowrap" aria-label="Main navigation">
+	    <a class="navbar-brand p-0 me-2 logo_title" href="index.html" aria-label="SUT">
+	      <img src="assets/images/logo.svg"
+	        alt="Best Website for Practice Automation Testing: Free UI and REST API Examples and Apps. Using Cypress, Playwright, Selenium, WebdriverIO and Postman."
+	        width="45" height="45" class="d-block my-1" role="img" />
+	      <title>SUT</title>&nbsp;Practice
+	    </a>
+	
+	    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar"
+	      aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+	      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi" fill="currentColor" viewBox="0 0 16 16">
+	        <path fill-rule="evenodd"
+	          d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z">
+	        </path>
+	      </svg>
+	    </button>
+	
+	
+	
+	    <div class="navbar-collapse collapse" id="main-navbar">
+	      <ul class="navbar-nav flex-row flex-wrap pt-2 py-md-0">
+	
+	
+	
+	        <li class="nav-item dropdown col-6 col-md-auto">
+	          <a class="nav-link dropdown-toggle" href="index.html#examples" id="examples-dropdown" role="button"
+	            data-bs-toggle="dropdown" aria-expanded="false">Demos</a>
+	          <ul class="dropdown-menu" aria-labelledby="examples-dropdown">
+	            <li>
+	              <a class="dropdown-item" href="index.html#examples">Examples</a>
+	            </li>
+	            <li>
+	              <hr class="dropdown-divider">
+	            <li>
+	              <a class="dropdown-item" href="index.html#apps">Apps</a>
+	            </li>
+	            <li>
+	              <hr class="dropdown-divider">
+	            </li>
+	            <li><a class="dropdown-item" href="index.html#api">APIs</a></li>
+	
+	            <li>
+	              <hr class="dropdown-divider">
+	            </li>
+	            <li><a class="dropdown-item" href="index.html#assertions">Assertions</a></li>
+	            <li>
+	              <hr class="dropdown-divider">
+	            </li>
+	            <li><a class="dropdown-item" href="index.html#reports">Reports</a></li>
+	
+	          </ul>
+	        </li>
+	
+	
+	        <li class="nav-item col-6 col-md-auto">
+	          <a class="nav-link p-2" href="index.html#tools">Tools</a>
+	        </li>
+	
+	        <li class=" nav-item col-6 col-md-auto">
+	          <a class="nav-link p-2" alt="Automation Tips" href="tips.html">Tips</a>
+	        </li>
+	
+	        <li class="nav-item col-6 col-md-auto">
+	          <a class="nav-link p-2" href="test-cases.html">Test Cases</a>
+	        </li>
+	
+	        <li class="nav-item nav-item col-6 col-md-auto">
+	          <a class="nav-link p-2" href="notes/api/api-docs/index.html">API Testing</a>
+	        </li>
+	
+	        <li class="nav-item col-6 col-md-auto">
+	          <a class="nav-link p-2" href="about.html">About</a>
+	        </li>
+	
+	
+	      </ul>
+	
+	      <hr class="d-md-none text-white-50" />
+	
+	      <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+	
+	      </ul>
+	
+	      <a class="btn btn-sut d-lg-inline-block my-2 my-md-0 ms-md-3" href="https://istqb.expandtesting.com/">Free ISTQB
+	        Mock Exams</a>
+	    </div>
+	
+	
+	  </nav>
+	
+	</header>
+
+	<main class="flex-shrink-0 py-3">
+
+
+		<div class="container-fluid mt-1 mb-3">
+		    <div class="row">
+		        <div class="col-12 border">
+		
+		            <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
+		                data-ad-format="fluid" data-ad-client="ca-pub-1056034821646296" data-ad-slot="4970212221"></ins>
+		            <script>
+		                (adsbygoogle = window.adsbygoogle || []).push({});
+		            </script>
+		
+		        </div>
+		    </div>
+		
+		</div>
+
+		<div class="container" id="support-coffee">
+		    <p class="text-center X-border X-border-1 coffee-border px-2 py-2">
+		        Do you enjoy this platform? ❤️ <a href="https://www.buymeacoffee.com/expandtesting"
+		            class="btn btn-expand btn-sm" target="_blank">Buy us a coffee</a>
+		    </p>
+		</div>
+
+		<div id="contentbody">
+
+			<div id="menuleft">
+				<!-- ad-sidebar -->
+				<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1056034821646296" data-ad-slot="2406335743"
+				    data-ad-format="auto" data-full-width-responsive="true"></ins>
+				<script>
+				    (adsbygoogle = window.adsbygoogle || []).push({});
+				</script>			</div>
+			<div id="core">
+				<div class='page-layout'>
+    <div class='container'>
+        <nav aria-label='breadcrumb mb-2'>
+            <ol class='breadcrumb small'>
+                <li class='breadcrumb-item'><a href='index.html'>Home</a></li>
+                <li class='breadcrumb-item active' aria-current='page'>Cypress spies, stubs and clocks</li>
+            </ol>
+        </nav>
+
+        <h1>Cypress spies, stubs and clocks page for Automation Testing Practice</h1>
+
+        <div class="row mt-3">
+
+            <h2>Practice Example for <span class="badge text-bg-warning">cy.spy</span>:</h2>
+            <div class="col-md-10">
+                <p>The idea behind this example is that when a user clicks on the like or dislike button, both buttons
+                    will disappear, and a Google Analytics event will be sent using the Google Tag Manager.
+                    Additionally, a confirmation message will appear.
+
+                    <br />
+                    Using Cypress, we can not only verify the
+                    confirmation message but also spy on the <strong>"gtag"</strong> function and assert that it was
+                    called with the
+                    correct arguments.
+                </p>
+
+                <div id="feedbackButtons">
+                    <button id="likeBtn" class="btn btn-primary">+ Like</button>
+                    <button id="dislikeBtn" class="btn btn-danger">- Dislike</button>
+                </div>
+                <div id="feedback"></div>
+            </div>
+
+        </div>
+
+
+        <div class="row mt-4">
+
+            <h2>Practice Example for <span class="badge text-bg-warning">cy.stub</span>:</h2>
+
+            <div class="col-md-10">
+                <p>For this example, when a user clicks on the <strong>"Find My Location"</strong> button, they will be
+                    prompted to grant
+                    permission for accessing their location. Once permission is granted, the coordinates will be used to
+                    make an API call and retrieve additional details about the user's country and location. These
+                    location details will then be displayed, and a typical testing scenario should verify the accuracy
+                    of this information.
+                    <br />
+                    With Cypress, we can simplify the testing process by stubbing the latitude and longitude
+                    coordinates. This allows us to easily simulate different locations, even across different countries,
+                    during testing.
+
+                    By providing custom coordinates, we can ensure that the application behaves
+                    correctly and displays the expected information for each specific location.
+                </p>
+                <button id="myLocation" type="button" class="btn btn-primary">Find My Location</button>
+                <div id="geoInfo" class="mt-2">
+                    <div class="row">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="row mt-4">
+            <h2>Practice Example for <span class="badge text-bg-warning">cy.clock</span>:</h2>
+            <div class="col-md-10">
+
+                <p>The idea behind this example is that when a user clicks on the <strong>"Discover This
+                        Method"</strong> button, the 6
+                    steps of the Scientific Method will appear one after another with a 2-second interval. However, a
+                    typical test would take more than 12 seconds to complete the scenario.
+
+                    <br />
+                    With Cypress, the cy.clock and cy.tick functions can be used to control the clock during tests,
+                    making them faster. By manipulating the clock, we can execute the same scenario in 2 seconds or even
+                    less. This allows us to speed up the testing process without compromising the accuracy of the test
+                    results.
+                </p>
+                <p>Do you know the steps of the <strong><a
+                            href="https://www.sciencebuddies.org/science-fair-projects/science-fair/steps-of-the-scientific-method">Scientific
+                            Method </a>?</strong></p>
+                <button id="discoverScientificMethod" class="btn btn-primary mb-3">
+                    Discover This Method</button>
+
+                <div id="steps" class="row">
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+<script>
+
+    if (!window.gtag) {
+        function gtag(a, b, c) {
+            console.log(`${a} : ${b} => ${JSON.stringify(c)}`);
+        }
+    }
+    const likeBtn = $("#likeBtn");
+    const dislikeBtn = $("#dislikeBtn");
+    const feedback = $("#feedback");
+
+    function shareFeedBack(feedBack) {
+        likeBtn.remove();
+        dislikeBtn.remove();
+
+        feedback.html(`
+            <div class="col-12 col-lg-6">
+                <p data-testid="feedback-text" class="alert alert-info"><strong>Thank you for your feedback!</strong></p>
+            </div>
+        `);
+
+        if (feedBack === "like") {
+            gtag('event', 'like', {
+                'event_category': 'Engagement',
+                'event_label': 'Like Button'
+            });
+        } else if (feedBack === "dislike") {
+            gtag('event', 'dislike', {
+                'event_category': 'Engagement',
+                'event_label': 'Dislike Button'
+            });
+        }
+    }
+
+    likeBtn.on("click", function () {
+        shareFeedBack("like");
+    });
+    dislikeBtn.on("click", function () {
+        shareFeedBack("dislike");
+    });
+
+</script>
+
+
+<script>
+
+    const myLocation = $("#myLocation");
+    const geoInfo = $("#geoInfo");
+
+    function getLocation() {
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            geoInfo.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        const url = `/api/location-details?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`;
+        fetch(url)
+            .then(async response => {
+                const data = await response.json();
+                if (!response.ok) {
+                    const error = (data && data.error) || response.status;
+                    return Promise.reject(error);
+                }
+                const htmlContent = `
+                <table class="table">
+                <tr>
+                    <td>
+                        <p id="countryName">
+                            <img id="countryFlag" title="France" class="country-flag"
+                                src="assets/images/flags/%24%7bdata.location_details.short_name%7d.html">&nbsp;&nbsp;<strong>${data.location_details.long_name}</strong>
+                        </p>
+                    </td> 
+                    <td>
+                        <p id='lat-value'>Latitude: <strong>${position.coords.latitude}</strong></p>
+                    </td>
+                    <td>
+                        <p id='long-value'>Longitude: <strong>${position.coords.longitude}</strong></p>
+                    </td>
+                </tr>
+            </table>
+            `;
+                geoInfo.html(htmlContent);
+
+            }).catch(error => {
+                const errorContent = `
+           <p data-testid="error" class="alert alert-danger"><strong>${error}</strong></p>
+          `;
+                geoInfo.html(errorContent);
+            });
+    }
+
+    myLocation.on("click", function () {
+        getLocation();
+    });
+</script>
+
+
+
+<script>
+    let intervalId;
+    const steps = [
+        "1. Ask a Question",
+        "2. Do Background Research",
+        "3. Construct a Hypothesis",
+        "4. Test Your Hypothesis by Doing an Experiment",
+        "5. Analyze Your Data and Draw a Conclusion",
+        "6. Communicate Your Results"
+    ];
+    const stepsContainer = $("#steps");
+    const discoverBtn = $("#discoverScientificMethod");
+
+    function buildHtmlStep(step, dataTestId) {
+        return `
+            <div class= "col-12 col-lg-6" >
+               <p data-testid=${dataTestId} class="alert alert-info"><strong>${step}</strong></p>
+            </div >
+            `;
+    }
+
+    function displaySteps() {
+        discoverBtn.remove();
+        let currentIndex = 0;
+
+        intervalId = setInterval(function () {
+            stepsContainer.append(buildHtmlStep(steps[currentIndex], "step-" + (currentIndex + 1)));
+
+            if (currentIndex < steps.length - 1) {
+                currentIndex++;
+            } else {
+                clearInterval(intervalId);
+            }
+        }, 2000);
+    }
+
+    discoverBtn.on("click", displaySteps);
+
+</script>
+			</div>
+
+			<div id="menuright">
+				<!-- ad-sidebar -->
+				<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1056034821646296" data-ad-slot="2406335743"
+				    data-ad-format="auto" data-full-width-responsive="true"></ins>
+				<script>
+				    (adsbygoogle = window.adsbygoogle || []).push({});
+				</script>			</div>
+
+
+		</div>
+
+
+
+	</main>
+
+	<style>
+	  #back-to-top {
+	    border: 1px solid #ccc;
+	    background: #ec7211;
+	  }
+	</style>
+	<footer class="footer mt-auto bg-light">
+	  <div class="container">
+	    <div class="row">
+	      <div class="col-12 text-center">
+	      </div>
+	    </div>
+	
+	
+	
+	    <div class="copyright bg-footer">
+	      <div class="border-top border-2">
+	        <div class="row mt-3">
+	          <div class="col-12 text-center">
+	            <h4>Practice Test Automation WebSite for Web UI and Rest API</h4>
+	            <p id="version" data-testid="build-version">Version: e64cd80e | Copyright <a class="my-link"
+	                href="https://expandtesting.com/" target="_blank" rel="noopener">Expand Testing</a> 2026</p>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</footer>
+	
+	<script src='assets/plugins/back-to-top/back-to-top.min.js'></script>
+	
+	<script defer>
+	  document.addEventListener("DOMContentLoaded", function () {
+	    addBackToTop({
+	      diameter: 50,
+	      //backgroundColor: 'rgb(255,188,59)',
+	      textColor: '#fff'
+	    })
+	
+	  });
+	</script>
+	<script src='assets/js/main.js'></script>
+	<script src="script/script.js"></script>
+
+	<script src="socket.io/socket.io.min.js"></script>
+	<script>
+		window.onload = function () {
+			const currentURL = window.location.href;
+			const socket = io();
+			const userData = { page: currentURL };
+			socket.emit('pageChange', userData);
+		}
+	</script>
+
+
+</body>
+
+
+<!-- Mirrored from practice.expandtesting.com/spies-stubs-clocks by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 27 Feb 2026 06:18:54 GMT -->
+</html>
