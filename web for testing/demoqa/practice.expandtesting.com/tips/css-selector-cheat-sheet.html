@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="en">
+
+
+<!-- Mirrored from practice.expandtesting.com/tips/css-selector-cheat-sheet by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 27 Feb 2026 06:36:05 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+	<meta charset="utf-8">
+	<meta name=viewport content="width=device-width,initial-scale=1">
+	<title>CSS Selector Cheat Sheet</title>
+	<meta name="description"
+		content="A handy reference guide to CSS selectors, from basic element selection to advanced attribute and pseudo-class selectors.">
+
+	<meta property="og:locale" content="en_US">
+
+
+
+	<meta property="og:type" content="article" />
+	<link rel="canonical" href="css-selector-cheat-sheet.html" />
+
+	<meta property="og:title" content="CSS Selector Cheat Sheet">
+
+
+
+
+	<meta name="google-adsense-account" content="ca-pub-1056034821646296">
+	<meta name="msvalidate.01" content="C7DB002AC3EF3CA1AFB65068DA704F2B" />
+
+
+	<link rel='shortcut icon' , href='../assets/images/favicon.png' type="image/png">
+	<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+
+	<link href="../../cdn.jsdelivr.net/npm/bootstrap%405.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel='stylesheet' , href='../assets/css/main3d19.css?v=e64cd80e'>
+
+	<style>
+		ins.adsbygoogle[data-ad-status="unfilled"] {
+			display: none !important;
+		}
+
+
+		#contentbody {
+			position: relative;
+			margin: 0 auto;
+			padding: 2px;
+		}
+
+
+		#menuleft {
+			position: relative;
+			overflow: hidden;
+			float: left;
+			width: 15%;
+			height: auto;
+			margin-top: 1em;
+			z-index: 1;
+		}
+
+
+		#core {
+			position: relative;
+			margin-top: 1em;
+			overflow: hidden;
+			float: left;
+			width: 65%;
+			min-width: 500px;
+			border-left: 1px solid #c3c3c3;
+			border-right: 1px solid #c3c3c3;
+		}
+
+
+		#menuright {
+			overflow: hidden;
+			position: relative;
+			float: left;
+			width: 15%;
+			height: auto;
+			text-align: center;
+			margin-top: 1em;
+			z-index: 1;
+		}
+	</style>
+
+	<script src="../../code.jquery.com/jquery-3.6.3.min.js"></script>
+	<script src="../../cdn.jsdelivr.net/npm/bootstrap%405.2.0/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="../../cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		crossorigin="anonymous"></script>
+
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-90GRT6N40B"></script>
+
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+		gtag('config', 'G-90GRT6N40B');
+	</script>
+
+	<!-- Google Ads -->
+
+	<script async src="../../pagead2.googlesyndication.com/pagead/js/f79da.txt?client=ca-pub-1056034821646296"
+		crossorigin="anonymous"></script>
+
+
+
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "WebPage",
+			"name":  "CSS Selector Cheat Sheet",
+			"inLanguage":"en-US",
+			"url": "https://practice.expandtesting.com/tips/css-selector-cheat-sheet",
+			"description": "A handy reference guide to CSS selectors, from basic element selection to advanced attribute and pseudo-class selectors."
+		}
+	</script>
+
+
+
+
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+	
+	<div class="ad-bar">
+	
+	
+	  <p class="text-center ad-bar-text me-1 ms-1"><a href="https://pmp.expandtesting.com/">PMP Practice</a>
+	    | Free PMP Certification Mock Exam Test +900 Questions & Quizzes
+	  </p>
+	
+	</div>
+	
+	<div class="horizontal-divider" </div></div>
+	
+	
+	
+	<header class="navbar navbar-expand-md navbar-dark sticky-top main-navbar">
+	  <nav class="container flex-wrap flex-md-nowrap" aria-label="Main navigation">
+	    <a class="navbar-brand p-0 me-2 logo_title" href="../index.html" aria-label="SUT">
+	      <img src="../assets/images/logo.svg"
+	        alt="Best Website for Practice Automation Testing: Free UI and REST API Examples and Apps. Using Cypress, Playwright, Selenium, WebdriverIO and Postman."
+	        width="45" height="45" class="d-block my-1" role="img" />
+	      <title>SUT</title>&nbsp;Practice
+	    </a>
+	
+	    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar"
+	      aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+	      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi" fill="currentColor" viewBox="0 0 16 16">
+	        <path fill-rule="evenodd"
+	          d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z">
+	        </path>
+	      </svg>
+	    </button>
+	
+	
+	
+	    <div class="navbar-collapse collapse" id="main-navbar">
+	      <ul class="navbar-nav flex-row flex-wrap pt-2 py-md-0">
+	
+	
+	
+	        <li class="nav-item dropdown col-6 col-md-auto">
+	          <a class="nav-link dropdown-toggle" href="../index.html#examples" id="examples-dropdown" role="button"
+	            data-bs-toggle="dropdown" aria-expanded="false">Demos</a>
+	          <ul class="dropdown-menu" aria-labelledby="examples-dropdown">
+	            <li>
+	              <a class="dropdown-item" href="../index.html#examples">Examples</a>
+	            </li>
+	            <li>
+	              <hr class="dropdown-divider">
+	            <li>
+	              <a class="dropdown-item" href="../index.html#apps">Apps</a>
+	            </li>
+	            <li>
+	              <hr class="dropdown-divider">
+	            </li>
+	            <li><a class="dropdown-item" href="../index.html#api">APIs</a></li>
+	
+	            <li>
+	              <hr class="dropdown-divider">
+	            </li>
+	            <li><a class="dropdown-item" href="../index.html#assertions">Assertions</a></li>
+	            <li>
+	              <hr class="dropdown-divider">
+	            </li>
+	            <li><a class="dropdown-item" href="../index.html#reports">Reports</a></li>
+	
+	          </ul>
+	        </li>
+	
+	
+	        <li class="nav-item col-6 col-md-auto">
+	          <a class="nav-link p-2" href="../index.html#tools">Tools</a>
+	        </li>
+	
+	        <li class=" nav-item col-6 col-md-auto">
+	          <a class="nav-link p-2" alt="Automation Tips" href="../tips.html">Tips</a>
+	        </li>
+	
+	        <li class="nav-item col-6 col-md-auto">
+	          <a class="nav-link p-2" href="../test-cases.html">Test Cases</a>
+	        </li>
+	
+	        <li class="nav-item nav-item col-6 col-md-auto">
+	          <a class="nav-link p-2" href="../notes/api/api-docs/index.html">API Testing</a>
+	        </li>
+	
+	        <li class="nav-item col-6 col-md-auto">
+	          <a class="nav-link p-2" href="../about.html">About</a>
+	        </li>
+	
+	
+	      </ul>
+	
+	      <hr class="d-md-none text-white-50" />
+	
+	      <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+	
+	      </ul>
+	
+	      <a class="btn btn-sut d-lg-inline-block my-2 my-md-0 ms-md-3" href="https://istqb.expandtesting.com/">Free ISTQB
+	        Mock Exams</a>
+	    </div>
+	
+	
+	  </nav>
+	
+	</header>
+
+	<main class="flex-shrink-0 py-3">
+
+
+		<div class="container-fluid mt-1 mb-3">
+		    <div class="row">
+		        <div class="col-12 border">
+		
+		            <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
+		                data-ad-format="fluid" data-ad-client="ca-pub-1056034821646296" data-ad-slot="4970212221"></ins>
+		            <script>
+		                (adsbygoogle = window.adsbygoogle || []).push({});
+		            </script>
+		
+		        </div>
+		    </div>
+		
+		</div>
+
+		<div class="container" id="support-coffee">
+		    <p class="text-center X-border X-border-1 coffee-border px-2 py-2">
+		        Do you enjoy this platform? ❤️ <a href="https://www.buymeacoffee.com/expandtesting"
+		            class="btn btn-expand btn-sm" target="_blank">Buy us a coffee</a>
+		    </p>
+		</div>
+
+		<div id="contentbody">
+
+			<div id="menuleft">
+				<!-- ad-sidebar -->
+				<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1056034821646296" data-ad-slot="2406335743"
+				    data-ad-format="auto" data-full-width-responsive="true"></ins>
+				<script>
+				    (adsbygoogle = window.adsbygoogle || []).push({});
+				</script>			</div>
+			<div id="core">
+				<div class="page-layout">
+	<div class="container">
+
+		<nav aria-label="breadcrumb mb-2">
+			<ol class="breadcrumb small">
+				<li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+				<li class="breadcrumb-item"><a href="../tips.html">Tips</a></li>
+			</ol>
+		</nav>
+
+		<h1>CSS Selector Cheat Sheet</h1>
+
+		<div class="row mt-3">
+			<div class="col-md-12">
+				<!-- HTML begins -->
+
+
+<link rel="stylesheet" href="../css_styles_tips.css">
+
+<main>
+        <div class="table-responsive">
+            <table class="custom-table">
+                <tbody>
+                    <tr>
+                        <th style="width:20%">Selector</th>
+                        <th style="width:20%">Example</th>
+                        <th>Example description</th>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_class.asp">.<i>class</i></a></td>
+                        <td class="">.intro</td>
+                        <td>Selects all elements with class="intro"</td>
+                    </tr>
+                    <tr>
+                        <td><em>.class1.class2</em></td>
+                        <td class="">.name1.name2</td>
+                        <td>Selects all elements with both <em>name1</em> and <em>name2</em> set within its class attribute</td>
+                    </tr>
+                    <tr>
+                        <td><em>.class1 .class2</em></td>
+                        <td class="">.name1 .name2</td>
+                        <td>Selects all elements with <em>name2</em> that is a descendant of an element with <em>name1</em></td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_id.asp">#<i>id</i></a></td>
+                        <td class="">#firstname</td>
+                        <td>Selects the element with id="firstname"</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_all.asp">*</a></td>
+                        <td class="">*</td>
+                        <td>Selects all elements</td>
+                    </tr>
+                    <tr>
+                        <td><i><a target="_blank" href="https://www.w3schools.com/cssref/sel_element.asp">element</a></i></td>
+                        <td class="">p</td>
+                        <td>Selects all &lt;p&gt; elements</td>
+                    </tr>
+                    <tr>
+                        <td><i><a target="_blank" href="https://www.w3schools.com/cssref/sel_element_class.asp">element.class</a></i></td>
+                        <td class="">p.intro</td>
+                        <td>Selects all &lt;p&gt; elements with class="intro"</td>
+                    </tr>
+                    <tr>
+                        <td><i><a target="_blank" href="https://www.w3schools.com/cssref/sel_element_comma.asp">element,element</a></i></td>
+                        <td class="">div, p</td>
+                        <td>Selects all &lt;div&gt; elements and all &lt;p&gt; elements</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_element_element.asp"><i>element</i> <i>element</i></a></td>
+                        <td class="">div p</td>
+                        <td>Selects all &lt;p&gt; elements inside &lt;div&gt; elements</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_element_gt.asp"><i>element</i>&gt;<i>element</i></a></td>
+                        <td class="">div &gt; p</td>
+                        <td>Selects all &lt;p&gt; elements where the parent is a &lt;div&gt; element</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_element_pluss.asp"><i>element</i>+<i>element</i></a></td>
+                        <td class="">div + p</td>
+                        <td>Selects the first &lt;p&gt; element that is placed immediately after &lt;div&gt; elements</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_gen_sibling.asp"><i>element1</i>~<i>element2</i></a></td>
+                        <td>p ~ ul</td>
+                        <td>Selects every &lt;ul&gt; element that is preceded by a &lt;p&gt; element</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_attribute.asp">[<i>attribute</i>]</a></td>
+                        <td class="">[target]</td>
+                        <td>Selects all elements with a target attribute</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_attribute_value.asp">[<i>attribute</i>=<i>value</i>]</a></td>
+                        <td class="">[target=_blank]</td>
+                        <td>Selects all elements with target="_blank"</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_attribute_value_contains.asp">[<i>attribute</i>~=<i>value</i>]</a></td>
+                        <td class="">[title~=flower]</td>
+                        <td>Selects all elements with a title attribute containing the word "flower"</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_attribute_value_lang.asp">[<i>attribute</i>|=<i>value</i>]</a></td>
+                        <td class="">[lang|=en]</td>
+                        <td>Selects all elements with a lang attribute value equal to "en" or starting with "en-"</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_attr_begin.asp">[<i>attribute</i>^=<i>value</i>]</a></td>
+                        <td>a[target="_blank" href^="https"]</td>
+                        <td>Selects every &lt;a&gt; element whose target="_blank" href attribute value begins with "https"</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_attr_end.asp">[<i>attribute</i>$=<i>value</i>]</a></td>
+                        <td>a[target="_blank" href$=".pdf"]</td>
+                        <td>Selects every &lt;a&gt; element whose target="_blank" href attribute value ends with ".pdf"</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_attr_contain.asp">[<i>attribute</i>*=<i>value</i>]</a></td>
+                        <td>a[target="_blank" href*="w3schools"]</td>
+                        <td>Selects every &lt;a&gt; element whose target="_blank" href attribute value contains the substring "w3schools"</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_active.asp">:active</a></td>
+                        <td class="">a:active</td>
+                        <td>Selects the active link</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_after.asp">::after</a></td>
+                        <td class="">p::after</td>
+                        <td>Insert something after the content of each &lt;p&gt; element</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_before.asp">::before</a></td>
+                        <td class="">p::before</td>
+                        <td>Insert something before&nbsp;the content of each &lt;p&gt; element</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_checked.asp">:checked</a></td>
+                        <td>input:checked</td>
+                        <td>Selects every checked &lt;input&gt; element</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_default.asp">:default</a></td>
+                        <td>input:default</td>
+                        <td>Selects the default &lt;input&gt; element</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_disabled.asp">:disabled</a></td>
+                        <td>input:disabled</td>
+                        <td>Selects every disabled &lt;input&gt; element</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_empty.asp">:empty</a></td>
+                        <td>p:empty</td>
+                        <td>Selects every &lt;p&gt; element that has no children (including text nodes)</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_enabled.asp">:enabled</a></td>
+                        <td>input:enabled</td>
+                        <td>Selects every enabled &lt;input&gt; element</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_firstchild.asp">:first-child</a></td>
+                        <td class="">p:first-child</td>
+                        <td>Selects every &lt;p&gt; element that is the first child of its parent</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_firstletter.asp">::first-letter</a></td>
+                        <td class="">p::first-letter</td>
+                        <td>Selects the first letter of every &lt;p&gt; element</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_firstline.asp">::first-line</a></td>
+                        <td class="">p::first-line</td>
+                        <td>Selects the first line of every &lt;p&gt; element</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_first-of-type.asp">:first-of-type</a></td>
+                        <td>p:first-of-type</td>
+                        <td>Selects every &lt;p&gt; element that is the first &lt;p&gt; element of its parent</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_focus.asp">:focus</a></td>
+                        <td class="">input:focus</td>
+                        <td>Selects the input element which has focus</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_fullscreen.asp">:fullscreen</a></td>
+                        <td class="">:fullscreen</td>
+                        <td>Selects the element that is in full-screen mode</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_hover.asp">:hover</a></td>
+                        <td class="">a:hover</td>
+                        <td>Selects links on mouse over</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_in-range.asp">:in-range</a></td>
+                        <td class="">input:in-range</td>
+                        <td>Selects input elements with a value within a specified range</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_indeterminate.asp">:indeterminate</a></td>
+                        <td class="">input:indeterminate</td>
+                        <td>Selects input elements that are in an indeterminate state</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_invalid.asp">:invalid</a></td>
+                        <td class="">input:invalid</td>
+                        <td>Selects all input elements with an invalid value</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_lang.asp">:lang(<i>language</i>)</a></td>
+                        <td class="">p:lang(it)</td>
+                        <td>Selects every &lt;p&gt; element with a lang attribute equal to "it" (Italian)</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_last-child.asp">:last-child</a></td>
+                        <td>p:last-child</td>
+                        <td>Selects every &lt;p&gt; element that is the last child of its parent</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_last-of-type.asp">:last-of-type</a></td>
+                        <td>p:last-of-type</td>
+                        <td>Selects every &lt;p&gt; element that is the last &lt;p&gt; element of its parent</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_link.asp">:link</a></td>
+                        <td class="">a:link</td>
+                        <td>Selects all unvisited links</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_marker.asp">::marker</a></td>
+                        <td>::marker</td>
+                        <td>Selects the markers of list items</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_not.asp">:not(<i>selector</i>)</a></td>
+                        <td>:not(p)</td>
+                        <td>Selects every element that is not a &lt;p&gt; element</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_nth-child.asp">:nth-child(<i>n</i>)</a></td>
+                        <td>p:nth-child(2)</td>
+                        <td>Selects every &lt;p&gt; element that is the second child of its parent</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_nth-last-child.asp">:nth-last-child(<i>n</i>)</a></td>
+                        <td>p:nth-last-child(2)</td>
+                        <td>Selects every &lt;p&gt; element that is the second child of its parent, counting from the last child</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_nth-last-of-type.asp">:nth-last-of-type(<i>n</i>)</a></td>
+                        <td>p:nth-last-of-type(2)</td>
+                        <td>Selects every &lt;p&gt; element that is the second &lt;p&gt; element of its parent, counting from the last child</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_nth-of-type.asp">:nth-of-type(<i>n</i>)</a></td>
+                        <td>p:nth-of-type(2)</td>
+                        <td>Selects every &lt;p&gt; element that is the second &lt;p&gt; element of its parent</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_only-of-type.asp">:only-of-type</a></td>
+                        <td>p:only-of-type</td>
+                        <td>Selects every &lt;p&gt; element that is the only &lt;p&gt; element of its parent</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_only-child.asp">:only-child</a></td>
+                        <td>p:only-child</td>
+                        <td>Selects every &lt;p&gt; element that is the only child of its parent</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_optional.asp">:optional</a></td>
+                        <td class="">input:optional</td>
+                        <td>Selects input elements with no "required" attribute</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_out-of-range.asp">:out-of-range</a></td>
+                        <td class="">input:out-of-range</td>
+                        <td>Selects input elements with a value outside a specified range</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_placeholder.asp">::placeholder</a></td>
+                        <td class="">input::placeholder</td>
+                        <td>Selects input elements with the "placeholder" attribute specified</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_read-only.asp">:read-only</a></td>
+                        <td class="">input:read-only</td>
+                        <td>Selects input elements with the "readonly" attribute specified</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_read-write.asp">:read-write</a></td>
+                        <td class="">input:read-write</td>
+                        <td>Selects input elements with the "readonly" attribute NOT specified</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_required.asp">:required</a></td>
+                        <td class="">input:required</td>
+                        <td>Selects input elements with the "required" attribute specified</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_root.asp">:root</a></td>
+                        <td>:root</td>
+                        <td>Selects the document's root element</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_selection.asp">::selection</a></td>
+                        <td>::selection</td>
+                        <td>Selects the portion of an element that is selected by a user</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_target.asp">:target</a></td>
+                        <td>#news:target </td>
+                        <td>Selects the current active #news element (clicked on a URL containing that anchor name)</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_valid.asp">:valid</a></td>
+                        <td class="">input:valid</td>
+                        <td>Selects all input elements with a valid value</td>
+                    </tr>
+                    <tr>
+                        <td><a target="_blank" href="https://www.w3schools.com/cssref/sel_visited.asp">:visited</a></td>
+                        <td class="">a:visited</td>
+                        <td>Selects all visited links</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css" />
+<script src="../../cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+<link rel="stylesheet" href="../assets/css/highlightjs.css" />
+<script>hljs.highlightAll();</script>
+			</div>
+
+			<div id="menuright">
+				<!-- ad-sidebar -->
+				<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1056034821646296" data-ad-slot="2406335743"
+				    data-ad-format="auto" data-full-width-responsive="true"></ins>
+				<script>
+				    (adsbygoogle = window.adsbygoogle || []).push({});
+				</script>			</div>
+
+
+		</div>
+
+
+
+	</main>
+
+	<style>
+	  #back-to-top {
+	    border: 1px solid #ccc;
+	    background: #ec7211;
+	  }
+	</style>
+	<footer class="footer mt-auto bg-light">
+	  <div class="container">
+	    <div class="row">
+	      <div class="col-12 text-center">
+	      </div>
+	    </div>
+	
+	
+	
+	    <div class="copyright bg-footer">
+	      <div class="border-top border-2">
+	        <div class="row mt-3">
+	          <div class="col-12 text-center">
+	            <h4>Practice Test Automation WebSite for Web UI and Rest API</h4>
+	            <p id="version" data-testid="build-version">Version: e64cd80e | Copyright <a class="my-link"
+	                href="https://expandtesting.com/" target="_blank" rel="noopener">Expand Testing</a> 2026</p>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</footer>
+	
+	<script src='../assets/plugins/back-to-top/back-to-top.min.js'></script>
+	
+	<script defer>
+	  document.addEventListener("DOMContentLoaded", function () {
+	    addBackToTop({
+	      diameter: 50,
+	      //backgroundColor: 'rgb(255,188,59)',
+	      textColor: '#fff'
+	    })
+	
+	  });
+	</script>
+	<script src='../assets/js/main.js'></script>
+	<script src="../script/script.js"></script>
+
+	<script src="../socket.io/socket.io.min.js"></script>
+	<script>
+		window.onload = function () {
+			const currentURL = window.location.href;
+			const socket = io();
+			const userData = { page: currentURL };
+			socket.emit('pageChange', userData);
+		}
+	</script>
+
+
+</body>
+
+
+<!-- Mirrored from practice.expandtesting.com/tips/css-selector-cheat-sheet by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 27 Feb 2026 06:36:06 GMT -->
+</html>

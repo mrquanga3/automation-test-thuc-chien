@@ -11,14 +11,15 @@
 |---|--------|-----------|
 | 1 | Giới thiệu BDD & Serenity | 30 phút |
 | 2 | Cài đặt & Cấu hình | 45 phút |
-| 3 | Cấu trúc Project | 30 phút |
-| 4 | Viết Feature File (Gherkin) | 60 phút |
+| 3 | Gherkin & Feature Files | 60 phút |
+| 4 | Test Runner | 30 phút |
 | 5 | Step Definitions | 60 phút |
 | 6 | Page Object Pattern | 90 phút |
 | 7 | UI Testing với Selenium | 90 phút |
 | 8 | API Testing với REST Assured | 90 phút |
 | 9 | Serenity Reports | 45 phút |
 | 10 | Best Practices & CI/CD | 60 phút |
+| 11 | Bài tập thực hành | 90 phút |
 
 ---
 
@@ -53,7 +54,7 @@ Chi phí cao → Cần nhiều tester
 
 ### Three Amigos
 
-**Ba role ** ngồi lại với nhau *trước khi bắt đầu làm một tính năng mới*:
+**Ba role** ngồi lại với nhau *trước khi bắt đầu làm một tính năng mới*:
 
 | Role                 | Vai trò | Câu hỏi họ đặt ra |
 |----------------------|---------|-------------------|
@@ -147,7 +148,7 @@ Scenario: Khóa tài khoản sau 5 lần nhập sai
 ├──────────────┴──────────────────────────┤
 │         Page Objects / Tasks            │
 ├─────────────────────────────────────────┤
-│   Selenium WebDriver | REST Assured     │
+│ Selenium WebDriver | REST Assured | Appium │
 ├─────────────────────────────────────────┤
 │      Browser / API / Mobile             │
 └─────────────────────────────────────────┘
@@ -169,6 +170,7 @@ Scenario: Khóa tài khoản sau 5 lần nhập sai
 ✅ IntelliJ IDEA (khuyến nghị) hoặc Eclipse
 ✅ Git
 ✅ Chrome/Firefox (cho UI testing)
+✅ Appium + Android Studio / Xcode (nếu test mobile)
 ```
 
 ### Kiểm tra đã cài chưa
@@ -603,7 +605,7 @@ import io.cucumber.junit.platform.engine.Constants;
 import org.junit.platform.suite.api.*;
 
 @Suite
-@EngineFilter("cucumber")
+@IncludeEngines("cucumber")
 @SelectClasspathResource("features")
 @ConfigurationParameter(
     key = Constants.GLUE_PROPERTY_NAME,
@@ -685,9 +687,7 @@ Tạo `src/test/java/com/example/stepdefinitions/LoginSteps.java`:
 package com.example.stepdefinitions;
 
 import io.cucumber.java.en.*;
-import net.thucydides.core.annotations.Steps;
 import com.example.pages.LoginPage;
-import net.serenitybdd.core.pages.WebElementFacade;
 
 public class LoginSteps {
 
@@ -856,9 +856,9 @@ Tạo `src/test/java/com/example/pages/LoginPage.java`:
 ```java
 package com.example.pages;
 
+import net.serenitybdd.annotations.DefaultUrl;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
-import net.thucydides.model.annotations.DefaultUrl;
 import org.openqa.selenium.support.FindBy;
 
 // URL mặc định khi gọi loginPage.open()
@@ -982,6 +982,9 @@ findAll(".product-item")
 ```java
 // Serenity tự động chờ — không cần Thread.sleep()
 
+import static java.util.concurrent.TimeUnit.SECONDS;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
 // Chờ element xuất hiện (timeout từ serenity.conf)
 element.waitUntilVisible();
 element.waitUntilEnabled();
@@ -989,13 +992,12 @@ element.waitUntilClickable();
 element.waitUntilNotVisible();
 
 // Chờ với timeout tùy chỉnh
-element.waitUntilVisible().withTimeoutOf(Duration.ofSeconds(10));
+element.withTimeoutOf(10, SECONDS).waitUntilVisible();
 
 // Chờ điều kiện tùy chỉnh
 waitFor(ExpectedConditions.urlContains("/dashboard"));
 
-// Chờ AJAX hoàn thành
-waitForAngularRequestsToFinish();
+// Nếu app dùng Angular, có thể cần wait strategy riêng cho Angular
 
 // Serenity implicit wait (cấu hình trong serenity.conf)
 // webdriver.timeouts.implicitlywait = 5000  (milliseconds)
@@ -1089,6 +1091,12 @@ Feature: Tìm kiếm Google
 
 ```java
 // pages/GoogleHomePage.java
+import net.serenitybdd.annotations.DefaultUrl;
+import net.serenitybdd.core.pages.PageObject;
+import net.serenitybdd.core.pages.WebElementFacade;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.FindBy;
+
 @DefaultUrl("https://www.google.com")
 public class GoogleHomePage extends PageObject {
 
@@ -1102,14 +1110,25 @@ public class GoogleHomePage extends PageObject {
 }
 
 // pages/GoogleResultsPage.java
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.List;
+import net.serenitybdd.core.pages.PageObject;
+import net.serenitybdd.core.pages.WebElementFacade;
+import org.openqa.selenium.support.FindBy;
+
 public class GoogleResultsPage extends PageObject {
 
     @FindBy(css = "#search .g")
     private List<WebElementFacade> searchResults;
 
     public void verifyResultsContain(String keyword) {
-        searchResults.stream()
+        boolean containsKeyword = searchResults.stream()
             .anyMatch(result -> result.getText().contains(keyword));
+
+        assertThat(containsKeyword)
+            .as("Google search results should contain keyword: " + keyword)
+            .isTrue();
     }
 }
 ```
@@ -1162,7 +1181,7 @@ public void switchToNewTab() {
 ## 7.4 — Serenity Steps — Chia nhỏ action
 
 ```java
-import net.thucydides.core.annotations.Step;
+import net.serenitybdd.annotations.Step;
 
 public class LoginActions {
 
@@ -1190,6 +1209,9 @@ public class LoginActions {
 
 ```java
 // Dùng trong Step Definitions
+import io.cucumber.java.en.When;
+import net.serenitybdd.annotations.Steps;
+
 public class LoginSteps {
 
     @Steps
@@ -1257,7 +1279,11 @@ Feature: User API
 // stepdefinitions/UserApiSteps.java
 import static net.serenitybdd.rest.SerenityRest.*;
 import static org.hamcrest.Matchers.*;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class UserApiSteps {
 
@@ -1290,10 +1316,20 @@ public class UserApiSteps {
 ## 8.3 — Ví dụ: Test POST API
 
 ```java
+import static net.serenitybdd.rest.SerenityRest.*;
+import static org.hamcrest.Matchers.*;
+
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.json.JSONObject;
+import java.util.Map;
 
 public class UserApiSteps {
+
+    private Response response;
 
     @When("gọi POST {string} với dữ liệu:")
     public void callPost(String endpoint, DataTable dataTable) {
@@ -1304,7 +1340,6 @@ public class UserApiSteps {
 
         response = given()
             .contentType(ContentType.JSON)
-            .header("Authorization", "Bearer " + getToken())
             .body(requestBody.toString())
             .when()
             .post(endpoint)
@@ -1454,7 +1489,9 @@ target/site/serenity/index.html
 
 ```java
 // Thêm thông tin vào report
-import net.thucydides.core.annotations.Step;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.Serenity;
 
 @Step("Kiểm tra dữ liệu sản phẩm")
@@ -1484,6 +1521,8 @@ serenity {
   project.name = "My E-Commerce Test Suite"
 
   # Thư mục output của report
+  # Có thể override bằng CLI:
+  # mvn verify -Dserenity.outputDirectory=target/site/serenity
   outputDirectory = target/site/serenity
 
   # Chụp screenshot
@@ -1658,7 +1697,9 @@ jobs:
           distribution: 'temurin'
 
       - name: Run Serenity Tests
-        run: mvn verify -Dwebdriver.driver=chrome
+        run: >
+          mvn verify
+          -Dwebdriver.driver=chrome
           -Dwebdriver.chrome.options="--headless=new --no-sandbox"
 
       - name: Upload Serenity Report
@@ -1674,6 +1715,8 @@ jobs:
 ## 10.7 — Debugging khi test fail
 
 ```bash
+# Bash / macOS / Linux
+
 # 1. Xem log chi tiết
 mvn verify -X
 
@@ -1684,10 +1727,21 @@ mvn verify -Dcucumber.filter.tags="@debug"
 mvn verify -Dcucumber.features="src/test/resources/features/login/login.feature"
 
 # 4. Xem Serenity report
-open target/site/serenity/index.html
+open target/site/serenity/index.html   # macOS
+# hoặc: xdg-open target/site/serenity/index.html   # Linux
 
 # 5. Xem log file
 cat target/failsafe-reports/*.txt
+```
+
+```powershell
+# PowerShell / Windows
+
+mvn verify -X
+mvn verify -Dcucumber.filter.tags='@debug'
+mvn verify -Dcucumber.features='src/test/resources/features/login/login.feature'
+start target/site/serenity/index.html
+Get-Content target/failsafe-reports/*.txt
 ```
 
 ```java
@@ -1776,6 +1830,92 @@ Luồng 3 — Data-driven:
 ```
 
 **Yêu cầu**: Áp dụng Page Object Pattern, Tags, và xem Serenity Report
+
+---
+
+# PHỤ LỤC: Copy-Paste Verified Flow
+
+---
+
+## Luồng tối thiểu để chạy được project đầu tiên
+
+### 1. Chuẩn bị môi trường
+
+```
+✅ Java 17+
+✅ Maven 3.8+
+✅ Chrome hoặc Firefox
+✅ Internet ổn định nếu dùng webdriver autodownload
+```
+
+### 2. Tạo skeleton project
+
+```bash
+mvn archetype:generate \
+  -DgroupId=com.example \
+  -DartifactId=serenity-demo \
+  -DarchetypeArtifactId=maven-archetype-quickstart \
+  -DinteractiveMode=false
+```
+
+### 3. Thay `pom.xml` và thêm `serenity.conf`
+
+```
+Copy phần pom.xml ở Module 2
+Copy file serenity.conf ở Module 2
+Tạo thư mục src/test/resources/features
+Tạo thư mục src/test/java/com/example
+```
+
+### 4. Tạo test UI đơn giản nhất
+
+```
+Tạo GoogleHomePage
+Tạo GoogleResultsPage
+Tạo SearchSteps
+Tạo feature file google_search.feature
+Tạo CucumberTestRunner
+```
+
+### 5. Chạy test
+
+```bash
+mvn verify
+```
+
+### 6. Kiểm tra kết quả
+
+```
+Report HTML: target/site/serenity/index.html
+JSON report: target/cucumber-reports/cucumber.json
+Failsafe logs: target/failsafe-reports/
+```
+
+---
+
+## Checklist copy-paste theo từng nhóm nội dung
+
+- `pom.xml`: phải có `serenity-cucumber`, `serenity-rest-assured`, `junit-platform-suite`, `maven-failsafe-plugin`, `serenity-maven-plugin`
+- `serenity.conf`: nếu test UI thì phải có `webdriver.driver`; nếu test mobile thì cần thêm cấu hình Appium tương ứng
+- `Feature file`: đặt dưới `src/test/resources/features`
+- `Runner`: dùng `@IncludeEngines("cucumber")`, không dùng `@EngineFilter("cucumber")`
+- `Step Definitions`: chỉ orchestration, không nhét Selenium raw code vào nếu đã có Page Object
+- `Page Object`: nên chứa locator + hành vi của trang, không chứa assert business quá rời rạc
+- `UI assertion`: phải assert explicit, không gọi stream/filter rồi bỏ kết quả
+- `API test`: ví dụ POST cơ bản nên bắt đầu không auth; thêm token sau khi đã có flow login riêng
+- `GitHub Actions`: với YAML nhiều dòng, dùng `run: >` để tránh lỗi xuống dòng
+- `Debug commands`: tách riêng `bash` và `PowerShell`, không trộn command giữa các OS
+
+---
+
+## Khi nào nên tách ví dụ riêng thành project mẫu
+
+- Khi README bắt đầu có quá nhiều snippet Java dài hơn 30-40 dòng
+- Khi một ví dụ cần hơn 3 file để chạy
+- Khi muốn người học clone về và `mvn verify` chạy ngay
+- Khi cần minh họa cả UI, API và mobile trong cùng giáo trình
+
+> Khuyến nghị: README giữ vai trò giáo trình, còn ví dụ chạy được nên đặt trong một project mẫu đi kèm.
 
 ---
 
