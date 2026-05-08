@@ -69,17 +69,9 @@ function showDetailWindow(info)
 		infoWin = new Ext.Window({
 					el:'eventDetailWindow',
 					modal:true,
-					autoTabs: true,
 					layout:'fit',
 					width:700,
 					height:500,
-					items: new Ext.TabPanel({
-						el: 'detailTabs',
-						autoTabs:true,
-						activeTab:0,
-						deferredRender:false,
-						border:false
-					}),
 					closeAction:'hide',
 					plain: true,
 					buttons: [{
@@ -200,10 +192,8 @@ fieldset
 </div>
 <div id="eventDetailWindow" class="x-hidden">
 	<div class="x-window-header">{$labels.title_eventinfo}</div>
-	<div id="detailTabs">
-		<div class="x-tab" title="{$labels.title_eventdetails}">
-			<div id="eventDetails" class="inner-tab"></div>
-		</div>
+	<div id="detailTabs" style="height: 100%;">
+		<div id="eventDetails" class="inner-tab" style="height: 100%; overflow: auto;"></div>
 	</div>
 </div>
 </body>

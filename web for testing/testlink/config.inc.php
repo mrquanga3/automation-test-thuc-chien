@@ -2155,7 +2155,7 @@ require_once('configCheck.php');
 
 if( !defined('TL_JQUERY') )
 {
-  define('TL_JQUERY','jquery-2.2.4.min.js' );
+  define('TL_JQUERY','third_party/jquery/jquery-3.4.1.min.js' );
 }
 
 if( !defined('TL_DATATABLES_DIR') )

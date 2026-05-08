@@ -241,24 +241,80 @@ function checkbox_get_checked(oid)
   returns:  - 
 
 */
-function cs_all_checkbox_in_div(div_id, cb_id_prefix,memory_id)
+function showCheckboxLoadingOverlay() {
+	var existing = document.getElementById('tl_cb_loading_overlay');
+	if (existing) return existing;
+
+	var overlay = document.createElement('div');
+	overlay.id = 'tl_cb_loading_overlay';
+	overlay.style.cssText =
+		'position:fixed;top:0;left:0;width:100%;height:100%;' +
+		'background:rgba(255,255,255,0.6);z-index:99999;' +
+		'display:flex;align-items:center;justify-content:center;' +
+		'font-family:sans-serif;';
+	overlay.innerHTML =
+		'<div style="background:#fff;padding:20px 30px;border-radius:8px;' +
+		'box-shadow:0 2px 12px rgba(0,0,0,0.2);text-align:center;">' +
+		'<i class="fa fa-spinner fa-spin fa-2x" style="color:#3498db;"></i>' +
+		'<div style="margin-top:10px;color:#333;">Processing...</div>' +
+		'</div>';
+	document.body.appendChild(overlay);
+	return overlay;
+}
+
+function hideCheckboxLoadingOverlay() {
+	var overlay = document.getElementById('tl_cb_loading_overlay');
+	if (overlay && overlay.parentNode) {
+		overlay.parentNode.removeChild(overlay);
+	}
+}
+
+function cs_all_checkbox_in_div(div_id, cb_id_prefix, memory_id, icon_id)
 {
-	var inputs = document.getElementById(div_id).getElementsByTagName('input');
-	var memory = document.getElementById(memory_id);
-		
-	for(var idx = 0; idx < inputs.length; idx++)
-	{
-		var elemType = inputs[idx].type;		
-		
-		if(inputs[idx].type == "checkbox" && 
-		   inputs[idx].disabled == false && 
-		  (inputs[idx].id.indexOf(cb_id_prefix)==0) )
-		{
-      inputs[idx].checked = (memory.value == "1") ? false : true;
-		}	
-	} // for
-	
-	memory.value = (memory.value == "1") ? "0" : "1";
+	// Show loading overlay
+	showCheckboxLoadingOverlay();
+
+	// Use setTimeout to allow UI to render the overlay before processing
+	setTimeout(function() {
+		try {
+			var inputs = document.getElementById(div_id).getElementsByTagName('input');
+			var memory = document.getElementById(memory_id);
+
+			for(var idx = 0; idx < inputs.length; idx++)
+			{
+				if(inputs[idx].type == "checkbox" &&
+				   inputs[idx].disabled == false &&
+				  (inputs[idx].id.indexOf(cb_id_prefix)==0) )
+				{
+			      inputs[idx].checked = (memory.value == "1") ? false : true;
+				}
+			} // for
+
+			memory.value = (memory.value == "1") ? "0" : "1";
+
+			// Update icon based on new state
+			if (icon_id) {
+				var icon = document.getElementById(icon_id);
+				if (icon) {
+					if (memory.value == "1") {
+						// All checked now
+						icon.classList.remove('fa-square');
+						icon.classList.remove('far');
+						icon.classList.add('fas');
+						icon.classList.add('fa-check-square');
+					} else {
+						// All unchecked now
+						icon.classList.remove('fas');
+						icon.classList.remove('fa-check-square');
+						icon.classList.add('far');
+						icon.classList.add('fa-square');
+					}
+				}
+			}
+		} finally {
+			hideCheckboxLoadingOverlay();
+		}
+	}, 50);
 }
 
 /**
@@ -274,28 +330,38 @@ function cs_all_checkbox_in_div_with_platform(div_id, prefix, platform_id) {
 	if (check_state[state] === undefined) {
 		check_state[state] = true;
 	}
-	// get all checkboxes with id starting with prefix inside div_id
-	Ext.get(div_id).select("input[type=checkbox][id^=" + prefix + "]")
-		.each(function (el, c, idx) {
-			// the regex matches the number inside the last brackets of the name
-			var check_platform_id = el.dom.name.match("([0-9]+)\]$")[1];
-			if (platform_id == 0 || check_platform_id == platform_id) {
-				el.dom.checked = check_state[state];
-        how_many++;
-			}
-		});
-  var userfeedback = js_cs_all_checkbox_deselected;  
-  if (check_state[state]) {
-    userfeedback =  js_cs_all_checkbox_selected;  
-  }  
-  // alert(userfeedback.replace('%s',how_many));        
-  
-  // http://bootboxjs.com/
-  // http://paynedigital.com/articles/2011/11/
-  //        bootbox-js-alert-confirm-dialogs-for-twitter-bootstrap
-  bootbox.alert(userfeedback.replace('%s',how_many));
 
-  how_many = 0;  
-	check_state[state] = !check_state[state];
+	// Show loading overlay
+	showCheckboxLoadingOverlay();
+
+	// Use setTimeout to allow UI to render the overlay before processing
+	setTimeout(function() {
+		var userfeedback;
+		var count = 0;
+		try {
+			// get all checkboxes with id starting with prefix inside div_id
+			Ext.get(div_id).select("input[type=checkbox][id^=" + prefix + "]")
+				.each(function (el, c, idx) {
+					// the regex matches the number inside the last brackets of the name
+					var check_platform_id = el.dom.name.match("([0-9]+)\]$")[1];
+					if (platform_id == 0 || check_platform_id == platform_id) {
+						el.dom.checked = check_state[state];
+						count++;
+					}
+				});
+
+			userfeedback = js_cs_all_checkbox_deselected;
+			if (check_state[state]) {
+				userfeedback =  js_cs_all_checkbox_selected;
+			}
+
+			check_state[state] = !check_state[state];
+		} finally {
+			hideCheckboxLoadingOverlay();
+		}
+
+		// Show feedback after loading is hidden
+		bootbox.alert(userfeedback.replace('%s', count));
+	}, 100);
 }
 

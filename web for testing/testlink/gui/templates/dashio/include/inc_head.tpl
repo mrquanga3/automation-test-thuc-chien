@@ -21,6 +21,9 @@ editorType: used to understand if code for tinymce need to be loaded
 	<title>{$pageTitle|default:"TestLink"}</title>
 	<link rel="icon" href="{$basehref}{$smarty.const.TL_THEME_IMG_DIR}favicon.ico" type="image/x-icon" />
 
+	{* jQuery must be loaded FIRST, before any other script that uses it *}
+	<script type="text/javascript" src="{$basehref}third_party/jquery/jquery-3.4.1.min.js"></script>
+
 {$css = str_replace('default','dashio',$css)}
 {* ----- load CSS ----------------------------------------------- *} 
 	<style media="all" type="text/css">@import "{$css}";</style>
@@ -52,9 +55,6 @@ editorType: used to understand if code for tinymce need to be loaded
 
 
   <link rel="stylesheet" href="{$basehref}third_party/chosen/chosen.css">
-
-	<script type="text/javascript" 
-    src="{$basehref}{$smarty.const.TL_JQUERY}" language="javascript"></script>
 
 	<script type="text/javascript" src="{$basehref}third_party/chosen/chosen.jquery.js"></script>
  

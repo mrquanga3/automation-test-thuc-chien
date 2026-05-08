@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(Get-ChildItem -Path \"D:\\\\automation-test-thuc-chien\\\\web for testing\" -Directory)",
-      "Bash(Select-Object Name)"
+      "Bash(Select-Object Name)",
+      "Bash(Find \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\testlink\" -type f -name \"*.tpl\")",
+      "Bash(Select-Object -First 10)"
     ]
   }
 }

@@ -26,12 +26,12 @@ generate a list of TC for adding to Test Plan
 {include file="inc_head.tpl" openHead="yes"}
 {include file="inc_jsCheckboxes.tpl"}
 
+<link href="{$basehref}third_party/pace/themes/blue/pace-theme-loading-bar.css" rel="stylesheet" />
 {include file="inc_ext_js.tpl"}
 {include file="plan/planAddTCJS.inc.tpl"}
 {include file="bootstrap.inc.tpl"}
 
-<script src="{$basehref}third_party/pace/pace.js"></script> 
-<link href="{$basehref}third_party/pace/themes/blue/pace-theme-loading-bar.css" rel="stylesheet" />
+<script src="{$basehref}third_party/pace/pace.js"></script>
 <script src="{$basehref}third_party/bootbox/bootbox.all.min.js"></script>
 
 </head>
@@ -157,9 +157,11 @@ generate a list of TC for adding to Test Plan
             <tr style="background-color:blue;font-weight:bold;color:white">
   			     <td width="5" align="center">
                 {if $gui->full_control}
-  			          <img class="clickable" src="{$tlImages.toggle_all}"
-  			               onclick='cs_all_checkbox_in_div("{$div_id}","{$add_cb}","add_value_{$ts_id}");'
-                       title="{$labels.check_uncheck_all_checkboxes}" />
+  			          <i class="far fa-square clickable"
+  			               id="toggle_icon_{$ts_id}"
+  			               style="cursor:pointer; color:#fff; font-size:18px;"
+  			               onclick='cs_all_checkbox_in_div("{$div_id}","{$add_cb}","add_value_{$ts_id}","toggle_icon_{$ts_id}");'
+                       title="{$labels.check_uncheck_all_checkboxes}"></i>
       			    {else}
       			     &nbsp;
   		    	    {/if}
