@@ -13,6 +13,10 @@ if (!defined('DIR_APPLICATION')) {
 	exit();
 }
 
+// Rate limit (per-IP, file-based)
+require_once(DIR_SYSTEM . 'library/rate_limit.php');
+rate_limit_check('web', 300, 60);
+
 // Startup
 require_once(DIR_SYSTEM . 'startup.php');
 
