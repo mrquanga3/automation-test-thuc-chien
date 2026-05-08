@@ -139,6 +139,8 @@ class Language extends \Opencart\System\Engine\Controller {
 		$data['sort_code'] = $this->url->link('localisation/language.list', 'user_token=' . $this->session->data['user_token'] . '&sort=code' . $url);
 		$data['sort_sort_order'] = $this->url->link('localisation/language.list', 'user_token=' . $this->session->data['user_token'] . '&sort=sort_order' . $url);
 
+		$data['sort_language_id'] = $this->url->link('localisation/language.list', 'user_token=' . $this->session->data['user_token'] . '&sort=language_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {
@@ -358,13 +360,14 @@ class Language extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('localisation/language');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $language_id) {
-				$this->model_localisation_language->deleteLanguage($language_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('localisation/language');
+			// foreach ($selected as $language_id) {
+			// 	$this->model_localisation_language->deleteLanguage($language_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

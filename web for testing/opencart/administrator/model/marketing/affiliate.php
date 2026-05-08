@@ -110,6 +110,7 @@ class Affiliate extends \Opencart\System\Engine\Model {
 		}
 
 		$sort_data = [
+			'ca.customer_id',
 			'name',
 			'ca.tracking',
 			'ca.commission',

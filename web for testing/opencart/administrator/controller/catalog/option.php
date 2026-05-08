@@ -136,6 +136,8 @@ class Option extends \Opencart\System\Engine\Controller {
 		$data['sort_name'] = $this->url->link('catalog/option.list', 'user_token=' . $this->session->data['user_token'] . '&sort=od.name' . $url);
 		$data['sort_sort_order'] = $this->url->link('catalog/option.list', 'user_token=' . $this->session->data['user_token'] . '&sort=o.sort_order' . $url);
 
+		$data['sort_option_id'] = $this->url->link('catalog/option.list', 'user_token=' . $this->session->data['user_token'] . '&sort=o.option_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {
@@ -376,13 +378,14 @@ class Option extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('catalog/option');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $option_id) {
-				$this->model_catalog_option->deleteOption($option_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('catalog/option');
+			// foreach ($selected as $option_id) {
+			// 	$this->model_catalog_option->deleteOption($option_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

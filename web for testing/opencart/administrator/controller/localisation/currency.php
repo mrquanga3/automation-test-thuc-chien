@@ -155,6 +155,8 @@ class Currency extends \Opencart\System\Engine\Controller {
 		$data['sort_status'] = $this->url->link('localisation/currency.list', 'user_token=' . $this->session->data['user_token'] . '&sort=status' . $url);
 		$data['sort_date_modified'] = $this->url->link('localisation/currency.list', 'user_token=' . $this->session->data['user_token'] . '&sort=date_modified' . $url);
 
+		$data['sort_currency_id'] = $this->url->link('localisation/currency.list', 'user_token=' . $this->session->data['user_token'] . '&sort=currency_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {
@@ -393,11 +395,13 @@ class Currency extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			foreach ($selected as $currency_id) {
-				$this->model_localisation_currency->deleteCurrency($currency_id);
-			}
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			$json['success'] = $this->language->get('text_success');
+			// foreach ($selected as $currency_id) {
+			// 	$this->model_localisation_currency->deleteCurrency($currency_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

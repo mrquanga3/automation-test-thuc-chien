@@ -134,6 +134,9 @@ class OrderStatus extends \Opencart\System\Engine\Controller {
 
 		$data['sort_name'] = $this->url->link('localisation/order_status.list', 'user_token=' . $this->session->data['user_token'] . '&sort=name' . $url);
 
+
+		$data['sort_order_status_id'] = $this->url->link('localisation/order_status.list', 'user_token=' . $this->session->data['user_token'] . '&sort=order_status_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {
@@ -299,13 +302,14 @@ class OrderStatus extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('localisation/order_status');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $order_status_id) {
-				$this->model_localisation_order_status->deleteOrderStatus($order_status_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('localisation/order_status');
+			// foreach ($selected as $order_status_id) {
+			// 	$this->model_localisation_order_status->deleteOrderStatus($order_status_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

@@ -134,8 +134,13 @@ class Information extends \Opencart\System\Engine\Controller {
 			$url .= '&order=ASC';
 		}
 
+		$data['column_status'] = $this->language->get('column_status');
+
 		$data['sort_title'] = $this->url->link('catalog/information.list', 'user_token=' . $this->session->data['user_token'] . '&sort=id.title' . $url);
+		$data['sort_status'] = $this->url->link('catalog/information.list', 'user_token=' . $this->session->data['user_token'] . '&sort=i.status' . $url);
 		$data['sort_sort_order'] = $this->url->link('catalog/information.list', 'user_token=' . $this->session->data['user_token'] . '&sort=i.sort_order' . $url);
+
+		$data['sort_information_id'] = $this->url->link('catalog/information.list', 'user_token=' . $this->session->data['user_token'] . '&sort=i.information_id' . $url);
 
 		$url = '';
 
@@ -402,13 +407,14 @@ class Information extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('catalog/information');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $information_id) {
-				$this->model_catalog_information->deleteInformation($information_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('catalog/information');
+			// foreach ($selected as $information_id) {
+			// 	$this->model_catalog_information->deleteInformation($information_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

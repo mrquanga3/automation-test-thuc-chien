@@ -708,13 +708,14 @@ class Returns extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('sale/returns');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $return_id) {
-				$this->model_sale_returns->deleteReturn($return_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('sale/returns');
+			// foreach ($selected as $return_id) {
+			// 	$this->model_sale_returns->deleteReturn($return_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

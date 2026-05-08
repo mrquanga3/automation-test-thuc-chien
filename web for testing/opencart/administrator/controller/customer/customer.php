@@ -354,11 +354,15 @@ class Customer extends \Opencart\System\Engine\Controller {
 			$url .= '&order=ASC';
 		}
 
+		$data['column_status'] = $this->language->get('column_status');
+
 		$data['sort_name'] = $this->url->link('customer/customer.list', 'user_token=' . $this->session->data['user_token'] . '&sort=name' . $url);
 		$data['sort_email'] = $this->url->link('customer/customer.list', 'user_token=' . $this->session->data['user_token'] . '&sort=c.email' . $url);
 		$data['sort_customer_group'] = $this->url->link('customer/customer.list', 'user_token=' . $this->session->data['user_token'] . '&sort=customer_group' . $url);
 		$data['sort_status'] = $this->url->link('customer/customer.list', 'user_token=' . $this->session->data['user_token'] . '&sort=c.status' . $url);
 		$data['sort_date_added'] = $this->url->link('customer/customer.list', 'user_token=' . $this->session->data['user_token'] . '&sort=c.date_added' . $url);
+
+		$data['sort_customer_id'] = $this->url->link('customer/customer.list', 'user_token=' . $this->session->data['user_token'] . '&sort=c.customer_id' . $url);
 
 		$url = '';
 
@@ -818,13 +822,14 @@ class Customer extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('customer/customer');
+			// [DISABLED] Tính năng xóa customer đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $customer_id) {
-				$this->model_customer_customer->deleteCustomer($customer_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('customer/customer');
+			// foreach ($selected as $customer_id) {
+			// 	$this->model_customer_customer->deleteCustomer($customer_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

@@ -177,6 +177,8 @@ class CustomField extends \Opencart\System\Engine\Controller {
 		$data['sort_status'] = $this->url->link('customer/custom_field.list', 'user_token=' . $this->session->data['user_token'] . '&sort=cf.status' . $url);
 		$data['sort_sort_order'] = $this->url->link('customer/custom_field.list', 'user_token=' . $this->session->data['user_token'] . '&sort=cf.sort_order' . $url);
 
+		$data['sort_custom_field_id'] = $this->url->link('customer/custom_field.list', 'user_token=' . $this->session->data['user_token'] . '&sort=cf.custom_field_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {
@@ -423,13 +425,14 @@ class CustomField extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('customer/custom_field');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $custom_field_id) {
-				$this->model_customer_custom_field->deleteCustomField($custom_field_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('customer/custom_field');
+			// foreach ($selected as $custom_field_id) {
+			// 	$this->model_customer_custom_field->deleteCustomField($custom_field_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

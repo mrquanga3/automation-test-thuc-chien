@@ -59,7 +59,48 @@ class Gdpr extends \Opencart\System\Engine\Model {
 			$sql .= " WHERE " . implode(" AND ", $implode);
 		}
 
-		$sql .= " ORDER BY `date_added` DESC";
+		$sort_data = [
+
+
+			'gdpr_id',
+
+
+			'date_added'
+
+
+		];
+
+
+
+		if (isset($data['sort']) && in_array($data['sort'], $sort_data)) {
+
+
+			$sql .= " ORDER BY " . $data['sort'];
+
+
+		} else {
+
+
+			$sql .= " ORDER BY `date_added`";
+
+
+		}
+
+
+
+		if (isset($data['order']) && ($data['order'] == 'DESC')) {
+
+
+			$sql .= " DESC";
+
+
+		} else {
+
+
+			$sql .= " ASC";
+
+
+		}
 
 		if (isset($data['start']) || isset($data['limit'])) {
 			if ($data['start'] < 0) {

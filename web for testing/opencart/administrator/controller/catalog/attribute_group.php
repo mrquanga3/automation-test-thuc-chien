@@ -136,6 +136,8 @@ class AttributeGroup extends \Opencart\System\Engine\Controller {
 		$data['sort_name'] = $this->url->link('catalog/attribute_group.list', 'user_token=' . $this->session->data['user_token'] . '&sort=agd.name' . $url);
 		$data['sort_sort_order'] = $this->url->link('catalog/attribute_group.list', 'user_token=' . $this->session->data['user_token'] . '&sort=ag.sort_order' . $url);
 
+		$data['sort_attribute_group_id'] = $this->url->link('catalog/attribute_group.list', 'user_token=' . $this->session->data['user_token'] . '&sort=ag.attribute_group_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {
@@ -304,13 +306,14 @@ class AttributeGroup extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('catalog/attribute_group');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $attribute_group_id) {
-				$this->model_catalog_attribute_group->deleteAttributeGroup($attribute_group_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('catalog/attribute_group');
+			// foreach ($selected as $attribute_group_id) {
+			// 	$this->model_catalog_attribute_group->deleteAttributeGroup($attribute_group_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

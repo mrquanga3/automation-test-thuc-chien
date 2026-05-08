@@ -138,6 +138,8 @@ class SubscriptionPlan extends \Opencart\System\Engine\Controller {
 		$data['sort_name'] = $this->url->link('catalog/subscription_plan.list', 'user_token=' . $this->session->data['user_token'] . '&sort=spd.name' . $url);
 		$data['sort_sort_order'] = $this->url->link('catalog/subscription_plan.list', 'user_token=' . $this->session->data['user_token'] . '&sort=sp.sort_order' . $url);
 
+		$data['sort_subscription_plan_id'] = $this->url->link('catalog/subscription_plan.list', 'user_token=' . $this->session->data['user_token'] . '&sort=sp.subscription_plan_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {
@@ -417,13 +419,14 @@ class SubscriptionPlan extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('catalog/subscription_plan');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $subscription_plan_id) {
-				$this->model_catalog_subscription_plan->deleteSubscriptionPlan($subscription_plan_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('catalog/subscription_plan');
+			// foreach ($selected as $subscription_plan_id) {
+			// 	$this->model_catalog_subscription_plan->deleteSubscriptionPlan($subscription_plan_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

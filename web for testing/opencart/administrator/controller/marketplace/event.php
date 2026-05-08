@@ -140,6 +140,8 @@ class Event extends \Opencart\System\Engine\Controller {
 		$data['sort_code'] = $this->url->link('marketplace/event.list', 'user_token=' . $this->session->data['user_token'] . '&sort=code' . $url);
 		$data['sort_sort_order'] = $this->url->link('marketplace/event.list', 'user_token=' . $this->session->data['user_token'] . '&sort=sort_order' . $url);
 
+		$data['sort_event_id'] = $this->url->link('marketplace/event.list', 'user_token=' . $this->session->data['user_token'] . '&sort=event_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {
@@ -244,13 +246,14 @@ class Event extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('setting/event');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $event_id) {
-				$this->model_setting_event->deleteEvent($event_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('setting/event');
+			// foreach ($selected as $event_id) {
+			// 	$this->model_setting_event->deleteEvent($event_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

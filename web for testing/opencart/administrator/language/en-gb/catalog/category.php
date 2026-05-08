@@ -9,13 +9,16 @@ $_['text_add']                = 'Add Category';
 $_['text_edit']               = 'Edit Category';
 $_['text_default']            = 'Default';
 $_['text_keyword']            = 'Do not use spaces, instead replace spaces with - and make sure the SEO URL is globally unique.';
+$_['text_filter']             = 'Filter';
 
 // Column
 $_['column_name']             = 'Category Name';
+$_['column_status']           = 'Status';
 $_['column_sort_order']       = 'Sort Order';
 $_['column_action']           = 'Action';
 
 // Entry
+$_['entry_category_id']       = 'Category ID';
 $_['entry_name']              = 'Category Name';
 $_['entry_description']       = 'Description';
 $_['entry_meta_title']        = 'Meta Tag Title';
@@ -47,3 +50,5 @@ $_['error_parent']            = 'The parent category you have chosen is a child 
 $_['error_keyword']           = 'SEO URL must be between 1 and 64 characters!';
 $_['error_keyword_exists']    = 'SEO URL must be unique!';
 $_['error_keyword_character'] = 'Keyword can only use characters a-z, 0-9, - and _!';
+$_['error_not_found']         = 'Warning: Category not found!';
+$_['error_category_id']       = 'Warning: Missing category_id!';$_['error_delete_disabled']   = 'Warning: Delete feature is disabled!';

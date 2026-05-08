@@ -134,6 +134,9 @@ class VoucherTheme extends \Opencart\System\Engine\Controller {
 
 		$data['sort_name'] = $this->url->link('sale/voucher_theme.list', 'user_token=' . $this->session->data['user_token'] . '&sort=name' . $url);
 
+
+		$data['sort_voucher_theme_id'] = $this->url->link('sale/voucher_theme.list', 'user_token=' . $this->session->data['user_token'] . '&sort=vt.voucher_theme_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {
@@ -312,13 +315,14 @@ class VoucherTheme extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('sale/voucher_theme');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $voucher_theme_id) {
-				$this->model_sale_voucher_theme->deleteVoucherTheme($voucher_theme_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('sale/voucher_theme');
+			// foreach ($selected as $voucher_theme_id) {
+			// 	$this->model_sale_voucher_theme->deleteVoucherTheme($voucher_theme_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

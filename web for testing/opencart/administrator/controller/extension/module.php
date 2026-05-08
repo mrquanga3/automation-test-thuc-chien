@@ -249,11 +249,12 @@ class Module extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('setting/module');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			$this->model_setting_module->deleteModule($module_id);
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('setting/module');
+			// $this->model_setting_module->deleteModule($module_id);
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

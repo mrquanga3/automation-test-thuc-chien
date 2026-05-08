@@ -281,6 +281,20 @@ $(document).on('submit', 'form', function (e) {
                         $('#input-' + key.replaceAll('_', '-')).addClass('is-invalid').find('.form-control, .form-select, .form-check-input, .form-check-label').addClass('is-invalid');
                         $('#error-' + key.replaceAll('_', '-')).html(json['error'][key]).addClass('d-block');
                     }
+
+                    // Auto-switch to the tab containing the first invalid field and scroll to it
+                    var firstInvalid = $(element).find('.is-invalid').first();
+                    if (firstInvalid.length) {
+                        // Activate tabs from outermost to innermost
+                        firstInvalid.parents('.tab-pane').get().reverse().forEach(function (pane) {
+                            var paneId = $(pane).attr('id');
+                            $('[data-bs-toggle="tab"][href="#' + paneId + '"], [data-bs-toggle="tab"][data-bs-target="#' + paneId + '"]').tab('show');
+                        });
+                        // Scroll to the first invalid field after tabs are shown
+                        setTimeout(function () {
+                            firstInvalid[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }, 150);
+                    }
                 }
 
                 if (json['success']) {

@@ -23,3 +23,5 @@ $_['entry_extension']  = 'Extensions';
 $_['error_permission'] = 'Warning: You do not have permission to modify user groups!';
 $_['error_name']       = 'User Group Name must be between 3 and 64 characters!';
 $_['error_user']       = 'Warning: This user group cannot be deleted as it is currently assigned to %s users!';
+$_['error_not_found']  = 'Warning: User group not found!';
+$_['error_user_group_id'] = 'Warning: Missing user_group_id!';$_['error_delete_disabled']   = 'Warning: Delete feature is disabled!';

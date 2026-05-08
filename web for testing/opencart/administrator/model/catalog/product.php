@@ -12,17 +12,25 @@ class Product extends \Opencart\System\Engine\Model {
 	 * @return int
 	 */
 	public function addProduct(array $data): int {
-		$this->db->query("INSERT INTO `" . DB_PREFIX . "product` SET `master_id` = '" . (int)$data['master_id'] . "', `model` = '" . $this->db->escape((string)$data['model']) . "', `sku` = '" . $this->db->escape((string)$data['sku']) . "', `upc` = '" . $this->db->escape((string)$data['upc']) . "', `ean` = '" . $this->db->escape((string)$data['ean']) . "', `jan` = '" . $this->db->escape((string)$data['jan']) . "', `isbn` = '" . $this->db->escape((string)$data['isbn']) . "', `mpn` = '" . $this->db->escape((string)$data['mpn']) . "', `location` = '" . $this->db->escape((string)$data['location']) . "', `variant` = '" . $this->db->escape(!empty($data['variant']) ? json_encode($data['variant']) : '') . "', `override` = '" . $this->db->escape(!empty($data['override']) ? json_encode($data['override']) : '') . "', `quantity` = '" . (int)$data['quantity'] . "', `minimum` = '" . (int)$data['minimum'] . "', `subtract` = '" . (isset($data['subtract']) ? (bool)$data['subtract'] : 0) . "', `stock_status_id` = '" . (int)$data['stock_status_id'] . "', `date_available` = '" . $this->db->escape((string)$data['date_available']) . "', `manufacturer_id` = '" . (int)$data['manufacturer_id'] . "', `shipping` = '" . (isset($data['shipping']) ? (bool)$data['shipping'] : 0) . "', `price` = '" . (float)$data['price'] . "', `points` = '" . (int)$data['points'] . "', `weight` = '" . (float)$data['weight'] . "', `weight_class_id` = '" . (int)$data['weight_class_id'] . "', `length` = '" . (float)$data['length'] . "', `width` = '" . (float)$data['width'] . "', `height` = '" . (float)$data['height'] . "', `length_class_id` = '" . (int)$data['length_class_id'] . "', `status` = '" . (bool)(isset($data['status']) ? $data['status'] : 0) . "', `tax_class_id` = '" . (int)$data['tax_class_id'] . "', `sort_order` = '" . (int)$data['sort_order'] . "', `date_added` = NOW(), `date_modified` = NOW()");
+		$this->db->query("INSERT INTO `" . DB_PREFIX . "product` SET `master_id` = '" . (int)($data['master_id'] ?? 0) . "', `model` = '" . $this->db->escape((string)($data['model'] ?? '')) . "', `sku` = '" . $this->db->escape((string)($data['sku'] ?? '')) . "', `upc` = '" . $this->db->escape((string)($data['upc'] ?? '')) . "', `ean` = '" . $this->db->escape((string)($data['ean'] ?? '')) . "', `jan` = '" . $this->db->escape((string)($data['jan'] ?? '')) . "', `isbn` = '" . $this->db->escape((string)($data['isbn'] ?? '')) . "', `mpn` = '" . $this->db->escape((string)($data['mpn'] ?? '')) . "', `location` = '" . $this->db->escape((string)($data['location'] ?? '')) . "', `variant` = '" . $this->db->escape(!empty($data['variant']) ? json_encode($data['variant']) : '') . "', `override` = '" . $this->db->escape(!empty($data['override']) ? json_encode($data['override']) : '') . "', `quantity` = '" . (int)($data['quantity'] ?? 0) . "', `minimum` = '" . (int)($data['minimum'] ?? 1) . "', `subtract` = '" . (isset($data['subtract']) ? (bool)$data['subtract'] : 0) . "', `stock_status_id` = '" . (int)($data['stock_status_id'] ?? 0) . "', `date_available` = '" . $this->db->escape((string)($data['date_available'] ?? '')) . "', `manufacturer_id` = '" . (int)($data['manufacturer_id'] ?? 0) . "', `shipping` = '" . (isset($data['shipping']) ? (bool)$data['shipping'] : 0) . "', `price` = '" . (float)($data['price'] ?? 0) . "', `points` = '" . (int)($data['points'] ?? 0) . "', `weight` = '" . (float)($data['weight'] ?? 0) . "', `weight_class_id` = '" . (int)($data['weight_class_id'] ?? 0) . "', `length` = '" . (float)($data['length'] ?? 0) . "', `width` = '" . (float)($data['width'] ?? 0) . "', `height` = '" . (float)($data['height'] ?? 0) . "', `length_class_id` = '" . (int)($data['length_class_id'] ?? 0) . "', `status` = '" . (bool)(isset($data['status']) ? $data['status'] : 0) . "', `tax_class_id` = '" . (int)($data['tax_class_id'] ?? 0) . "', `sort_order` = '" . (int)($data['sort_order'] ?? 0) . "', `date_added` = NOW(), `date_modified` = NOW()");
 
 		$product_id = $this->db->getLastId();
 
-		if ($data['image']) {
+		if (!empty($data['image'])) {
 			$this->db->query("UPDATE `" . DB_PREFIX . "product` SET `image` = '" . $this->db->escape((string)$data['image']) . "' WHERE `product_id` = '" . (int)$product_id . "'");
 		}
 
-		// Description
-		foreach ($data['product_description'] as $language_id => $value) {
-			$this->db->query("INSERT INTO `" . DB_PREFIX . "product_description` SET `product_id` = '" . (int)$product_id . "', `language_id` = '" . (int)$language_id . "', `name` = '" . $this->db->escape($value['name']) . "', `description` = '" . $this->db->escape($value['description']) . "', `tag` = '" . $this->db->escape($value['tag']) . "', `meta_title` = '" . $this->db->escape($value['meta_title']) . "', `meta_description` = '" . $this->db->escape($value['meta_description']) . "', `meta_keyword` = '" . $this->db->escape($value['meta_keyword']) . "'");
+		// Description — if not provided, insert a default row using model as name
+		// so the product always appears in the admin product list regardless of language filtering
+		if (!empty($data['product_description'])) {
+			foreach ($data['product_description'] as $language_id => $value) {
+				$this->db->query("INSERT INTO `" . DB_PREFIX . "product_description` SET `product_id` = '" . (int)$product_id . "', `language_id` = '" . (int)$language_id . "', `name` = '" . $this->db->escape((string)($value['name'] ?? '')) . "', `description` = '" . $this->db->escape((string)($value['description'] ?? '')) . "', `tag` = '" . $this->db->escape((string)($value['tag'] ?? '')) . "', `meta_title` = '" . $this->db->escape((string)($value['meta_title'] ?? '')) . "', `meta_description` = '" . $this->db->escape((string)($value['meta_description'] ?? '')) . "', `meta_keyword` = '" . $this->db->escape((string)($value['meta_keyword'] ?? '')) . "'");
+			}
+		} else {
+			$default_language_id = (int)$this->config->get('config_language_id') ?: 1;
+			$default_name = !empty($data['model']) ? (string)$data['model'] : 'Product #' . $product_id;
+
+			$this->db->query("INSERT INTO `" . DB_PREFIX . "product_description` SET `product_id` = '" . (int)$product_id . "', `language_id` = '" . $default_language_id . "', `name` = '" . $this->db->escape($default_name) . "', `description` = '', `tag` = '', `meta_title` = '" . $this->db->escape($default_name) . "', `meta_description` = '', `meta_keyword` = ''");
 		}
 
 		// Categories
@@ -39,11 +47,11 @@ class Product extends \Opencart\System\Engine\Model {
 			}
 		}
 
-		// Stores
-		if (isset($data['product_store'])) {
-			foreach ($data['product_store'] as $store_id) {
-				$this->db->query("INSERT INTO `" . DB_PREFIX . "product_to_store` SET `product_id` = '" . (int)$product_id . "', `store_id` = '" . (int)$store_id . "'");
-			}
+		// Stores — default to store 0 if not provided so the product is visible on the storefront
+		$stores = !empty($data['product_store']) ? $data['product_store'] : [0];
+
+		foreach ($stores as $store_id) {
+			$this->db->query("INSERT INTO `" . DB_PREFIX . "product_to_store` SET `product_id` = '" . (int)$product_id . "', `store_id` = '" . (int)$store_id . "'");
 		}
 
 		// Downloads
@@ -165,17 +173,19 @@ class Product extends \Opencart\System\Engine\Model {
 	 * @return void
 	 */
 	public function editProduct(int $product_id, array $data): void {
-		$this->db->query("UPDATE `" . DB_PREFIX . "product` SET `model` = '" . $this->db->escape((string)$data['model']) . "', `sku` = '" . $this->db->escape((string)$data['sku']) . "', `upc` = '" . $this->db->escape((string)$data['upc']) . "', `ean` = '" . $this->db->escape((string)$data['ean']) . "', `jan` = '" . $this->db->escape((string)$data['jan']) . "', `isbn` = '" . $this->db->escape((string)$data['isbn']) . "', `mpn` = '" . $this->db->escape((string)$data['mpn']) . "', `location` = '" . $this->db->escape((string)$data['location']) . "', `variant` = '" . $this->db->escape(!empty($data['variant']) ? json_encode($data['variant']) : '') . "', `override` = '" . $this->db->escape(!empty($data['override']) ? json_encode($data['override']) : '') . "', `quantity` = '" . (int)$data['quantity'] . "', `minimum` = '" . (int)$data['minimum'] . "', `subtract` = '" . (isset($data['subtract']) ? (bool)$data['subtract'] : 0) . "', `stock_status_id` = '" . (int)$data['stock_status_id'] . "', `date_available` = '" . $this->db->escape((string)$data['date_available']) . "', `manufacturer_id` = '" . (int)$data['manufacturer_id'] . "', `shipping` = '" . (isset($data['shipping']) ? (bool)$data['shipping'] : 0) . "', `price` = '" . (float)$data['price'] . "', `points` = '" . (int)$data['points'] . "', `weight` = '" . (float)$data['weight'] . "', `weight_class_id` = '" . (int)$data['weight_class_id'] . "', `length` = '" . (float)$data['length'] . "', `width` = '" . (float)$data['width'] . "', `height` = '" . (float)$data['height'] . "', `length_class_id` = '" . (int)$data['length_class_id'] . "', `status` = '" . (bool)(isset($data['status']) ? $data['status'] : 0) . "', `tax_class_id` = '" . (int)$data['tax_class_id'] . "', `sort_order` = '" . (int)$data['sort_order'] . "', `date_modified` = NOW() WHERE `product_id` = '" . (int)$product_id . "'");
+		$this->db->query("UPDATE `" . DB_PREFIX . "product` SET `model` = '" . $this->db->escape((string)($data['model'] ?? '')) . "', `sku` = '" . $this->db->escape((string)($data['sku'] ?? '')) . "', `upc` = '" . $this->db->escape((string)($data['upc'] ?? '')) . "', `ean` = '" . $this->db->escape((string)($data['ean'] ?? '')) . "', `jan` = '" . $this->db->escape((string)($data['jan'] ?? '')) . "', `isbn` = '" . $this->db->escape((string)($data['isbn'] ?? '')) . "', `mpn` = '" . $this->db->escape((string)($data['mpn'] ?? '')) . "', `location` = '" . $this->db->escape((string)($data['location'] ?? '')) . "', `variant` = '" . $this->db->escape(!empty($data['variant']) ? json_encode($data['variant']) : '') . "', `override` = '" . $this->db->escape(!empty($data['override']) ? json_encode($data['override']) : '') . "', `quantity` = '" . (int)($data['quantity'] ?? 0) . "', `minimum` = '" . (int)($data['minimum'] ?? 1) . "', `subtract` = '" . (isset($data['subtract']) ? (bool)$data['subtract'] : 0) . "', `stock_status_id` = '" . (int)($data['stock_status_id'] ?? 0) . "', `date_available` = '" . $this->db->escape((string)($data['date_available'] ?? '')) . "', `manufacturer_id` = '" . (int)($data['manufacturer_id'] ?? 0) . "', `shipping` = '" . (isset($data['shipping']) ? (bool)$data['shipping'] : 0) . "', `price` = '" . (float)($data['price'] ?? 0) . "', `points` = '" . (int)($data['points'] ?? 0) . "', `weight` = '" . (float)($data['weight'] ?? 0) . "', `weight_class_id` = '" . (int)($data['weight_class_id'] ?? 0) . "', `length` = '" . (float)($data['length'] ?? 0) . "', `width` = '" . (float)($data['width'] ?? 0) . "', `height` = '" . (float)($data['height'] ?? 0) . "', `length_class_id` = '" . (int)($data['length_class_id'] ?? 0) . "', `status` = '" . (bool)(isset($data['status']) ? $data['status'] : 0) . "', `tax_class_id` = '" . (int)($data['tax_class_id'] ?? 0) . "', `sort_order` = '" . (int)($data['sort_order'] ?? 0) . "', `date_modified` = NOW() WHERE `product_id` = '" . (int)$product_id . "'");
 
-		if ($data['image']) {
+		if (!empty($data['image'])) {
 			$this->db->query("UPDATE `" . DB_PREFIX . "product` SET `image` = '" . $this->db->escape((string)$data['image']) . "' WHERE `product_id` = '" . (int)$product_id . "'");
 		}
 
 		// Description
-		$this->db->query("DELETE FROM `" . DB_PREFIX . "product_description` WHERE `product_id` = '" . (int)$product_id . "'");
+		if (isset($data['product_description'])) {
+			$this->db->query("DELETE FROM `" . DB_PREFIX . "product_description` WHERE `product_id` = '" . (int)$product_id . "'");
 
-		foreach ($data['product_description'] as $language_id => $value) {
-			$this->db->query("INSERT INTO `" . DB_PREFIX . "product_description` SET `product_id` = '" . (int)$product_id . "', `language_id` = '" . (int)$language_id . "', `name` = '" . $this->db->escape($value['name']) . "', `description` = '" . $this->db->escape($value['description']) . "', `tag` = '" . $this->db->escape($value['tag']) . "', `meta_title` = '" . $this->db->escape($value['meta_title']) . "', `meta_description` = '" . $this->db->escape($value['meta_description']) . "', `meta_keyword` = '" . $this->db->escape($value['meta_keyword']) . "'");
+			foreach ($data['product_description'] as $language_id => $value) {
+				$this->db->query("INSERT INTO `" . DB_PREFIX . "product_description` SET `product_id` = '" . (int)$product_id . "', `language_id` = '" . (int)$language_id . "', `name` = '" . $this->db->escape((string)($value['name'] ?? '')) . "', `description` = '" . $this->db->escape((string)($value['description'] ?? '')) . "', `tag` = '" . $this->db->escape((string)($value['tag'] ?? '')) . "', `meta_title` = '" . $this->db->escape((string)($value['meta_title'] ?? '')) . "', `meta_description` = '" . $this->db->escape((string)($value['meta_description'] ?? '')) . "', `meta_keyword` = '" . $this->db->escape((string)($value['meta_keyword'] ?? '')) . "'");
+			}
 		}
 
 		// Categories
@@ -839,7 +849,7 @@ class Product extends \Opencart\System\Engine\Model {
 	 * @return array
 	 */
 	public function getProduct(int $product_id): array {
-		$query = $this->db->query("SELECT DISTINCT * FROM `" . DB_PREFIX . "product` p LEFT JOIN `" . DB_PREFIX . "product_description` pd ON (p.`product_id` = pd.`product_id`) WHERE p.`product_id` = '" . (int)$product_id . "' AND pd.`language_id` = '" . (int)$this->config->get('config_language_id') . "'");
+		$query = $this->db->query("SELECT DISTINCT p.*, pd.`name`, pd.`description`, pd.`tag`, pd.`meta_title`, pd.`meta_description`, pd.`meta_keyword` FROM `" . DB_PREFIX . "product` p LEFT JOIN `" . DB_PREFIX . "product_description` pd ON (p.`product_id` = pd.`product_id` AND pd.`language_id` = '" . (int)$this->config->get('config_language_id') . "') WHERE p.`product_id` = '" . (int)$product_id . "'");
 
 		return $query->row;
 	}
@@ -850,7 +860,13 @@ class Product extends \Opencart\System\Engine\Model {
 	 * @return array
 	 */
 	public function getProducts(array $data = []): array {
-		$sql = "SELECT * FROM `" . DB_PREFIX . "product` p LEFT JOIN `" . DB_PREFIX . "product_description` pd ON (p.`product_id` = pd.`product_id`) WHERE pd.`language_id` = '" . (int)$this->config->get('config_language_id') . "'";
+		$language_id = (int)$this->config->get('config_language_id');
+
+		$sql = "SELECT p.*, COALESCE(pd.`name`, (SELECT `name` FROM `" . DB_PREFIX . "product_description` WHERE `product_id` = p.`product_id` LIMIT 1)) AS `name`, pd.`description`, pd.`tag`, pd.`meta_title`, pd.`meta_description`, pd.`meta_keyword` FROM `" . DB_PREFIX . "product` p LEFT JOIN `" . DB_PREFIX . "product_description` pd ON (p.`product_id` = pd.`product_id` AND pd.`language_id` = '" . $language_id . "') WHERE 1";
+
+		if (!empty($data['filter_product_id'])) {
+			$sql .= " AND p.`product_id` = '" . (int)$data['filter_product_id'] . "'";
+		}
 
 		if (!empty($data['filter_master_id'])) {
 			$sql .= " AND p.`master_id` = '" . (int)$data['filter_master_id'] . "'";
@@ -879,6 +895,7 @@ class Product extends \Opencart\System\Engine\Model {
 		$sql .= " GROUP BY p.`product_id`";
 
 		$sort_data = [
+			'p.product_id',
 			'pd.name',
 			'p.model',
 			'p.price',
@@ -1221,7 +1238,11 @@ class Product extends \Opencart\System\Engine\Model {
 	 * @return int
 	 */
 	public function getTotalProducts(array $data = []): int {
-		$sql = "SELECT COUNT(DISTINCT p.`product_id`) AS `total` FROM `" . DB_PREFIX . "product` p LEFT JOIN `" . DB_PREFIX . "product_description` pd ON (p.`product_id` = pd.`product_id`) WHERE pd.`language_id` = '" . (int)$this->config->get('config_language_id') . "'";
+		$sql = "SELECT COUNT(DISTINCT p.`product_id`) AS `total` FROM `" . DB_PREFIX . "product` p LEFT JOIN `" . DB_PREFIX . "product_description` pd ON (p.`product_id` = pd.`product_id` AND pd.`language_id` = '" . (int)$this->config->get('config_language_id') . "') WHERE 1";
+
+		if (!empty($data['filter_product_id'])) {
+			$sql .= " AND p.`product_id` = '" . (int)$data['filter_product_id'] . "'";
+		}
 
 		if (!empty($data['filter_master_id'])) {
 			$sql .= " AND p.`master_id` = '" . (int)$data['filter_master_id'] . "'";

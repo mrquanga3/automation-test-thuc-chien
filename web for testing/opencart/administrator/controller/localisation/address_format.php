@@ -20,6 +20,26 @@ class AddressFormat extends \Opencart\System\Engine\Controller {
 			$url .= '&page=' . $this->request->get['page'];
 		}
 
+
+		if (isset($this->request->get['sort'])) {
+
+
+			$url .= '&sort=' . $this->request->get['sort'];
+
+
+		}
+
+
+
+		if (isset($this->request->get['order'])) {
+
+
+			$url .= '&order=' . $this->request->get['order'];
+
+
+		}
+
+
 		$data['breadcrumbs'] = [];
 
 		$data['breadcrumbs'][] = [
@@ -65,6 +85,18 @@ class AddressFormat extends \Opencart\System\Engine\Controller {
 			$page = 1;
 		}
 
+		if (isset($this->request->get['sort'])) {
+			$sort = (string)$this->request->get['sort'];
+		} else {
+			$sort = 'af.address_format_id';
+		}
+
+		if (isset($this->request->get['order'])) {
+			$order = (string)$this->request->get['order'];
+		} else {
+			$order = 'ASC';
+		}
+
 		$url = '';
 
 		if (isset($this->request->get['page'])) {
@@ -77,7 +109,9 @@ class AddressFormat extends \Opencart\System\Engine\Controller {
 
 		$filter_data = [
 			'start' => ($page - 1) * $this->config->get('config_pagination_admin'),
-			'limit' => $this->config->get('config_pagination_admin')
+			'limit' => $this->config->get('config_pagination_admin'),
+			'sort'  => $sort,
+			'order' => $order,
 		];
 
 		$this->load->model('localisation/address_format');
@@ -94,6 +128,37 @@ class AddressFormat extends \Opencart\System\Engine\Controller {
 				'edit'              => $this->url->link('localisation/address_format.form', 'user_token=' . $this->session->data['user_token'] . '&address_format_id=' . $result['address_format_id'] . $url)
 			];
 		}
+
+
+		$sort_url = '';
+
+
+		if ($order == 'ASC') {
+
+
+			$sort_url .= '&order=DESC';
+
+
+		} else {
+
+
+			$sort_url .= '&order=ASC';
+
+
+		}
+
+
+
+		$data['sort_address_format_id'] = $this->url->link('localisation/address_format.list', 'user_token=' . $this->session->data['user_token'] . '&sort=address_format_id' . $sort_url);
+
+
+
+		$data['sort'] = $sort;
+
+
+		$data['order'] = $order;
+
+
 
 		$data['pagination'] = $this->load->controller('common/pagination', [
 			'total' => $address_format_total,
@@ -234,13 +299,14 @@ class AddressFormat extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('localisation/address_format');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $address_format_id) {
-				$this->model_localisation_address_format->deleteAddressFormat($address_format_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('localisation/address_format');
+			// foreach ($selected as $address_format_id) {
+			// 	$this->model_localisation_address_format->deleteAddressFormat($address_format_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

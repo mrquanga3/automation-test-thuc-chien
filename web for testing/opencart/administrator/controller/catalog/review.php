@@ -266,6 +266,8 @@ class Review extends \Opencart\System\Engine\Controller {
 		$data['sort_rating'] = $this->url->link('catalog/review.list', 'user_token=' . $this->session->data['user_token'] . '&sort=r.rating' . $url);
 		$data['sort_date_added'] = $this->url->link('catalog/review.list', 'user_token=' . $this->session->data['user_token'] . '&sort=r.date_added' . $url);
 
+		$data['sort_review_id'] = $this->url->link('catalog/review.list', 'user_token=' . $this->session->data['user_token'] . '&sort=r.review_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['filter_product'])) {
@@ -506,13 +508,14 @@ class Review extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('catalog/review');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $review_id) {
-				$this->model_catalog_review->deleteReview($review_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('catalog/review');
+			// foreach ($selected as $review_id) {
+			// 	$this->model_catalog_review->deleteReview($review_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

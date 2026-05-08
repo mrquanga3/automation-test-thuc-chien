@@ -401,6 +401,8 @@ class Affiliate extends \Opencart\System\Engine\Controller {
 		$data['sort_commission'] = $this->url->link('marketing/affiliate.list', 'user_token=' . $this->session->data['user_token'] . '&sort=ca.commission' . $url);
 		$data['sort_date_added'] = $this->url->link('marketing/affiliate.list', 'user_token=' . $this->session->data['user_token'] . '&sort=ca.date_added' . $url);
 
+		$data['sort_customer_id'] = $this->url->link('marketing/affiliate.list', 'user_token=' . $this->session->data['user_token'] . '&sort=ca.customer_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['filter_customer'])) {
@@ -802,13 +804,14 @@ class Affiliate extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('marketing/affiliate');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $affiliate_id) {
-				$this->model_marketing_affiliate->deleteAffiliate($affiliate_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('marketing/affiliate');
+			// foreach ($selected as $affiliate_id) {
+			// 	$this->model_marketing_affiliate->deleteAffiliate($affiliate_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

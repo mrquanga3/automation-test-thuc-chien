@@ -56,11 +56,43 @@ class Notification extends \Opencart\System\Engine\Controller {
 			$page = 1;
 		}
 
+		if (isset($this->request->get['sort'])) {
+			$sort = (string)$this->request->get['sort'];
+		} else {
+			$sort = 'n.notification_id';
+		}
+
+		if (isset($this->request->get['order'])) {
+			$order = (string)$this->request->get['order'];
+		} else {
+			$order = 'ASC';
+		}
+
 		$url = '';
 
 		if (isset($this->request->get['page'])) {
 			$url .= '&page=' . $this->request->get['page'];
 		}
+
+
+		if (isset($this->request->get['sort'])) {
+
+
+			$url .= '&sort=' . $this->request->get['sort'];
+
+
+		}
+
+
+
+		if (isset($this->request->get['order'])) {
+
+
+			$url .= '&order=' . $this->request->get['order'];
+
+
+		}
+
 
 		$data['notifications'] = [];
 
@@ -70,7 +102,9 @@ class Notification extends \Opencart\System\Engine\Controller {
 
 		$filter_data = [
 			'start' => ($page - 1) * $this->config->get('config_pagination_admin'),
-			'limit' => $this->config->get('config_pagination_admin')
+			'limit' => $this->config->get('config_pagination_admin'),
+			'sort'  => $sort,
+			'order' => $order,
 		];
 
 		$results = $this->model_tool_notification->getNotifications($filter_data);
@@ -104,6 +138,37 @@ class Notification extends \Opencart\System\Engine\Controller {
 				'delete'          => $this->url->link('tool/notification.delete', 'user_token=' . $this->session->data['user_token'] . '&notification_id=' . $result['notification_id'] . $url)
 			];
 		}
+
+
+		$sort_url = '';
+
+
+		if ($order == 'ASC') {
+
+
+			$sort_url .= '&order=DESC';
+
+
+		} else {
+
+
+			$sort_url .= '&order=ASC';
+
+
+		}
+
+
+
+		$data['sort_notification_id'] = $this->url->link('tool/notification.list', 'user_token=' . $this->session->data['user_token'] . '&sort=notification_id' . $sort_url);
+
+
+
+		$data['sort'] = $sort;
+
+
+		$data['order'] = $order;
+
+
 
 		$data['pagination'] = $this->load->controller('common/pagination', [
 			'total' => $notification_total,
@@ -163,13 +228,14 @@ class Notification extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('tool/notification');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $notification_id) {
-				$this->model_tool_notification->deleteNotification($notification_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('tool/notification');
+			// foreach ($selected as $notification_id) {
+			// 	$this->model_tool_notification->deleteNotification($notification_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

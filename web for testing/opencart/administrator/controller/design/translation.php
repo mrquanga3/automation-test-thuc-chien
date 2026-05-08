@@ -10,6 +10,7 @@ class Translation extends \Opencart\System\Engine\Controller {
 	 * @return void
 	 */
 	public function index(): void {
+			$this->response->redirect($this->url->link('common/dashboard', 'user_token=' . $this->session->data['user_token']));
 		$this->load->language('design/translation');
 
 		$this->document->setTitle($this->language->get('heading_title'));
@@ -154,6 +155,8 @@ class Translation extends \Opencart\System\Engine\Controller {
 		$data['sort_route'] = $this->url->link('design/translation.list', 'user_token=' . $this->session->data['user_token'] . '&sort=route' . $url);
 		$data['sort_key'] = $this->url->link('design/translation.list', 'user_token=' . $this->session->data['user_token'] . '&sort=key' . $url);
 		$data['sort_value'] = $this->url->link('design/translation.list', 'user_token=' . $this->session->data['user_token'] . '&sort=value' . $url);
+
+		$data['sort_translation_id'] = $this->url->link('design/translation.list', 'user_token=' . $this->session->data['user_token'] . '&sort=t.translation_id' . $url);
 
 		$data['pagination'] = $this->load->controller('common/pagination', [
 			'total' => $translation_total,
@@ -319,13 +322,14 @@ class Translation extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('design/translation');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $translation_id) {
-				$this->model_design_translation->deleteTranslation($translation_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('design/translation');
+			// foreach ($selected as $translation_id) {
+			// 	$this->model_design_translation->deleteTranslation($translation_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

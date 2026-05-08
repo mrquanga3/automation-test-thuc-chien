@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "file_write": "allow",
+    "file_create": "allow",
+    "file_delete": "allow"
+  },
+  "approval_mode": "auto"
+}

@@ -1,0 +1,6 @@
+{
+  "messageEditor": "id=com.google.android.apps.messaging:id/compose_message_text",
+  "messageEditorFallback": "xpath=//android.widget.EditText",
+  "recipientEditor": "id=com.google.android.apps.messaging:id/recipient_text_view",
+  "recipientEditorFallback": "xpath=(//android.widget.EditText)[1]"
+}

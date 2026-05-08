@@ -144,6 +144,8 @@ class Coupon extends \Opencart\System\Engine\Controller {
 		$data['sort_date_end'] = $this->url->link('marketing/coupon.list', 'user_token=' . $this->session->data['user_token'] . '&sort=date_end' . $url);
 		$data['sort_status'] = $this->url->link('marketing/coupon.list', 'user_token=' . $this->session->data['user_token'] . '&sort=status' . $url);
 
+		$data['sort_coupon_id'] = $this->url->link('marketing/coupon.list', 'user_token=' . $this->session->data['user_token'] . '&sort=coupon_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {
@@ -410,13 +412,14 @@ class Coupon extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('marketing/coupon');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $coupon_id) {
-				$this->model_marketing_coupon->deleteCoupon($coupon_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('marketing/coupon');
+			// foreach ($selected as $coupon_id) {
+			// 	$this->model_marketing_coupon->deleteCoupon($coupon_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

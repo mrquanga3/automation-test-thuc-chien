@@ -136,6 +136,8 @@ class GeoZone extends \Opencart\System\Engine\Controller {
 		$data['sort_name'] = $this->url->link('localisation/geo_zone.list', 'user_token=' . $this->session->data['user_token'] . '&sort=name' . $url);
 		$data['sort_description'] = $this->url->link('localisation/geo_zone.list', 'user_token=' . $this->session->data['user_token'] . '&sort=description' . $url);
 
+		$data['sort_geo_zone_id'] = $this->url->link('localisation/geo_zone.list', 'user_token=' . $this->session->data['user_token'] . '&sort=geo_zone_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {
@@ -308,13 +310,14 @@ class GeoZone extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('localisation/geo_zone');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $geo_zone_id) {
-				$this->model_localisation_geo_zone->deleteGeoZone($geo_zone_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('localisation/geo_zone');
+			// foreach ($selected as $geo_zone_id) {
+			// 	$this->model_localisation_geo_zone->deleteGeoZone($geo_zone_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

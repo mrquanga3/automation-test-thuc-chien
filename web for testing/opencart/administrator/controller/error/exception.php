@@ -17,6 +17,17 @@ class Exception extends \Opencart\System\Engine\Controller {
 	public function index(string $message, string $code, string $file, string $line): void {
 		$this->load->language('error/exception');
 
+		$route = isset($this->request->get['route']) ? (string)$this->request->get['route'] : '';
+
+		if (strpos($route, 'api/') === 0) {
+			$this->response->addHeader('HTTP/1.1 500 Internal Server Error');
+			$this->response->addHeader('Content-Type: application/json; charset=UTF-8');
+			$this->response->setOutput(json_encode([
+				'error' => sprintf($this->language->get('text_exception'), $message)
+			], JSON_UNESCAPED_UNICODE));
+			return;
+		}
+
 		$this->document->setTitle($this->language->get('heading_title'));
 
 		$data['breadcrumbs'] = [];

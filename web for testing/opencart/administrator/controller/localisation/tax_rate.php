@@ -144,6 +144,8 @@ class TaxRate extends \Opencart\System\Engine\Controller {
 		$data['sort_date_added'] = $this->url->link('localisation/tax_rate.list', 'user_token=' . $this->session->data['user_token'] . '&sort=tr.date_added' . $url);
 		$data['sort_date_modified'] = $this->url->link('localisation/tax_rate.list', 'user_token=' . $this->session->data['user_token'] . '&sort=tr.date_modified' . $url);
 
+		$data['sort_tax_rate_id'] = $this->url->link('localisation/tax_rate.list', 'user_token=' . $this->session->data['user_token'] . '&sort=tr.tax_rate_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {
@@ -330,13 +332,14 @@ class TaxRate extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('localisation/tax_rate');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $tax_rate_id) {
-				$this->model_localisation_tax_rate->deleteTaxRate($tax_rate_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('localisation/tax_rate');
+			// foreach ($selected as $tax_rate_id) {
+			// 	$this->model_localisation_tax_rate->deleteTaxRate($tax_rate_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

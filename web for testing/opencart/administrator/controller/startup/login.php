@@ -23,6 +23,7 @@ class Login extends \Opencart\System\Engine\Controller {
 			$route = substr($route, 0, $pos);
 		}
 
+		// Routes không yêu cầu đăng nhập (bao gồm các API endpoint tự xử lý auth)
 		$ignore = [
 			'common/login',
 			'common/forgotten',
@@ -32,10 +33,11 @@ class Login extends \Opencart\System\Engine\Controller {
 		// User
 		$this->registry->set('user', new \Opencart\System\Library\Cart\User($this->registry));
 
-		if (!$this->user->isLogged() && !in_array($route, $ignore)) {
+		if (!$this->user->isLogged() && !in_array($route, $ignore) && strpos($route, 'api/') !== 0) {
 			return new \Opencart\System\Engine\Action('common/login');
 		}
 
+		// Routes không yêu cầu user_token trong URL (bao gồm API dùng Bearer header)
 		$ignore = [
 			'common/login',
 			'common/logout',
@@ -45,7 +47,7 @@ class Login extends \Opencart\System\Engine\Controller {
 			'error/permission'
 		];
 
-		if (!in_array($route, $ignore) && (!isset($this->request->get['user_token']) || !isset($this->session->data['user_token']) || ($this->request->get['user_token'] != $this->session->data['user_token']))) {
+		if (!in_array($route, $ignore) && strpos($route, 'api/') !== 0 && (!isset($this->request->get['user_token']) || !isset($this->session->data['user_token']) || ($this->request->get['user_token'] != $this->session->data['user_token']))) {
 			return new \Opencart\System\Engine\Action('common/login');
 		}
 

@@ -118,6 +118,7 @@ class Manufacturer extends \Opencart\System\Engine\Model {
 		}
 
 		$sort_data = [
+			'manufacturer_id',
 			'name',
 			'sort_order'
 		];

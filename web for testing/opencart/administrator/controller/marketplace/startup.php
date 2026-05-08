@@ -243,13 +243,14 @@ class Startup extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('setting/startup');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $startup_id) {
-				$this->model_setting_startup->deleteStartup($startup_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('setting/startup');
+			// foreach ($selected as $startup_id) {
+			// 	$this->model_setting_startup->deleteStartup($startup_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

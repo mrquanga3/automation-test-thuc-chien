@@ -137,6 +137,7 @@ class Article extends \Opencart\System\Engine\Model {
 		}
 
 		$sort_data = [
+			'a.article_id',
 			'ad.name',
 			'a.date_added'
 		];

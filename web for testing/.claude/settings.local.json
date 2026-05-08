@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd /tmp)",
+      "Bash(npm pack *)",
+      "Bash(mkdir -p ck422)",
+      "Bash(tar -xzf ckeditor4-4.22.1.tgz -C ck422)",
+      "Bash(python3 *)",
+      "Bash(xargs grep *)",
+      "Bash(xargs ls *)",
+      "Bash(cd /d \"D:/xampp\")",
+      "Bash(mysql -u root -e \"SELECT language_id, name, code, status FROM opencart.oc_language;\")",
+      "Bash(D:/xampp/mysql/bin/mysql.exe *)",
+      "Bash(python add_id_columns.py)",
+      "Bash(del *)",
+      "Bash(python \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\scan.py\")",
+      "PowerShell(& \"C:\\\\Program Files\\\\Python313\\\\python.exe\" \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\scan.py\")",
+      "PowerShell(& \"C:\\\\Program Files\\\\Python313\\\\python.exe\" \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\discover_id_cols.py\" 2>&1)",
+      "PowerShell(& \"C:\\\\Program Files\\\\Python313\\\\python.exe\" \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\add_id_sort.py\" 2>&1)",
+      "PowerShell(& \"C:\\\\Program Files\\\\Python313\\\\python.exe\" \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\fix_duplicate_ob.py\" 2>&1)"
+    ],
+    "*": "allow"
+  },
+  "approval_mode": "auto"
+}

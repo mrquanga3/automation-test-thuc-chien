@@ -83,6 +83,7 @@ class GeoZone extends \Opencart\System\Engine\Model {
 		$sql = "SELECT * FROM `" . DB_PREFIX . "geo_zone`";
 
 		$sort_data = [
+			'geo_zone_id',
 			'name',
 			'description'
 		];

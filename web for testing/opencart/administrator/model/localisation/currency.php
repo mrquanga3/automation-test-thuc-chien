@@ -85,6 +85,7 @@ class Currency extends \Opencart\System\Engine\Model {
 		$sql = "SELECT * FROM `" . DB_PREFIX . "currency`";
 
 		$sort_data = [
+			'currency_id',
 			'title',
 			'code',
 			'value',

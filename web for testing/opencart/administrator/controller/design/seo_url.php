@@ -10,6 +10,7 @@ class SeoUrl extends \Opencart\System\Engine\Controller {
 	 * @return void
 	 */
 	public function index(): void {
+			$this->response->redirect($this->url->link('common/dashboard', 'user_token=' . $this->session->data['user_token']));
 		$this->load->language('design/seo_url');
 
 		$this->document->setTitle($this->language->get('heading_title'));
@@ -295,6 +296,8 @@ class SeoUrl extends \Opencart\System\Engine\Controller {
 		$data['sort_store'] = $this->url->link('design/seo_url.list', 'user_token=' . $this->session->data['user_token'] . '&sort=store' . $url);
 		$data['sort_language'] = $this->url->link('design/seo_url.list', 'user_token=' . $this->session->data['user_token'] . '&sort=language' . $url);
 
+		$data['sort_seo_url_id'] = $this->url->link('design/seo_url.list', 'user_token=' . $this->session->data['user_token'] . '&sort=seo_url_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['filter_keyword'])) {
@@ -558,13 +561,14 @@ class SeoUrl extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('design/seo_url');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $seo_url_id) {
-				$this->model_design_seo_url->deleteSeoUrl($seo_url_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('design/seo_url');
+			// foreach ($selected as $seo_url_id) {
+			// 	$this->model_design_seo_url->deleteSeoUrl($seo_url_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

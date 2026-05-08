@@ -12,6 +12,7 @@ $_['text_keyword']            = 'Do not use spaces, instead replace spaces with 
 
 // Column
 $_['column_name']             = 'Article Name';
+$_['column_status']           = 'Status';
 $_['column_author']           = 'Author';
 $_['column_date_added']       = 'Date Added';
 $_['column_action']           = 'Action';

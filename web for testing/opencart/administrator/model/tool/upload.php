@@ -82,6 +82,7 @@ class Upload extends \Opencart\System\Engine\Model {
 		}
 
 		$sort_data = [
+			'upload_id',
 			'name',
 			'code',
 			'date_added'

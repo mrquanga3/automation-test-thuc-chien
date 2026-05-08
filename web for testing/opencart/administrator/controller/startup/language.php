@@ -15,8 +15,14 @@ class Language extends \Opencart\System\Engine\Controller {
 	 * @return void
 	 */
 	public function index(): void {
-		if (isset($this->request->cookie['language'])) {
+		if (isset($this->request->get['language'])) {
+			$code = (string)$this->request->get['language'];
+		} elseif (isset($this->request->cookie['language'])) {
 			$code = (string)$this->request->cookie['language'];
+		} elseif (isset($this->request->server['HTTP_LANGUAGE'])) {
+			$code = (string)$this->request->server['HTTP_LANGUAGE'];
+		} elseif (isset($this->request->server['HTTP_X_LANGUAGE'])) {
+			$code = (string)$this->request->server['HTTP_X_LANGUAGE'];
 		} else {
 			$code = $this->config->get('config_language_admin');
 		}
@@ -28,14 +34,18 @@ class Language extends \Opencart\System\Engine\Controller {
 		if (isset(self::$languages[$code])) {
 			$language_info = self::$languages[$code];
 
-			// Language
-			if ($language_info['extension']) {
-				$this->language->addPath('extension/' . $language_info['extension'], DIR_EXTENSION . $language_info['extension'] . '/admin/language/');
-			}
-
-			// Set the config language_id key
 			$this->config->set('config_language_id', $language_info['language_id']);
 			$this->config->set('config_language_admin', $language_info['code']);
+
+			// Re-initialize language object with new code so subsequent load() calls use it
+			$language = new \Opencart\System\Library\Language($language_info['code']);
+			$language->addPath(DIR_LANGUAGE);
+			
+			if ($language_info['extension']) {
+				$language->addPath('extension/' . $language_info['extension'], DIR_EXTENSION . $language_info['extension'] . '/admin/language/');
+			}
+
+			$this->registry->set('language', $language);
 
 			$this->load->language('default');
 		}

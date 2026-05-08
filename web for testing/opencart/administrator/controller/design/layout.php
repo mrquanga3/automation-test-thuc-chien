@@ -10,6 +10,7 @@ class Layout extends \Opencart\System\Engine\Controller {
 	 * @return void
 	 */
 	public function index(): void {
+			$this->response->redirect($this->url->link('common/dashboard', 'user_token=' . $this->session->data['user_token']));
 		$this->load->language('design/layout');
 
 		$this->document->setTitle($this->language->get('heading_title'));
@@ -133,6 +134,9 @@ class Layout extends \Opencart\System\Engine\Controller {
 		}
 
 		$data['sort_name'] = $this->url->link('design/layout.list', 'user_token=' . $this->session->data['user_token'] . '&sort=name' . $url);
+
+
+		$data['sort_layout_id'] = $this->url->link('design/layout.list', 'user_token=' . $this->session->data['user_token'] . '&sort=layout_id' . $url);
 
 		$url = '';
 
@@ -395,13 +399,14 @@ class Layout extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('design/layout');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $layout_id) {
-				$this->model_design_layout->deleteLayout($layout_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('design/layout');
+			// foreach ($selected as $layout_id) {
+			// 	$this->model_design_layout->deleteLayout($layout_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

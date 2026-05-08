@@ -102,6 +102,7 @@ class Country extends \Opencart\System\Engine\Model {
 		}
 
 		$sort_data = [
+			'country_id',
 			'name',
 			'iso_code_2',
 			'iso_code_3'

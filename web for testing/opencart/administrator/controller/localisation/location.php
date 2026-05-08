@@ -136,6 +136,8 @@ class Location extends \Opencart\System\Engine\Controller {
 		$data['sort_name'] = $this->url->link('localisation/location.list', 'user_token=' . $this->session->data['user_token'] . '&sort=name' . $url);
 		$data['sort_address'] = $this->url->link('localisation/location.list', 'user_token=' . $this->session->data['user_token'] . '&sort=address' . $url);
 
+		$data['sort_location_id'] = $this->url->link('localisation/location.list', 'user_token=' . $this->session->data['user_token'] . '&sort=location_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {
@@ -334,13 +336,14 @@ class Location extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('localisation/location');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $location_id) {
-				$this->model_localisation_location->deleteLocation($location_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('localisation/location');
+			// foreach ($selected as $location_id) {
+			// 	$this->model_localisation_location->deleteLocation($location_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

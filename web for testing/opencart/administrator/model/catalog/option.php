@@ -106,6 +106,7 @@ class Option extends \Opencart\System\Engine\Model {
 		}
 
 		$sort_data = [
+			'o.option_id',
 			'od.name',
 			'o.type',
 			'o.sort_order'

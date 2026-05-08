@@ -1,0 +1,2896 @@
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/view/template/upgrade): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/view/template/install): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/view/template/error): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/view/template/common): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/view/template): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/view/stylesheet/fontawesome/webfonts): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/view/stylesheet/fontawesome/css): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/view/stylesheet/fontawesome): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/view/stylesheet): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/view/javascript/jquery): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/view/javascript/bootstrap/js): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/view/javascript/bootstrap/css): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/view/javascript/bootstrap): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/view/javascript): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/view/image): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/view): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/model/install): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/model): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/language/en-gb/upgrade): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/language/en-gb/install): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/language/en-gb/error): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/language/en-gb/common): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/language/en-gb): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/language): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/controller/upgrade): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/controller/startup): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/controller/install): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/controller/error): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/controller/common): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/controller): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 109
+
+2024-10-27 14:45:59 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/install/): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 113
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/user): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/tool): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/setting): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/sale): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/report): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/marketplace): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/marketing): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/mail): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/localisation): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/extension): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/error): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/design): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/customer): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/common): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/cms): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/catalog): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss/vendor): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss/utilities): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss/tests/utilities): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss/tests/sass-true): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss/tests/mixins): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss/tests): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss/mixins): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss/helpers): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss/forms): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/fonts/fontawesome/webfonts): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/fonts/fontawesome/css): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/fonts/fontawesome): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/fonts): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/magnific): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/jqvmap/maps/continents): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/jqvmap/maps): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/jqvmap): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/jquery-ui/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/jquery-ui/external/jquery): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/jquery-ui/external): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/jquery-ui): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/zooming): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/visitors): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/tracking): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/threshold): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/symbols): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/stacking): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/shared/jquery-ui): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/shared): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/series-types): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/series-toggle): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/series-pie): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/series-errorbars): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/selection): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/resize): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/realtime): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/percentiles): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/navigate): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/interacting): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/image): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/categories): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/canvas): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/basic-usage): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/basic-options): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/axes-time-zones/tz): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/axes-time-zones): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/axes-time): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/axes-multiple): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/axes-interacting): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/annotating): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/ajax): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/datetimepicker/website): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/datetimepicker/example/browserify): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/datetimepicker/example/amd): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/datetimepicker/example): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/datetimepicker): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/theme): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/mode/xml): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/mode/twig): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/mode/sass): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/mode/php): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/mode/javascript): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/mode/htmlmixed): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/mode/css): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/mode): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/lib): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/skins/moono-lisa/images/hidpi): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/skins/moono-lisa/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/skins/moono-lisa): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/skins): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/widget/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/widget): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/templates/templates/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/templates/templates): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/templates/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/templates): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/tabletools/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/tabletools): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/tableselection/styles): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/tableselection): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/table/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/table): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/specialchar/dialogs/lang): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/specialchar/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/specialchar): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/smiley/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/smiley/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/smiley): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/showblocks/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/showblocks): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/scayt/skins/moono-lisa): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/scayt/skins): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/scayt/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/scayt): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/preview/styles): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/preview/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/preview): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/pastetools/filter): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/pastetools): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/pastefromword/filter): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/pastefromword): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/pagebreak/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/pagebreak): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/opencart/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/opencart): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/magicline/images/hidpi): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/magicline/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/magicline): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/liststyle/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/liststyle): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/link/images/hidpi): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/link/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/link/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/link): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/image/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/image/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/image): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/iframe/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/iframe/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/iframe): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/forms/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/forms/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/forms): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/find/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/find): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/div/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/div): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/dialog/styles): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/dialog): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/copyformatting/styles): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/copyformatting/cursors): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/copyformatting): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/colordialog/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/colordialog): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/codemirror/theme): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/codemirror/lang): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/codemirror/js): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/codemirror/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/codemirror/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/codemirror/css): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/codemirror): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/clipboard/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/clipboard): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/about/dialogs/hidpi): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/about/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/about): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/a11yhelp/dialogs/lang): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/a11yhelp/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/a11yhelp): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/lang): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/adapters): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/bootstrap/js): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/bootstrap): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/image): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/user): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/tool): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/setting): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/sale): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/report): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/marketing): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/localisation): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/design): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/customer): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/cms): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/catalog): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/user): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/tool): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/setting): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/sale): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/report): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/marketplace): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/marketing): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/mail): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/localisation): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/extension): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/error): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/design): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/customer): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/common): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/cms): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/catalog): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/user): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/tool): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/startup): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/setting): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/sale): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/report): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/marketplace): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/marketing): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/mail): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/localisation): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/extension): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/event): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/error): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/design): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/customer): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/common): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/cms): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/catalog): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:20 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 452
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/user): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/tool): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/setting): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/sale): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/report): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/marketplace): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/marketing): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/mail): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/localisation): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/extension): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/error): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/design): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/customer): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/common): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/cms): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/catalog): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss/vendor): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss/utilities): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss/tests/utilities): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss/tests/sass-true): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss/tests/mixins): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss/tests): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss/mixins): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss/helpers): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss/forms): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/fonts/fontawesome/webfonts): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/fonts/fontawesome/css): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/fonts/fontawesome): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/fonts): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/magnific): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/jqvmap/maps/continents): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/jqvmap/maps): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/jqvmap): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/jquery-ui/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/jquery-ui/external/jquery): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/jquery-ui/external): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/jquery-ui): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/zooming): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/visitors): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/tracking): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/threshold): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/symbols): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/stacking): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/shared/jquery-ui): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/shared): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/series-types): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/series-toggle): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/series-pie): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/series-errorbars): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/selection): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/resize): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/realtime): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/percentiles): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/navigate): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/interacting): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/image): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/categories): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/canvas): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/basic-usage): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/basic-options): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/axes-time-zones/tz): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/axes-time-zones): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/axes-time): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/axes-multiple): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/axes-interacting): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/annotating): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/ajax): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/datetimepicker/website): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/datetimepicker/example/browserify): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/datetimepicker/example/amd): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/datetimepicker/example): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/datetimepicker): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/theme): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/mode/xml): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/mode/twig): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/mode/sass): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/mode/php): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/mode/javascript): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/mode/htmlmixed): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/mode/css): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/mode): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/lib): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/skins/moono-lisa/images/hidpi): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/skins/moono-lisa/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/skins/moono-lisa): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/skins): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/widget/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/widget): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/templates/templates/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/templates/templates): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/templates/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/templates): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/tabletools/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/tabletools): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/tableselection/styles): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/tableselection): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/table/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/table): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/specialchar/dialogs/lang): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/specialchar/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/specialchar): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/smiley/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/smiley/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/smiley): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/showblocks/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/showblocks): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/scayt/skins/moono-lisa): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/scayt/skins): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/scayt/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/scayt): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/preview/styles): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/preview/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/preview): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/pastetools/filter): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/pastetools): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/pastefromword/filter): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/pastefromword): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/pagebreak/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/pagebreak): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/opencart/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/opencart): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/magicline/images/hidpi): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/magicline/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/magicline): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/liststyle/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/liststyle): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/link/images/hidpi): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/link/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/link/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/link): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/image/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/image/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/image): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/iframe/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/iframe/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/iframe): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/forms/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/forms/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/forms): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/find/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/find): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/div/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/div): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/dialog/styles): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/dialog): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/copyformatting/styles): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/copyformatting/cursors): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/copyformatting): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/colordialog/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/colordialog): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/codemirror/theme): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/codemirror/lang): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/codemirror/js): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/codemirror/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/codemirror/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/codemirror/css): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/codemirror): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/clipboard/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/clipboard): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/about/dialogs/hidpi): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/about/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/about): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/a11yhelp/dialogs/lang): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/a11yhelp/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/a11yhelp): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/lang): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/adapters): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/bootstrap/js): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/bootstrap): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/image): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/user): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/tool): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/setting): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/sale): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/report): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/marketing): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/localisation): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/design): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/customer): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/cms): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/catalog): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/user): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/tool): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/setting): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/sale): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/report): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/marketplace): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/marketing): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/mail): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/localisation): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/extension): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/error): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/design): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/customer): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/common): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/cms): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/catalog): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/user): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/tool): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/startup): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/setting): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/sale): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/report): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/marketplace): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/marketing): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/mail): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/localisation): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/extension): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/event): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/error): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/design): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/customer): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/common): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/cms): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/catalog): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:48:51 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 452
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/user): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/tool): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/setting): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/sale): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/report): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/marketplace): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/marketing): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/mail): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/localisation): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/extension): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/error): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/design): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/customer): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/common): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/cms): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template/catalog): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/template): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss/vendor): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss/utilities): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss/tests/utilities): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss/tests/sass-true): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss/tests/mixins): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss/tests): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss/mixins): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss/helpers): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss/forms): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/scss): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/fonts/fontawesome/webfonts): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/fonts/fontawesome/css): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/fonts/fontawesome): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet/fonts): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/stylesheet): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/magnific): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/jqvmap/maps/continents): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/jqvmap/maps): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/jqvmap): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/jquery-ui/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/jquery-ui/external/jquery): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/jquery-ui/external): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/jquery-ui): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/zooming): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/visitors): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/tracking): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/threshold): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/symbols): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/stacking): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/shared/jquery-ui): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/shared): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/series-types): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/series-toggle): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/series-pie): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/series-errorbars): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/selection): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/resize): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/realtime): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/percentiles): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/navigate): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/interacting): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/image): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/categories): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/canvas): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/basic-usage): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/basic-options): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/axes-time-zones/tz): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/axes-time-zones): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/axes-time): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/axes-multiple): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/axes-interacting): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/annotating): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples/ajax): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot/examples): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/flot): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/datetimepicker/website): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/datetimepicker/example/browserify): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/datetimepicker/example/amd): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/datetimepicker/example): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery/datetimepicker): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/jquery): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/theme): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/mode/xml): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/mode/twig): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/mode/sass): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/mode/php): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/mode/javascript): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/mode/htmlmixed): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/mode/css): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/mode): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror/lib): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/codemirror): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/skins/moono-lisa/images/hidpi): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/skins/moono-lisa/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/skins/moono-lisa): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/skins): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/widget/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/widget): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/templates/templates/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/templates/templates): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/templates/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/templates): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/tabletools/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/tabletools): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/tableselection/styles): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/tableselection): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/table/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/table): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/specialchar/dialogs/lang): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/specialchar/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/specialchar): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/smiley/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/smiley/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/smiley): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/showblocks/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/showblocks): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/scayt/skins/moono-lisa): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/scayt/skins): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/scayt/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/scayt): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/preview/styles): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/preview/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/preview): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/pastetools/filter): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/pastetools): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/pastefromword/filter): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/pastefromword): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/pagebreak/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/pagebreak): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/opencart/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/opencart): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/magicline/images/hidpi): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/magicline/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/magicline): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/liststyle/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/liststyle): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/link/images/hidpi): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/link/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/link/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/link): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/image/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/image/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/image): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/iframe/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/iframe/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/iframe): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/forms/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/forms/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/forms): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/find/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/find): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/div/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/div): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/dialog/styles): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/dialog): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/copyformatting/styles): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/copyformatting/cursors): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/copyformatting): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/colordialog/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/colordialog): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/codemirror/theme): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/codemirror/lang): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/codemirror/js): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/codemirror/images): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/codemirror/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/codemirror/css): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/codemirror): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/clipboard/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/clipboard): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/about/dialogs/hidpi): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/about/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/about): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/a11yhelp/dialogs/lang): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/a11yhelp/dialogs): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins/a11yhelp): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/plugins): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/lang): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor/adapters): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/ckeditor): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/bootstrap/js): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript/bootstrap): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/javascript): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view/image): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/view): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/user): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/tool): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/setting): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/sale): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/report): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/marketing): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/localisation): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/design): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/customer): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/cms): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model/catalog): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/model): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/user): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/tool): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/setting): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/sale): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/report): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/marketplace): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/marketing): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/mail): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/localisation): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/extension): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/error): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/design): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/customer): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/common): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/cms): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb/catalog): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language/en-gb): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/language): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/user): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/tool): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/startup): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/setting): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/sale): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/report): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/marketplace): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/marketing): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/mail): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/localisation): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/extension): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/event): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/error): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/design): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/customer): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/common): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/cms): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller/catalog): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/controller): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 448
+
+2024-10-27 14:49:11 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/admin/): Permission denied
+File: D:\xampp\htdocs\opencart\administrator\controller\common\security.php
+Line: 452
+

@@ -141,6 +141,7 @@ class CustomField extends \Opencart\System\Engine\Model {
 		}
 
 		$sort_data = [
+			'cf.custom_field_id',
 			'cfd.name',
 			'cf.type',
 			'cf.location',

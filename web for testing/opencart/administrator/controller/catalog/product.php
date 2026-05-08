@@ -14,6 +14,12 @@ class Product extends \Opencart\System\Engine\Controller {
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
+		if (isset($this->request->get['filter_product_id'])) {
+			$filter_product_id = (int)$this->request->get['filter_product_id'];
+		} else {
+			$filter_product_id = '';
+		}
+
 		if (isset($this->request->get['filter_name'])) {
 			$filter_name = $this->request->get['filter_name'];
 		} else {
@@ -45,6 +51,10 @@ class Product extends \Opencart\System\Engine\Controller {
 		}
 
 		$url = '';
+
+		if (isset($this->request->get['filter_product_id'])) {
+			$url .= '&filter_product_id=' . (int)$this->request->get['filter_product_id'];
+		}
 
 		if (isset($this->request->get['filter_name'])) {
 			$url .= '&filter_name=' . urlencode(html_entity_decode($this->request->get['filter_name'], ENT_QUOTES, 'UTF-8'));
@@ -96,6 +106,7 @@ class Product extends \Opencart\System\Engine\Controller {
 
 		$data['list'] = $this->getList();
 
+		$data['filter_product_id'] = $filter_product_id;
 		$data['filter_name'] = $filter_name;
 		$data['filter_model'] = $filter_model;
 		$data['filter_price'] = $filter_price;
@@ -124,6 +135,12 @@ class Product extends \Opencart\System\Engine\Controller {
 	 * @return string
 	 */
 	protected function getList(): string {
+		if (isset($this->request->get['filter_product_id'])) {
+			$filter_product_id = (int)$this->request->get['filter_product_id'];
+		} else {
+			$filter_product_id = '';
+		}
+
 		if (isset($this->request->get['filter_name'])) {
 			$filter_name = $this->request->get['filter_name'];
 		} else {
@@ -174,6 +191,10 @@ class Product extends \Opencart\System\Engine\Controller {
 
 		$url = '';
 
+		if (isset($this->request->get['filter_product_id'])) {
+			$url .= '&filter_product_id=' . (int)$this->request->get['filter_product_id'];
+		}
+
 		if (isset($this->request->get['filter_name'])) {
 			$url .= '&filter_name=' . urlencode(html_entity_decode($this->request->get['filter_name'], ENT_QUOTES, 'UTF-8'));
 		}
@@ -203,11 +224,12 @@ class Product extends \Opencart\System\Engine\Controller {
 		$data['products'] = [];
 
 		$filter_data = [
-			'filter_name'     => $filter_name,
-			'filter_model'    => $filter_model,
-			'filter_price'    => $filter_price,
-			'filter_quantity' => $filter_quantity,
-			'filter_status'   => $filter_status,
+			'filter_product_id' => $filter_product_id,
+			'filter_name'       => $filter_name,
+			'filter_model'      => $filter_model,
+			'filter_price'      => $filter_price,
+			'filter_quantity'   => $filter_quantity,
+			'filter_status'     => $filter_status,
 			'sort'            => $sort,
 			'order'           => $order,
 			'start'           => ($page - 1) * $this->config->get('config_pagination_admin'),
@@ -283,11 +305,16 @@ class Product extends \Opencart\System\Engine\Controller {
 			$url .= '&order=ASC';
 		}
 
+		$data['column_status'] = $this->language->get('column_status');
+
 		$data['sort_name'] = $this->url->link('catalog/product.list', 'user_token=' . $this->session->data['user_token'] . '&sort=pd.name' . $url);
+		$data['sort_status'] = $this->url->link('catalog/product.list', 'user_token=' . $this->session->data['user_token'] . '&sort=p.status' . $url);
 		$data['sort_model'] = $this->url->link('catalog/product.list', 'user_token=' . $this->session->data['user_token'] . '&sort=p.model' . $url);
 		$data['sort_price'] = $this->url->link('catalog/product.list', 'user_token=' . $this->session->data['user_token'] . '&sort=p.price' . $url);
 		$data['sort_quantity'] = $this->url->link('catalog/product.list', 'user_token=' . $this->session->data['user_token'] . '&sort=p.quantity' . $url);
 		$data['sort_order'] = $this->url->link('catalog/product.list', 'user_token=' . $this->session->data['user_token'] . '&sort=p.sort_order' . $url);
+
+		$data['sort_product_id'] = $this->url->link('catalog/product.list', 'user_token=' . $this->session->data['user_token'] . '&sort=p.product_id' . $url);
 
 		$url = '';
 
@@ -1161,13 +1188,14 @@ class Product extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('catalog/product');
+			// [DISABLED] Tính năng xóa product đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $product_id) {
-				$this->model_catalog_product->deleteProduct($product_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('catalog/product');
+			// foreach ($selected as $product_id) {
+			// 	$this->model_catalog_product->deleteProduct($product_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

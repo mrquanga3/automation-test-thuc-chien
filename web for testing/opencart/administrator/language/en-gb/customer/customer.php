@@ -89,6 +89,8 @@ $_['error_permission']      = 'Warning: You do not have permission to modify cus
 $_['error_customer']        = 'Warning: Customer does not exist!';
 $_['error_exists']          = 'Warning: E-Mail Address is already registered!';
 $_['error_address']         = 'Warning: Address does not exist!';
+$_['error_not_found']       = 'Warning: Customer not found!';
+$_['error_customer_id']     = 'Warning: Missing customer_id!';
 $_['error_firstname']       = 'First Name must be between 1 and 32 characters!';
 $_['error_lastname']        = 'Last Name must be between 1 and 32 characters!';
 $_['error_email']           = 'E-Mail Address does not appear to be valid!';
@@ -101,4 +103,4 @@ $_['error_postcode']        = 'Postcode must be between 2 and 10 characters for 
 $_['error_country']         = 'Please select a country!';
 $_['error_zone']            = 'Please select a region / state!';
 $_['error_custom_field']    = '%s required!';
-$_['error_regex']           = '%s is not a valid input!';
+$_['error_regex']           = '%s is not a valid input!';$_['error_delete_disabled']   = 'Warning: Delete feature is disabled!';

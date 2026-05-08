@@ -77,6 +77,7 @@ class Banner extends \Opencart\System\Engine\Model {
 		$sql = "SELECT * FROM `" . DB_PREFIX . "banner`";
 
 		$sort_data = [
+			'banner_id',
 			'name',
 			'status'
 		];

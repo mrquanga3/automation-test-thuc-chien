@@ -137,6 +137,8 @@ class Topic extends \Opencart\System\Engine\Controller {
 		$data['sort_name'] = $this->url->link('cms/topic.list', 'user_token=' . $this->session->data['user_token'] . '&sort=bcd.name' . $url);
 		$data['sort_sort_order'] = $this->url->link('cms/topic.list', 'user_token=' . $this->session->data['user_token'] . '&sort=bc.sort_order' . $url);
 
+		$data['sort_topic_id'] = $this->url->link('cms/topic.list', 'user_token=' . $this->session->data['user_token'] . '&sort=t.topic_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {
@@ -374,13 +376,14 @@ class Topic extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('cms/topic');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $topic_id) {
-				$this->model_cms_topic->deleteTopic($topic_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('cms/topic');
+			// foreach ($selected as $topic_id) {
+			// 	$this->model_cms_topic->deleteTopic($topic_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

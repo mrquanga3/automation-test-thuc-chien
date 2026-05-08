@@ -134,6 +134,9 @@ class ReturnStatus extends \Opencart\System\Engine\Controller {
 
 		$data['sort_name'] = $this->url->link('localisation/return_status.list', 'user_token=' . $this->session->data['user_token'] . '&sort=name' . $url);
 
+
+		$data['sort_return_status_id'] = $this->url->link('localisation/return_status.list', 'user_token=' . $this->session->data['user_token'] . '&sort=return_status_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {
@@ -296,13 +299,14 @@ class ReturnStatus extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$this->load->model('localisation/return_status');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $return_status_id) {
-				$this->model_localisation_return_status->deleteReturnStatus($return_status_id);
-			}
-
-			$json['success'] = $this->language->get('text_success');
+			// $this->load->model('localisation/return_status');
+			// foreach ($selected as $return_status_id) {
+			// 	$this->model_localisation_return_status->deleteReturnStatus($return_status_id);
+			// }
+			// $json['success'] = $this->language->get('text_success');
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

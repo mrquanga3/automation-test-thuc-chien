@@ -1,0 +1,20 @@
+2024-10-27 14:46:55 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/system/storage/logs): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 232
+
+2024-10-27 14:46:55 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/system/storage/download): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 232
+
+2024-10-27 14:46:55 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/system/storage/cache): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 232
+
+2024-10-27 14:46:55 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/system/storage/backup): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 232
+
+2024-10-27 14:46:55 - PHP Warning: rmdir(D:/xampp/htdocs/opencart/system/storage/): Permission denied
+File: D:\xampp\htdocs\opencart\admin\controller\common\security.php
+Line: 236
+

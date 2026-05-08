@@ -31,7 +31,7 @@ class Permission extends \Opencart\System\Engine\Controller {
 				'error/permission'
 			];
 
-			if (!in_array($route, $ignore) && !$this->user->hasPermission('access', $route)) {
+			if (!in_array($route, $ignore) && strpos($route, 'api/') !== 0 && !$this->user->hasPermission('access', $route)) {
 				return new \Opencart\System\Engine\Action('error/permission');
 			}
 		}

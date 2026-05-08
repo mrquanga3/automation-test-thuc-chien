@@ -82,6 +82,7 @@ class SeoUrl extends \Opencart\System\Engine\Model {
 		}
 
 		$sort_data = [
+			'seo_url_id',
 			'keyword',
 			'key',
 			'value',

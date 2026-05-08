@@ -134,6 +134,9 @@ class UserPermission extends \Opencart\System\Engine\Controller {
 
 		$data['sort_name'] = $this->url->link('user/user_permission.list', 'user_token=' . $this->session->data['user_token'] . '&sort=name' . $url);
 
+
+		$data['sort_user_group_id'] = $this->url->link('user/user_permission.list', 'user_token=' . $this->session->data['user_token'] . '&sort=user_group_id' . $url);
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {
@@ -387,22 +390,23 @@ class UserPermission extends \Opencart\System\Engine\Controller {
 		}
 
 		if (!$json) {
-			$has_default_group = false;
-			$this->load->model('user/user_group');
+			// [DISABLED] Tính năng xóa đã bị vô hiệu hóa
+			$json['error'] = $this->language->get('error_delete_disabled');
 
-			foreach ($selected as $user_group_id) {
-				if(!$user_group_id == '1'){
-					$has_default_group = true;
-					break;
-				}
-				$this->model_user_user_group->deleteUserGroup($user_group_id);
-			}
-			if($has_default_group) {
-				$json['error'] = $this->language->get('error_permission');
-			} else{
-				$json['success'] = $this->language->get('text_success');
-			}
-
+			// $has_default_group = false;
+			// $this->load->model('user/user_group');
+			// foreach ($selected as $user_group_id) {
+			// 	if(!$user_group_id == '1'){
+			// 		$has_default_group = true;
+			// 		break;
+			// 	}
+			// 	$this->model_user_user_group->deleteUserGroup($user_group_id);
+			// }
+			// if($has_default_group) {
+			// 	$json['error'] = $this->language->get('error_permission');
+			// } else{
+			// 	$json['success'] = $this->language->get('text_success');
+			// }
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

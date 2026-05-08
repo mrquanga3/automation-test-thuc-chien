@@ -73,6 +73,7 @@ class Download extends \Opencart\System\Engine\Model {
 		}
 
 		$sort_data = [
+			'd.download_id',
 			'dd.name',
 			'd.date_added'
 		];
