@@ -810,6 +810,11 @@ class tlTestCaseFilterControl extends tlFilterControl {
       if ($this->active_filters['filter_priority'] > 0) {
         $string .= '&filter_priority=' . $this->active_filters['filter_priority'];
       }
+
+      if (isset($this->active_filters['filter_execution_type'])
+          && $this->active_filters['filter_execution_type'] > 0) {
+        $string .= '&filter_execution_type=' . $this->active_filters['filter_execution_type'];
+      }
     
       
       $keyword_list = null;
@@ -1235,15 +1240,24 @@ class tlTestCaseFilterControl extends tlFilterControl {
     if (is_null($this->testplan_mgr))  {
       $this->testplan_mgr = new testplan($this->db);
     }
-    
-    $this->args->reset_filters = true;
 
     $testplans = $this->user->getAccessibleTestPlans($this->db, $this->args->testproject_id);
-    
+
     $tplan_id = $this->args->testplan_id;
     if (0 == $tplan_id || $this->args->setting_testplan >0) {
       $tplan_id = $this->args->setting_testplan;
       $this->args->testplan_id = $this->args->setting_testplan;
+    }
+
+    // Only reset filters if the test plan actually changed (e.g. user
+    // switched to a different test plan from the dropdown). Without this
+    // guard, every page load would wipe filter selections, since the
+    // init_filter_* methods treat reset_filters=true as "force null".
+    $previousTplan = isset($_SESSION[$this->mode][$this->form_token]['setting_testplan'])
+                     ? $_SESSION[$this->mode][$this->form_token]['setting_testplan']
+                     : null;
+    if ($previousTplan !== null && $previousTplan != $tplan_id) {
+      $this->args->reset_filters = true;
     }
 
     $info = $this->testplan_mgr->get_by_id($tplan_id);

@@ -1185,9 +1185,13 @@ function filter_by_cf_values(&$db, &$tcase_tree, &$cf_hash, $node_types)
        * so that each custom field only is contained ONCE in the result set.
        */
             
-      $passed = (count($rows) == count($cf_hash)) ? true : false;
+      // PHP 8+ no longer allows count(null) - guard against null query result
+      // and null cf_hash (callers should always pass an array, but be defensive).
+      $rowCount = is_array($rows) ? count($rows) : 0;
+      $cfHashCount = is_array($cf_hash) ? count($cf_hash) : 0;
+      $passed = ($rowCount == $cfHashCount);
       // now delete node if no match was found
-      if (!$passed) 
+      if (!$passed)
       {
         unset($tcase_tree[$key]);
         $node_deleted = true;

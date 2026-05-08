@@ -2294,15 +2294,23 @@ function getSettingsAndFilters(&$argsObj) {
     $argsObj->$prop = isset($cache[$cacheKey]) ? $cache[$cacheKey] : null;
 
     if (is_null($argsObj->$prop)) {
-      // let's this page be functional withouth a form token too 
+      // let's this page be functional without a form token too
       // (when called from testcases assigned to me)
-      $argsObj->$prop = isset($_REQUEST[$prop]) ? 
-                        $_REQUEST[$prop] : null;
+      // Try the form-name key first ($cacheKey, e.g. 'filter_execution_type'),
+      // then fall back to the property name ($prop, e.g. 'execution_type')
+      // for backward compatibility with callers that pass the short name.
+      if (isset($_REQUEST[$cacheKey])) {
+        $argsObj->$prop = $_REQUEST[$cacheKey];
+      } else if (isset($_REQUEST[$prop])) {
+        $argsObj->$prop = $_REQUEST[$prop];
+      } else {
+        $argsObj->$prop = null;
+      }
     }
 
     if(isset($isNumeric[$prop])) {
-      $argsObj->$prop = intval($argsObj->$prop);              
-    }  
+      $argsObj->$prop = intval($argsObj->$prop);
+    }
   }
 
 

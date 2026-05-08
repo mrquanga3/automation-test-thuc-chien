@@ -6306,8 +6306,8 @@ class testplan extends tlObjectWithAttachments
 
     $dk = 'exec_type';
     if( !is_null($ic['filters'][$dk]) ) {
-      $ic['where'][$dk]= " AND TCV.execution_type IN (" . 
-                         implode(",",(array)$ic['filters'][$dk]) . " ) ";     
+      $ic['where'][$dk]= " AND TCV.execution_type IN (" .
+                         implode(",",(array)$ic['filters'][$dk]) . " ) ";
       $ic['where']['where'] .= $ic['where'][$dk];
     }
 
