@@ -1,0 +1,157 @@
+- generic [ref=e2]:
+  - iframe [ref=e3]:
+    - banner [ref=f7e2]:
+      - link "" [ref=f7e4] [cursor=pointer]:
+        - /url: index.php?tproject_id=1&tplan_id=2
+        - generic [ref=f7e5]: 
+      - generic [ref=f7e7] [cursor=pointer]: 
+      - link "TESTLINK" [ref=f7e8] [cursor=pointer]:
+        - /url: index.php?tproject_id=1&tplan_id=2
+        - generic [ref=f7e9]: TESTLINK
+      - list [ref=f7e10]:
+        - listitem [ref=f7e11]:
+          - generic [ref=f7e12]:
+            - text: Test Project
+            - combobox [ref=f7e13]:
+              - option "AT:Shopping Automation Test Project" [selected]
+        - listitem [ref=f7e14]:
+          - generic [ref=f7e15]:
+            - text: Test Plan
+            - combobox [ref=f7e16]:
+              - option "Automation Regression Test plan" [selected]
+        - listitem [ref=f7e17]
+        - listitem [ref=f7e18]:
+          - link "Logout" [ref=f7e19] [cursor=pointer]:
+            - /url: logout.php?viewer=
+  - iframe [ref=e4]:
+    - generic [active] [ref=f8e1]:
+      - complementary:
+        - list [ref=f8e3]:
+          - paragraph [ref=f8e4]:
+            - img [ref=f8e5]
+          - heading "admin [admin]" [level=4] [ref=f8e6]:
+            - link "admin [admin]" [ref=f8e7] [cursor=pointer]:
+              - /url: http://localhost/testlink/lib/usermanagement/userInfo.php?tproject_id=1&tplan_id=2
+          - listitem [ref=f8e8]:
+            - link " Search" [ref=f8e9] [cursor=pointer]:
+              - /url: javascript:;
+              - generic [ref=f8e10]: 
+              - generic [ref=f8e11]: Search
+          - listitem [ref=f8e13]:
+            - link " System" [ref=f8e14] [cursor=pointer]:
+              - /url: javascript:;
+              - generic [ref=f8e15]: 
+              - generic [ref=f8e16]: System
+          - listitem [ref=f8e18]:
+            - link " Projects" [ref=f8e19] [cursor=pointer]:
+              - /url: javascript:;
+              - generic [ref=f8e20]: 
+              - generic [ref=f8e21]: Projects
+          - listitem [ref=f8e23]:
+            - link " Requirements Design" [ref=f8e24] [cursor=pointer]:
+              - /url: javascript:;
+              - generic [ref=f8e25]: 
+              - generic [ref=f8e26]: Requirements Design
+          - listitem [ref=f8e28]:
+            - link " Test Case Design" [ref=f8e29] [cursor=pointer]:
+              - /url: javascript:;
+              - generic [ref=f8e30]: 
+              - generic [ref=f8e31]: Test Case Design
+          - listitem [ref=f8e33]:
+            - link " Test Plan" [ref=f8e34] [cursor=pointer]:
+              - /url: javascript:;
+              - generic [ref=f8e35]: 
+              - generic [ref=f8e36]: Test Plan
+          - listitem [ref=f8e38]:
+            - link " Test Case Execution" [ref=f8e39] [cursor=pointer]:
+              - /url: javascript:;
+              - generic [ref=f8e40]: 
+              - generic [ref=f8e41]: Test Case Execution
+          - listitem [ref=f8e43]:
+            - link " Reports" [ref=f8e44] [cursor=pointer]:
+              - /url: http://localhost/testlink/lib/general/frmWorkArea.php?feature=showMetrics&tproject_id=1&tplan_id=2
+              - generic [ref=f8e45]: 
+              - generic [ref=f8e46]: Reports
+      - generic [ref=f8e47]:
+        - heading "Search Test Cases" [level=1] [ref=f8e48]
+        - generic [ref=f8e50]:
+          - 'img "Attention: Filter fields works in AND mode . Test case prefix will be ignored" [ref=f8e53]'
+          - generic [ref=f8e54]:
+            - generic [ref=f8e56]: Test Case ID
+            - textbox [ref=f8e58]: AT-
+            - generic [ref=f8e60]: Version
+            - spinbutton [ref=f8e62]
+            - generic [ref=f8e64]: Title
+            - textbox [ref=f8e66]
+          - generic [ref=f8e67]:
+            - generic [ref=f8e69]: Test importance
+            - combobox [ref=f8e71]:
+              - option [selected]
+              - option "High"
+              - option "Medium"
+              - option "Low"
+            - generic [ref=f8e73]: Status
+            - combobox [ref=f8e75]:
+              - option [selected]
+              - option "Draft"
+              - option "Ready for review"
+              - option "Review in progress"
+              - option "Rework"
+              - option "Obsolete"
+              - option "Future"
+              - option "Final"
+          - generic [ref=f8e76]:
+            - generic [ref=f8e78]: Summary
+            - textbox [ref=f8e80]
+            - generic [ref=f8e82]: Preconditions
+            - textbox [ref=f8e84]
+            - generic [ref=f8e86]: Steps
+            - textbox [ref=f8e88]
+            - generic [ref=f8e90]: Expected Results
+            - textbox [ref=f8e92]
+          - generic [ref=f8e93]:
+            - generic [ref=f8e95]: Created by
+            - textbox [ref=f8e97]
+            - generic [ref=f8e99]: Edited by
+            - textbox [ref=f8e101]
+          - generic [ref=f8e102]:
+            - generic [ref=f8e104]: "Creation Date From:"
+            - generic [ref=f8e105]:
+              - textbox [ref=f8e106]
+              - img "Show Calendar" [ref=f8e107]
+              - img "Clear Date" [ref=f8e108]
+            - generic [ref=f8e110]: "Creation Date To:"
+            - generic [ref=f8e111]:
+              - textbox [ref=f8e112]
+              - img "Show Calendar" [ref=f8e113]
+              - img "Clear Date" [ref=f8e114]
+            - generic [ref=f8e116]: "Modification Date From:"
+            - generic [ref=f8e117]:
+              - textbox [ref=f8e118]
+              - img "Show Calendar" [ref=f8e119]
+              - img "Clear Date" [ref=f8e120]
+            - generic [ref=f8e122]: "Modification Date To:"
+            - generic [ref=f8e123]:
+              - textbox [ref=f8e124]
+              - img "Show Calendar" [ref=f8e125]
+              - img "Clear Date" [ref=f8e126]
+          - generic [ref=f8e127]:
+            - generic [ref=f8e128]:
+              - generic [ref=f8e129]: Jolly (OR)
+              - img "value will be searched like in OR mode in title,summary,preconditions,steps actions, step expected results" [ref=f8e130]
+            - textbox [ref=f8e132]
+          - generic [ref=f8e133]:
+            - generic [ref=f8e135]: Custom field
+            - combobox [ref=f8e137]:
+              - option [selected]
+              - option "Automation Tester"
+              - option "Automated Date"
+              - option "Automation Status"
+          - generic [ref=f8e138]:
+            - generic [ref=f8e140]: Custom Field Value
+            - textbox [ref=f8e142]
+          - generic [ref=f8e143]:
+            - generic [ref=f8e145]: Req. Doc. ID
+            - textbox "Search on this value will be done on LIKE mode" [ref=f8e146]
+      - paragraph [ref=f8e147]:
+        - button "Find" [ref=f8e148] [cursor=pointer]

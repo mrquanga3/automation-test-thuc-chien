@@ -13,11 +13,21 @@ testlinkInitPage($db);
 $args = init_args();
 $tprojMgr = new testproject($db);
 $tprojOpt = $tprojMgr->getOptions($args->tproject_id);
-$gui = new stdClass();
+
+// Populate $gui with full nav-menu data (whoami, showMenu, activeMenu,
+// grants, uri, etc.) so frmInner.tpl can render the admin sidebar
+// (aside.tpl) — same data initUserEnv builds for the dashboard.
+list($add2args, $gui) = initUserEnv($db, $args, array('caller' => basename(__FILE__)));
+
+// Preserve original args properties on $gui (initUserEnv only sets a
+// subset, but the rest of this script relies on $args fields like
+// tcase_id, doAction, feature, etc. being on $gui too).
 foreach($args as $prop => $value) {
-  $gui->$prop = $value;
+  if (!property_exists($gui, $prop)) {
+    $gui->$prop = $value;
+  }
 }
-$gui->testPriorityEnabled = $tprojOpt->testPriorityEnabled;  
+$gui->testPriorityEnabled = $tprojOpt->testPriorityEnabled;
 
 // Important Notes for Developers
 //

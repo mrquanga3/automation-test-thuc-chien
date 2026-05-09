@@ -1,0 +1,211 @@
+- generic [ref=e2]:
+  - iframe [ref=e3]:
+    - banner [ref=f7e2]:
+      - link "" [ref=f7e4] [cursor=pointer]:
+        - /url: index.php?tproject_id=1&tplan_id=2
+        - generic [ref=f7e5]: 
+      - generic [ref=f7e7] [cursor=pointer]: 
+      - link "TESTLINK" [ref=f7e8] [cursor=pointer]:
+        - /url: index.php?tproject_id=1&tplan_id=2
+        - generic [ref=f7e9]: TESTLINK
+      - list [ref=f7e10]:
+        - listitem [ref=f7e11]:
+          - generic [ref=f7e12]:
+            - text: Test Project
+            - combobox [ref=f7e13]:
+              - option "AT:Shopping Automation Test Project" [selected]
+        - listitem [ref=f7e14]:
+          - generic [ref=f7e15]:
+            - text: Test Plan
+            - combobox [ref=f7e16]:
+              - option "Automation Regression Test plan" [selected]
+        - listitem [ref=f7e17]
+        - listitem [ref=f7e18]:
+          - link "Logout" [ref=f7e19] [cursor=pointer]:
+            - /url: logout.php?viewer=
+  - iframe [ref=e4]:
+    - generic [active] [ref=f8e1]:
+      - complementary:
+        - list [ref=f8e3]:
+          - paragraph [ref=f8e4]:
+            - img [ref=f8e5]
+          - heading "admin [admin]" [level=4] [ref=f8e6]:
+            - link "admin [admin]" [ref=f8e7] [cursor=pointer]:
+              - /url: http://localhost/testlink/lib/usermanagement/userInfo.php?tproject_id=1&tplan_id=2
+          - listitem [ref=f8e8]:
+            - link " Search" [ref=f8e9] [cursor=pointer]:
+              - /url: javascript:;
+              - generic [ref=f8e10]: 
+              - generic [ref=f8e11]: Search
+          - listitem [ref=f8e13]:
+            - link " System" [ref=f8e14] [cursor=pointer]:
+              - /url: javascript:;
+              - generic [ref=f8e15]: 
+              - generic [ref=f8e16]: System
+          - listitem [ref=f8e18]:
+            - link " Projects" [ref=f8e19] [cursor=pointer]:
+              - /url: javascript:;
+              - generic [ref=f8e20]: 
+              - generic [ref=f8e21]: Projects
+          - listitem [ref=f8e23]:
+            - link " Requirements Design" [ref=f8e24] [cursor=pointer]:
+              - /url: javascript:;
+              - generic [ref=f8e25]: 
+              - generic [ref=f8e26]: Requirements Design
+          - listitem [ref=f8e28]:
+            - link " Test Case Design" [ref=f8e29] [cursor=pointer]:
+              - /url: javascript:;
+              - generic [ref=f8e30]: 
+              - generic [ref=f8e31]: Test Case Design
+          - listitem [ref=f8e33]:
+            - link " Test Plan" [ref=f8e34] [cursor=pointer]:
+              - /url: javascript:;
+              - generic [ref=f8e35]: 
+              - generic [ref=f8e36]: Test Plan
+          - listitem [ref=f8e38]:
+            - link " Test Case Execution" [ref=f8e39] [cursor=pointer]:
+              - /url: javascript:;
+              - generic [ref=f8e40]: 
+              - generic [ref=f8e41]: Test Case Execution
+          - listitem [ref=f8e43]:
+            - link " Reports" [ref=f8e44] [cursor=pointer]:
+              - /url: http://localhost/testlink/lib/general/frmWorkArea.php?feature=showMetrics&tproject_id=1&tplan_id=2
+              - generic [ref=f8e45]: 
+              - generic [ref=f8e46]: Reports
+      - iframe [ref=f8e47]:
+        - generic [active] [ref=f13e1]:
+          - heading "Navigator - Test Specification" [level=1] [ref=f13e2]
+          - generic [ref=f13e3]:
+            - generic [ref=f13e4]:
+              - generic [ref=f13e5] [cursor=pointer]: Settings
+              - table [ref=f13e10]:
+                - rowgroup [ref=f13e11]:
+                  - row "Update tree after every operation" [ref=f13e12]:
+                    - cell "Update tree after every operation" [ref=f13e13]
+                    - cell [ref=f13e14]:
+                      - checkbox [checked] [ref=f13e15]
+                  - row [ref=f13e16]:
+                    - cell [ref=f13e17]
+            - generic [ref=f13e18]:
+              - generic [ref=f13e19] [cursor=pointer]: Filters
+              - generic [ref=f13e22]:
+                - table [ref=f13e23]:
+                  - rowgroup [ref=f13e24]:
+                    - row "Test Case ID AT-" [ref=f13e25]:
+                      - cell "Test Case ID" [ref=f13e26]
+                      - cell "AT-" [ref=f13e27]:
+                        - textbox [ref=f13e28]: AT-
+                    - row "Test Case Title" [ref=f13e29]:
+                      - cell "Test Case Title" [ref=f13e30]
+                      - cell [ref=f13e31]:
+                        - textbox [ref=f13e32]
+                    - row "Test Suite Select an Option" [ref=f13e33]:
+                      - cell "Test Suite" [ref=f13e34]
+                      - cell "Select an Option" [ref=f13e35]:
+                        - generic [ref=f13e36]:
+                          - generic [ref=f13e38] [cursor=pointer]: Select an Option
+                          - generic [ref=f13e41]:
+                            - textbox [ref=f13e43]
+                            - list
+                    - row "Status Select Some Options" [ref=f13e44]:
+                      - cell "Status" [ref=f13e45]
+                      - cell "Select Some Options" [ref=f13e46]:
+                        - generic [ref=f13e47]:
+                          - list [ref=f13e48]:
+                            - listitem [ref=f13e49]:
+                              - textbox [ref=f13e50]: Select Some Options
+                          - generic [ref=f13e51]:
+                            - list
+                    - row "Importance Select Some Options" [ref=f13e52]:
+                      - cell "Importance" [ref=f13e53]
+                      - cell "Select Some Options" [ref=f13e54]:
+                        - generic [ref=f13e55]:
+                          - list [ref=f13e56]:
+                            - listitem [ref=f13e57]:
+                              - textbox [ref=f13e58]: Select Some Options
+                          - generic [ref=f13e59]:
+                            - list
+                    - row "Execution type [Any]" [ref=f13e60]:
+                      - cell "Execution type" [ref=f13e61]
+                      - cell "[Any]" [ref=f13e62]:
+                        - generic [ref=f13e63]:
+                          - generic [ref=f13e65] [cursor=pointer]: "[Any]"
+                          - generic [ref=f13e68]:
+                            - textbox [ref=f13e70]
+                            - list
+                    - row [ref=f13e71]:
+                      - cell [ref=f13e72]
+                    - row "Automation Tester" [ref=f13e73]:
+                      - cell "Automation Tester" [ref=f13e74]
+                      - cell [ref=f13e75]:
+                        - textbox [ref=f13e76]
+                    - row "Automated Date Show Calendar Clear Date" [ref=f13e77]:
+                      - cell "Automated Date" [ref=f13e78]
+                      - cell "Show Calendar Clear Date" [ref=f13e79]:
+                        - textbox [ref=f13e80]
+                        - img "Show Calendar" [ref=f13e81]
+                        - img "Clear Date" [ref=f13e82]
+                    - row "Automation Status Open Automating Automated" [ref=f13e83]:
+                      - cell "Automation Status" [ref=f13e84]
+                      - cell "Open Automating Automated" [ref=f13e85]:
+                        - radio [ref=f13e86]
+                        - text: Open
+                        - radio [ref=f13e87]
+                        - text: Automating
+                        - radio [ref=f13e88]
+                        - text: Automated
+                - generic [ref=f13e89]:
+                  - button "Apply" [ref=f13e90] [cursor=pointer]
+                  - button "Reset Filters" [ref=f13e91] [cursor=pointer]
+                  - button "Hide Custom Fields" [ref=f13e92] [cursor=pointer]
+          - paragraph
+          - generic [ref=f13e93]:
+            - button "Expand tree" [ref=f13e94] [cursor=pointer]
+            - button "Collapse tree" [ref=f13e95] [cursor=pointer]
+          - list [ref=f13e99]:
+            - listitem [ref=f13e100]:
+              - link "Shopping Automation Test Project (41)" [ref=f13e102] [cursor=pointer]:
+                - /url: javascript:EP(1)
+              - list [ref=f13e103]:
+                - listitem [ref=f13e104]:
+                  - link "Login (7)" [ref=f13e107] [cursor=pointer]:
+                    - /url: javascript:ETS(1,3)
+                    - generic [ref=f13e108]: Login (7)
+                - listitem [ref=f13e109]:
+                  - link "HomePage (13)" [ref=f13e112] [cursor=pointer]:
+                    - /url: javascript:ETS(1,4)
+                    - generic [ref=f13e113]: HomePage (13)
+                - listitem [ref=f13e114]:
+                  - link "Catalog· (1)" [ref=f13e117] [cursor=pointer]:
+                    - /url: javascript:ETS(1,5)
+                    - generic [ref=f13e118]: Catalog· (1)
+                - listitem [ref=f13e119]:
+                  - link "Customer (16)" [ref=f13e122] [cursor=pointer]:
+                    - /url: javascript:ETS(1,54)
+                    - generic [ref=f13e123]: Customer (16)
+                - listitem [ref=f13e124]:
+                  - link "User (4)" [ref=f13e127] [cursor=pointer]:
+                    - /url: javascript:ETS(1,70)
+                    - generic [ref=f13e128]: User (4)
+      - iframe [ref=f8e48]:
+        - generic [active] [ref=f14e1]:
+          - 'heading "Test Project : Shopping Automation Test Project" [level=1] [ref=f14e2]'
+          - generic [ref=f14e3]:
+            - generic [ref=f14e4]: 
+            - text:      
+            - table [ref=f14e5]:
+              - rowgroup [ref=f14e6]:
+                - row "Test Project Name" [ref=f14e7]:
+                  - columnheader "Test Project Name" [ref=f14e8]
+                - row "Shopping Automation Test Project" [ref=f14e9]:
+                  - cell "Shopping Automation Test Project" [ref=f14e10]:
+                    - link "Shopping Automation Test Project" [ref=f14e11] [cursor=pointer]:
+                      - /url: lib/project/projectView.php
+                - row "Description" [ref=f14e12]:
+                  - columnheader "Description" [ref=f14e13]
+                - row "Shopping Automation Test Project" [ref=f14e14]:
+                  - cell "Shopping Automation Test Project" [ref=f14e15]:
+                    - paragraph [ref=f14e16]: Shopping Automation Test Project
+            - generic [ref=f14e17]:
+              - text: attachment disabled
+              - paragraph [ref=f14e18]: "directory for attachments: C:/xampp/htdocs/testlink/upload_area/ does not exist"

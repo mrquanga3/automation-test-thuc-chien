@@ -2287,3 +2287,6 @@ $g_event_cache = array();
 $g_plugin_config_cache = array();
 
 // ----- END OF FILE --------------------------------------------------------------------
+
+$g_cache_type = 'file'; // hoặc memcached
+$g_cache_enable = 1;

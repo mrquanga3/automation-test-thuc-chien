@@ -27,6 +27,23 @@
 // @since 1.9.13
 
 
+
+function tlShowWorkframeLoading()
+{
+  try {
+    if (parent && typeof parent.showWorkframeLoading == 'function') {
+      parent.showWorkframeLoading();
+    }
+  } catch(e) {
+  }
+}
+
+function tlSetWorkframeLocation(url)
+{
+  tlShowWorkframeLoading();
+  parent.workframe.location = url;
+}
+
 /*
   function: focusInputField
 
@@ -124,7 +141,7 @@ function ST(id,version)
   var _FUNCTION_NAME_='ST';
   var action_url=fRoot+menuUrl+"?version_id="+version+"&level=testcase&id="+id+args;
   // alert(_FUNCTION_NAME_ + " " +action_url);
-  parent.workframe.location = action_url;
+  tlSetWorkframeLocation(action_url);
 }
 
 
@@ -142,7 +159,7 @@ function STS(id)
   var _FUNCTION_NAME_='STS';
   var action_url = fRoot+menuUrl+"?level=testsuite&id="+id+args;
   // alert(args);
-  parent.workframe.location = action_url;
+  tlSetWorkframeLocation(action_url);
 }
 
 
@@ -157,7 +174,7 @@ function STS(id)
 function SP(tproj_id)
 {
   var action_url = fRoot+menuUrl+"?tproject_id="+parseInt(tproj_id);
-  parent.workframe.location = action_url+args;
+  tlSetWorkframeLocation(action_url+args);
 }
 
 /**
@@ -170,7 +187,7 @@ function EXDS(tproject_id,tplan_id) {
      action_url +='&tplan_id='+tplan_id;
   }                  
   action_url += args;
-  parent.workframe.location = action_url;
+  tlSetWorkframeLocation(action_url);
 }
 
 
@@ -196,7 +213,7 @@ function EP(id) {
 
   // alert(_FUNCTION_NAME_ + " " +action_url);
                  
-  parent.workframe.location = action_url;
+  tlSetWorkframeLocation(action_url);
 }
 
 /*
@@ -223,7 +240,7 @@ function ETS(tproj_id,id) {
 
   //alert(_FUNCTION_NAME_ + " " +action_url);
   console.log(_FUNCTION_NAME_ + " " +action_url);
-  parent.workframe.location = action_url;
+  tlSetWorkframeLocation(action_url);
 }
 
 /*
@@ -246,7 +263,7 @@ function ET(tproj_id,id,v)
        "&caller=ET"+
       "&tproject_id=" + tproj_id + args;
   // alert(_FUNCTION_NAME_ + " " +my_location);
-  parent.workframe.location = my_location;
+  tlSetWorkframeLocation(my_location);
 }
 
 
@@ -254,20 +271,20 @@ function ET(tproj_id,id,v)
 function TPROJECT_PTS(id)
 {
   var pParams = tree_getPrintPreferences();
-  parent.workframe.location = fRoot+menuUrl+"?type=testspec&level=testsuite&id="+id+args+"&"+pParams;
+  tlSetWorkframeLocation(fRoot+menuUrl+"?type=testspec&level=testsuite&id="+id+args+"&"+pParams);
 }
 
 /* Generate doc: all Test Specification */
 function TPROJECT_PTP(id)
 {
   var pParams = tree_getPrintPreferences();
-  parent.workframe.location = fRoot+menuUrl+"?type=testspec&level=testproject&id="+id+args+"&"+pParams;
+  tlSetWorkframeLocation(fRoot+menuUrl+"?type=testspec&level=testproject&id="+id+args+"&"+pParams);
 }
 
 /* Generate doc: a selected Test Tase from Test Specification */
 function TPROJECT_PTC(id)
 {
-  parent.workframe.location = fRoot+menuUrl+"?type=testspec&level=tc&id="+id+args;
+  tlSetWorkframeLocation(fRoot+menuUrl+"?type=testspec&level=tc&id="+id+args);
 }
 
 
@@ -275,9 +292,9 @@ function TPROJECT_PTC(id)
 function TPROJECT_PTP_RS(id)
 {
   var pParams = tree_getPrintPreferences();
-  parent.workframe.location = fRoot+menuUrl+
+  tlSetWorkframeLocation(fRoot+menuUrl+
     "?type=reqspec&level=testproject&id="+id+
-    "&tproject_id="+id+args+"&"+pParams;
+    "&tproject_id="+id+args+"&"+pParams);
 }
 
 
@@ -285,9 +302,9 @@ function TPROJECT_PTP_RS(id)
 function TPROJECT_PRS(tproject_id,id)
 {
   var pParams = tree_getPrintPreferences();
-  parent.workframe.location = fRoot+menuUrl+
+  tlSetWorkframeLocation(fRoot+menuUrl+
     "?type=reqspec&level=reqspec&id="+id+
-    "&tproject_id="+tproject_id+args+"&"+pParams;
+    "&tproject_id="+tproject_id+args+"&"+pParams);
 }
 
 
@@ -309,7 +326,7 @@ function ERS(id)
 	               "&edit=reqspeccoverage&level=reqspec&id="+id+args+"&"+pParams;
 
 	// alert(_FUNCTION_NAME_ + " " +action_url);
-	parent.workframe.location = action_url;
+	tlSetWorkframeLocation(action_url);
 
 }
 
@@ -331,7 +348,7 @@ function ER(id)
 	               "&edit=reqcoverage&level=requirement&id="+id+args+"&"+pParams;
 
 	// alert(_FUNCTION_NAME_ + " " +action_url);
-	parent.workframe.location = action_url;
+	tlSetWorkframeLocation(action_url);
 
 }
 
@@ -346,7 +363,7 @@ function ER(id)
 */
 function TPLAN_PTS(id) {
   var pParams = tree_getPrintPreferences();
-  parent.workframe.location = fRoot+menuUrl+"?level=testsuite&id="+id+args+"&"+pParams;
+  tlSetWorkframeLocation(fRoot+menuUrl+"?level=testsuite&id="+id+args+"&"+pParams);
 }
 
 /*
@@ -356,7 +373,7 @@ function TPLAN_PTS(id) {
 function TPLAN_PTP(id) {
   var pParams = tree_getPrintPreferences();
   var my_location = fRoot+menuUrl+"?level=testproject&id="+id+args+"&"+pParams;
-  parent.workframe.location = my_location;
+  tlSetWorkframeLocation(my_location);
 }
 
 
@@ -367,7 +384,7 @@ function TPLAN_PTP(id) {
 function TPLAN_PTC(id)
 {
   var my_location = fRoot+menuUrl+"?level=tc&id="+id+args;
-  parent.workframe.location = my_location;
+  tlSetWorkframeLocation(my_location);
 }
 
 function showOrHideElement(oid,hide)
@@ -1128,7 +1145,7 @@ function TPROJECT_REQ_SPEC_MGMT(id)
   var action_url = fRoot+"lib/project/project_req_spec_mgmt.php"+"?id="+id+args+"&"+pParams;
 
   //alert(_FUNCTION_NAME_ + " " +action_url);
-  parent.workframe.location = action_url;
+  tlSetWorkframeLocation(action_url);
 
 }
 
@@ -1151,7 +1168,7 @@ function REQ_SPEC_MGMT(tproj_id,id)
                    "&req_spec_id="+id+args+"&"+pParams;
   
   //alert(_FUNCTION_NAME_ + " " +action_url);
-  parent.workframe.location = action_url;
+  tlSetWorkframeLocation(action_url);
 }
 
 /*
@@ -1172,7 +1189,7 @@ function REQ_MGMT(tproj_id,id)
                    "&requirement_id="+id+args+"&"+pParams;
 
   //alert(_FUNCTION_NAME_ + " " +action_url);
-  parent.workframe.location = action_url;
+  tlSetWorkframeLocation(action_url);
 
 }
 

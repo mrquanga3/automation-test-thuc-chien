@@ -1,4 +1,4 @@
-{* 
+{*
 TestLink Open Source Project - http://testlink.sourceforge.net/
 tcSearchResults.tpl
 *}
@@ -19,9 +19,33 @@ tcSearchResults.tpl
   {$matrix->renderHeadSection()}
 {/foreach}
 
+{* Admin sidebar (aside.tpl) styles — same stack the dashboard uses *}
+<link href="{$dashioHomeURL}lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="{$fontawesomeHomeURL}/css/all.css" rel="stylesheet" />
+<link href="{$dashioHomeURL}css/style.css" rel="stylesheet">
+<link href="{$dashioHomeURL}css/style-responsive.css" rel="stylesheet">
+
+<style>
+  /* Reserve 210px on the left for the admin sidebar (position:fixed).
+     #sidebar lacks an explicit `left:0`, so a body padding would shift
+     the fixed element along with the content — pad an inner wrapper
+     instead. The hamburger toggles `.sidebar-closed` on body, which
+     drops the reservation. */
+  body.has-admin-sidebar #sidebar { left: 0 !important; }
+  body.has-admin-sidebar #frame-content {
+    margin-left: 210px;
+    transition: margin-left 0.2s;
+  }
+  body.has-admin-sidebar.sidebar-closed #frame-content {
+    margin-left: 0;
+  }
+</style>
+
 </head>
 
-<body>
+<body class="has-admin-sidebar">
+{include file="aside.tpl"}
+<div id="frame-content">
 <h1 class="{#TITLE_CLASS#}">{$gui->pageTitle}</h1>
 
 {if $gui->drawSearchGui}
@@ -43,7 +67,13 @@ tcSearchResults.tpl
     {$gui->warning_msg}
     </div>
   {/if}
-{/if}    
+{/if}
+  </div>
 </div>
+
+<script src="{$dashioHomeURL}lib/jquery.dcjqaccordion.2.7.js"></script>
+<script src="{$dashioHomeURL}lib/jquery.scrollTo.min.js"></script>
+<script src="{$dashioHomeURL}lib/jquery.nicescroll.js"></script>
+<script src="{$dashioHomeURL}lib/left-bar-scripts.js"></script>
 </body>
 </html>

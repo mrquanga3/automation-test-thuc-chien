@@ -21,7 +21,7 @@ Purpose: show form for search through test cases in test specification
 
   <div class="container-fluid" id="{$cfg_section}">
     <div class="row">
-     <td colspan="8">
+     <div class="col-sm-12">
      <img src="{$tlImages.info}" title =" {$labels.filter_mode_and} {$gui->search_important_notice|escape}.
                                           {$labels.search_prefix_ignored|escape}">
      </div>
@@ -152,7 +152,7 @@ Purpose: show form for search through test cases in test specification
     {if $gui->filter_by.keyword}
     <div class="row">
       <div class="col-sm-1 col-md-1 col-lg-1"><label>{$labels.keyword}</label></div>
-      <td colspan="5"><select name="keyword_id">
+      <div class="col-sm-5"><select name="keyword_id">
           <option value="0">&nbsp;</option>
           {section name=Row loop=$gui->keywords}
           <option value="{$gui->keywords[Row]->dbID}">{$gui->keywords[Row]->name|escape}</option>
@@ -185,13 +185,13 @@ Purpose: show form for search through test cases in test specification
     {if $gui->filter_by.requirement_doc_id}
         <div class="row">
             <div class="col-sm-1 col-md-1 col-lg-1"><label>{$labels.requirement_document_id}</label></div>
-            <td colspan="7">
+            <div class="col-sm-7">
             <input type="text" name="requirement_doc_id" id="requirement_doc_id"
                    title="{$labels.search_type_like}"
                    size="{#REQ_DOCID_SIZE#}" maxlength="{#REQ_DOCID_MAXLEN#}"/>
           </div>
         </div>
-    {/if}    
+    {/if}
   </div>
   
   <p style="padding-left: 20px;">

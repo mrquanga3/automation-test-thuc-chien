@@ -1,0 +1,194 @@
+- generic [active] [ref=e1]:
+  - complementary:
+    - list [ref=e3]:
+      - paragraph [ref=e4]:
+        - img
+      - heading [level=4]:
+        - link:
+          - /url: ""
+  - iframe [ref=e5]:
+    - generic [active] [ref=f5e1]:
+      - heading "Execute Tests" [level=1] [ref=f5e2]
+      - generic [ref=f5e3]:
+        - generic [ref=f5e4]:
+          - generic [ref=f5e5] [cursor=pointer]: Settings
+          - table [ref=f5e10]:
+            - rowgroup [ref=f5e11]:
+              - row "Test Plan Automation Regression Test plan" [ref=f5e12]:
+                - cell "Test Plan" [ref=f5e13]
+                - cell "Automation Regression Test plan" [ref=f5e14]:
+                  - generic [ref=f5e15]:
+                    - generic [ref=f5e17] [cursor=pointer]: Automation Regression Test plan
+                    - generic [ref=f5e20]:
+                      - textbox [ref=f5e22]
+                      - list
+              - row "Platform Web" [ref=f5e23]:
+                - cell "Platform" [ref=f5e24]
+                - cell "Web" [ref=f5e25]:
+                  - generic [ref=f5e26]:
+                    - generic [ref=f5e28] [cursor=pointer]: Web
+                    - generic [ref=f5e31]:
+                      - textbox [ref=f5e33]
+                      - list
+              - row "Build to execute Regression Test Web" [ref=f5e34]:
+                - cell "Build to execute" [ref=f5e35]
+                - cell "Regression Test Web" [ref=f5e36]:
+                  - generic [ref=f5e37]:
+                    - generic [ref=f5e39] [cursor=pointer]: Regression Test Web
+                    - generic [ref=f5e42]:
+                      - textbox [ref=f5e44]
+                      - list
+              - row "Update tree after every operation" [ref=f5e45]:
+                - cell "Update tree after every operation" [ref=f5e46]
+                - cell [ref=f5e47]:
+                  - checkbox [checked] [ref=f5e48]
+              - row [ref=f5e49]:
+                - cell [ref=f5e50]
+              - row "Tree Counters Latest Exec On Chosen Build" [ref=f5e51]:
+                - cell "Tree Counters Latest Exec On" [ref=f5e52]
+                - cell "Chosen Build" [ref=f5e53]:
+                  - generic [ref=f5e54]:
+                    - generic [ref=f5e56] [cursor=pointer]: Chosen Build
+                    - generic [ref=f5e59]:
+                      - textbox [ref=f5e61]
+                      - list
+              - row [ref=f5e62]:
+                - cell [ref=f5e63]
+                - cell [ref=f5e64]
+              - row "Export Test Plan Export for results import Import Results (XML)" [ref=f5e65]:
+                - cell [ref=f5e66]
+                - cell "Export Test Plan Export for results import Import Results (XML)" [ref=f5e67]:
+                  - img "Export Test Plan" [ref=f5e68]
+                  - img "Export for results import" [ref=f5e69]
+                  - img "Import Results (XML)" [ref=f5e70]
+        - generic [ref=f5e71]:
+          - generic [ref=f5e72] [cursor=pointer]: Filters
+          - generic [ref=f5e75]:
+            - table [ref=f5e76]:
+              - rowgroup [ref=f5e77]:
+                - row "Test Case ID AT-" [ref=f5e78]:
+                  - cell "Test Case ID" [ref=f5e79]
+                  - cell "AT-" [ref=f5e80]:
+                    - textbox [ref=f5e81]: AT-
+                - row "Test Case Title" [ref=f5e82]:
+                  - cell "Test Case Title" [ref=f5e83]
+                  - cell [ref=f5e84]:
+                    - textbox [ref=f5e85]
+                - row "Test Suite Select an Option" [ref=f5e86]:
+                  - cell "Test Suite" [ref=f5e87]
+                  - cell "Select an Option" [ref=f5e88]:
+                    - generic [ref=f5e89]:
+                      - generic [ref=f5e91] [cursor=pointer]: Select an Option
+                      - generic [ref=f5e94]:
+                        - textbox [ref=f5e96]
+                        - list
+                - row "Priority [Any]" [ref=f5e97]:
+                  - cell "Priority" [ref=f5e98]
+                  - cell "[Any]" [ref=f5e99]:
+                    - generic [ref=f5e100]:
+                      - generic [ref=f5e102] [cursor=pointer]: "[Any]"
+                      - generic [ref=f5e105]:
+                        - textbox [ref=f5e107]
+                        - list
+                - row "Execution type [Any]" [ref=f5e108]:
+                  - cell "Execution type" [ref=f5e109]
+                  - cell "[Any]" [ref=f5e110]:
+                    - generic [ref=f5e111]:
+                      - generic [ref=f5e113] [cursor=pointer]: "[Any]"
+                      - generic [ref=f5e116]:
+                        - textbox [ref=f5e118]
+                        - list
+                - row "Assigned toThis filter works in combination with values of settings area [Any] include unassigned Test Cases" [ref=f5e119]:
+                  - cell "Assigned toThis filter works in combination with values of settings area" [ref=f5e120]:
+                    - text: Assigned to
+                    - img "This filter works in combination with values of settings area" [ref=f5e121]
+                  - cell "[Any] include unassigned Test Cases" [ref=f5e122]:
+                    - generic [ref=f5e123]:
+                      - generic [ref=f5e125] [cursor=pointer]: "[Any]"
+                      - generic [ref=f5e128]:
+                        - textbox [ref=f5e130]
+                        - list
+                    - checkbox [disabled] [ref=f5e131]
+                    - text: include unassigned Test Cases
+                - row "Bugs on Exec. Context" [ref=f5e132]:
+                  - cell "Bugs on Exec. Context" [ref=f5e133]
+                  - cell [ref=f5e134]:
+                    - textbox "BUGX,BUGY,BUGZ" [ref=f5e135]
+                - row [ref=f5e136]:
+                  - cell [ref=f5e137]
+                - row "Automation Tester" [ref=f5e138]:
+                  - cell "Automation Tester" [ref=f5e139]
+                  - cell [ref=f5e140]:
+                    - textbox [ref=f5e141]
+                - row "Automated Date Show Calendar Clear Date" [ref=f5e142]:
+                  - cell "Automated Date" [ref=f5e143]
+                  - cell "Show Calendar Clear Date" [ref=f5e144]:
+                    - textbox [ref=f5e145]
+                    - img "Show Calendar" [ref=f5e146]
+                    - img "Clear Date" [ref=f5e147]
+                - row "Automation Status Open Automating Automated" [ref=f5e148]:
+                  - cell "Automation Status" [ref=f5e149]
+                  - cell "Open Automating Automated" [ref=f5e150]:
+                    - radio [ref=f5e151]
+                    - text: Open
+                    - radio [ref=f5e152]
+                    - text: Automating
+                    - radio [ref=f5e153]
+                    - text: Automated
+                - row [ref=f5e154]:
+                  - cell [ref=f5e155]
+                - row "Result [Any]" [ref=f5e156]:
+                  - cell "Result" [ref=f5e157]
+                  - cell "[Any]" [ref=f5e158]:
+                    - generic [ref=f5e159]:
+                      - generic [ref=f5e161] [cursor=pointer]: "[Any]"
+                      - generic [ref=f5e164]:
+                        - textbox [ref=f5e166]
+                        - list
+                - row "on Build chosen for execution" [ref=f5e167]:
+                  - cell "on" [ref=f5e168]
+                  - cell "Build chosen for execution" [ref=f5e169]:
+                    - generic [ref=f5e170]:
+                      - generic [ref=f5e172] [cursor=pointer]: Build chosen for execution
+                      - generic [ref=f5e175]:
+                        - textbox [ref=f5e177]
+                        - list
+            - generic [ref=f5e178]:
+              - button "Apply" [ref=f5e179] [cursor=pointer]
+              - button "Reset Filters" [ref=f5e180] [cursor=pointer]
+              - button "Hide Custom Fields" [ref=f5e181] [cursor=pointer]
+              - button "Advanced Filters" [ref=f5e182] [cursor=pointer]
+      - paragraph
+      - generic [ref=f5e183]:
+        - button "Expand tree" [ref=f5e184] [cursor=pointer]
+        - button "Collapse tree" [ref=f5e185] [cursor=pointer]
+      - list [ref=f5e189]:
+        - listitem [ref=f5e190]:
+          - link "Shopping Automation Test Project / Automation Regression Test plan (39)(9,23,7,0)" [ref=f5e192] [cursor=pointer]:
+            - /url: javascript:EXDS(1)
+            - generic [ref=f5e193]: Shopping Automation Test Project / Automation Regression Test plan (39)(9,23,7,0)
+          - list [ref=f5e194]:
+            - listitem [ref=f5e195]:
+              - link "Login (6)(0,6,0,0)" [ref=f5e198] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=f5e199]: Login (6)(0,6,0,0)
+            - listitem [ref=f5e200]:
+              - link "HomePage (13)(1,10,2,0)" [ref=f5e203] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=f5e204]: HomePage (13)(1,10,2,0)
+            - listitem [ref=f5e205]:
+              - link "Customer (16)(5,6,5,0)" [ref=f5e208] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=f5e209]: Customer (16)(5,6,5,0)
+            - listitem [ref=f5e210]:
+              - link "User (4)(3,1,0,0)" [ref=f5e213] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=f5e214]: User (4)(3,1,0,0)
+  - iframe [ref=e6]:
+    - generic [active] [ref=f6e1]:
+      - 'heading "Exec. Context: Test Plan Automation Regression Test plan - Build Regression Test Web - Platform : Web" [level=1] [ref=f6e2]'
+      - generic [ref=f6e3]:
+        - generic [ref=f6e4]: Test Plan Automation Regression Test plan
+        - generic [ref=f6e5]: Platform Web
+        - generic [ref=f6e6]: Build Regression Test Web
+        - img "REST API create execution args" [ref=f6e7] [cursor=pointer]

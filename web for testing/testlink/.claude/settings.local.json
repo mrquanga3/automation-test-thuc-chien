@@ -4,7 +4,16 @@
       "Bash(Get-ChildItem -Path \"D:\\\\automation-test-thuc-chien\\\\web for testing\" -Directory)",
       "Bash(Select-Object Name)",
       "Bash(Find \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\testlink\" -type f -name \"*.tpl\")",
-      "Bash(Select-Object -First 10)"
+      "Bash(Select-Object -First 10)",
+      "Skill(update-config)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_fill_form",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_evaluate",
+      "mcp__playwright__browser_wait_for",
+      "mcp__playwright__browser_console_messages"
     ]
   }
 }

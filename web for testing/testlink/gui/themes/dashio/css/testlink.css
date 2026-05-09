@@ -925,7 +925,7 @@ table.mainTable-x th {
   padding:5px 3px 4px 5px;
   border:1px solid #99bbe8;
   line-height:15px;
-  background:transparent url(../images/white-top-bottom.gif) repeat-x 0 -1px;
+  background:transparent url(../img/white-top-bottom.gif) repeat-x 0 -1px;
 }
 
 /* 20080127 - franciscom - to avoid problem with ext-js css */
@@ -1032,7 +1032,7 @@ th.testlink, td.testlink, tr.testlink td {
 .x-tl-panel{border-style:solid;border-color:#99bbe8;border-width:0;}
 .x-tl-panel-header{overflow:hidden;color:#15428b;font:bold 11px tahoma,arial,verdana,sans-serif;
                    padding:2px 1px 1px 2px;border:1px solid #99bbe8;line-height:15px;
-                   background:transparent url(../images/white-top-bottom.gif) repeat-x 0 -1px;}
+                   background:transparent url(../img/white-top-bottom.gif) repeat-x 0 -1px;}
 .x-tl-panel-body{border:1px solid #99bbe8;border-top:0 none;overflow:hidden;background:white;}
 .x-tl-panel-bbar {border:1px solid #99bbe8;border-top:0 none;overflow:hidden;padding:2px;}
 .x-tl-panel-tbar {border:1px solid #99bbe8;border-top:0 none;overflow:hidden;padding:2px;}
