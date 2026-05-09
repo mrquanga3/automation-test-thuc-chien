@@ -1,1 +1,273 @@
-<br />Nemo velit debitis et ipsum sint qui doloremque consequatur et porro dolores consectetur veritatis non amet occaecati ratione eum totam sed natus architecto reiciendis ullam tempora esse labore eum eveniet aspernatur reiciendis quo non exercitationem alias tenetur excepturi rerum earum autem et commodi dignissimos odit et est et numquam at qui exercitationem molestiae necessitatibus neque pariatur dignissimos quia quia sed sit laborum dolores reprehenderit dolore molestias dolorem quibusdam sit nostrum molestiae ab repudiandae mollitia beatae quis blanditiis facilis vero vel cumque et harum minus suscipit quod fugiat et id beatae ad quibusdam provident ratione qui ab aperiam repellat natus quas nihil sed aspernatur sequi voluptas officiis est quidem minima expedita corrupti fuga ea fuga eius quo voluptatem voluptatibus in at est blanditiis omnis quis quis sit et optio rerum fugiat dolorum illum quia accusantium sit ea perspiciatis suscipit sed voluptas magni explicabo culpa cupiditate cupiditate rerum voluptatem neque quo in laborum sunt asperiores rerum repellendus maiores ipsam debitis laudantium veritatis et saepe quisquam sint dolor iusto est consequatur mollitia voluptatem omnis et iste eum laboriosam aut nemo praesentium quas quae dicta vel consequatur repudiandae qui quaerat molestiae harum hic omnis velit placeat doloremque autem sint et nulla dolorem ipsum ut aut ut corporis quasi animi quia sequi enim voluptate asperiores aliquid consequatur quam temporibus vero provident deleniti sunt cumque magnam recusandae quos quia labore eum quis est repellat est ea enim ducimus possimus illo voluptas non id soluta consequatur reprehenderit dolor incidunt qui nisi sed iure et quos dolor atque nesciunt et soluta dolore quia voluptas tenetur qui vel ut similique voluptatem aut ea enim id consequuntur ut et sunt ipsam aut corrupti commodi est architecto aut aut dolor excepturi ducimus ex amet officia et vel ut est odio autem doloribus rem tempore et est veniam voluptatum unde ut accusamus aut porro nobis impedit.    <a href='3534.html'>next page</a>
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>3533 - The Internet</title>
+    <link href="../css/app.css" rel="stylesheet">
+    <link href="../css/font-awesome.css" rel="stylesheet">
+    <script src="../js/vendor/jquery-1.11.3.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; }
+
+        /* Header */
+        #header {
+            background: #333;
+            color: white;
+            padding: 15px 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        #header h1 { margin: 0; font-size: 24px; }
+
+        /* Main Container */
+        #container { display: flex; min-height: calc(100vh - 60px); }
+
+        /* Sidebar */
+        #sidebar {
+            width: 250px;
+            background: #2c3e50;
+            color: white;
+            overflow-y: auto;
+            padding: 20px 0;
+        }
+
+        .menu-group { margin-bottom: 0; }
+        .menu-group-title {
+            padding: 10px 20px;
+            cursor: pointer;
+            background: #34495e;
+            font-weight: bold;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+        .menu-group-title:hover { background: #3d5a73; }
+        .menu-group-title.active { background: #3498db; }
+
+        .menu-items {
+            display: none;
+            background: #2c3e50;
+        }
+        .menu-items.open { display: block; }
+
+        .menu-items a {
+            display: block;
+            padding: 8px 35px;
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 13px;
+            transition: all 0.3s;
+            border-left: 3px solid transparent;
+        }
+        .menu-items a:hover {
+            background: #34495e;
+            border-left-color: #3498db;
+            padding-left: 38px;
+        }
+        .menu-items a.active {
+            background: #3498db;
+            color: white;
+            border-left-color: #2980b9;
+        }
+
+        /* Content Area */
+        #content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        #page-content {
+            background: white;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            min-height: 400px;
+        }
+
+        .heading { color: #2c3e50; margin-bottom: 10px; }
+        h2 { color: #34495e; margin: 20px 0 10px 0; }
+
+        #page-footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 12px;
+            border-top: 1px solid #ddd;
+            margin-top: 20px;
+        }
+
+        /* Arrow indicator for menu expand/collapse */
+        .arrow {
+            transition: transform 0.3s;
+            font-size: 10px;
+        }
+        .arrow.open { transform: rotate(-90deg); }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1 class="heading">Welcome to the-internet</h1>
+    </div>
+
+    <div id="container">
+        <div id="sidebar">
+            <div class="menu-group">
+                <div class="menu-group-title" onclick="toggleMenu(this)">
+                    <span>Form & Input</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="menu-items">
+                    <a href="checkboxes.html">Checkboxes</a>
+                    <a href="dropdown.html">Dropdown</a>
+                    <a href="add_remove_elements/index.html">Add/Remove Elements</a>
+                    <a href="inputs.html">Inputs</a>
+                    <a href="key_presses.html">Key Presses</a>
+                    <a href="upload.html">File Upload</a>
+                </div>
+            </div>
+
+            <div class="menu-group">
+                <div class="menu-group-title" onclick="toggleMenu(this)">
+                    <span>Authentication</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="menu-items">
+                    <a href="basic_auth.html">Basic Auth</a>
+                    <a href="digest_auth/index.html">Digest Authentication</a>
+                    <a href="login.html">Form Authentication</a>
+                    <a href="forgot_password.html">Forgot Password</a>
+                </div>
+            </div>
+
+            <div class="menu-group">
+                <div class="menu-group-title" onclick="toggleMenu(this)">
+                    <span>Interactions</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="menu-items">
+                    <a href="drag_and_drop.html">Drag and Drop</a>
+                    <a href="hovers.html">Hovers</a>
+                    <a href="context_menu.html">Context Menu</a>
+                    <a href="floating_menu.html">Floating Menu</a>
+                </div>
+            </div>
+
+            <div class="menu-group">
+                <div class="menu-group-title" onclick="toggleMenu(this)">
+                    <span>Dynamic Content</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="menu-items">
+                    <a href="dynamic_content.html">Dynamic Content</a>
+                    <a href="dynamic_controls.html">Dynamic Controls</a>
+                    <a href="dynamic_loading.html">Dynamic Loading</a>
+                    <a href="disappearing_elements.html">Disappearing Elements</a>
+                    <a href="entry_ad.html">Entry Ad</a>
+                    <a href="exit_intent.html">Exit Intent</a>
+                    <a href="infinite_scroll.html">Infinite Scroll</a>
+                </div>
+            </div>
+
+            <div class="menu-group">
+                <div class="menu-group-title" onclick="toggleMenu(this)">
+                    <span>Advanced DOM</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="menu-items">
+                    <a href="challenging_dom.html">Challenging DOM</a>
+                    <a href="large.html">Large & Deep DOM</a>
+                    <a href="shifting_content.html">Shifting Content</a>
+                    <a href="shadowdom.html">Shadow DOM</a>
+                </div>
+            </div>
+
+            <div class="menu-group">
+                <div class="menu-group-title" onclick="toggleMenu(this)">
+                    <span>JavaScript</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="menu-items">
+                    <a href="javascript_alerts.html">JavaScript Alerts</a>
+                    <a href="javascript_error.html">JavaScript onload Error</a>
+                    <a href="jqueryui/menu.html">JQuery UI Menus</a>
+                    <a href="tinymce.html">WYSIWYG Editor</a>
+                </div>
+            </div>
+
+            <div class="menu-group">
+                <div class="menu-group-title" onclick="toggleMenu(this)">
+                    <span>Windows & Frames</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="menu-items">
+                    <a href="frames.html">Frames</a>
+                    <a href="nested_frames.html">Nested Frames</a>
+                    <a href="windows.html">Multiple Windows</a>
+                </div>
+            </div>
+
+            <div class="menu-group">
+                <div class="menu-group-title" onclick="toggleMenu(this)">
+                    <span>Files</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="menu-items">
+                    <a href="download.html">File Download</a>
+                    <a href="download_secure.html">Secure File Download</a>
+                </div>
+            </div>
+
+            <div class="menu-group">
+                <div class="menu-group-title" onclick="toggleMenu(this)">
+                    <span>Testing Patterns</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="menu-items">
+                    <a href="abtest.html">A/B Testing</a>
+                    <a href="broken_images.html">Broken Images</a>
+                    <a href="geolocation.html">Geolocation</a>
+                    <a href="horizontal_slider.html">Horizontal Slider</a>
+                    <a href="notification_message_rendered.html">Notification Messages</a>
+                    <a href="redirector.html">Redirect Link</a>
+                    <a href="slow.html">Slow Resources</a>
+                    <a href="status_codes.html">Status Codes</a>
+                    <a href="tables.html">Sortable Data Tables</a>
+                    <a href="typos.html">Typos</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="content">
+            <div id="page-content">
+                <p>Content not available</p>
+            </div>
+            <div id='page-footer'>
+                <hr>
+                <div>Powered by <a target="_blank" href="http://elementalselenium.com/">Elemental Selenium</a></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu(titleEl) {
+            const itemsEl = titleEl.nextElementSibling;
+            itemsEl.classList.toggle('open');
+            titleEl.classList.toggle('active');
+            titleEl.querySelector('.arrow').classList.toggle('open');
+        }
+
+        // Open first menu on load
+        window.addEventListener('load', () => {
+            const firstMenu = document.querySelector('.menu-group-title');
+            if (firstMenu) firstMenu.click();
+        });
+    </script>
+</body>
+</html>

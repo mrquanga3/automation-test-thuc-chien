@@ -1,1 +1,273 @@
-<br />Perspiciatis at autem voluptas sit dolor rerum quaerat quo quibusdam sunt sint saepe occaecati voluptatem voluptatum quo consequatur quis tempora numquam eveniet voluptates dolore aut provident est ad praesentium odio quam atque qui aut repellendus consequatur sint fugit consectetur non dolorum qui dolor aut totam qui nihil est est repellat sit et doloremque harum dolorum ipsum qui fugit voluptatibus explicabo aliquam aut eaque minus nisi voluptates debitis praesentium impedit consequatur rem ullam reiciendis expedita qui rerum ut velit amet asperiores minus porro possimus ex qui et dicta dolores aliquid adipisci eos ad repudiandae non molestias nihil voluptas labore aut atque quia et enim et et et a qui aut sed nisi ipsa voluptatem et culpa inventore ipsam quae et non nihil suscipit quidem error omnis quae hic dolorem adipisci perferendis iusto qui eius necessitatibus distinctio temporibus natus cumque ea animi labore corporis officiis aspernatur ea sequi et illum quia molestiae a facilis dolor iste vero deleniti molestiae nemo corrupti omnis architecto eaque voluptatibus sed vel veritatis sit dolore delectus tempore et quasi totam incidunt magnam id facere veniam nobis libero assumenda cum porro nesciunt rerum est neque mollitia molestias sapiente et placeat ratione eos eligendi maxime vel voluptatem reiciendis ipsum nobis nam id magnam numquam sed reprehenderit corrupti animi dolorem occaecati exercitationem ullam sed et ex aut sint ut magni voluptas quis excepturi reprehenderit deserunt accusamus tenetur est consequatur necessitatibus alias ut ipsam sint voluptate facere facilis ducimus quis tempore ducimus eligendi distinctio saepe beatae ut eum omnis autem vero voluptatem sunt laboriosam est fuga sit omnis aut quia non beatae dignissimos esse qui enim delectus quia itaque inventore perferendis incidunt non eum pariatur ipsa vel quia ut doloribus voluptatum ut soluta voluptas enim non at exercitationem nemo quam in odio voluptatem sit minima velit quod quasi odit in officia dolor veritatis.    <a href='8751.html'>next page</a>
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>8750 - The Internet</title>
+    <link href="../css/app.css" rel="stylesheet">
+    <link href="../css/font-awesome.css" rel="stylesheet">
+    <script src="../js/vendor/jquery-1.11.3.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; }
+
+        /* Header */
+        #header {
+            background: #333;
+            color: white;
+            padding: 15px 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        #header h1 { margin: 0; font-size: 24px; }
+
+        /* Main Container */
+        #container { display: flex; min-height: calc(100vh - 60px); }
+
+        /* Sidebar */
+        #sidebar {
+            width: 250px;
+            background: #2c3e50;
+            color: white;
+            overflow-y: auto;
+            padding: 20px 0;
+        }
+
+        .menu-group { margin-bottom: 0; }
+        .menu-group-title {
+            padding: 10px 20px;
+            cursor: pointer;
+            background: #34495e;
+            font-weight: bold;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+        .menu-group-title:hover { background: #3d5a73; }
+        .menu-group-title.active { background: #3498db; }
+
+        .menu-items {
+            display: none;
+            background: #2c3e50;
+        }
+        .menu-items.open { display: block; }
+
+        .menu-items a {
+            display: block;
+            padding: 8px 35px;
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 13px;
+            transition: all 0.3s;
+            border-left: 3px solid transparent;
+        }
+        .menu-items a:hover {
+            background: #34495e;
+            border-left-color: #3498db;
+            padding-left: 38px;
+        }
+        .menu-items a.active {
+            background: #3498db;
+            color: white;
+            border-left-color: #2980b9;
+        }
+
+        /* Content Area */
+        #content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        #page-content {
+            background: white;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            min-height: 400px;
+        }
+
+        .heading { color: #2c3e50; margin-bottom: 10px; }
+        h2 { color: #34495e; margin: 20px 0 10px 0; }
+
+        #page-footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 12px;
+            border-top: 1px solid #ddd;
+            margin-top: 20px;
+        }
+
+        /* Arrow indicator for menu expand/collapse */
+        .arrow {
+            transition: transform 0.3s;
+            font-size: 10px;
+        }
+        .arrow.open { transform: rotate(-90deg); }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1 class="heading">Welcome to the-internet</h1>
+    </div>
+
+    <div id="container">
+        <div id="sidebar">
+            <div class="menu-group">
+                <div class="menu-group-title" onclick="toggleMenu(this)">
+                    <span>Form & Input</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="menu-items">
+                    <a href="checkboxes.html">Checkboxes</a>
+                    <a href="dropdown.html">Dropdown</a>
+                    <a href="add_remove_elements/index.html">Add/Remove Elements</a>
+                    <a href="inputs.html">Inputs</a>
+                    <a href="key_presses.html">Key Presses</a>
+                    <a href="upload.html">File Upload</a>
+                </div>
+            </div>
+
+            <div class="menu-group">
+                <div class="menu-group-title" onclick="toggleMenu(this)">
+                    <span>Authentication</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="menu-items">
+                    <a href="basic_auth.html">Basic Auth</a>
+                    <a href="digest_auth/index.html">Digest Authentication</a>
+                    <a href="login.html">Form Authentication</a>
+                    <a href="forgot_password.html">Forgot Password</a>
+                </div>
+            </div>
+
+            <div class="menu-group">
+                <div class="menu-group-title" onclick="toggleMenu(this)">
+                    <span>Interactions</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="menu-items">
+                    <a href="drag_and_drop.html">Drag and Drop</a>
+                    <a href="hovers.html">Hovers</a>
+                    <a href="context_menu.html">Context Menu</a>
+                    <a href="floating_menu.html">Floating Menu</a>
+                </div>
+            </div>
+
+            <div class="menu-group">
+                <div class="menu-group-title" onclick="toggleMenu(this)">
+                    <span>Dynamic Content</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="menu-items">
+                    <a href="dynamic_content.html">Dynamic Content</a>
+                    <a href="dynamic_controls.html">Dynamic Controls</a>
+                    <a href="dynamic_loading.html">Dynamic Loading</a>
+                    <a href="disappearing_elements.html">Disappearing Elements</a>
+                    <a href="entry_ad.html">Entry Ad</a>
+                    <a href="exit_intent.html">Exit Intent</a>
+                    <a href="infinite_scroll.html">Infinite Scroll</a>
+                </div>
+            </div>
+
+            <div class="menu-group">
+                <div class="menu-group-title" onclick="toggleMenu(this)">
+                    <span>Advanced DOM</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="menu-items">
+                    <a href="challenging_dom.html">Challenging DOM</a>
+                    <a href="large.html">Large & Deep DOM</a>
+                    <a href="shifting_content.html">Shifting Content</a>
+                    <a href="shadowdom.html">Shadow DOM</a>
+                </div>
+            </div>
+
+            <div class="menu-group">
+                <div class="menu-group-title" onclick="toggleMenu(this)">
+                    <span>JavaScript</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="menu-items">
+                    <a href="javascript_alerts.html">JavaScript Alerts</a>
+                    <a href="javascript_error.html">JavaScript onload Error</a>
+                    <a href="jqueryui/menu.html">JQuery UI Menus</a>
+                    <a href="tinymce.html">WYSIWYG Editor</a>
+                </div>
+            </div>
+
+            <div class="menu-group">
+                <div class="menu-group-title" onclick="toggleMenu(this)">
+                    <span>Windows & Frames</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="menu-items">
+                    <a href="frames.html">Frames</a>
+                    <a href="nested_frames.html">Nested Frames</a>
+                    <a href="windows.html">Multiple Windows</a>
+                </div>
+            </div>
+
+            <div class="menu-group">
+                <div class="menu-group-title" onclick="toggleMenu(this)">
+                    <span>Files</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="menu-items">
+                    <a href="download.html">File Download</a>
+                    <a href="download_secure.html">Secure File Download</a>
+                </div>
+            </div>
+
+            <div class="menu-group">
+                <div class="menu-group-title" onclick="toggleMenu(this)">
+                    <span>Testing Patterns</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="menu-items">
+                    <a href="abtest.html">A/B Testing</a>
+                    <a href="broken_images.html">Broken Images</a>
+                    <a href="geolocation.html">Geolocation</a>
+                    <a href="horizontal_slider.html">Horizontal Slider</a>
+                    <a href="notification_message_rendered.html">Notification Messages</a>
+                    <a href="redirector.html">Redirect Link</a>
+                    <a href="slow.html">Slow Resources</a>
+                    <a href="status_codes.html">Status Codes</a>
+                    <a href="tables.html">Sortable Data Tables</a>
+                    <a href="typos.html">Typos</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="content">
+            <div id="page-content">
+                <p>Content not available</p>
+            </div>
+            <div id='page-footer'>
+                <hr>
+                <div>Powered by <a target="_blank" href="http://elementalselenium.com/">Elemental Selenium</a></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu(titleEl) {
+            const itemsEl = titleEl.nextElementSibling;
+            itemsEl.classList.toggle('open');
+            titleEl.classList.toggle('active');
+            titleEl.querySelector('.arrow').classList.toggle('open');
+        }
+
+        // Open first menu on load
+        window.addEventListener('load', () => {
+            const firstMenu = document.querySelector('.menu-group-title');
+            if (firstMenu) firstMenu.click();
+        });
+    </script>
+</body>
+</html>

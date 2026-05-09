@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(netstat -ano)",
+      "Bash(findstr :80)",
+      "Bash(findstr /n \"demoqa\" D:\\\\xampp\\\\apache\\\\conf\\\\httpd.conf)",
+      "Bash(Select-String -Path \"D:\\\\xampp\\\\apache\\\\conf\\\\httpd.conf\" -Pattern \"demoqa\")",
+      "Bash(D:\\\\xampp\\\\apache\\\\bin\\\\httpd.exe -t)",
+      "Bash(Test-Path \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa\\\\practice.expandtesting.com\\\\socket.io\\\\socket.io.min.js\")",
+      "Bash(powershell.exe -ExecutionPolicy Bypass -File \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa\\\\remove-socketio.ps1\")",
+      "Bash(Remove-Item \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa\\\\remove-socketio.ps1\" -Force)",
+      "Bash(powershell.exe -Command \"Remove-Item 'D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa\\\\remove-socketio.ps1' -Force\")",
+      "Bash(powershell.exe -ExecutionPolicy Bypass -File \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa\\\\remove-aswift.ps1\")",
+      "Bash(powershell.exe -Command \"Remove-Item 'D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa\\\\remove-aswift.ps1' -Force\")",
+      "Bash(powershell.exe -ExecutionPolicy Bypass -File \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa\\\\remove-ads.ps1\")",
+      "Bash(powershell.exe -Command \"Remove-Item 'D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa\\\\remove-ads.ps1' -Force\")",
+      "Bash(powershell.exe -ExecutionPolicy Bypass -File \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa\\\\remove-adbar.ps1\")",
+      "Bash(powershell.exe -Command \"Remove-Item 'D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa\\\\remove-adbar.ps1' -Force\")",
+      "Bash(git checkout *)",
+      "Bash(powershell.exe -ExecutionPolicy Bypass -File \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa\\\\clean-ads-careful.ps1\")",
+      "Bash(powershell.exe -Command \"Remove-Item 'D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa\\\\clean-ads-careful.ps1', 'D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa\\\\fix-structure.ps1' -Force -ErrorAction SilentlyContinue\")",
+      "Bash(powershell.exe -ExecutionPolicy Bypass -File \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa\\\\remove-all-ads-final.ps1\")",
+      "Bash(powershell.exe -Command \"Remove-Item 'D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa\\\\remove-all-ads-final.ps1' -Force\")",
+      "Bash(powershell.exe -ExecutionPolicy Bypass -File \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa\\\\remove-ads-safely.ps1\")",
+      "Bash(powershell.exe -Command \"Remove-Item 'D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa\\\\remove-ads-safely.ps1' -Force\")",
+      "Bash(powershell.exe -ExecutionPolicy Bypass -File \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa\\\\final-cleanup.ps1\")",
+      "Bash(powershell.exe -Command \"Remove-Item 'D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa\\\\final-cleanup.ps1' -Force\")"
+    ]
+  }
+}

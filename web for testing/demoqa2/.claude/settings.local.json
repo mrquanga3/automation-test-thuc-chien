@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl.exe http://localhost -I)",
+      "Bash(Select-String -Path \"D:\\\\xampp\\\\apache\\\\conf\\\\httpd.conf\" -Pattern \"Alias|demoqa2\")",
+      "Bash(Select-String -Path \"D:\\\\xampp\\\\apache\\\\conf\\\\httpd.conf\" -Pattern \"</Directory>\")",
+      "Bash(\"D:\\\\xampp\\\\apache\\\\bin\\\\httpd.exe\" -t)",
+      "Bash(Get-ChildItem -Path \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa2\" -Recurse -File)",
+      "Bash(Select-Object FullName)",
+      "Bash(mkdir -p \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa2\\\\the-internet.herokuapp.com\\\\layout\")",
+      "Bash(rm -f \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa2\\\\the-internet.herokuapp.com\\\\context_menu.php\" \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa2\\\\the-internet.herokuapp.com\\\\checkboxes.php\" \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa2\\\\the-internet.herokuapp.com\\\\index.php\" \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa2\\\\the-internet.herokuapp.com\\\\dropdown.php\" \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa2\\\\the-internet.herokuapp.com\\\\drag_and_drop.php\" \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa2\\\\the-internet.herokuapp.com\\\\hovers.php\" \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa2\\\\the-internet.herokuapp.com\\\\TEMPLATE_GUIDE.md\")",
+      "Bash(rm -rf \"D:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa2\\\\the-internet.herokuapp.com\\\\layout\")",
+      "Bash(grep \"\\\\.html$\")",
+      "Bash(python convert_pages.py)",
+      "Bash(sed -i 's/ CLASS_CURRENT_[A-Z_]*//g' \"d:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa2\\\\the-internet.herokuapp.com\\\\template.html\")",
+      "Bash(sed -i 's/ CURRENT_MENU_[A-Z]*//g' \"d:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa2\\\\the-internet.herokuapp.com\\\\template.html\")",
+      "Bash(python fix_subdir_paths.py)",
+      "Bash(python convert_subdir_complete.py)",
+      "Bash(grep -E \"the-internet\\\\.herokuapp\\\\.com.*\\\\.html$\")",
+      "Bash(grep -r \"add_remove_elements/challenging_dom\" \"d:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa2\\\\\" 2>/dev/null | head -5)",
+      "Read(//d/automation-test-thuc-chien/web for testing/demoqa2\" 2>/dev/**)",
+      "Bash(ls -la \"d:\\\\automation-test-thuc-chien\\\\web for testing\\\\demoqa2\\\\\" | head -20)",
+      "Read(//d/automation-test-thuc-chien/web for testing/**)",
+      "Bash(cat)",
+      "Bash(bash /tmp/fix_subdir_links.sh)"
+    ],
+    "additionalDirectories": [
+      "D:\\automation-test-thuc-chien\\web for testing\\demoqa2\\the-internet.herokuapp.com"
+    ]
+  }
+}

@@ -1,0 +1,312 @@
+﻿<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Key Presses - The Internet</title>
+    <link href="css/app.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <script src="js/vendor/jquery-1.11.3.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; }
+
+        /* Header */
+        #header {
+            background: #333;
+            color: white;
+            padding: 15px 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #header h1 { margin: 0; font-size: 24px; }
+
+        #header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        
+
+        /* Main Container */
+        #container { display: flex; min-height: calc(100vh - 60px); }
+
+        /* Sidebar */
+        #sidebar {
+            width: 250px;
+            background: #2c3e50;
+            color: white;
+            overflow-y: auto;
+            padding: 20px 0;
+        }
+
+        .menu-group { margin-bottom: 0; }
+        .menu-group-title {
+            padding: 10px 20px;
+            cursor: pointer;
+            background: #34495e;
+            font-weight: bold;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+        .menu-group-title:hover { background: #3d5a73; }
+        .menu-group-title.active { background: #3498db; }
+
+        .menu-items {
+            display: none;
+            background: #2c3e50;
+        }
+        .menu-items.open { display: block; }
+
+        .menu-items a {
+            display: block;
+            padding: 8px 35px;
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 13px;
+            transition: all 0.3s;
+            border-left: 3px solid transparent;
+        }
+        .menu-items a:hover {
+            background: #34495e;
+            border-left-color: #3498db;
+            padding-left: 38px;
+        }
+        .menu-items a.active {
+            background: #3498db;
+            color: white;
+            border-left-color: #2980b9;
+        }
+
+        /* Content Area */
+        #content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        #page-content {
+            background: white;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            min-height: 400px;
+        }
+
+        .heading { color: white; margin-bottom: 10px; }
+        h2 { color: #34495e; margin: 20px 0 10px 0; }
+
+        #page-footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 12px;
+            border-top: 1px solid #ddd;
+            margin-top: 20px;
+        }
+
+        /* Arrow indicator for menu expand/collapse */
+        .arrow {
+            transition: transform 0.3s;
+            font-size: 10px;
+        }
+        .arrow.open { transform: rotate(-90deg); }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <a href="index.html" style="text-decoration: none; color: white;">
+            <h1 class="heading">Welcome to the-internet</h1>
+        </a>
+    </div>
+
+    <div id="container">
+        <div id="sidebar">
+            <div class="menu-group">
+                <div class="menu-group-title" onclick="toggleMenu(this)">
+                    <span>Form & Input</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="menu-items">
+                    <a href="checkboxes.html">Checkboxes</a>
+                    <a href="dropdown.html">Dropdown</a>
+                    <a href="add_remove_elements/index.html">Add/Remove Elements</a>
+                    <a href="inputs.html">Inputs</a>
+                    <a href="key_presses.html" class="active">Key Presses</a>
+                    <a href="upload.html">File Upload</a>
+                </div>
+            </div>
+
+            <div class="menu-group">
+                <div class="menu-group-title" onclick="toggleMenu(this)">
+                    <span>Authentication</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="menu-items">
+                    <a href="basic_auth.html">Basic Auth</a>
+                    <a href="digest_auth/index.html">Digest Authentication</a>
+                    <a href="login.html">Form Authentication</a>
+                    <a href="forgot_password.html">Forgot Password</a>
+                </div>
+            </div>
+
+            <div class="menu-group">
+                <div class="menu-group-title" onclick="toggleMenu(this)">
+                    <span>Interactions</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="menu-items">
+                    <a href="drag_and_drop.html">Drag and Drop</a>
+                    <a href="hovers.html">Hovers</a>
+                    <a href="context_menu.html">Context Menu</a>
+                    <a href="floating_menu.html">Floating Menu</a>
+                </div>
+            </div>
+
+            <div class="menu-group">
+                <div class="menu-group-title" onclick="toggleMenu(this)">
+                    <span>Dynamic Content</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="menu-items">
+                    <a href="dynamic_content.html">Dynamic Content</a>
+                    <a href="dynamic_controls.html">Dynamic Controls</a>
+                    <a href="dynamic_loading.html">Dynamic Loading</a>
+                    <a href="disappearing_elements.html">Disappearing Elements</a>
+                    <a href="entry_ad.html">Entry Ad</a>
+                    <a href="exit_intent.html">Exit Intent</a>
+                    <a href="infinite_scroll.html">Infinite Scroll</a>
+                </div>
+            </div>
+
+            <div class="menu-group">
+                <div class="menu-group-title" onclick="toggleMenu(this)">
+                    <span>Advanced DOM</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="menu-items">
+                    <a href="challenging_dom.html">Challenging DOM</a>
+                    <a href="large.html">Large & Deep DOM</a>
+                    <a href="shifting_content.html">Shifting Content</a>
+                    <a href="shadowdom.html">Shadow DOM</a>
+                </div>
+            </div>
+
+            <div class="menu-group">
+                <div class="menu-group-title" onclick="toggleMenu(this)">
+                    <span>JavaScript</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="menu-items">
+                    <a href="javascript_alerts.html">JavaScript Alerts</a>
+                    <a href="javascript_error.html">JavaScript onload Error</a>
+                    <a href="jqueryui/menu.html">JQuery UI Menus</a>
+                    <a href="tinymce.html">WYSIWYG Editor</a>
+                </div>
+            </div>
+
+            <div class="menu-group">
+                <div class="menu-group-title" onclick="toggleMenu(this)">
+                    <span>Windows & Frames</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="menu-items">
+                    <a href="frames.html">Frames</a>
+                    <a href="nested_frames.html">Nested Frames</a>
+                    <a href="windows.html">Multiple Windows</a>
+                </div>
+            </div>
+
+            <div class="menu-group">
+                <div class="menu-group-title" onclick="toggleMenu(this)">
+                    <span>Files</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="menu-items">
+                    <a href="download.html">File Download</a>
+                    <a href="download_secure.html">Secure File Download</a>
+                </div>
+            </div>
+
+            <div class="menu-group">
+                <div class="menu-group-title" onclick="toggleMenu(this)">
+                    <span>Testing Patterns</span>
+                    <span class="arrow">▶</span>
+                </div>
+                <div class="menu-items">
+                    <a href="abtest.html">A/B Testing</a>
+                    <a href="broken_images.html">Broken Images</a>
+                    <a href="geolocation.html">Geolocation</a>
+                    <a href="horizontal_slider.html">Horizontal Slider</a>
+                    <a href="notification_message_rendered.html">Notification Messages</a>
+                    <a href="redirector.html">Redirect Link</a>
+                    <a href="slow.html">Slow Resources</a>
+                    <a href="status_codes.html">Status Codes</a>
+                    <a href="tables.html">Sortable Data Tables</a>
+                    <a href="typos.html">Typos</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="content">
+            <div id="page-content">
+                <div id="content" class="large-12 columns">
+        <script>
+  $(document).keydown(function(event){
+    output = keyboardMap[ event.which ];
+    log('You entered: '+ output);
+  })
+  function log(msg) {
+    var result = document.getElementById('result');
+    result.innerHTML = msg;
+  }
+  // names of known key codes (0-255)
+  var keyboardMap = ["","","","CANCEL","","","HELP","","BACK_SPACE","TAB","","","CLEAR","ENTER","RETURN","","SHIFT","CONTROL","ALT","PAUSE","CAPS_LOCK","KANA","EISU","JUNJA","FINAL","HANJA","","ESCAPE","CONVERT","NONCONVERT","ACCEPT","MODECHANGE","SPACE","PAGE_UP","PAGE_DOWN","END","HOME","LEFT","UP","RIGHT","DOWN","SELECT","PRINT","EXECUTE","PRINTSCREEN","INSERT","DELETE","","0","1","2","3","4","5","6","7","8","9","COLON","SEMICOLON","LESS_THAN","EQUALS","GREATER_THAN","QUESTION_MARK","AT","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","WIN","","CONTEXT_MENU","","SLEEP","NUMPAD0","NUMPAD1","NUMPAD2","NUMPAD3","NUMPAD4","NUMPAD5","NUMPAD6","NUMPAD7","NUMPAD8","NUMPAD9","MULTIPLY","ADD","SEPARATOR","SUBTRACT","DECIMAL","DIVIDE","F1","F2","F3","F4","F5","F6","F7","F8","F9","F10","F11","F12","F13","F14","F15","F16","F17","F18","F19","F20","F21","F22","F23","F24","","","","","","","","","NUM_LOCK","SCROLL_LOCK","WIN_OEM_FJ_JISHO","WIN_OEM_FJ_MASSHOU","WIN_OEM_FJ_TOUROKU","WIN_OEM_FJ_LOYA","WIN_OEM_FJ_ROYA","","","","","","","","","","CIRCUMFLEX","EXCLAMATION","DOUBLE_QUOTE","HASH","DOLLAR","PERCENT","AMPERSAND","UNDERSCORE","OPEN_PAREN","CLOSE_PAREN","ASTERISK","PLUS","PIPE","HYPHEN_MINUS","OPEN_CURLY_BRACKET","CLOSE_CURLY_BRACKET","TILDE","","","","","VOLUME_MUTE","VOLUME_DOWN","VOLUME_UP","","","","","COMMA","","PERIOD","SLASH","BACK_QUOTE","","","","","","","","","","","","","","","","","","","","","","","","","","","OPEN_BRACKET","BACK_SLASH","CLOSE_BRACKET","QUOTE","","META","ALTGR","","WIN_ICO_HELP","WIN_ICO_00","","WIN_ICO_CLEAR","","","WIN_OEM_RESET","WIN_OEM_JUMP","WIN_OEM_PA1","WIN_OEM_PA2","WIN_OEM_PA3","WIN_OEM_WSCTRL","WIN_OEM_CUSEL","WIN_OEM_ATTN","WIN_OEM_FINISH","WIN_OEM_COPY","WIN_OEM_AUTO","WIN_OEM_ENLW","WIN_OEM_BACKTAB","ATTN","CRSEL","EXSEL","EREOF","PLAY","ZOOM","","PA1","WIN_OEM_CLEAR",""];
+</script>
+
+<div class='example'>
+  <h3>Key Presses</h3>
+  <p>Key presses are often used to interact with a website (e.g., tab order, enter, escape, etc.). Press a key and see what you inputted.</p>
+  <form><input id='target' type='text'></form>
+  <p id='result' style='color:green'></p>
+</div>
+
+      </div>
+            </div>
+            <div id='page-footer'>
+                <hr>
+                <div>Powered by <a target="_blank" href="http://elementalselenium.com/">Elemental Selenium</a></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu(titleEl) {
+            const itemsEl = titleEl.nextElementSibling;
+            itemsEl.classList.toggle('open');
+            titleEl.classList.toggle('active');
+            titleEl.querySelector('.arrow').classList.toggle('open');
+        }
+
+        // Open first menu on load
+        window.addEventListener('load', () => {
+            const firstMenu = document.querySelector('.menu-group-title');
+            if (firstMenu) firstMenu.click();
+        });
+    </script>
+</body>
+</html>
+
+
+
