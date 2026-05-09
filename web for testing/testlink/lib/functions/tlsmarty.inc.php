@@ -116,7 +116,7 @@ class TLSmarty extends Smarty {
     $this->compile_dir = TL_TEMP_PATH;
 
     // Enable Smarty caching and increase cache lifetime
-    $this->caching = 1; // Smarty::CACHING_LIFETIME_CURRENT
+    $this->caching = 0; // DISABLED for development - was 1: Smarty::CACHING_LIFETIME_CURRENT
     $this->cache_lifetime = 86400; // 1 day (86400 seconds)
     $this->cache_dir = TL_TEMP_PATH . 'smarty_cache/';
     if (!is_dir($this->cache_dir)) {

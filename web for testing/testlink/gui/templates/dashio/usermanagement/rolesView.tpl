@@ -12,7 +12,7 @@ Purpose: smarty template - View defined roles
 {lang_get var="labels"
           s="btn_create,title_user_mgmt,title_roles,delete_role,caption_possible_affected_users,
              warning_users_will_be_reset,btn_confirm_delete,btn_cancel,no_roles,th_duplicate_role,
-             th_roles,th_role_description,th_delete,alt_edit_role,alt_delete_role,N_A,duplicate_role"}
+             th_roles,th_role_description,th_delete,alt_edit_role,alt_delete_role,N_A,duplicate_role,toggle_navigation"}
 
 {$cfg_section=$smarty.template|replace:".tpl":""}
 {config_load file="input_dimensions.conf" section=$cfg_section}
@@ -35,7 +35,13 @@ Purpose: smarty template - View defined roles
                                    DataTablesLengthMenu=$ll}
 </head>
 
-<body {$body_onload}>
+<body style="background-color: #eaeaea">
+<div style="position: fixed; top: 0; left: 0; z-index: 100; padding: 10px;">
+  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="{$labels.toggle_navigation}" style="cursor: pointer; color: white; font-size: 20px;"></div>
+</div>
+{include file="aside.tpl"}
+<div id="main-content">
+
 <h1 class="{#TITLE_CLASS#}">{$gui->main_title}</h1>
 
 {include file="usermanagement/menu.inc.tpl"}
@@ -155,5 +161,7 @@ alert('kok')
 var del_action=fRoot+'lib/usermanagement/rolesView.php?doAction=delete'+
                '&roleid=';
 </script>
-
+</div> {* /main-content *}
+{include file="supportJS.inc.tpl"}
 </body>
+</html>

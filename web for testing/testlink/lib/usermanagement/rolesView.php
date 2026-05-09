@@ -16,7 +16,16 @@ testlinkInitPage($db,false,false,"checkRights");
 $templateCfg = templateConfiguration();
 init_global_rights_maps();
 $args = init_args();
+list($navArgs, $navGui) = initUserEnv($db, $args,
+  array('caller' => basename(__FILE__)));
 $gui = initializeGui($db,$args);
+$gui->uri = $navGui->uri;
+$gui->showMenu = $navGui->showMenu;
+$gui->grants = $navGui->grants;
+$gui->activeMenu = $navGui->activeMenu;
+$gui->access = $navGui->access;
+$gui->countPlans = $navGui->countPlans;
+$gui->activeMenu['system'] = 'active';
 
 $doDelete = false;
 $role = null;

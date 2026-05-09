@@ -47,6 +47,7 @@ $gui->grants = $navGui->grants;
 $gui->activeMenu = $navGui->activeMenu;
 $gui->access = $navGui->access;
 $gui->countPlans = $navGui->countPlans;
+$gui->activeMenu['projects'] = 'active';
 $gui->activeSubmenu = array();
 $gui->activeSubmenu['usersAssign'] = 'active';
 
@@ -80,7 +81,7 @@ switch($args->featureType) {
   	$featureMgr = &$tplanMgr;
 
     $accessKey = 'private';
-    if( $tprojectMgr->getPublicAttr($args->testprojectID) )
+    if( $args->testprojectID > 0 && $tprojectMgr->getPublicAttr($args->testprojectID) )
     {
       $accessKey = 'public';
     }  

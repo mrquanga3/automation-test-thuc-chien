@@ -21,7 +21,12 @@
       "Bash(xargs grep -l \"class tlPlatform\")",
       "mcp__playwright__browser_close",
       "Bash(xargs grep -l \"metrics_dashboard\\\\|showMetrics\")",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git commit *)",
+      "Bash(curl -s \"http://localhost/testlink/lib/usermanagement/usersAssign.php?tproject_id=1&tplan_id=2&featureType=testproject&featureID=1\")",
+      "Bash(git checkout *)",
+      "mcp__playwright__browser_select_option"
     ]
   }
 }

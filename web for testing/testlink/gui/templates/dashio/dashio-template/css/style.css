@@ -339,6 +339,9 @@ ul.sidebar-menu li ul.sub li a:hover {
 
 ul.sidebar-menu li ul.sub li.active a {
     color: #4ECDC4;
+    font-weight: bold;
+    border-left: 3px solid #4ECDC4;
+    padding-left: 12px;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;

@@ -135,18 +135,18 @@ function changeFeature(feature)
 {include file="usermanagement/menu.inc.tpl"}
 <div class="workBack">
 
-{include file="inc_update.tpl" result=$result 
-         item=$gui->featureType action=$action 
+{include file="inc_update.tpl" result=$result
+         item=$gui->featureType action=$action
          user_feedback=$gui->user_feedback}
 
-{* 
+{*
 Because this page can be reloaded due to a test project change done by
 user on navBar.tpl, if method of form below is post we don't get
 during refresh feature, and then we have a bad refresh on page getting a bug.
 *}
 
-{if $gui->features neq ''}
-{$featureID = $gui->featureID}
+{assign var="featureID" value=$gui->featureID|default:''}
+{if (isset($gui->features) && $gui->features) or true}
 <form method="post" action="{$umgmt}/usersAssign.php"
 	{if $tlCfg->demoMode}
 		onsubmit="alert('{$labels.warn_demo}'); return false;"
