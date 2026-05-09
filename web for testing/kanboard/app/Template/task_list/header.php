@@ -22,6 +22,9 @@
                         <li>
                             <a href="<?= $this->url->href('TaskBulkChangePropertyController', 'show', ['project_id' => $project['id']]) ?>" data-list-item-action="modal"><?= t('Edit tasks in bulk') ?></a>
                         </li>
+                        <li>
+                            <a href="<?= $this->url->href('TaskBulkSuppressionController', 'show', ['project_id' => $project['id']]) ?>" data-list-item-action="modal"><?= t('Remove selected tasks') ?></a>
+                        </li>
                     </ul>
                 </div>
             </div>
