@@ -223,9 +223,9 @@ document.addEventListener(\'DOMContentLoaded\', function() {
                 echo '<li><div style="display:flex; gap:5px; align-items:flex-start;">'.K_NEWLINE;
                 // add/delete group
                 echo F_user_group_select('new_group_id');
-                F_submit_button('addgroup', $l['w_add'], $l['w_add']);
+                F_submit_button('addgroup', $l['w_add'].' '.$l['w_group'], $l['w_add'].' '.$l['w_group']);
                 if ($_SESSION['session_user_level'] >= K_AUTH_DELETE_GROUPS) {
-                    F_submit_button('delgroup', $l['w_delete'], $l['h_delete'], 'onclick="return confirm(\''.$l['m_delete_confirm'].'\')"');
+                    F_submit_button('delgroup', $l['w_delete'].' '.$l['w_group'], $l['h_delete'].' '.$l['w_group'], 'onclick="return confirm(\''.$l['m_delete_confirm'].'\')"');
                 }
                 echo '</div></li>'.K_NEWLINE;
                 if ($_SESSION['session_user_level'] >= K_AUTH_MOVE_GROUPS) {
@@ -239,7 +239,7 @@ document.addEventListener(\'DOMContentLoaded\', function() {
                     echo F_user_group_select('from_group_id');
                     echo '<span style="margin:0 3px; align-self:center;">'.$arr.'</span>'.K_NEWLINE;
                     echo F_user_group_select('to_group_id');
-                    F_submit_button('move', $l['w_move'], $l['w_move']);
+                    F_submit_button('move', $l['w_move'].' '.$l['w_group'], $l['w_move'].' '.$l['w_group']);
                     echo '</div></li>'.K_NEWLINE;
                 }
             }
@@ -596,7 +596,7 @@ function F_user_group_select($name = 'group_id')
     $str .= '<select name="'.$name.'" id="'.$name.'" size="0" title="'.$l['w_group'].'">'.K_NEWLINE;
     $sql = F_user_group_select_sql();
     if ($r = F_db_query($sql, $db)) {
-        $str .= '<option value="0" style="color:gray" selected="selected">'.$l['w_group'].'</option>'.K_NEWLINE;
+        $str .= '<option value="0" style="color:gray" selected="selected">&nbsp;</option>'.K_NEWLINE;
         while ($m = F_db_fetch_array($r)) {
             $str .= '<option value="'.$m['group_id'].'">';
             $str .= ' '.htmlspecialchars($m['group_name'], ENT_NOQUOTES, $l['a_meta_charset']).'&nbsp;</option>'.K_NEWLINE;
