@@ -237,7 +237,7 @@ document.addEventListener(\'DOMContentLoaded\', function() {
                         $arr = '&rarr;';
                     }
                     echo F_user_group_select('from_group_id');
-                    echo '<span style="margin:0 3px;">'.$arr.'</span>'.K_NEWLINE;
+                    echo '<span style="margin:0 3px; align-self:center;">'.$arr.'</span>'.K_NEWLINE;
                     echo F_user_group_select('to_group_id');
                     F_submit_button('move', $l['w_move'], $l['w_move']);
                     echo '</div></li>'.K_NEWLINE;
