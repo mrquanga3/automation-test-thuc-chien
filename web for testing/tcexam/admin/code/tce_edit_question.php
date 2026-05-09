@@ -737,35 +737,40 @@ if (K_ENABLE_QUESTION_EXPLANATION) {
 // question type
 echo '<div class="row">'.K_NEWLINE;
 echo '<span class="label">'.$l['w_type'].'</span>'.K_NEWLINE;
+// Question type selection: 1=Single answer, 2=Multiple answers, 3=Free answer, 4=Ordering answers
 echo '<div class="formw" style="display:flex; flex-wrap:wrap; gap:15px; align-items:center;">'.K_NEWLINE;
 
+// 1 = Single answer (S) - select one correct answer
 echo '<input type="radio" name="question_type" id="single_answer" value="1"';
 if ($question_type==1) {
     echo ' checked="checked"';
 }
 echo ' title="'.$l['h_enable_single_answer'].'" />';
-echo '<label for="single_answer">'.$l['w_single_answer'].'</label>'.K_NEWLINE;
+echo '<label for="single_answer">'.$l['w_single_answer'].' (S)</label>'.K_NEWLINE;
 
+// 2 = Multiple answers (M) - select multiple correct answers
 echo '<input type="radio" name="question_type" id="multiple_answers" value="2"';
 if ($question_type==2) {
     echo ' checked="checked"';
 }
 echo ' title="'.$l['h_enable_multiple_answers'].'" />';
-echo '<label for="multiple_answers">'.$l['w_multiple_answers'].'</label>'.K_NEWLINE;
+echo '<label for="multiple_answers">'.$l['w_multiple_answers'].' (M)</label>'.K_NEWLINE;
 
+// 3 = Free answer (T) - text/free response answer
 echo '<input type="radio" name="question_type" id="free_answer" value="3"';
 if ($question_type==3) {
     echo ' checked="checked"';
 }
 echo ' title="'.$l['h_enable_free_answer'].'" />';
-echo '<label for="free_answer">'.$l['w_free_answer'].'</label>'.K_NEWLINE;
+echo '<label for="free_answer">'.$l['w_free_answer'].' (T)</label>'.K_NEWLINE;
 
+// 4 = Ordering answers (O) - arrange items in correct order
 echo '<input type="radio" name="question_type" id="ordering_answer" value="4"';
 if ($question_type==4) {
     echo ' checked="checked"';
 }
 echo ' title="'.$l['h_enable_ordering_answer'].'" />';
-echo '<label for="ordering_answer">'.$l['w_ordering_answer'].'</label>'.K_NEWLINE;
+echo '<label for="ordering_answer">'.$l['w_ordering_answer'].' (O)</label>'.K_NEWLINE;
 
 echo '</div>'.K_NEWLINE;
 echo '</div>'.K_NEWLINE;

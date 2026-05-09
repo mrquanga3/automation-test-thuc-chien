@@ -186,7 +186,15 @@ $pdf->SetTitle($doc_title);
 $pdf->SetSubject($doc_description);
 $pdf->SetKeywords('TCExam, '.$doc_title);
 
-$pdf->setHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
+// Add test name to header if available
+$header_string = PDF_HEADER_STRING;
+if (!empty($ts['testuser'])) {
+    $first_testuser = reset($ts['testuser']);
+    if (!empty($first_testuser['test']['test_name'])) {
+        $header_string = $l['w_test'].': '.$first_testuser['test']['test_name'];
+    }
+}
+$pdf->setHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, $header_string);
 
 //set margins
 $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);

@@ -426,9 +426,9 @@ class TCPDFEX extends TCPDF
         }
 
         if ($pubmode) {
-            $num_column = 11;
+            $num_column = 10;
         } else {
-            $num_column = 14;
+            $num_column = 13;
         }
         if ($stats < 1) {
             $num_column -= 5;
@@ -446,14 +446,24 @@ class TCPDFEX extends TCPDF
 
         $this->SetFont(PDF_FONT_NAME_DATA, 'B', PDF_FONT_SIZE_DATA);
 
+        // Calculate table widths
+        $base_width = $tce_data_cell_width_third + (5 * $tce_data_cell_width_third) + $tce_data_cell_width + (5 * $tce_data_cell_width_third);
+        $user_col_width = (2.5 * $tce_data_cell_width);
+        $stats_width = 0;
+        if ($stats > 0) {
+            $stats_width = (5 * $tce_data_cell_width);
+        }
+        // Expand user column to fill remaining page width
+        if (!$pubmode) {
+            $user_col_width = $this->tce_page_width - $base_width - $stats_width;
+        }
 
         // print table headings
         $this->Cell($tce_data_cell_width_third, $this->tce_data_cell_height, '#', 1, 0, 'C', 1);
         $this->Cell(5 * $tce_data_cell_width_third, $this->tce_data_cell_height, $l['w_time_begin'], 1, 0, 'C', true, '', 1);
         $this->Cell($tce_data_cell_width, $this->tce_data_cell_height, $l['w_time'], 1, 0, 'C', true, '', 1);
-        $this->Cell(4 * $tce_data_cell_width_third, $this->tce_data_cell_height, $l['w_test'], 1, 0, 'C', true, '', 1);
         if (!$pubmode) {
-            $this->Cell((3 * $tce_data_cell_width), $this->tce_data_cell_height, $l['w_user'].' - '.$l['w_lastname'].', '.$l['w_firstname'], 1, 0, 'C', true, '', 1);
+            $this->Cell($user_col_width, $this->tce_data_cell_height, $l['w_user'], 1, 0, 'C', true, '', 1);
         }
         $this->Cell(5 * $tce_data_cell_width_third, $this->tce_data_cell_height, $l['w_score'], 1, 0, 'C', true, '', 1);
         if ($stats > 0) {
@@ -466,27 +476,29 @@ class TCPDFEX extends TCPDF
         $this->Ln();
         $this->Ln(2);
 
-        $this->SetFont($numberfont, '', $fontdatasize);
+        $this->SetFont(PDF_FONT_NAME_DATA, '', $fontdatasize);
 
         foreach ($data['testuser'] as $tu) {
             $this->Cell($tce_data_cell_width_third, $this->tce_data_cell_height, $tu['num'], 1, 0, 'R', 0);
             $this->Cell(5 * $tce_data_cell_width_third, $this->tce_data_cell_height, $tu['testuser_creation_time'], 1, 0, 'R', 0, '', 1);
             $this->Cell($tce_data_cell_width, $this->tce_data_cell_height, $tu['time_diff'], 1, 0, 'R', 0, '', 1);
-            $this->SetFont(PDF_FONT_NAME_DATA, '', $fontdatasize);
-            $this->Cell(4 * $tce_data_cell_width_third, $this->tce_data_cell_height, $tu['test']['test_name'], 1, 0, $tdalign, 0, '', 1);
             if (!$pubmode) {
-                $this->Cell((3 * $tce_data_cell_width), $this->tce_data_cell_height, $tu['user_name'].' - '.$tu['user_lastname'].', '.$tu['user_firstname'], 1, 0, $tdalign, 0, '', 1);
+                $fullname = trim((($tu['user_lastname'] === null) ? '' : $tu['user_lastname']).' '.(($tu['user_firstname'] === null) ? '' : $tu['user_firstname']));
+                if (empty($fullname)) {
+                    $fullname = strtoupper(($tu['user_name'] === null) ? '' : $tu['user_name']);
+                }
+                $this->Cell($user_col_width, $this->tce_data_cell_height, $tu['user_name'].' / '.$fullname, 1, 0, $tdalign, 0, '', 1);
             }
-            $this->SetFont($numberfont, '', $fontdatasize);
             if ($tu['passmsg']) {
                 $this->SetFillColor(221, 255, 221);
-                $this->SetFont($numberfont, 'B', $fontdatasize);
+                $this->SetFont(PDF_FONT_NAME_DATA, 'B', $fontdatasize);
             } else {
                 $this->SetFillColor(255, 238, 238);
+                $this->SetFont(PDF_FONT_NAME_DATA, '', $fontdatasize);
             }
             $this->Cell(5 * $tce_data_cell_width_third, $this->tce_data_cell_height, $tu['total_score'].' '.F_formatPdfPercentage($tu['total_score_perc'], false), 1, 0, 'R', true, '', 1);
             if ($stats > 0) {
-                $this->SetFont($numberfont, '', $fontdatasize);
+                $this->SetFont(PDF_FONT_NAME_DATA, '', $fontdatasize);
                 $this->Cell($tce_data_cell_width, $this->tce_data_cell_height, $tu['right'].' '.F_formatPdfPercentage($tu['right_perc'], false), 1, 0, 'R', 0, '', 1);
                 $this->Cell($tce_data_cell_width, $this->tce_data_cell_height, $tu['wrong'].' '.F_formatPdfPercentage($tu['wrong_perc'], false), 1, 0, 'R', 0, '', 1);
                 $this->Cell($tce_data_cell_width, $this->tce_data_cell_height, $tu['unanswered'].' '.F_formatPdfPercentage($tu['unanswered_perc'], false), 1, 0, 'R', 0, '', 1);
@@ -501,18 +513,31 @@ class TCPDFEX extends TCPDF
         } else {
             $this->SetFillColor(255, 238, 238);
         }
-        $this->Cell(0, $this->tce_data_cell_height, $l['w_passed'].': '.$data['passed'].' '.F_formatPdfPercentage($data['passed_perc'], false), 1, 1, 'L', true, '', 1);
+        // Calculate table width - expand user column to full page width
+        $base_width = $tce_data_cell_width_third + (5 * $tce_data_cell_width_third) + $tce_data_cell_width + (5 * $tce_data_cell_width_third);
+        $user_col_width = (2.5 * $tce_data_cell_width);
+        $stats_width = 0;
+        if ($stats > 0) {
+            $stats_width = (5 * $tce_data_cell_width);
+        }
+        // Expand user column to fill remaining page width
+        if (!$pubmode) {
+            $user_col_width = $this->tce_page_width - $base_width - $stats_width;
+        }
+        $table_width = $base_width + $user_col_width + $stats_width;
+        $this->Cell($table_width, $this->tce_data_cell_height, $l['w_passed'].': '.$data['passed'].' '.F_formatPdfPercentage($data['passed_perc'], false), 1, 1, 'L', true, '', 1);
         // print statistics
         $printstat = array('mean', 'median', 'mode', 'standard_deviation', 'skewness', 'kurtosi');
         $noperc = array('skewness', 'kurtosi');
         foreach ($data['statistics'] as $row => $col) {
             if (in_array($row, $printstat)) {
                 $this->SetFont(PDF_FONT_NAME_DATA, 'B', $fontdatasize);
-                if ($pubmode) {
-                    $this->Cell((4 * $tce_data_cell_width) + $tce_data_cell_width_third, $this->tce_data_cell_height, $l['w_'.$row], 1, 0, $tdalignr, 0, '', 1);
-                } else {
-                    $this->Cell((7 * $tce_data_cell_width) + $tce_data_cell_width_third, $this->tce_data_cell_height, $l['w_'.$row], 1, 0, $tdalignr, 0, '', 1);
+                // Label column - align with results table structure
+                $label_width = $tce_data_cell_width_third + (5 * $tce_data_cell_width_third) + $tce_data_cell_width;
+                if (!$pubmode) {
+                    $label_width += $user_col_width;
                 }
+                $this->Cell($label_width, $this->tce_data_cell_height, $l['w_'.$row], 1, 0, $tdalignr, 0, '', 1);
                 $this->SetFont($numberfont, '', $fontdatasize);
                 if (in_array($row, $noperc)) {
                     $this->Cell(5 * $tce_data_cell_width_third, $this->tce_data_cell_height, F_formatFloat($col['score_perc']), 1, 0, 'R', 0, '', 1);

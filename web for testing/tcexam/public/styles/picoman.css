@@ -82,6 +82,7 @@ div#scrollayer{top:0;position: fixed;height:100%;background:var(--background);z-
 form > .rowl {overflow-x:auto}
 
 td, th{color: var(--contrast);text-align:center;border-bottom:1px solid #EDEFFF}
+td:first-child{text-align:left}
 .container > small {display: block;text-align: center;padding-bottom:var(--form-element-spacing-vertical)}
 .container > small a{color:var(--primary-inverse)}
 .infolink {display: block;text-align: center}

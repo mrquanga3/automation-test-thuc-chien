@@ -17,3 +17,4 @@ buildNumber.properties
 .classpath
 *.idea/
 web for testing/opencart/image/cache/
+web for testing/tcexam/cache/

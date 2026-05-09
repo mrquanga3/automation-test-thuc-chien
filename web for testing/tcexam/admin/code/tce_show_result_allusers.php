@@ -378,12 +378,16 @@ if (isset($_REQUEST['sel'])) {
         echo '<input type="radio" name="checkall" id="checkall0" value="0" onclick="document.getElementById(\'form_resultallusers\').submit()" />';
         echo '<label for="checkall0">'.$l['w_uncheck_all'].'</label>';
         echo '</span>'.K_NEWLINE;
-        echo '<br /><strong style="margin:5px">'.$l['m_with_selected'].'</strong><br />'.K_NEWLINE;
-        F_submit_button('delete', $l['w_delete'], $l['h_delete'], 'onclick="return confirm(\''.$l['m_delete_confirm'].'\')"');
-        F_submit_button('lock', $l['w_lock'], $l['w_lock']);
-        F_submit_button('unlock', $l['w_unlock'], $l['w_unlock']);
-        F_submit_button('extendtime', '+'.K_EXTEND_TIME_MINUTES.' min', $l['h_add_five_minutes']);
-        echo '<br /><br />'.K_NEWLINE;
+        echo '<strong style="margin:5px; display:block;">'.$l['m_with_selected'].'</strong>'.K_NEWLINE;
+        echo '<ul style="margin:5px 0; padding-left:0; list-style:none;">'.K_NEWLINE;
+        echo '<li><div style="display:flex; align-items:flex-start; gap:10px; flex-wrap:wrap;">'.K_NEWLINE;
+        echo '<input type="submit" name="delete" value="'.$l['w_delete'].'" title="'.$l['h_delete'].'" onclick="return confirm(\''.$l['m_delete_confirm'].'\')" style="width:auto; padding:4px 12px;" />'.K_NEWLINE;
+        echo '<input type="submit" name="lock" value="'.$l['w_lock'].'" title="'.$l['w_lock'].'" style="width:auto; padding:4px 12px;" />'.K_NEWLINE;
+        echo '<input type="submit" name="unlock" value="'.$l['w_unlock'].'" title="'.$l['w_unlock'].'" style="width:auto; padding:4px 12px;" />'.K_NEWLINE;
+        echo '<input type="submit" name="extendtime" value="+'.K_EXTEND_TIME_MINUTES.' min" title="'.$l['h_add_five_minutes'].'" style="width:auto; padding:4px 12px;" />'.K_NEWLINE;
+        echo '</div></li>'.K_NEWLINE;
+        echo '</ul>'.K_NEWLINE;
+        echo '<br />'.K_NEWLINE;
     }
 
     echo '</div>'.K_NEWLINE;

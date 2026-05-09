@@ -87,8 +87,9 @@ div.error, div.message, div.warning {
 
  #form_login {margin-top:var(--form-element-spacing-vertical)}
  #form_login div:first-child{padding-top:var(--form-element-spacing-vertical)}
- .formw,.value{position: relative;display:block}
- .formw > button {width: auto;position: absolute;top: 0;right: 0}
+ .formw,.value{position: relative;display:flex;align-items:center;gap:5px}
+ .formw > input {flex:1}
+ .formw > button {width: auto;position: static}
  
  .icon-eye-unblocked,.icon-eye {position: absolute;padding-right: calc(var(--form-element-spacing-horizontal) + 1.5rem);background-position: center right .75rem;background-repeat: no-repeat;background-size: 1rem auto;height: calc( (1rem * var(--line-height)) + (var(--form-element-spacing-vertical) * 2) + (var(--form-element-border-width) * 2));top: 0;right: 0;cursor:pointer}
 .icon-eye{background-image: var(--icon-eye);}.icon-eye-unblocked{background-image: var(--icon-eye-unblocked)}.icon-flag{background-image: var(--icon-flag)}
@@ -188,6 +189,8 @@ span#fontResizer {display: flex;align-items: center}
 #fontplus{border-radius:var(--block-round) 0 0 var(--block-round);border-right:none}#fontminus{border-radius:0 var(--block-round) var(--block-round) 0}
 .hidden, .hidden *, .hidden:hover, .hidden *:hover{color:transparent}
 table{background: var(--background);}
+table.userselect td, table.userselect th {text-align: center; border-right: 1px solid var(--table-border);}
+table.userselect td:last-child, table.userselect th:last-child {border-right: none;}
 
 input#confirmanswer{background: var(--valid);border-color: var(--valid)}
 input#terminatetest,input#forceterminate {background: var(--invalid);border-color: var(--invalid)}

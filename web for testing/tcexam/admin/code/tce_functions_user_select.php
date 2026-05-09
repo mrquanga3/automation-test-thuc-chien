@@ -368,7 +368,6 @@ function F_show_select_user_popup($order_field, $orderdir, $firstrow, $rowsperpa
             echo '<table class="userselect" style="font-size:80%;">'.K_NEWLINE;
             // table header
             echo '<tr style="background-color:#f0f0f0; font-weight:bold;">'.K_NEWLINE;
-            echo '<th style="font-weight:bold; padding:8px; text-align:center;"><input type="checkbox" id="checkall_master" onchange="toggleAllCheckboxes(this.checked)" title="Check/Uncheck all" /></th>'.K_NEWLINE;
             if (strlen($searchterms) > 0) {
                 $filter .= '&amp;searchterms='.urlencode($searchterms);
             }
