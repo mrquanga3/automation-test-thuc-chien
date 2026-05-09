@@ -79,7 +79,16 @@ function initEnv(&$dbHandler)
   
 
   list($add2args,$gui) = initUserEnv($dbHandler,$args);
-  $gui->grants = getGrantsForUserMgmt($dbHandler,$args->currentUser);
+  // Merge user-mgmt-specific grants (user_mgmt, role_mgmt, *_role_assignment)
+  // into the existing $gui->grants populated by initUserEnv. Overwriting
+  // would strip the keys aside.tpl needs (event_viewer, cfield_management,
+  // etc.) and break the admin sidebar.
+  $umGrants = getGrantsForUserMgmt($dbHandler,$args->currentUser);
+  foreach ($umGrants as $grantKey => $grantVal) {
+    $gui->grants->$grantKey = $grantVal;
+  }
+  $gui->activeMenu['system'] = 'active';
+  $gui->activeSubmenu['user_mgmt'] = 'active';
   $gui->main_title = lang_get('title_user_mgmt');
   $gui->result = null;
   $gui->action = null;

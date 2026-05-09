@@ -11,7 +11,7 @@ Event Viewer
              title_eventinfo,label_startdate,label_enddate,btn_apply,click_on_event_info,
              btn_clear_events,btn_clear_all_events,th_event_description,select_user,clear_tip,
              message_please_wait,btn_close,th_role_description,th_user,generated_by_TestLink_on,
-             show_calender,clear_date'}
+             show_calender,clear_date,toggle_navigation,reload_main_view'}
 
 
 {include file="inc_head.tpl" openHead="yes" jsValidate="yes"}
@@ -91,10 +91,15 @@ fieldset
 	height:100%;
 }
 </style>
-{include file="bootstrap.inc.tpl"} 
+{include file="bootstrap.inc.tpl"}
 </head>
 
-<body {$body_onload}>
+<body {$body_onload} style="background-color: #eaeaea">
+<div style="position: fixed; top: 0; left: 0; z-index: 100; padding: 10px;">
+  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="{$labels.toggle_navigation}" style="cursor: pointer; color: white; font-size: 20px;"></div>
+</div>
+{include file="aside.tpl"}
+<div id="main-content">
 <h1 class="{#TITLE_CLASS#}">{$labels.event_viewer}</h1>
 <div class="workBack">
 		<form method="post" action="lib/events/eventviewer.php">
@@ -196,4 +201,6 @@ fieldset
 		<div id="eventDetails" class="inner-tab" style="height: 100%; overflow: auto;"></div>
 	</div>
 </div>
+</div> {* /main-content *}
+{include file="supportJS.inc.tpl"}
 </body>

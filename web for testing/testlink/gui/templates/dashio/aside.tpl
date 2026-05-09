@@ -49,13 +49,13 @@ Left side menu
                 </a>
               <ul class="sub">
                 {if $gui->grants->event_viewer == "yes"}
-                  <li>
+                  <li class="{$gui->activeSubmenu.events}">
                    <a id="events"
                       href="{$gui->uri->events}">{$labels.event_viewer}</a>
                   </li>
                 {/if}
                 {if $gui->grants->user_mgmt == "yes"}
-                  <li>
+                  <li class="{$gui->activeSubmenu.user_mgmt}">
                     <a id="userMgmt" href="{$gui->uri->userMgmt}">{$labels.title_user_mgmt}</a>
                   </li>
                 {/if}

@@ -10,5 +10,5 @@
 <script src="{$dashioHome}lib/jquery.scrollTo.min.js"></script>
 <script src="{$dashioHome}lib/jquery.nicescroll.js" type="text/javascript"></script>  
 
-<script src="{$dashioHome}lib/left-bar-scripts.js"></script>
+<script src="{$dashioHome}lib/left-bar-scripts.js?v={$smarty.now|date_format:'%Y%m%d%H%M%S'}"></script>
 

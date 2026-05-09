@@ -52,9 +52,14 @@ var del_action=fRoot+"lib/usermanagement/usersView.php?operation=disable&user=";
              th_role,order_by_role_descr,order_by_role_dir,th_locale,th_active,th_api,th_delete,
              disable,alt_edit_user,Yes,No,alt_delete_user,no_permissions_for_action,btn_create,
              show_inactive_users,hide_inactive_users,alt_disable_user,order_by_login,btn_manage_user,
-             order_by_login_dir,alt_active_user,demo_special_user,btn_export"}
+             order_by_login_dir,alt_active_user,demo_special_user,btn_export,toggle_navigation,reload_main_view"}
 
-<body>
+<body style="background-color: #eaeaea">
+<div style="position: fixed; top: 0; left: 0; z-index: 100; padding: 10px;">
+  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="{$labels.toggle_navigation}" style="cursor: pointer; color: white; font-size: 20px;"></div>
+</div>
+{include file="aside.tpl"}
+<div id="main-content">
 {if $gui->grants->user_mgmt == "yes"}
 
   <h1 class="title">{$gui->main_title}</h1>
@@ -114,5 +119,7 @@ var del_action=fRoot+"lib/usermanagement/usersView.php?operation=disable&user=";
   {$labels.no_permissions_for_action}<br />
   <a href="{$gui->basehref}" alt="Home">Home</a>
 {/if}
+</div> {* /main-content *}
+{include file="supportJS.inc.tpl"}
 </body>
 </html>

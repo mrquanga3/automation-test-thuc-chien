@@ -18,6 +18,20 @@ $date_format_cfg = config_get('date_format');
 $templateCfg = templateConfiguration();
 $args = init_args();
 $gui = initializeGui($db,$args);
+
+// Populate nav-menu data ($gui->uri, $gui->showMenu, $gui->grants, etc.)
+// so eventviewer.tpl can render the admin sidebar (aside.tpl) and the
+// header hamburger toggle has a #sidebar element to act on.
+list($navArgs, $navGui) = initUserEnv($db, $args,
+  array('caller' => basename(__FILE__)));
+foreach ($navGui as $prop => $value) {
+  if (!property_exists($gui, $prop)) {
+    $gui->$prop = $value;
+  }
+}
+$gui->activeMenu['system'] = 'active';
+$gui->activeSubmenu['events'] = 'active';
+
 $filters = getFilters();
 $show_icon = TL_THEME_IMG_DIR . "plus.gif";
 $charset = config_get('charset');

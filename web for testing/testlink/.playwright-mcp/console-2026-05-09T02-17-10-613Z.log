@@ -1,2 +1,0 @@
-[    1314ms] [VERBOSE] [DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o @ http://localhost/testlink/login.php:0
-[    2176ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost/testlink/gui/templates/dashio/dashio-template/favicon.png:0

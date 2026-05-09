@@ -53,11 +53,23 @@ var Script = function() {
    */
   $('.fa-bars').click(function() {
 
-    var sidebar = window.parent.frames[1].document.getElementById('sidebar');
-    var sidebarUL = window.parent.frames[1].document.getElementById('nav-accordion');
-    var mainContent = window.parent.frames[1].document.getElementById('main-content');
-    var container = window.parent.frames[1].document.getElementById('container');
+    var targetDoc = document;
+    try {
+      if (window.parent && window.parent.frames && window.parent.frames[1]) {
+        targetDoc = window.parent.frames[1].document;
+      }
+    } catch(e) {
+      targetDoc = document;
+    }
 
+    var sidebar = targetDoc.getElementById('sidebar');
+    var sidebarUL = targetDoc.getElementById('nav-accordion');
+    var mainContent = targetDoc.getElementById('main-content');
+    var container = targetDoc.getElementById('container');
+
+    if (!sidebar || !sidebarUL || !mainContent) {
+      return;
+    }
 
     var JQsidebar = $(sidebar);
     var JQsidebarUL = $(sidebarUL);
