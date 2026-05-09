@@ -125,7 +125,7 @@ function jsCallDeleteFile(btn, text, o_id)
   {include file="tsuiteViewerRO.inc.tpl"}
 
   {if $gui->modify_tc_rights eq 'yes'}
-    {$bDownloadOnly=false}
+    {* Upload disabled per request: $bDownloadOnly=false *}
   {/if}
 {/if} {* test suite *}
 

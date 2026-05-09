@@ -17,7 +17,7 @@ TestLink Open Source Project - http://testlink.sourceforge.net/
     {$memstatus_id="tsdetails_view_status_$tc_id"}
     {$can_delete_exec=0}
     {$can_edit_exec_notes=$gui->grants->edit_exec_notes}
-    {$can_manage_attachments=$gsmarty_attachments->enabled}
+    {$can_manage_attachments=0}
     {if $tc_exec.can_be_executed}
       {if $gui->grants->delete_execution}
         {$can_delete_exec=1}
@@ -422,9 +422,9 @@ TestLink Open Source Project - http://testlink.sourceforge.net/
   				         attach_attachmentInfos=$attach_info
   				         attach_id=$execID 
   				         attach_tableName="executions"
-  				         attach_show_upload_btn=$attachment_model->show_upload_btn
+  				         attach_show_upload_btn=false
   				         attach_show_title=$attachment_model->show_title
-  				         attach_downloadOnly=$att_download_only 
+  				         attach_downloadOnly=true 
   				         attach_tableClassName=null
                    attach_inheritStyle=0
                    attach_tableStyles=null}

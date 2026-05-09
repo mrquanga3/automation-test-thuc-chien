@@ -115,6 +115,14 @@ class TLSmarty extends Smarty {
     $this->config_dir = TL_ABS_PATH . 'gui/templates/conf';
     $this->compile_dir = TL_TEMP_PATH;
 
+    // Enable Smarty caching and increase cache lifetime
+    $this->caching = 1; // Smarty::CACHING_LIFETIME_CURRENT
+    $this->cache_lifetime = 86400; // 1 day (86400 seconds)
+    $this->cache_dir = TL_TEMP_PATH . 'smarty_cache/';
+    if (!is_dir($this->cache_dir)) {
+      @mkdir($this->cache_dir, 0777, true);
+    }
+
 
     // 20200222
     // Can not access $this->dashioHome in templates

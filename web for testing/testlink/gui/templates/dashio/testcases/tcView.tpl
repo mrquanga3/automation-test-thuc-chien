@@ -182,7 +182,7 @@ function validateFormEstimatedExecDuration(the_form)
 
 
       {* If version is FROZEN, you can only download *}
-      {$bDownloadOnly=false}
+      {$bDownloadOnly=true}
       {if $gui->can_do->edit != 'yes' || $frozen_version == 'yes'}
         {$bDownloadOnly=true}
       {/if}
@@ -308,7 +308,7 @@ function validateFormEstimatedExecDuration(the_form)
                   args_has_testplans=$gui->has_testplans}
 
 
-                {$downloadOnly = false} 
+                {$downloadOnly = true} 
                 {if $thisVersionIsExecuted && 
                     $tlCfg->testcase_cfg->downloadOnlyAfterExec == TRUE}
                   {$downloadOnly=true}

@@ -349,7 +349,7 @@ error_reporting(E_ALL);
 /** @var string Default level of logging (NONE, ERROR, INFO, DEBUG, EXTENDED) 
  *  is not used by tlLogger, we need to change this in future.
  */
-$tlCfg->log_level = 'ERROR';
+$tlCfg->log_level = 'NONE';
 
 /** @var boolean show smarty debug window */
 $tlCfg->smarty_debug = false;
@@ -410,7 +410,7 @@ $g_removeEventsOlderThan = 30;
  *                                'file' => array('NONE'));
  *
  */                            
-$tlCfg->loggerFilter = null; // default defined on logger.class.php ;                            
+$tlCfg->loggerFilter = array('all' => array('NONE')); // default defined on logger.class.php ;                            
 
 // ----------------------------------------------------------------------------
 /* [SMTP] */

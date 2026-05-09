@@ -24,7 +24,7 @@ Author : franciscom
   				<div class="title">{$args_labels.test_exec_notes}</div>
           {$args_webeditor} 
         <br>  
-        {include file="attachments_simple.inc.tpl" attach_id=0}
+        {include file="attachments_simple.inc.tpl" attach_id=0 attach_show_upload_btn=false attach_downloadOnly=true}
   			</td>
   			<td valign="top" style="width:25%; border: 0px">			
     				{* status of test *}
