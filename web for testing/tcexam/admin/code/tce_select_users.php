@@ -73,12 +73,10 @@ if (!F_isAuthorizedEditorForGroup($group_id)) {
 
 echo '<form action="'.$_SERVER['SCRIPT_NAME'].'" method="post" enctype="multipart/form-data" id="form_userselect">'.K_NEWLINE;
 
-echo '<div class="row">'.K_NEWLINE;
-echo '<span class="label">'.K_NEWLINE;
-echo '<label for="group_id">'.$l['w_group'].'</label>'.K_NEWLINE;
-echo '</span>'.K_NEWLINE;
-echo '<span class="formw">'.K_NEWLINE;
-echo '<select name="group_id" id="group_id" class="searchable" size="0" onchange="document.getElementById(\'form_userselect\').submit()">'.K_NEWLINE;
+echo '<div class="container">'.K_NEWLINE;
+echo '<div style="display:flex; align-items:center; gap:10px; margin-bottom:15px; flex-wrap:nowrap;">'.K_NEWLINE;
+echo '<label for="group_id" style="white-space:nowrap; font-weight:bold; font-size:14px; color:white;">'.$l['w_group'].'</label>'.K_NEWLINE;
+echo '<select name="group_id" id="group_id" class="searchable" size="0" onchange="document.getElementById(\'form_userselect\').submit()" style="white-space:nowrap;">'.K_NEWLINE;
 
 echo '<option value="0"';
 if ($group_id == 0) {
@@ -95,14 +93,15 @@ if ($r = F_db_query($sql, $db)) {
         echo '>'.htmlspecialchars($m['group_name'], ENT_NOQUOTES, $l['a_meta_charset']).'</option>'.K_NEWLINE;
     }
 } else {
-    echo '</select></span></div>'.K_NEWLINE;
+    echo '</select></div>'.K_NEWLINE;
     F_display_db_error();
 }
 echo '</select>'.K_NEWLINE;
 
-echo '<input type="text" name="searchterms" id="searchterms" value="'.htmlspecialchars($searchterms, ENT_COMPAT, $l['a_meta_charset']).'" size="20" maxlength="255" title="'.$l['w_search'].'" />';
+echo '<input type="text" name="searchterms" id="searchterms" value="'.htmlspecialchars($searchterms, ENT_COMPAT, $l['a_meta_charset']).'" size="30" maxlength="255" title="'.$l['w_search'].'" />';
 F_submit_button('search', $l['w_search'], $l['w_search']);
-echo '</span></div>'.K_NEWLINE;
+echo '</div>'.K_NEWLINE;
+echo '</div>'.K_NEWLINE;
 // build a search query
 $wherequery = '';
 if (strlen($searchterms) > 0) {
