@@ -68,5 +68,6 @@ function initScript(&$dbH) {
   }
 
   $gui->activeMenu['projects'] = 'active';
+  $gui->activeSubmenu['keywordsView'] = 'active';
   return $gui;
 }

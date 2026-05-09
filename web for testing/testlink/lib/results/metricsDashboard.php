@@ -417,6 +417,17 @@ function initEnv(&$dbHandler)
   $gui->direct_link_ok = $args->direct_link_ok;
   $gui->warning_msg = lang_get('no_testplans_available');
 
+  // Populate nav-menu data for sidebar rendering
+  list($navArgs, $navGui) = initUserEnv($dbHandler, $args,
+    array('caller' => basename(__FILE__)));
+  foreach ($navGui as $prop => $value) {
+    if (!property_exists($gui, $prop)) {
+      $gui->$prop = $value;
+    }
+  }
+  $gui->activeMenu['projects'] = 'active';
+  $gui->activeSubmenu['metrics_dashboard'] = 'active';
+
   return array($args,$gui);
 }
 

@@ -6,7 +6,7 @@ Testlink Open Source Project - http://testlink.sourceforge.net/
 *}
 {lang_get var="labels"
           s="generated_by_TestLink_on,testproject,test_plan,platform,show_only_active,
-             info_metrics_dashboard,test_plan_progress,project_progress, info_metrics_dashboard_progress"}
+             info_metrics_dashboard,test_plan_progress,project_progress, info_metrics_dashboard_progress,toggle_navigation,reload_main_view"}
 
 {include file="inc_head.tpl" openHead='yes'}
 {include file="inc_ext_js.tpl" bResetEXTCss=1}
@@ -37,7 +37,12 @@ Ext.onReady(function() {ldelim}
 
 </head>
 
-<body>
+<body style="background-color: #eaeaea">
+<div style="position: fixed; top: 0; left: 0; z-index: 100; padding: 10px;">
+  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="{$labels.toggle_navigation}" style="cursor: pointer; color: white; font-size: 20px;"></div>
+</div>
+{include file="aside.tpl"}
+<div id="main-content">
 <h1 class="title">{$labels.testproject} {$smarty.const.TITLE_SEP} {$gui->tproject_name|escape}</h1>
 <div class="workBack">
 {$tlImages.toggle_direct_link} &nbsp;&nbsp;
@@ -84,6 +89,8 @@ Ext.onReady(function() {ldelim}
     {$gui->warning_msg}
     </div>
 {/if}
-</div> 
+</div> {* /workBack *}
+</div> {* /main-content *}
+{include file="supportJS.inc.tpl"}
 </body>
 </html>

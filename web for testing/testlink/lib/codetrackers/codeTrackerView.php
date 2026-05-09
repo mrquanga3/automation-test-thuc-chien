@@ -36,6 +36,7 @@ function initEnv(&$dbH) {
 
   list($add2args,$gui) = initUserEnv($dbH,$context);
   $gui->activeMenu['system'] = 'active';
+  $gui->activeSubmenu['codeTrackerView'] = 'active';
   $gui->user_feedback = $args->user_feedback;
   $gui->items = $codeTrackerMgr->getAll(array('output' => 'add_link_count', 'checkEnv' => true));
 

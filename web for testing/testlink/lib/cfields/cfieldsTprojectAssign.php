@@ -97,6 +97,7 @@ function initializeGui(&$args,&$cfield_mgr)
   list($add2args,$gui) = initUserEnv($cfield_mgr->db,$args);
 
   $gui->activeMenu['projects'] = 'active';
+  $gui->activeSubmenu['cfAssignment'] = 'active';
 
   $gui->locations = createLocationsMenu($cfield_mgr->getLocations());
   $gui->tproject_name = 

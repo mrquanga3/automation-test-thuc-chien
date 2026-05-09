@@ -35,7 +35,20 @@ $tprojectMgr = new testproject($db);
 $tplanMgr = new testplan($db);
 
 $args = init_args($db);
+// Populate nav-menu data ($gui->uri, $gui->showMenu, $gui->grants, etc.)
+// so usersAssign.tpl can render the admin sidebar (aside.tpl)
+list($navArgs, $navGui) = initUserEnv($db, $args,
+  array('caller' => basename(__FILE__)));
 $gui = initializeGui($db,$args);
+// Merge navigation data from navGui for sidebar rendering
+$gui->uri = $navGui->uri;
+$gui->showMenu = $navGui->showMenu;
+$gui->grants = $navGui->grants;
+$gui->activeMenu = $navGui->activeMenu;
+$gui->access = $navGui->access;
+$gui->countPlans = $navGui->countPlans;
+$gui->activeSubmenu = array();
+$gui->activeSubmenu['usersAssign'] = 'active';
 
 $lbl = initLabels();
 
@@ -574,11 +587,14 @@ function doUpdate(&$dbHandler,&$argsObj,&$featureMgr)
 function initializeGui(&$dbHandler,$argsObj)
 {
   $gui = new stdClass();
-  
+
   $gui->tproject_id = $argsObj->tproject_id;
   $gui->tplan_id = $argsObj->tplan_id;
   $gui->tproject_name = $argsObj->testprojectName;
   $gui->featureType = $argsObj->featureType;
+
+  $gui->activeMenu['projects'] = 'active';
+  $gui->activeSubmenu['usersAssign'] = 'active';
 
   $gui->highlight = initialize_tabsmenu();
   $gui->optRights = tlRole::getAll($dbHandler,null,null,null,tlRole::TLOBJ_O_GET_DETAIL_MINIMUM);

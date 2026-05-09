@@ -16,6 +16,7 @@ $cfield_mgr = new cfield_mgr($db);
 list($context,$env) = initContext();
 $gui = $cfield_mgr->initViewGUI($context,$env);
 $gui->activeMenu['system'] = 'active';
+$gui->activeSubmenu['cfieldsView'] = 'active';
 
 
 $smarty = new TLSmarty();

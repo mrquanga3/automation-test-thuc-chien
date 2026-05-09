@@ -100,6 +100,7 @@ function initializeGui(&$dbHandler,&$argsObj) {
 
   list($add2args,$guiObj) = initUserEnv($dbHandler,$argsObj);
   $guiObj->activeMenu['projects'] = 'active';
+  $guiObj->activeSubmenu['projectView'] = 'active';
   $guiObj->doAction = $argsObj->doAction;
   $guiObj->doViewReload = $argsObj->doViewReload;
 

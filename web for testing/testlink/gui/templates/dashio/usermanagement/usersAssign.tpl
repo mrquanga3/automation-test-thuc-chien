@@ -8,9 +8,9 @@ Because we are using the JS search present in DataTables, having
 comments inside the cells creates bad behaviour!!!
 
 *}
-{lang_get var="labels" 
+{lang_get var="labels"
           s='TestProject,TestPlan,btn_change,title_user_mgmt,set_roles_to,show_only_authorized_users,
-             warn_demo,User,btn_upd_user_data,btn_do,title_assign_roles'}
+             warn_demo,User,btn_upd_user_data,btn_do,title_assign_roles,toggle_navigation,reload_main_view'}
 
 {include file="inc_head.tpl" jsValidate="yes" openHead="yes"}
 {include file="inc_ext_js.tpl" css_only=1}
@@ -120,7 +120,13 @@ function changeFeature(feature)
 {/if}
 
 </head>
-<body>
+
+<body style="background-color: #eaeaea">
+<div style="position: fixed; top: 0; left: 0; z-index: 100; padding: 10px;">
+  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="{$labels.toggle_navigation}" style="cursor: pointer; color: white; font-size: 20px;"></div>
+</div>
+{include file="aside.tpl"}
+<div id="main-content">
 
 <h1 class="title">{$gui->main_title}</h1>
 {$umgmt="lib/usermanagement"}
@@ -293,6 +299,7 @@ during refresh feature, and then we have a bad refresh on page getting a bug.
 	</div>
   </form>
 {/if} {* if $gui->features *}
-</div>
+</div> {* /main-content *}
+{include file="supportJS.inc.tpl"}
 </body>
 </html>

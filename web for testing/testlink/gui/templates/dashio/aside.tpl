@@ -61,14 +61,14 @@ Left side menu
                 {/if}
 
                 {if $gui->grants->cfield_management == "yes"}
-                  <li><a id="cfieldsView" href="{$gui->uri->cfieldsView}">{$labels.href_cfields_management}</a>
+                  <li class="{$gui->activeSubmenu.cfieldsView}"><a id="cfieldsView" href="{$gui->uri->cfieldsView}">{$labels.href_cfields_management}</a>
                   </li>
                 {/if}
                 {if $gui->access.issuetracker == 'yes'}
-                  <li><a id="issueTrackerView" href="{$gui->uri->issueTrackerView}">{$labels.href_issuetracker_management}</a></li>
+                  <li class="{$gui->activeSubmenu.issueTrackerView}"><a id="issueTrackerView" href="{$gui->uri->issueTrackerView}">{$labels.href_issuetracker_management}</a></li>
                 {/if}
                 {if $gui->access.codetracker == 'yes'}
-                  <li><a id="codeTrackerView" href="{$gui->uri->codeTrackerView}">{$labels.href_codetracker_management}</a></li>
+                  <li class="{$gui->activeSubmenu.codeTrackerView}"><a id="codeTrackerView" href="{$gui->uri->codeTrackerView}">{$labels.href_codetracker_management}</a></li>
                 {/if}
               </ul>
             </li>
@@ -81,24 +81,24 @@ Left side menu
                 </a>
               <ul class="sub">
                 {if $gui->grants->project_edit == "yes"}
-                  <li><a id="projectView" href="{$gui->uri->projectView}">{$labels.href_tproject_management}</a></li>
+                  <li class="{$gui->activeSubmenu.projectView}"><a id="projectView" href="{$gui->uri->projectView}">{$labels.href_tproject_management}</a></li>
                 {/if}
                 {if $gui->grants->tproject_user_role_assignment == "yes"}
-                  <li><a href="{$gui->uri->usersAssign}">{$labels.href_assign_user_roles}</a></li>
+                  <li class="{$gui->activeSubmenu.usersAssign}"><a href="{$gui->uri->usersAssign}">{$labels.href_assign_user_roles}</a></li>
                 {/if}
                 {if $gui->grants->cfield_management == "yes"}
-                  <li><a href="{$gui->uri->cfAssignment}">{$labels.href_cfields_tproject_assign}</a></li>
+                  <li class="{$gui->activeSubmenu.cfAssignment}"><a href="{$gui->uri->cfAssignment}">{$labels.href_cfields_tproject_assign}</a></li>
                 {/if}
                 {if $gui->grants->keywords_view == "yes"}
-                  <li><a href="{$gui->uri->keywordsView}">{$labels.href_keywords_manage}</a></li>
+                  <li class="{$gui->activeSubmenu.keywordsView}"><a href="{$gui->uri->keywordsView}">{$labels.href_keywords_manage}</a></li>
                 {/if}
                 {if $gui->access.platform == 'yes'}
-                  <li><a href="{$gui->uri->platformsView}">{$labels.href_platform_management}</a></li>
+                  <li class="{$gui->activeSubmenu.platformsView}"><a href="{$gui->uri->platformsView}">{$labels.href_platform_management}</a></li>
                 {/if}
 
                 {if $gui->countPlans > 0}
-                <li><a href="{$gui->uri->metrics_dashboard}">{$labels.href_metrics_dashboard}</a>
-                </li>  
+                <li class="{$gui->activeSubmenu.metrics_dashboard}"><a href="{$gui->uri->metrics_dashboard}">{$labels.href_metrics_dashboard}</a>
+                </li>
                 {/if}    
               </ul>
             </li>

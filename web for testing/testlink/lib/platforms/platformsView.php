@@ -15,7 +15,9 @@ $tplCfg = templateConfiguration();
 $args = init_args();
 
 $platform_mgr = new tlPlatform($db, $args->tproject_id);
-$gui = $platform_mgr->initViewGui($args->currentUser,$args);	  
+$gui = $platform_mgr->initViewGui($args->currentUser,$args);
+$gui->activeMenu['projects'] = 'active';
+$gui->activeSubmenu['platformsView'] = 'active';
 
 $smarty = new TLSmarty();
 $smarty->assign('gui',$gui);

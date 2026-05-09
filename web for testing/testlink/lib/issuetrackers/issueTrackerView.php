@@ -47,6 +47,7 @@ function initEnv(&$dbH) {
 
   list($add2args,$gui) = initUserEnv($dbH,$context);
   $gui->activeMenu['system'] = 'active';
+  $gui->activeSubmenu['issueTrackerView'] = 'active';
   
   $gui->items = $issueTrackerMgr->getAll(array('output' => 'add_link_count', 'checkEnv' => true));
 
