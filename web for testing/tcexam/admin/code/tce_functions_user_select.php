@@ -130,19 +130,17 @@ function F_show_select_user($order_field, $orderdir, $firstrow, $rowsperpage, $g
             echo '<div class="container">';
             echo '<table class="userselect">'.K_NEWLINE;
             // table header
-            echo '<tr>'.K_NEWLINE;
-            echo '<th>&nbsp;</th>'.K_NEWLINE;
+            echo '<tr style="background-color:#f0f0f0; font-weight:bold;">'.K_NEWLINE;
+            echo '<th style="font-weight:bold; padding:8px; text-align:center;"><input type="checkbox" id="checkall_master" onchange="toggleAllCheckboxes(this.checked)" title="Check/Uncheck all" /></th>'.K_NEWLINE;
             if (strlen($searchterms) > 0) {
                 $filter .= '&amp;searchterms='.urlencode($searchterms);
             }
             echo F_select_table_header_element('user_name', $nextorderdir, $l['h_login_name'], $l['w_user'], $order_field, $filter);
-            echo F_select_table_header_element('user_lastname', $nextorderdir, $l['h_lastname'], $l['w_lastname'], $order_field, $filter);
-            echo F_select_table_header_element('user_firstname', $nextorderdir, $l['h_firstname'], $l['w_firstname'], $order_field, $filter);
-            echo F_select_table_header_element('user_regnumber', $nextorderdir, $l['h_regcode'], $l['w_regcode'], $order_field, $filter);
+            echo F_select_table_header_element('user_lastname', $nextorderdir, 'full name', 'full name', $order_field, $filter);
             echo F_select_table_header_element('user_level', $nextorderdir, $l['h_level'], $l['w_level'], $order_field, $filter);
             echo F_select_table_header_element('user_regdate', $nextorderdir, $l['h_regdate'], $l['w_regdate'], $order_field, $filter);
-            echo '<th title="'.$l['h_group_name'].'">'.$l['w_groups'].'</th>'.K_NEWLINE;
-            echo '<th title="'.$l['t_all_results_user'].'">'.$l['w_tests'].'</th>'.K_NEWLINE;
+            echo '<th style="font-weight:bold; padding:8px;" title="'.$l['h_group_name'].'">'.$l['w_groups'].'</th>'.K_NEWLINE;
+            echo '<th style="font-weight:bold; padding:8px;" title="'.$l['t_all_results_user'].'">'.$l['w_tests'].'</th>'.K_NEWLINE;
             echo '</tr>'.K_NEWLINE;
             $itemcount = 0;
             do {
@@ -156,9 +154,11 @@ function F_show_select_user($order_field, $orderdir, $firstrow, $rowsperpage, $g
                 echo ' />';
                 echo '</td>'.K_NEWLINE;
                 echo '<td style="text-align:'.$txtalign.';">&nbsp;<a href="tce_edit_user.php?user_id='.$m['user_id'].'" title="'.$l['w_edit'].'">'.htmlspecialchars(($m['user_name'] === null) ? '' : $m['user_name'], ENT_NOQUOTES, $l['a_meta_charset']).'</a></td>'.K_NEWLINE;
-                echo '<td style="text-align:'.$txtalign.';">&nbsp;'.htmlspecialchars(($m['user_lastname'] === null) ? '' : $m['user_lastname'], ENT_NOQUOTES, $l['a_meta_charset']).'</td>'.K_NEWLINE;
-                echo '<td style="text-align:'.$txtalign.';">&nbsp;'.htmlspecialchars(($m['user_firstname'] === null) ? '' : $m['user_firstname'], ENT_NOQUOTES, $l['a_meta_charset']).'</td>'.K_NEWLINE;
-                echo '<td style="text-align:'.$txtalign.';">&nbsp;'.htmlspecialchars(($m['user_regnumber'] === null) ? '' : $m['user_regnumber'], ENT_NOQUOTES, $l['a_meta_charset']).'</td>'.K_NEWLINE;
+                $fullname = trim((($m['user_lastname'] === null) ? '' : $m['user_lastname']).' '.(($m['user_firstname'] === null) ? '' : $m['user_firstname']));
+                if (empty($fullname)) {
+                    $fullname = strtoupper(($m['user_name'] === null) ? '' : $m['user_name']);
+                }
+                echo '<td style="text-align:'.$txtalign.';">&nbsp;'.htmlspecialchars($fullname, ENT_NOQUOTES, $l['a_meta_charset']).'</td>'.K_NEWLINE;
                 echo '<td>&nbsp;'.$m['user_level'].'</td>'.K_NEWLINE;
                 echo '<td>&nbsp;'.htmlspecialchars($m['user_regdate'], ENT_NOQUOTES, $l['a_meta_charset']).'</td>'.K_NEWLINE;
                 // comma separated list of user's groups
@@ -191,47 +191,59 @@ function F_show_select_user($order_field, $orderdir, $firstrow, $rowsperpage, $g
             echo '<input type="hidden" name="firstrow" id="firstrow" value="'.$firstrow.'" />'.K_NEWLINE;
             echo '<input type="hidden" name="rowsperpage" id="rowsperpage" value="'.$rowsperpage.'" />'.K_NEWLINE;
 
-            // check/uncheck all options
-            echo '<span dir="'.$l['a_meta_dir'].'">';
-            echo '<input type="radio" name="checkall" id="checkall1" value="1" onclick="document.getElementById(\'form_userselect\').submit()" />';
-            echo '<label for="checkall1">'.$l['w_check_all'].'</label> ';
-            echo '<input type="radio" name="checkall" id="checkall0" value="0" onclick="document.getElementById(\'form_userselect\').submit()" />';
-            echo '<label for="checkall0">'.$l['w_uncheck_all'].'</label>';
-            echo '</span>'.K_NEWLINE;
-            echo '<br />'.K_NEWLINE;
+            // check/uncheck all options - JavaScript for master checkbox
+            echo '<script>
+function toggleAllCheckboxes(checked) {
+    var checkboxes = document.querySelectorAll(\'input[name^=userid]\');
+    checkboxes.forEach(function(cb){ cb.checked = checked; });
+    updateMasterCheckbox();
+}
+function updateMasterCheckbox() {
+    var checkboxes = document.querySelectorAll(\'input[name^=userid]\');
+    var allChecked = checkboxes.length > 0 && Array.from(checkboxes).every(function(cb) { return cb.checked; });
+    document.getElementById(\'checkall_master\').checked = allChecked;
+}
+document.addEventListener(\'DOMContentLoaded\', function() {
+    var checkboxes = document.querySelectorAll(\'input[name^=userid]\');
+    checkboxes.forEach(function(cb) {
+        cb.addEventListener(\'change\', updateMasterCheckbox);
+    });
+});
+</script>'.K_NEWLINE;
             echo '<strong style="margin:5px">'.$l['m_with_selected'].'</strong>'.K_NEWLINE;
-            echo '<ul style="margin:0">';
+            echo '<style>input[type="submit"] { width:auto !important; padding:4px 12px !important; }</style>'.K_NEWLINE;
+            echo '<div style="display:flex; flex-direction:column; gap:8px; margin:5px 0;">'.K_NEWLINE;
             if ($_SESSION['session_user_level'] >= K_AUTH_DELETE_USERS) {
                 // delete user
-                echo '<li>';
+                echo '<div style="display:flex; gap:5px; align-items:center;">'.K_NEWLINE;
                 F_submit_button('delete', $l['w_delete'], $l['h_delete'], 'onclick="return confirm(\''.$l['m_delete_confirm'].'\')"');
-                echo '</li>'.K_NEWLINE;
+                echo '</div>'.K_NEWLINE;
             }
             if ($_SESSION['session_user_level'] >= K_AUTH_ADMIN_GROUPS) {
-                echo '<li>';
+                echo '<div style="display:flex; gap:5px; align-items:center;">'.K_NEWLINE;
                 // add/delete group
                 echo F_user_group_select('new_group_id');
                 F_submit_button('addgroup', $l['w_add'], $l['w_add']);
                 if ($_SESSION['session_user_level'] >= K_AUTH_DELETE_GROUPS) {
                     F_submit_button('delgroup', $l['w_delete'], $l['h_delete'], 'onclick="return confirm(\''.$l['m_delete_confirm'].'\')"');
                 }
-                echo '</li>'.K_NEWLINE;
+                echo '</div>'.K_NEWLINE;
                 if ($_SESSION['session_user_level'] >= K_AUTH_MOVE_GROUPS) {
                     // move group
-                    echo '<li>';
+                    echo '<div style="display:flex; gap:5px; align-items:center;">'.K_NEWLINE;
                     if ($l['a_meta_dir'] == 'rtl') {
                         $arr = '&larr;';
                     } else {
                         $arr = '&rarr;';
                     }
                     echo F_user_group_select('from_group_id');
-                    echo $arr;
+                    echo '<span style="margin:0 3px;">'.$arr.'</span>'.K_NEWLINE;
                     echo F_user_group_select('to_group_id');
                     F_submit_button('move', $l['w_move'], $l['w_move']);
-                    echo '</li>'.K_NEWLINE;
+                    echo '</div>'.K_NEWLINE;
                 }
             }
-            echo '</ul>'.K_NEWLINE;
+            echo '</div>'.K_NEWLINE;
             echo '<div class="row"><hr /></div>'.K_NEWLINE;
 
             // ---------------------------------------------------------------
@@ -355,15 +367,14 @@ function F_show_select_user_popup($order_field, $orderdir, $firstrow, $rowsperpa
             echo '<div class="container">';
             echo '<table class="userselect" style="font-size:80%;">'.K_NEWLINE;
             // table header
-            echo '<tr>'.K_NEWLINE;
+            echo '<tr style="background-color:#f0f0f0; font-weight:bold;">'.K_NEWLINE;
+            echo '<th style="font-weight:bold; padding:8px; text-align:center;"><input type="checkbox" id="checkall_master" onchange="toggleAllCheckboxes(this.checked)" title="Check/Uncheck all" /></th>'.K_NEWLINE;
             if (strlen($searchterms) > 0) {
                 $filter .= '&amp;searchterms='.urlencode($searchterms);
             }
             echo F_select_table_header_element('user_name', $nextorderdir, $l['h_login_name'], $l['w_user'], $order_field, $filter);
-            echo F_select_table_header_element('user_lastname', $nextorderdir, $l['h_lastname'], $l['w_lastname'], $order_field, $filter);
-            echo F_select_table_header_element('user_firstname', $nextorderdir, $l['h_firstname'], $l['w_firstname'], $order_field, $filter);
+            echo F_select_table_header_element('user_lastname', $nextorderdir, 'full name', 'full name', $order_field, $filter);
             echo F_select_table_header_element('user_email', $nextorderdir, $l['h_email'], $l['w_email'], $order_field, $filter);
-            echo F_select_table_header_element('user_regnumber', $nextorderdir, $l['h_regcode'], $l['w_regcode'], $order_field, $filter);
             echo F_select_table_header_element('user_level', $nextorderdir, $l['h_level'], $l['w_level'], $order_field, $filter);
             echo F_select_table_header_element('user_regdate', $nextorderdir, $l['h_regdate'], $l['w_regdate'], $order_field, $filter);
             //echo '<th title="'.$l['h_group_name'].'">'.$l['w_groups'].'</th>'.K_NEWLINE;
@@ -377,10 +388,12 @@ function F_show_select_user_popup($order_field, $orderdir, $firstrow, $rowsperpa
                 $jsaction .= 'window.close(); return false;';
                 echo '<tr>'.K_NEWLINE;
                 echo '<td style="text-align:'.$txtalign.';">&nbsp;<a href="#" onclick="'.$jsaction.'" title="['.$l['w_select'].']">'.htmlspecialchars($m['user_name'], ENT_NOQUOTES, $l['a_meta_charset']).'</a></td>'.K_NEWLINE;
-                echo '<td style="text-align:'.$txtalign.';">&nbsp;'.htmlspecialchars($m['user_lastname'], ENT_NOQUOTES, $l['a_meta_charset']).'</td>'.K_NEWLINE;
-                echo '<td style="text-align:'.$txtalign.';">&nbsp;'.htmlspecialchars($m['user_firstname'], ENT_NOQUOTES, $l['a_meta_charset']).'</td>'.K_NEWLINE;
+                $fullname = trim((($m['user_lastname'] === null) ? '' : $m['user_lastname']).' '.(($m['user_firstname'] === null) ? '' : $m['user_firstname']));
+                if (empty($fullname)) {
+                    $fullname = strtoupper(($m['user_name'] === null) ? '' : $m['user_name']);
+                }
+                echo '<td style="text-align:'.$txtalign.';">&nbsp;'.htmlspecialchars($fullname, ENT_NOQUOTES, $l['a_meta_charset']).'</td>'.K_NEWLINE;
                 echo '<td style="text-align:'.$txtalign.';">&nbsp;'.htmlspecialchars($m['user_email'], ENT_NOQUOTES, $l['a_meta_charset']).'</td>'.K_NEWLINE;
-                echo '<td style="text-align:'.$txtalign.';">&nbsp;'.htmlspecialchars($m['user_regnumber'], ENT_NOQUOTES, $l['a_meta_charset']).'</td>'.K_NEWLINE;
                 echo '<td>&nbsp;'.$m['user_level'].'</td>'.K_NEWLINE;
                 echo '<td>&nbsp;'.htmlspecialchars($m['user_regdate'], ENT_NOQUOTES, $l['a_meta_charset']).'</td>'.K_NEWLINE;
                 /*

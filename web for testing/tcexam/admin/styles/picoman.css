@@ -36,18 +36,30 @@ input[type=radio] + label, input[type=checkbox] + label {display: inline-block; 
 #qTopBar,.warning,.error,.confirmbox,#testform,.anyFormBox,body > .popupcontainer > .tcecontentbox,body > .popupcontainer > .tceformbox{background:var(--background);box-shadow:var(--card-shadow);padding: calc(var(--form-element-spacing-vertical) * 2) calc(var(--form-element-spacing-horizontal) * 2);border-radius: var(--block-round)}
 div#qTopBar {border-radius: var(--block-round) var(--block-round) 0 0;box-shadow: var(--card-shadow);background: var(--primary);padding: var(--form-element-spacing-vertical) var(--form-element-spacing-horizontal);display: flex;justify-content: space-between;align-items:center}
 #testform{border-radius:0 0 var(--block-round) var(--block-round)}
+.required-asterisk {
+    color: #ff0000 !important;
+    font-weight: bold !important;
+    margin-right: 6px !important;
+    display: inline-block !important;
+    font-size: 1.1em !important;
+    line-height: 1 !important;
+}
 
-.message, .warning, .error {
-    display: flex !important;
+div.error, div.message, div.warning {
+    display: flex;
     align-items: center !important;
     padding: 1rem !important;
-    margin: 1.5rem 0 !important;
+    margin: 1.5rem auto !important;
     border-radius: var(--block-round) !important;
     font-weight: 700 !important;
     box-shadow: var(--card-shadow) !important;
     position: relative !important;
     z-index: 10 !important;
     font-size: 1rem !important;
+    max-width: 1130px !important;
+    width: 95% !important;
+    transition: opacity 1s ease-out, transform 0.5s ease-out, margin 0.5s ease-out, padding 0.5s ease-out, height 0.5s ease-out;
+    overflow: hidden;
 }
 
 .message {
@@ -72,6 +84,7 @@ div#qTopBar {border-radius: var(--block-round) var(--block-round) 0 0;box-shadow
 .error:before { content: "✖"; margin-right: 12px; font-size: 1.2rem; }
 
 
+
  #form_login {margin-top:var(--form-element-spacing-vertical)}
  #form_login div:first-child{padding-top:var(--form-element-spacing-vertical)}
  .formw,.value{position: relative;display:block}
@@ -88,14 +101,62 @@ div#qTopBar {border-radius: var(--block-round) var(--block-round) 0 0;box-shadow
  .white,.white:hover{color:transparent}
  .label{display:block; font-weight: var(--titles-weight);}
 
-div.left{background-image: url(../../images/logo_tcexam_118x25.png);background-repeat: no-repeat;background-position: var(--form-element-spacing-horizontal) bottom;height: 3rem}
+div.header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0.5rem 1rem !important;
+    min-height: 4rem !important;
+}
 
-#header_button{background: var(--primary-focus);border-radius:var(--block-round);padding: var(--spacing-form-element) var(--form-element-spacing-vertical);color: var(--muted-border);cursor: pointer;position: absolute;text-align: center;display: block;top: var(--spacing-gutter);right: var(--spacing-gutter);font-size: var(--base-font-xl)}
+div.left {
+    background-image: url(../../images/logo_tcexam_118x25.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+    height: 3rem;
+    width: 120px !important;
+    flex-shrink: 0 !important;
+}
+
+#header_button {
+    background: var(--primary-focus);
+    border-radius: var(--block-round);
+    padding: var(--spacing-form-element) var(--form-element-spacing-vertical);
+    color: var(--muted-border);
+    cursor: pointer;
+    position: absolute;
+    text-align: center;
+    display: block;
+    top: var(--spacing-gutter);
+    right: var(--spacing-gutter);
+    font-size: var(--base-font-xl);
+}
+
+.right {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    color: #fff !important;
+    font-size: 0.85rem !important;
+}
+
+#timerform, #timer, .timerlabel {
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #fff !important;
+    font-weight: 600 !important;
+}
+#timer { font-size: 0.9rem !important; }
+
 
 ul.menu {padding: 0}
 ul.menu li {list-style-type: none;margin-bottom: calc(var(--spacing-typography)/2);margin-top: calc(var(--spacing-typography)/2)}
 
-div#scrollayer{top:0;position: fixed;height:100%;background:var(--background);z-index:1;padding: 0 calc(var(--spacing-gutter)*2);box-shadow:var(--card-shadow);right:-400px;opacity:0}
+.scrollmenu{position: fixed;top: 0;bottom: 0;left: 0;width: 250px;background: var(--background);z-index: 1000;display: none;padding: 1rem;box-shadow: 2px 0 10px rgba(0,0,0,0.1); overflow-y: auto !important; -webkit-overflow-scrolling: touch;}
+.scrollmenu .close-btn { position: sticky; top: 0; align-self: flex-end; margin-bottom: 1rem; z-index: 1001; }
+
+div#scrollayer{top:0; bottom:0; position: fixed; height: 100vh !important; width: 300px !important; background:var(--background); z-index:1001; padding: 1rem !important; box-shadow:var(--card-shadow); right:-400px; opacity:0; overflow-y: auto !important; -webkit-overflow-scrolling: touch; box-sizing: border-box !important;}
 
 .hb_slidein{z-index:2;color:var(--primary) !important;position:fixed !important}
 .hb_slideout{}
@@ -210,8 +271,9 @@ acronym.onbox:nth-child(3) {background: var(--contrast);border-color: var(--cont
 		margin-bottom: calc(var(--spacing-typography)/2);
 		margin-top: calc(var(--spacing-typography)/2);
 	}
-	div.header {display:flex;justify-content: space-between}
+	div.header {justify-content: space-between}
 	#header_button {position:relative;background: var(--primary-focus);border-radius: var(--block-round);padding: var(--spacing-form-element) var(--form-element-spacing-vertical);margin-right: calc(var(--form-element-spacing-vertical)/2);color: var(--muted-border);cursor: pointer;font-size: var(--base-font-xl);top:0;right:0}
+
 	
 	.hb_slidein{top: calc(var(--form-element-spacing-horizontal)/2) !important;right: calc(var(--form-element-spacing-vertical)/2) !important}
 	

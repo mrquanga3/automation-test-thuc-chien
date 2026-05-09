@@ -1050,7 +1050,7 @@ echo getFormRowTextInput('new_test_password', $l['w_password'], $l['h_test_passw
 
 echo '<div class="row">'.K_NEWLINE;
 echo '<span class="label">&nbsp;</span>'.K_NEWLINE;
-echo '<span class="formw">'.K_NEWLINE;
+echo '<span class="formw" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">'.K_NEWLINE;
 echo '<input type="hidden" name="test_password" id="test_password" value="'.$test_password.'" />'.K_NEWLINE;
 
 // show buttons by case
@@ -1060,8 +1060,8 @@ if (isset($test_id) and ($test_id > 0)) {
 }
 F_submit_button('add', $l['w_add'], $l['h_add']);
 if (isset($test_id) and ($test_id > 0)) {
-    echo '<span style="background-color:rgba(255,0,0,0.1); padding: 2px 8px; border-radius: 4px; display: inline-flex; align-items: center; gap: 5px; border: 1px solid rgba(255,0,0,0.2);">';
-    echo '<input type="checkbox" id="confirm_delete_check" title="Xác nhận xóa" style="margin:0" />';
+    echo '<span style="background-color:rgba(255,0,0,0.1); padding: 4px 8px; border-radius: 4px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,0,0,0.2); min-height: 40px;">';
+    echo '<input type="checkbox" id="confirm_delete_check" title="Confirm Delete" style="margin:0; width:18px; height:18px;" />';
     F_submit_button('delete', $l['w_delete'], $l['h_delete']);
     echo '</span>';
     if (substr($test_end_time, 0, 1) < $millennium) {

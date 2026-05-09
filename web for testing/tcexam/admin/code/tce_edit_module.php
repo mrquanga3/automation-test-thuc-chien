@@ -72,63 +72,35 @@ $_REQUEST['ff_required'] = 'module_name';
 $_REQUEST['ff_required_labels'] = htmlspecialchars($l['w_name'], ENT_COMPAT, $l['a_meta_charset']);
 
 switch ($menu_mode) {
-    case 'delete':{
-        F_stripslashes_formfields();
-        // check if this record is used (test_log)
-        if (!F_check_unique(K_TABLE_SUBJECTS.','.K_TABLE_SUBJECT_SET, 'subjset_subject_id=subject_id AND subject_module_id='.$module_id.'')) {
-            //this record will be only disabled and not deleted because it's used
-            $sql = 'UPDATE '.K_TABLE_MODULES.' SET
-				module_enabled=\'0\'
-				WHERE module_id='.$module_id.'';
-            if (!$r = F_db_query($sql, $db)) {
-                F_display_db_error();
-            }
-            F_print_error('WARNING', $l['m_disabled_vs_deleted']);
-        } else {
-            // ask confirmation
-            F_print_error('WARNING', $l['m_delete_confirm']);
-            ?>
-            <div class="confirmbox">
-            <form action="<?php echo $_SERVER['SCRIPT_NAME']; ?>" method="post" enctype="multipart/form-data" id="form_delete">
-            <div>
-            <input type="hidden" name="module_id" id="module_id" value="<?php echo $module_id; ?>" />
-            <input type="hidden" name="module_name" id="module_name" value="<?php echo htmlspecialchars($module_name, ENT_COMPAT, $l['a_meta_charset']); ?>" />
-            <?php
-            F_submit_button('forcedelete', $l['w_delete'], $l['h_delete']);
-            F_submit_button('cancel', $l['w_cancel'], $l['h_cancel']);
-            echo F_getCSRFTokenField().K_NEWLINE;
-            ?>
-            </div>
-            </form>
-            </div>
-        <?php
-        }
-        break;
-    }
-
+    case 'delete':
     case 'forcedelete':{
         F_stripslashes_formfields();
-        if ($forcedelete == $l['w_delete']) { //check if delete button has been pushed (redundant check)
-            $sql = 'DELETE FROM '.K_TABLE_MODULES.' WHERE module_id='.$module_id.'';
-            if (!$r = F_db_query($sql, $db)) {
-                F_display_db_error(false);
+        if ($menu_mode == 'delete') {
+            $forcedelete = $l['w_delete'];
+        }
+        if ($forcedelete == $l['w_delete']) {
+            // check if this record is used (test_log)
+            if (!F_check_unique(K_TABLE_SUBJECTS.','.K_TABLE_SUBJECT_SET, 'subjset_subject_id=subject_id AND subject_module_id='.$module_id.'')) {
+                //this record will be only disabled and not deleted because it's used
+                $sql = 'UPDATE '.K_TABLE_MODULES.' SET module_enabled=\'0\' WHERE module_id='.$module_id.'';
+                if (!$r = F_db_query($sql, $db)) {
+                    F_display_db_error();
+                }
+                F_print_error('WARNING', $l['m_disabled_vs_deleted']);
             } else {
-                $module_id=false;
-                F_print_error('MESSAGE', $module_name.': '.$l['m_deleted']);
+                $sql = 'DELETE FROM '.K_TABLE_MODULES.' WHERE module_id='.$module_id.'';
+                if (!$r = F_db_query($sql, $db)) {
+                    F_display_db_error(false);
+                } else {
+                    $module_id=false;
+                    F_print_error('MESSAGE', '['.stripslashes($module_name).'] '.$l['m_module_deleted']);
+                }
             }
         }
         break;
     }
 
     case 'update':{ // Update
-        // check if the confirmation chekbox has been selected
-        /*
-        if (!isset($_REQUEST['confirmupdate']) or ($_REQUEST['confirmupdate'] != 1)) {
-            F_print_error('WARNING', $l['m_form_missing_fields'].': '.$l['w_confirm'].' &rarr; '.$l['w_update']);
-            F_stripslashes_formfields();
-            break;
-        }
-        */
         if ($formstatus = F_check_form_fields()) {
             // check referential integrity (NOTE: mysql do not support "ON UPDATE" constraint)
             if (!F_check_unique(K_TABLE_SUBJECTS.','.K_TABLE_SUBJECT_SET, 'subjset_subject_id=subject_id AND subject_module_id='.$module_id.'')) {
@@ -380,12 +352,15 @@ echo getFormRowCheckBox('module_enabled', $l['w_enabled'], $l['h_enabled'], '', 
 
 echo '<div class="row">'.K_NEWLINE;
 echo '<span class="label">&nbsp;</span>'.K_NEWLINE;
-echo '<span class="formw">'.K_NEWLINE;
+echo '<span class="formw" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">'.K_NEWLINE;
 // show buttons by case
 if (isset($module_id) and ($module_id > 0)) {
     F_submit_button('update', $l['w_update'], $l['h_update']);
     F_submit_button('add', $l['w_add'], $l['h_add']);
+    echo '<span style="background-color:rgba(255,0,0,0.1); padding: 4px 8px; border-radius: 4px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,0,0,0.2); min-height: 40px;">';
+    echo '<input type="checkbox" id="confirm_delete_check" title="Confirm Delete" style="margin:0; width:18px; height:18px;" />';
     F_submit_button('delete', $l['w_delete'], $l['h_delete']);
+    echo '</span>';
 } else {
     F_submit_button('add', $l['w_add'], $l['h_add']);
 }

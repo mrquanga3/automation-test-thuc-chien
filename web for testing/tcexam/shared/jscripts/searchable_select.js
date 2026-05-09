@@ -386,11 +386,33 @@
         if (e.target && (e.target.name === 'delete' || e.target.id === 'delete')) {
             var cb = document.getElementById('confirm_delete_check');
             if (cb && !cb.checked) {
-                alert('Vui lòng tích vào ô xác nhận bên cạnh nút Delete!');
+                alert('Please check the confirmation box next to the Delete button!');
                 e.preventDefault();
                 return false;
             }
         }
     }, true);
+
+    /**
+     * Auto-hide system messages after 10 seconds
+     */
+    function hideMessages() {
+        var msgs = document.querySelectorAll('.message, .warning, .error');
+        msgs.forEach(function(msg) {
+            setTimeout(function() {
+                msg.style.opacity = '0';
+                msg.style.transform = 'translateY(-20px)';
+                msg.style.marginTop = '0';
+                msg.style.marginBottom = '0';
+                msg.style.paddingTop = '0';
+                msg.style.paddingBottom = '0';
+                msg.style.height = '0';
+                setTimeout(function() {
+                    msg.style.setProperty('display', 'none', 'important');
+                }, 1000);
+            }, 10000);
+        });
+    }
+    hideMessages();
 
 })();

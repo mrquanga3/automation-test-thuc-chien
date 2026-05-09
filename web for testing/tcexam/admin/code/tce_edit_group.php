@@ -66,34 +66,17 @@ $_REQUEST['ff_required_labels'] = htmlspecialchars($l['w_name'], ENT_COMPAT, $l[
 
 switch ($menu_mode) { // process submitted data
 
-    case 'delete':{
-        F_stripslashes_formfields(); // ask confirmation
-        if ($_SESSION['session_user_level'] < K_AUTH_DELETE_GROUPS) {
-            F_print_error('ERROR', $l['m_authorization_denied']);
-            break;
-        }
-        F_print_error('WARNING', $l['m_delete_confirm']);
-        echo '<div class="confirmbox">'.K_NEWLINE;
-        echo '<form action="'.$_SERVER['SCRIPT_NAME'].'" method="post" enctype="multipart/form-data" id="form_delete">'.K_NEWLINE;
-        echo '<div>'.K_NEWLINE;
-        echo '<input type="hidden" name="group_id" id="group_id" value="'.$group_id.'" />'.K_NEWLINE;
-        echo '<input type="hidden" name="group_name" id="group_name" value="'.stripslashes($group_name).'" />'.K_NEWLINE;
-        F_submit_button('forcedelete', $l['w_delete'], $l['h_delete']);
-        F_submit_button('cancel', $l['w_cancel'], $l['h_cancel']);
-        echo '</div>'.K_NEWLINE;
-        echo F_getCSRFTokenField().K_NEWLINE;
-        echo '</form>'.K_NEWLINE;
-        echo '</div>'.K_NEWLINE;
-        break;
-    }
-
+    case 'delete':
     case 'forcedelete':{
-        F_stripslashes_formfields(); // Delete specified user
+        F_stripslashes_formfields();
         if ($_SESSION['session_user_level'] < K_AUTH_DELETE_GROUPS) {
             F_print_error('ERROR', $l['m_authorization_denied']);
             break;
         }
-        if ($forcedelete == $l['w_delete']) { //check if delete button has been pushed (redundant check)
+        if ($menu_mode == 'delete') {
+            $forcedelete = $l['w_delete'];
+        }
+        if ($forcedelete == $l['w_delete']) {
             $sql = 'DELETE FROM '.K_TABLE_GROUPS.' WHERE group_id='.$group_id.'';
             if (!$r = F_db_query($sql, $db)) {
                 F_display_db_error(false);
@@ -106,12 +89,6 @@ switch ($menu_mode) { // process submitted data
     }
 
     case 'update':{ // Update user
-        // check if the confirmation chekbox has been selected
-        if (!isset($_REQUEST['confirmupdate']) or ($_REQUEST['confirmupdate'] != 1)) {
-            F_print_error('WARNING', $l['m_form_missing_fields'].': '.$l['w_confirm'].' &rarr; '.$l['w_update']);
-            F_stripslashes_formfields();
-            break;
-        }
         if ($formstatus = F_check_form_fields()) {
             // check if name is unique
             if (!F_check_unique(K_TABLE_GROUPS, 'group_name=\''.F_escape_sql($db, $group_name).'\'', 'group_id', $group_id)) {
@@ -238,17 +215,16 @@ echo getFormRowTextInput('group_name', $l['w_name'], $l['h_group_name'], '', $gr
 
 echo '<div class="row">'.K_NEWLINE;
 echo '<span class="label">&nbsp;</span>'.K_NEWLINE;
-echo '<span class="formw">'.K_NEWLINE;
+echo '<span class="formw" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">'.K_NEWLINE;
 // show buttons by case
 if (isset($group_id) and ($group_id > 0)) {
-    echo '<span style="background-color:#999999;">';
-    echo '<input type="checkbox" name="confirmupdate" id="confirmupdate" value="1" title="confirm &rarr; update" />';
     F_submit_button('update', $l['w_update'], $l['h_update']);
-    echo '</span>';
     F_submit_button('add', $l['w_add'], $l['h_add']);
     if ($_SESSION['session_user_level'] >= K_AUTH_DELETE_GROUPS) {
-        // your account and anonymous user can't be deleted
+        echo '<span style="background-color:rgba(255,0,0,0.1); padding: 4px 8px; border-radius: 4px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,0,0,0.2); min-height: 40px;">';
+        echo '<input type="checkbox" id="confirm_delete_check" title="Confirm Delete" style="margin:0; width:18px; height:18px;" />';
         F_submit_button('delete', $l['w_delete'], $l['h_delete']);
+        echo '</span>';
     }
 } else {
     F_submit_button('add', $l['w_add'], $l['h_add']);

@@ -241,14 +241,6 @@ switch ($menu_mode) {
     }
 
     case 'update':{ // Update
-        // check if the confirmation chekbox has been selected
-        /*
-        if (!isset($_REQUEST['confirmupdate']) or ($_REQUEST['confirmupdate'] != 1)) {
-            F_print_error('WARNING', $l['m_form_missing_fields'].': '.$l['w_confirm'].' &rarr; '.$l['w_update']);
-            F_stripslashes_formfields();
-            break;
-        }
-        */
         if ($formstatus = F_check_form_fields()) {
             // get previous answer position (if defined)
             $prev_answer_position = 0;
@@ -738,7 +730,12 @@ echo '<div class="row"><hr /></div>'.K_NEWLINE;
 
 echo '<div class="row">'.K_NEWLINE;
 echo '<span class="label">'.K_NEWLINE;
-echo '<label for="answer_description">'.$l['w_answer'].'</label>'.K_NEWLINE;
+echo '<label for="answer_description">';
+echo $l['w_answer'];
+if (isset($_REQUEST['ff_required']) and (strpos(','.$_REQUEST['ff_required'].',', ',answer_description,') !== false)) {
+    echo ' <span class="required-asterisk" title="'.$l['w_required'].'">*</span>';
+}
+echo '</label>'.K_NEWLINE;
 echo '<br />'.K_NEWLINE;
 
 echo '<a href="#" title="'.$l['h_preview'].'" class="xmlbutton" onclick="previewWindow=window.open(\'tce_preview_tcecode.php?tcexamcode=\'+encodeURIComponent(document.getElementById(\'form_answereditor\').answer_description.value),\'previewWindow\',\'dependent,height=500,width=500,menubar=no,resizable=yes,scrollbars=yes,status=no,toolbar=no\'); return false;">'.$l['w_preview'].'</a>'.K_NEWLINE;
@@ -746,6 +743,9 @@ echo '<a href="#" title="'.$l['h_preview'].'" class="xmlbutton" onclick="preview
 echo '</span>'.K_NEWLINE;
 echo '<span class="formw" style="border:1px solid #808080;">'.K_NEWLINE;
 echo '<textarea cols="50" rows="10" name="answer_description" id="answer_description" onselect="FJ_update_selection(document.getElementById(\'form_answereditor\').answer_description)" title="'.$l['h_answer'].'"';
+if (isset($_REQUEST['ff_required']) and (strpos(','.$_REQUEST['ff_required'].',', ',answer_description,') !== false)) {
+    echo ' data-required="true" data-required-label="'.htmlspecialchars($l['w_answer'], ENT_COMPAT, $l['a_meta_charset']).'"';
+}
 if (K_ENABLE_VIRTUAL_KEYBOARD) {
     echo ' class="keyboardInput"';
 }
@@ -834,14 +834,14 @@ echo '</div>'.K_NEWLINE;
 
 echo '<div class="row">'.K_NEWLINE;
 echo '<span class="label">&nbsp;</span>'.K_NEWLINE;
-echo '<span class="formw">'.K_NEWLINE;
+echo '<span class="formw" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">'.K_NEWLINE;
 // show buttons by case
 
 if (isset($answer_id) and ($answer_id > 0)) {
     F_submit_button('update', $l['w_update'], $l['h_update']);
     F_submit_button('add', $l['w_add'], $l['h_add']);
-    echo '<span style="background-color:rgba(255,0,0,0.1); padding: 2px 8px; border-radius: 4px; display: inline-flex; align-items: center; gap: 5px; border: 1px solid rgba(255,0,0,0.2);">';
-    echo '<input type="checkbox" id="confirm_delete_check" title="Xác nhận xóa" style="margin:0" />';
+    echo '<span style="background-color:rgba(255,0,0,0.1); padding: 4px 8px; border-radius: 4px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,0,0,0.2); min-height: 40px;">';
+    echo '<input type="checkbox" id="confirm_delete_check" title="Confirm Delete" style="margin:0; width:18px; height:18px;" />';
     F_submit_button('delete', $l['w_delete'], $l['h_delete']);
     echo '</span>';
 } else {

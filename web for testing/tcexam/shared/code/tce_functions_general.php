@@ -332,8 +332,7 @@ function utrim($txt)
 function getNormalizedIP($ip)
 {
     if (($ip == '0000:0000:0000:0000:0000:0000:0000:0001') or ($ip == '::1')) {
-        // fix localhost problem
-        $ip = '127.0.0.1';
+        return '127.0.0.1';
     }
     $ip = strtolower(($ip === null) ? '' : $ip);
     // remove unsupported parts
@@ -353,22 +352,10 @@ function getNormalizedIP($ip)
     if ($is_ipv6 and $is_ipv4) {
         // strip IPv4 compatibility notation from IPv6 address
         $ip = substr($ip, strrpos($ip, ':') + 1);
-        $is_ipv6 = false;
+        return $ip;
     }
     if ($is_ipv4) {
-        // convert IPv4 to IPv6
-        $ip_parts = array_pad(explode('.', $ip), 4, 0);
-        if (count($ip_parts) > 4) {
-            return false;
-        }
-        for ($i = 0; $i < 4; ++$i) {
-            if ($ip_parts[$i] > 255) {
-                return false;
-            }
-        }
-        $part7 = base_convert(($ip_parts[0] * 256) + $ip_parts[1], 10, 16);
-        $part8 = base_convert(($ip_parts[2] * 256) + $ip_parts[3], 10, 16);
-        $ip = '::ffff:'.$part7.':'.$part8;
+        return $ip;
     }
     // expand IPv6 notation
     if (strpos($ip, '::') !== false) {
@@ -383,6 +370,13 @@ function getNormalizedIP($ip)
         $ip_parts[$key] = sprintf('%04s', $num);
     }
     $ip = implode(':', $ip_parts);
+    // check for mapped IPv4 in expanded hex format
+    if (strpos($ip, '0000:0000:0000:0000:0000:ffff:') === 0) {
+        $parts = explode(':', $ip);
+        $part7 = hexdec($parts[6]);
+        $part8 = hexdec($parts[7]);
+        return floor($part7 / 256).'.'.($part7 % 256).'.'.floor($part8 / 256).'.'.($part8 % 256);
+    }
     return $ip;
 }
 
@@ -395,6 +389,9 @@ function getNormalizedIP($ip)
 function getIpAsInt($ip)
 {
     $ip = getNormalizedIP($ip);
+    if (strpos($ip, '.') !== false) {
+        return sprintf('%u', ip2long($ip));
+    }
     $ip = str_replace(':', '', $ip);
     return hexdec($ip);
 }
@@ -620,7 +617,7 @@ function F_select_table_header_element($order_field, $orderdir, $title, $name, $
             $ord = ' <acronym title="'.$l['w_descent'].'">&lt;</acronym>';
         }
     }
-    $str = '<th><a href="'.$_SERVER['SCRIPT_NAME'].'?'.$filter.'&amp;firstrow=0&amp;order_field='.$order_field.'&amp;orderdir='.$orderdir.'" title="'.$title.'">'.$name.'</a>'.$ord.'</th>'."\n";
+    $str = '<th style="font-weight:bold; padding:8px;"><a href="'.$_SERVER['SCRIPT_NAME'].'?'.$filter.'&amp;firstrow=0&amp;order_field='.$order_field.'&amp;orderdir='.$orderdir.'" title="'.$title.'">'.$name.'</a>'.$ord.'</th>'."\n";
     return $str;
 }
 

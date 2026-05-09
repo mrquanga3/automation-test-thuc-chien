@@ -72,6 +72,10 @@ if (isset($_REQUEST['user_level'])) {
 // comma separated list of required fields
 $_REQUEST['ff_required'] = 'user_name';
 $_REQUEST['ff_required_labels'] = htmlspecialchars($l['w_name'], ENT_COMPAT, $l['a_meta_charset']);
+if (!isset($_REQUEST['user_id']) or ($_REQUEST['user_id'] <= 0)) {
+    $_REQUEST['ff_required'] .= ',newpassword';
+    $_REQUEST['ff_required_labels'] .= ','.htmlspecialchars($l['w_password'], ENT_COMPAT, $l['a_meta_charset']);
+}
 
 switch ($menu_mode) { // process submitted data
 
@@ -440,12 +444,17 @@ echo getFormNoscriptSelect('selectrecord');
 
 echo '<div class="row"><hr /></div>'.K_NEWLINE;
 
-echo getFormRowTextInput('user_name', $l['w_username'], $l['h_login_name'], '', $user_name, '', 255, false, false, false);
+if (isset($user_id) and ($user_id > 0)) {
+    echo getFormRowFixedValue('user_name', $l['w_username'], $l['h_login_name'], '', $user_name);
+    echo '<input type="hidden" name="user_name" id="user_name" value="'.$user_name.'" />'.K_NEWLINE;
+} else {
+    echo getFormRowTextInput('user_name', $l['w_username'], $l['h_login_name'], '', $user_name, '', 255, false, false, false);
+}
 echo getFormRowTextInput('user_email', $l['w_email'], $l['h_usered_email'], '', $user_email, K_EMAIL_RE_PATTERN, 255, false, false, false);
 echo getFormRowTextInput('newpassword', $l['w_password'], $l['h_password'], ' ('.$l['d_password_lenght'].')', '', K_USRREG_PASSWORD_RE, 255, false, false, true);
 echo getFormRowTextInput('newpassword_repeat', $l['w_password'], $l['h_password_repeat'], ' ('.$l['w_repeat'].')', '', '', 255, false, false, true);
 echo getFormRowFixedValue('user_regdate', $l['w_regdate'], $l['h_regdate'], '', $user_regdate);
-echo getFormRowFixedValue('user_ip', $l['w_ip'], $l['h_ip'], '', $user_ip);
+echo getFormRowFixedValue('user_ip', $l['w_ip'], $l['h_ip'], '', getNormalizedIP($user_ip));
 echo getFormRowSelectBox('user_level', $l['w_level'], $l['h_level'], '', $user_level, array(0,1,2,3,4,5,6,7,8,9,10));
 echo getFormRowTextInput('user_regnumber', $l['w_regcode'], $l['h_regcode'], '', $user_regnumber, '', 255, false, false, false);
 echo getFormRowTextInput('user_firstname', $l['w_firstname'], $l['h_firstname'], '', $user_firstname, '', 255, false, false, false);
@@ -498,7 +507,7 @@ if (!empty($user_otpkey)) {
 
 echo '<div class="row">'.K_NEWLINE;
 echo '<span class="label">&nbsp;</span>'.K_NEWLINE;
-echo '<span class="formw">'.K_NEWLINE;
+echo '<span class="formw" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">'.K_NEWLINE;
 // show buttons by case
 if (isset($user_id) and ($user_id > 0)) {
     if (($user_level < $_SESSION['session_user_level']) or ($user_id == $_SESSION['session_user_id']) or ($_SESSION['session_user_level'] >= K_AUTH_ADMINISTRATOR)) {
@@ -506,8 +515,8 @@ if (isset($user_id) and ($user_id > 0)) {
     }
     if (($user_id > 1) and ($_SESSION['session_user_level'] >= K_AUTH_DELETE_USERS) and ($user_id != $_SESSION['session_user_id'])) {
         // your account and anonymous user can't be deleted
-        echo '<span style="background-color:rgba(255,0,0,0.1); padding: 2px 8px; border-radius: 4px; display: inline-flex; align-items: center; gap: 5px; border: 1px solid rgba(255,0,0,0.2);">';
-        echo '<input type="checkbox" id="confirm_delete_check" title="Xác nhận xóa" style="margin:0" />';
+        echo '<span style="background-color:rgba(255,0,0,0.1); padding: 4px 8px; border-radius: 4px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,0,0,0.2); min-height: 40px;">';
+        echo '<input type="checkbox" id="confirm_delete_check" title="Confirm Delete" style="margin:0; width:18px; height:18px;" />';
         F_submit_button('delete', $l['w_delete'], $l['h_delete']);
         echo '</span>';
     }

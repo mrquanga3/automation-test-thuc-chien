@@ -271,7 +271,12 @@ function getFormRowTextInput($field_name, $name, $description = '', $tip = '', $
     }
     $str .= '<div class="row">'.K_NEWLINE;
     $str .= '<span class="label">'.K_NEWLINE;
-    $str .= '<label for="'.$field_name.'" title="'.$description.'">'.$name.'</label>'.K_NEWLINE;
+    $str .= '<label for="'.$field_name.'" title="'.$description.'">';
+    $str .= $name;
+    if (isset($_REQUEST['ff_required']) and (strpos(','.$_REQUEST['ff_required'].',', ','.$field_name.',') !== false)) {
+        $str .= ' <span class="required-asterisk" title="'.$l['w_required'].'">*</span>';
+    }
+    $str .= '</label>'.K_NEWLINE;
     if (!empty($prefix)) {
         $str .= $prefix;
     }
@@ -294,7 +299,11 @@ function getFormRowTextInput($field_name, $name, $description = '', $tip = '', $
     if ($value === null) {
         $value = '';
     }
-    $str .= ' name="'.$field_name.'" id="'.$field_name.'" value="'.htmlspecialchars($value, ENT_COMPAT, $l['a_meta_charset']).'" size="20" maxlength="'.$maxlen.'" title="'.$description.'" />';
+    $str .= ' name="'.$field_name.'" id="'.$field_name.'" value="'.htmlspecialchars($value, ENT_COMPAT, $l['a_meta_charset']).'" size="20" maxlength="'.$maxlen.'" title="'.$description.'"';
+    if (isset($_REQUEST['ff_required']) and (strpos(','.$_REQUEST['ff_required'].',', ','.$field_name.',') !== false)) {
+        $str .= ' data-required="true" data-required-label="'.htmlspecialchars($name, ENT_COMPAT, $l['a_meta_charset']).'"';
+    }
+    $str .= ' />';
     $str .= $button;
     if (strlen($tip) > 0) {
         $str .= ' <span class="labeldesc">'.$tip.'</span>';
@@ -335,7 +344,12 @@ function getFormRowTextBox($field_name, $name, $description = '', $value = '', $
     $str = ''; // string to return
     $str .= '<div class="row">'.K_NEWLINE;
     $str .= '<span class="label">'.K_NEWLINE;
-    $str .= '<label for="'.$field_name.'" title="'.$description.'">'.$name.'</label>'.K_NEWLINE;
+    $str .= '<label for="'.$field_name.'" title="'.$description.'">';
+    $str .= $name;
+    if (isset($_REQUEST['ff_required']) and (strpos(','.$_REQUEST['ff_required'].',', ','.$field_name.',') !== false)) {
+        $str .= ' <span class="required-asterisk" title="'.$l['w_required'].'">*</span>';
+    }
+    $str .= '</label>'.K_NEWLINE;
     if (!empty($prefix)) {
         $str .= $prefix;
     }
@@ -344,6 +358,9 @@ function getFormRowTextBox($field_name, $name, $description = '', $value = '', $
     $str .= '<textarea cols="50" rows="5" name="'.$field_name.'" id="'.$field_name.'" title="'.$description.'"';
     if ($disabled) {
         $str .= ' readonly="readonly" class="disabled"';
+    }
+    if (isset($_REQUEST['ff_required']) and (strpos(','.$_REQUEST['ff_required'].',', ','.$field_name.',') !== false)) {
+        $str .= ' data-required="true" data-required-label="'.htmlspecialchars($name, ENT_COMPAT, $l['a_meta_charset']).'"';
     }
     $str .= '>'.htmlspecialchars($value, ENT_NOQUOTES, $l['a_meta_charset']).'</textarea>'.K_NEWLINE;
     $str .= '</span>'.K_NEWLINE;
@@ -372,13 +389,22 @@ function getFormRowSelectBox($field_name, $name, $description = '', $tip = '', $
     $str = ''; // string to return
     $str .= '<div class="row">'.K_NEWLINE;
     $str .= '<span class="label">'.K_NEWLINE;
-    $str .= '<label for="'.$field_name.'" title="'.$description.'">'.$name.'</label>'.K_NEWLINE;
+    $str .= '<label for="'.$field_name.'" title="'.$description.'">';
+    $str .= $name;
+    if (isset($_REQUEST['ff_required']) and (strpos(','.$_REQUEST['ff_required'].',', ','.$field_name.',') !== false)) {
+        $str .= ' <span class="required-asterisk" title="'.$l['w_required'].'">*</span>';
+    }
+    $str .= '</label>'.K_NEWLINE;
     if (!empty($prefix)) {
         $str .= $prefix;
     }
     $str .= '</span>'.K_NEWLINE;
     $str .= '<span class="formw">'.K_NEWLINE;
-    $str .= '<select name="'.$field_name.'" id="'.$field_name.'" size="0" title="'.$description.'">'.K_NEWLINE;
+    $str .= '<select name="'.$field_name.'" id="'.$field_name.'" size="0" title="'.$description.'"';
+    if (isset($_REQUEST['ff_required']) and (strpos(','.$_REQUEST['ff_required'].',', ','.$field_name.',') !== false)) {
+        $str .= ' data-required="true" data-required-label="'.htmlspecialchars($name, ENT_COMPAT, $l['a_meta_charset']).'"';
+    }
+    $str .= '>'.K_NEWLINE;
     foreach ($items as $key => $val) {
         $str .= '<option value="'.$key.'"';
         if ($key == $value) {
