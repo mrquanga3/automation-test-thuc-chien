@@ -212,25 +212,25 @@ document.addEventListener(\'DOMContentLoaded\', function() {
 </script>'.K_NEWLINE;
             echo '<strong style="margin:5px">'.$l['m_with_selected'].'</strong>'.K_NEWLINE;
             echo '<style>input[type="submit"] { width:auto !important; padding:4px 12px !important; }</style>'.K_NEWLINE;
-            echo '<div style="display:flex; flex-direction:column; gap:8px; margin:5px 0;">'.K_NEWLINE;
+            echo '<ul style="margin:5px 0; padding-left:20px;">'.K_NEWLINE;
             if ($_SESSION['session_user_level'] >= K_AUTH_DELETE_USERS) {
                 // delete user
-                echo '<div style="display:flex; gap:5px; align-items:center;">'.K_NEWLINE;
+                echo '<li><div style="display:flex; gap:5px; align-items:center;">'.K_NEWLINE;
                 F_submit_button('delete', $l['w_delete'], $l['h_delete'], 'onclick="return confirm(\''.$l['m_delete_confirm'].'\')"');
-                echo '</div>'.K_NEWLINE;
+                echo '</div></li>'.K_NEWLINE;
             }
             if ($_SESSION['session_user_level'] >= K_AUTH_ADMIN_GROUPS) {
-                echo '<div style="display:flex; gap:5px; align-items:center;">'.K_NEWLINE;
+                echo '<li><div style="display:flex; gap:5px; align-items:center;">'.K_NEWLINE;
                 // add/delete group
                 echo F_user_group_select('new_group_id');
                 F_submit_button('addgroup', $l['w_add'], $l['w_add']);
                 if ($_SESSION['session_user_level'] >= K_AUTH_DELETE_GROUPS) {
                     F_submit_button('delgroup', $l['w_delete'], $l['h_delete'], 'onclick="return confirm(\''.$l['m_delete_confirm'].'\')"');
                 }
-                echo '</div>'.K_NEWLINE;
+                echo '</div></li>'.K_NEWLINE;
                 if ($_SESSION['session_user_level'] >= K_AUTH_MOVE_GROUPS) {
                     // move group
-                    echo '<div style="display:flex; gap:5px; align-items:center;">'.K_NEWLINE;
+                    echo '<li><div style="display:flex; gap:5px; align-items:center;">'.K_NEWLINE;
                     if ($l['a_meta_dir'] == 'rtl') {
                         $arr = '&larr;';
                     } else {
@@ -240,10 +240,10 @@ document.addEventListener(\'DOMContentLoaded\', function() {
                     echo '<span style="margin:0 3px;">'.$arr.'</span>'.K_NEWLINE;
                     echo F_user_group_select('to_group_id');
                     F_submit_button('move', $l['w_move'], $l['w_move']);
-                    echo '</div>'.K_NEWLINE;
+                    echo '</div></li>'.K_NEWLINE;
                 }
             }
-            echo '</div>'.K_NEWLINE;
+            echo '</ul>'.K_NEWLINE;
             echo '<div class="row"><hr /></div>'.K_NEWLINE;
 
             // ---------------------------------------------------------------
