@@ -211,7 +211,7 @@ document.addEventListener(\'DOMContentLoaded\', function() {
 });
 </script>'.K_NEWLINE;
             echo '<strong style="margin:5px">'.$l['m_with_selected'].'</strong>'.K_NEWLINE;
-            echo '<style>input[type="submit"] { width:auto !important; padding:4px 12px !important; height:28px; box-sizing: border-box; } select { height:28px; box-sizing: border-box; } .tce-ss { height:28px; box-sizing: border-box; } .tce-ss__input { height:100% !important; box-sizing: border-box !important; }</style>'.K_NEWLINE;
+            echo '<style>input[type="submit"] { width:auto !important; padding:4px 12px !important; height:28px; box-sizing: border-box; } select { height:28px; box-sizing: border-box; } .tce-ss { height:28px; box-sizing: border-box; } .tce-ss__input { height:28px !important; box-sizing: border-box !important; padding:2px 28px 2px 6px !important; line-height: 1 !important; }</style>'.K_NEWLINE;
             echo '<ul style="margin:5px 0; padding-left:20px;">'.K_NEWLINE;
             if ($_SESSION['session_user_level'] >= K_AUTH_DELETE_USERS) {
                 // delete user
