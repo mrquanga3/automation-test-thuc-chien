@@ -20,7 +20,7 @@ Left side menu
           </li>
           {/if}
           {if $gui->showMenu.search == true}
-            <li class="sub-menu">
+            <li class="sub-menu {if $gui->activeMenu.search == 'active'}dcjq-current-parent{/if}">
               <a id="a_search" href="javascript:;" class="{$gui->activeMenu.search}">
                 <i class="fa fa-search"></i>
                 <span>{$labels.search}</span>
@@ -42,7 +42,7 @@ Left side menu
             </li>
           {/if}          
           {if $gui->showMenu.system == true}
-            <li class="sub-menu">
+            <li class="sub-menu {if $gui->activeMenu.system == 'active'}dcjq-current-parent{/if}">
               <a id="system" href="javascript:;" class="{$gui->activeMenu.system}">
                 <i class="fa fa-desktop"></i>
                 <span>{$labels.system}</span>
@@ -74,7 +74,7 @@ Left side menu
             </li>
           {/if}
           {if $gui->showMenu.projects == true}
-            <li class="sub-menu">
+            <li class="sub-menu {if $gui->activeMenu.projects == 'active'}dcjq-current-parent{/if}">
               <a id="projects" href="javascript:;" class="{$gui->activeMenu.projects}">
                 <i class="fa fa-flask"></i>
                 <span>{$labels.projects}</span>
@@ -104,7 +104,7 @@ Left side menu
             </li>
           {/if}
           {if $gui->showMenu.requirements_design == true}
-            <li class="sub-menu">
+            <li class="sub-menu {if $gui->activeMenu.requirements_design == 'active'}dcjq-current-parent{/if}">
               <a href="javascript:;" class="{$gui->activeMenu.requirements_design}">
                 <i class="fas fa-prescription-bottle"></i>
                 <span>{$labels.requirements_design}</span>
@@ -126,7 +126,7 @@ Left side menu
             </li>
           {/if}
           {if $gui->showMenu.tests_design == true}
-            <li class="sub-menu">
+            <li class="sub-menu {if $gui->activeMenu.tests_design == 'active'}dcjq-current-parent{/if}">
               <a href="javascript:;" class="{$gui->activeMenu.tests_design}">
                 <i class="fas fa-drafting-compass"></i>
                 <span>{$labels.tests_design}</span>
@@ -154,7 +154,7 @@ Left side menu
             </li>
           {/if}
           {if $gui->showMenu.plans == true}
-            <li class="sub-menu">
+            <li class="sub-menu {if $gui->activeMenu.plans == 'active'}dcjq-current-parent{/if}">
               <a href="javascript:;" class="{$gui->activeMenu.plans}">
                 <i class="fas fa-swatchbook"></i>
                 <span>{$labels.title_test_plan_mgmt}</span>
@@ -204,7 +204,7 @@ Left side menu
             </li>
           {/if}
           {if $gui->showMenu.execution == true}
-            <li class="sub-menu">
+            <li class="sub-menu {if $gui->activeMenu.execution == 'active'}dcjq-current-parent{/if}">
               <a href="javascript:;" class="{$gui->activeMenu.execution}">
                 <i class="fas fa-gamepad"></i>
                 <span>{$labels.testcase_execution}</span>
