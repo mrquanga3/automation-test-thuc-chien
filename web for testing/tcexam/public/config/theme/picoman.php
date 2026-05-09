@@ -12,12 +12,23 @@ var $slider = document.getElementById("scrollayer");
 
 $toggle.addEventListener("click", function() {
 	var isOpen = $slider.classList.contains("slide-in");
-	$slider.setAttribute("class", isOpen ? "slide-out" : "slide-in");
-	$toggle.setAttribute("class", isOpen ? "hb_slideout" : "hb_slidein");
 	if(isOpen){
+		$slider.setAttribute("class", "slide-out hb_slideout");
+		$toggle.setAttribute("class", "hb_slideout");
 		$toggle.textContent="☰";
 	}else{
+		$slider.setAttribute("class", "slide-in hb_slidein");
+		$toggle.setAttribute("class", "hb_slidein");
 		$toggle.innerHTML="&times;";
+	}
+});
+
+document.addEventListener("click", function(e) {
+	var isOpen = $slider.classList.contains("slide-in");
+	if(isOpen && !$slider.contains(e.target) && !$toggle.contains(e.target)){
+		$slider.setAttribute("class", "slide-out hb_slideout");
+		$toggle.setAttribute("class", "hb_slideout");
+		$toggle.textContent="☰";
 	}
 });
 

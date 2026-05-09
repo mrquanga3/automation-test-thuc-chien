@@ -23,7 +23,7 @@ input[type=radio] + label, input[type=checkbox] + label {display: inline-block; 
  }
  
  input:not([type=checkbox]):not([type=radio]), select, textarea{margin-bottom:0}
- select#group_id,select#display_mode{padding-right: calc(var(--form-element-spacing-horizontal) + 1.5rem);background-image: var(--icon-chevron);background-position: center right .75rem;background-repeat: no-repeat;background-size: 1rem auto}
+ select#group_id,select#display_mode,select.searchable{padding-right: calc(var(--form-element-spacing-horizontal) + 1.5rem);background-image: var(--icon-chevron);background-position: center right .75rem;background-repeat: no-repeat;background-size: 1rem auto;width:100%}
  
  body{background: linear-gradient(180deg, var(--primary-hover) 25rem, var(--muted-background) 25rem)}
  .row{margin-bottom:var(--form-element-spacing-vertical)}

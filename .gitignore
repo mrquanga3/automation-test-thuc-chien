@@ -18,3 +18,4 @@ buildNumber.properties
 *.idea/
 web for testing/opencart/image/cache/
 web for testing/tcexam/cache/
+web for testing/tcexam/node_modules/

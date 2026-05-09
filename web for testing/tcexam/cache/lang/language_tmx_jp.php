@@ -1,6 +1,6 @@
 <?php
 // CACHE FILE FOR LANGUAGE: jp
-// DATE: 2021-02-20 10:35:53
+// DATE: 2026-05-10 01:47:43
 // *** DELETE THIS FILE TO RELOAD DATA FROM TMX FILE ***
 
 $tmx['a_meta_charset']='UTF-8';
@@ -426,7 +426,7 @@ $tmx['h_question_fullscreen']='enable/disable the fullscreen mode for this quest
 $tmx['h_position']='correct visualization order';
 $tmx['w_order']='order';
 $tmx['w_selection']='selection';
-$tmx['w_test_score_threshold']='points to pass the exam';
+$tmx['w_test_score_threshold']='試験に合格するポイント';
 $tmx['h_test_score_threshold']='minimum required points to pass the exam';
 $tmx['w_mcma_radio']='radiobuttons for MCMA';
 $tmx['h_mcma_radio']='if selected, uses radiouttons instead of checkboxes for MCMA questions';
@@ -436,7 +436,7 @@ $tmx['w_enable_menu']='questions menu';
 $tmx['h_enable_menu']='if selected, enables the questions navigation menu';
 $tmx['w_enable_comment']='test comment';
 $tmx['h_enable_comment']='if selected, enables a text field to leave a general comment about the test.';
-$tmx['w_report_to_users']='reports to users';
+$tmx['w_report_to_users']='ユーザーへのレポート';
 $tmx['h_report_to_users']='if selected, enable users to view a detailed test report';
 $tmx['w_passed']='PASSED';
 $tmx['w_not_passed']='NOT PASSED';
@@ -490,7 +490,7 @@ $tmx['hp_result_alluser']='This form summarize the results of all users for a se
 $tmx['h_module_name']='name of the module';
 $tmx['w_explanation']='explanation';
 $tmx['h_explanation']='explanation to be printed on results';
-$tmx['w_repeatable']='repeatable';
+$tmx['w_repeatable']='繰り返し可能';
 $tmx['h_repeatable_test']='users can repeat this test several times';
 $tmx['w_repeat']='repeat';
 $tmx['h_repeat_test']='repeat this test (current results will be deleted)';

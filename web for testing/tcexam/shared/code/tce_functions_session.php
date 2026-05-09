@@ -33,12 +33,14 @@
 /**
  */
 
-// PHP session settings
-//ini_set('session.save_handler', 'user');
-ini_set('session.name', 'PHPSESSID');
-//ini_set('session.gc_maxlifetime', K_SESSION_LIFE);
-//ini_set('session.cookie_lifetime', K_COOKIE_EXPIRE);
-ini_set('session.use_cookies', true);
+// PHP session settings (only set if session not already started)
+if (session_status() === PHP_SESSION_NONE) {
+    //ini_set('session.save_handler', 'user');
+    ini_set('session.name', 'PHPSESSID');
+    //ini_set('session.gc_maxlifetime', K_SESSION_LIFE);
+    //ini_set('session.cookie_lifetime', K_COOKIE_EXPIRE);
+    ini_set('session.use_cookies', true);
+}
 
 /**
  * Open session.

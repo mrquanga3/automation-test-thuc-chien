@@ -127,6 +127,15 @@ Run through [SKILL.md](SKILL.md) — covers move-to-new-machine, change-credenti
 ### Tail PHP errors
 Errors go to XAMPP's PHP log (`D:/xampp/php/logs/php_error_log`) unless `K_USE_ERROR_LOG=true` in `shared/config/tce_config.php`, in which case they also go to `log/tce_errors.log`.
 
+### Language selector (login page)
+Login pages (`admin/code/tce_login.php`, `public/code/tce_login.php`) include a language dropdown in the header that allows users to change the interface language. The dropdown:
+- Appears in the top-right of the header, next to the timer
+- Submits a form with `xlang` parameter (POST)
+- Reloads the page in the selected language
+- Persists selection via `SessionUserLang` cookie
+
+For implementation details and common issues/fixes, see [SKILL.md — Language Selector Implementation](SKILL.md#language-selector-implementation).
+
 ## Conventions when editing
 
 - Keep `*.default/` files untouched — they are the upstream copy. Edit `*/config/*.php` instead.

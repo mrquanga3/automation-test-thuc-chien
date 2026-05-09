@@ -36,8 +36,20 @@ require_once('tce_xhtml_header.php');
 echo '<div class="header">'.K_NEWLINE;
 echo '<div class="left"></div>'.K_NEWLINE;
 echo '<div class="right">'.K_NEWLINE;
+echo '<div style="display:flex; flex-direction:row; align-items:center; gap:15px; justify-content:flex-end;">'.K_NEWLINE;
 echo '<a name="timersection" id="timersection"></a>'.K_NEWLINE;
 include('../../shared/code/tce_page_timer.php');
+// Language selector
+$lang_array = unserialize(K_AVAILABLE_LANGUAGES);
+echo '<form action="'.$_SERVER['SCRIPT_NAME'].'" method="post" id="form_lang_header" style="margin:0; flex-shrink:0;">'.K_NEWLINE;
+echo '<select name="xlang" style="padding:5px; width:150px;" onchange="this.form.submit();">'.K_NEWLINE;
+foreach ($lang_array as $lang_code => $lang_name) {
+    $selected = ($lang_code == K_USER_LANG) ? ' selected="selected"' : '';
+    echo '<option value="'.$lang_code.'"'.$selected.'>'.$lang_name.' ('.strtoupper($lang_code).')</option>'.K_NEWLINE;
+}
+echo '</select>'.K_NEWLINE;
+echo '</form>'.K_NEWLINE;
+echo '</div>'.K_NEWLINE;
 echo '</div>'.K_NEWLINE;
 echo '</div>'.K_NEWLINE;
 
@@ -57,6 +69,7 @@ echo '</div>'.K_NEWLINE;
 
 echo '<div class="body">'.K_NEWLINE;
 
+echo '<div class="content">'.K_NEWLINE;
 echo '<a name="topofdoc" id="topofdoc"></a>'.K_NEWLINE;
 echo '<h1>'.htmlspecialchars($thispage_title, ENT_NOQUOTES, $l['a_meta_charset']).'</h1>'.K_NEWLINE;
 

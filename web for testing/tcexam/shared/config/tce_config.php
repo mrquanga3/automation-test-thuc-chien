@@ -264,7 +264,18 @@ require_once('../../shared/code/tce_functions_errmsg.php');
 // load language resources
 
 // set user's selected language or default language
-if (isset($_REQUEST['lang'])
+if (isset($_POST['xlang'])
+    and (strlen($_POST['xlang']) == 2)
+    and (array_key_exists($_POST['xlang'], unserialize(K_AVAILABLE_LANGUAGES)))) {
+    /**
+     * Use language from form submission.
+     * @ignore
+     */
+    define('K_USER_LANG', $_POST['xlang']);
+    // set client cookie
+    setcookie('SessionUserLang', K_USER_LANG, time() + K_COOKIE_EXPIRE, K_COOKIE_PATH, K_COOKIE_DOMAIN, K_COOKIE_SECURE);
+    $_COOKIE['SessionUserLang'] = K_USER_LANG;
+} elseif (isset($_REQUEST['lang'])
     and (strlen($_REQUEST['lang']) == 2)
     and (array_key_exists($_REQUEST['lang'], unserialize(K_AVAILABLE_LANGUAGES)))) {
     /**
@@ -274,11 +285,12 @@ if (isset($_REQUEST['lang'])
     define('K_USER_LANG', $_REQUEST['lang']);
     // set client cookie
     setcookie('SessionUserLang', K_USER_LANG, time() + K_COOKIE_EXPIRE, K_COOKIE_PATH, K_COOKIE_DOMAIN, K_COOKIE_SECURE);
+    $_COOKIE['SessionUserLang'] = K_USER_LANG;
 } elseif (isset($_COOKIE['SessionUserLang'])
     and (strlen($_COOKIE['SessionUserLang']) == 2)
     and (array_key_exists($_COOKIE['SessionUserLang'], unserialize(K_AVAILABLE_LANGUAGES)))) {
     /**
-     * Use session language.
+     * Use cookie language.
      * @ignore
      */
     define('K_USER_LANG', $_COOKIE['SessionUserLang']);
@@ -295,6 +307,12 @@ require_once('../../shared/code/tce_tmx.php');
 // instantiate new TMXResourceBundle object
 $lang_resources = new TMXResourceBundle(K_PATH_TMX_FILE, K_USER_LANG, K_PATH_LANG_CACHE.basename(K_PATH_TMX_FILE, '.xml').'_'.K_USER_LANG.'.php');
 $l = $lang_resources->getResource(); // language array
+
+// Prevent browser caching of language selection
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Cache-Control: post-check=0, pre-check=0', false);
+header('Pragma: no-cache');
+header('Expires: ' . date('r', time() - 86400));
 
 ini_set('arg_separator.output', '&amp;');
 //date_default_timezone_set(K_TIMEZONE);

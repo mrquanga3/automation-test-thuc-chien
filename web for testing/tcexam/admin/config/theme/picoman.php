@@ -12,12 +12,23 @@ var $slider = document.getElementById("scrollayer");
 
 $toggle.addEventListener("click", function() {
 	var isOpen = $slider.classList.contains("slide-in");
-	$slider.setAttribute("class", isOpen ? "slide-out" : "slide-in");
-	$toggle.setAttribute("class", isOpen ? "hb_slideout" : "hb_slidein");
 	if(isOpen){
+		$slider.setAttribute("class", "slide-out hb_slideout");
+		$toggle.setAttribute("class", "hb_slideout");
 		$toggle.textContent="☰";
 	}else{
+		$slider.setAttribute("class", "slide-in hb_slidein");
+		$toggle.setAttribute("class", "hb_slidein");
 		$toggle.innerHTML="&times;";
+	}
+});
+
+document.addEventListener("click", function(e) {
+	var isOpen = $slider.classList.contains("slide-in");
+	if(isOpen && !$slider.contains(e.target) && !$toggle.contains(e.target)){
+		$slider.setAttribute("class", "slide-out hb_slideout");
+		$toggle.setAttribute("class", "hb_slideout");
+		$toggle.textContent="☰";
 	}
 });
 
@@ -215,64 +226,4 @@ function removeUnsure(){
 		localStorage.setItem('unsure', JSON.stringify(unsure));
 	}
 }
-
-document.addEventListener('submit', function(e) {
-    var submitter = e.submitter || document.activeElement;
-    if (submitter && (submitter.name === 'delete' || submitter.name === 'clear' || submitter.name === 'cancel')) {
-        return; // skip validation for delete/clear actions
-    }
-    var form = e.target;
-    var requiredFields = form.querySelectorAll('[data-required="true"]');
-    var hasError = false;
-    var firstErrorField = null;
-
-    // Clear previous errors first
-    var oldErrors = form.querySelectorAll('.inline-error');
-    for (var j = 0; j < oldErrors.length; j++) {
-        oldErrors[j].remove();
-    }
-
-    for (var i = 0; i < requiredFields.length; i++) {
-        var field = requiredFields[i];
-        if (!field.value || !field.value.trim()) {
-            hasError = true;
-            if (!firstErrorField) firstErrorField = field;
-            
-            var labelText = field.getAttribute('data-required-label') || field.name;
-            var tmp = document.createElement('div');
-            tmp.innerHTML = labelText;
-            var cleanLabel = tmp.textContent || tmp.innerText || '';
-
-            var errorMsg = document.createElement('div');
-            errorMsg.className = 'inline-error';
-            errorMsg.style.color = '#ff0000';
-            errorMsg.style.fontSize = '0.9em';
-            errorMsg.style.marginTop = '4px';
-            errorMsg.style.fontWeight = 'bold';
-            errorMsg.innerText = 'Please fill out the required field: ' + cleanLabel;
-            
-            field.parentElement.appendChild(errorMsg);
-
-            field.addEventListener('input', function() {
-                var err = this.parentElement.querySelector('.inline-error');
-                if (err) err.remove();
-            }, { once: true });
-            field.addEventListener('change', function() {
-                var err = this.parentElement.querySelector('.inline-error');
-                if (err) err.remove();
-            }, { once: true });
-        }
-    }
-
-    if (hasError) {
-        e.preventDefault();
-        e.stopPropagation();
-        if (firstErrorField) {
-            firstErrorField.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            firstErrorField.focus();
-        }
-        return false;
-    }
-}, true);
-
 </script>

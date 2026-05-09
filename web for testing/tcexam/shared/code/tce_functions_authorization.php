@@ -71,13 +71,29 @@ function F_loginForm($faction, $fid, $fmethod, $fenctype, $username)
         $str .= '</div>'.K_NEWLINE;
     }
     // buttons
-    $str .= '<div class="row">'.K_NEWLINE;
+    $str .= '<div class="row" style="display:flex; align-items:center; gap:15px;">'.K_NEWLINE;
     $str .= '<input type="submit" name="login" id="login" value="'.$l['w_login'].'" title="'.$l['h_login_button'].'" />'.K_NEWLINE;
     // the following field is used to check if the form has been submitted
     $str .= '<input type="hidden" name="logaction" id="logaction" value="login" />'.K_NEWLINE;
     $str .= '</div>'.K_NEWLINE;
     $str .= F_getCSRFTokenField().K_NEWLINE;
     $str .= '</form>'.K_NEWLINE;
+    $str .= '<script>'.K_NEWLINE;
+    $str .= 'document.getElementById("form_login").addEventListener("submit", function(e) {'.K_NEWLINE;
+    $str .= '  e.preventDefault();'.K_NEWLINE;
+    $str .= '  var formData = new FormData(this);'.K_NEWLINE;
+    $str .= '  fetch(this.action, {method: "POST", body: formData})'.K_NEWLINE;
+    $str .= '    .then(response => response.text())'.K_NEWLINE;
+    $str .= '    .then(html => {'.K_NEWLINE;
+    $str .= '      if(html.indexOf("logout") > -1 || html.indexOf("tce_test_execute") > -1) {'.K_NEWLINE;
+    $str .= '        location.href = location.href;'.K_NEWLINE;
+    $str .= '      } else {'.K_NEWLINE;
+    $str .= '        document.open(); document.write(html); document.close();'.K_NEWLINE;
+    $str .= '      }'.K_NEWLINE;
+    $str .= '    })'.K_NEWLINE;
+    $str .= '    .catch(err => console.error(err));'.K_NEWLINE;
+    $str .= '});'.K_NEWLINE;
+    $str .= '</script>'.K_NEWLINE;
     $str .= '</div>'.K_NEWLINE;
     $str .= '<div class="pagehelp">'.$l['hp_login'].'</div>'.K_NEWLINE;
     $str .= '</div>'.K_NEWLINE;
