@@ -1,0 +1,17 @@
+M=MODULE	module_enabled	module_name								
+S=SUBJECT	subject_enabled	subject_name	subject_description							
+Q=QUESTION	question_enabled	question_description	question_explanation	question_type	question_difficulty	question_position	question_timer	question_fullscreen	question_inline_answers	question_auto_next
+A=ANSWER	answer_enabled	answer_description	answer_explanation	answer_isright	answer_position	answer_keyboard_key				
+										
+M	1	Theme1								
+S	1	Science	World Science 							
+Q	1	"How many pole, on magnet?"		S	1		240	0	0	0
+A	1	A. 2 pole nort & south		1						
+A	1	B. 1 North pole		0						
+A	1	C. None		0						
+A	1	D. All answer false		0						
+Q	1	Can magnet loss ability?		S	1		240	0	0	0
+A	1	A. Yes		1						
+A	1	B. No		0						
+A	1	C. All Answer True		0						
+A	1	C. All Answer False		0						

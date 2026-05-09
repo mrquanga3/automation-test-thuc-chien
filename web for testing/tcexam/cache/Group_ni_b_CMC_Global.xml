@@ -1,0 +1,204 @@
+Group nội bộ: CMC Global (nhập tên LDAP & đơn vị để được phê duyệt vào nhóm)
+Fanpage: CMC Global Sky
+Cổng thông tin nội bộ: CMC Global Sharepoint
+Tra cứu thông tin chấm công: HRMS
+Tra cứu thông tin nhân sự: SF4C
+Hệ thống tạo ticket: C-now
+Tra cứu tài liệu: Wiki
+Hệ thống dành cho khối sản xuất: Skillset
+
+
+
+check giao diện
+pass: tối thiểu 8 ký tự (nhập ít hơn, nhiều hơn,.)
+- ước tính số test cần thiết:
+giao diênjjjjjjjjjjjjjjjjjjj
+từng trường có validate...
+- pass đúng với pass trên và sai
+- ièn thông tin...
+
+
+
+ID: TC001
+Mô tả: Kiểm tra chức năng đăng nhập với thông tin hợp lệ
+Bước thực hiện:
+1. Truy cập trang đăng nhập
+2. Nhập tên người dùng: "user@example.com"
+3. Nhập mật khẩu: "password123"
+4. Nhấn nút "Đăng nhập"
+Dữ liệu đầu vào: 
+- Tên người dùng: user@example.com
+- Mật khẩu: password123
+Kết quả mong đợi: 
+- Người dùng được chuyển đến trang chính và thông báo "Đăng nhập thành công" xuất hiện.
+Trạng thái: Chưa thực hiện
+
+
+Dear các anh,
+
+Em gửi báo cáo ngày 10/03/2025
+
+Hôm nay: 
+-	Em đã viết testcase của phần Group Management và phần 
+-	Chị Trúc giao cho em list các module và chức năng chính của trang web Mena Grourmet Market
+-	Viết test case của phần Group Management và phần User Importer
+Ngày mai: 
+-	Em sẽ tiếp tục đọc tài liệu, sửa và hoàn thiện phần test case chức năng được giao
+Issue:
+-	Còn lúng túng trong việc xác định module và các chứng năng của trang web
+
+Best regards!
+
+
+Trần Thị Hương Mai | DU1.8
+CMC Global | 8&9 Floor, CMC Tower, Duy Tan, Cau Giay, Hanoi
+M +84 | T: +
+E: tthmai@cmcglobal.vn
+
+Dear các anh,
+
+Em gửi báo cáo ngày 10/03/2025
+
+Hôm nay: 
+-	Em viết được 48 test case của phần Group Management và phần User Importer
+Ngày mai: 
+-	Em sẽ tiếp tục đọc tài liệu, sửa và hoàn thiện phần test case chức năng được giao
+Issue:
+-	Còn lúng túng trong việc xác định module và các chứng năng của trang web
+
+Best regards!
+
+
+Trần Thị Hương Mai | DU1.8
+CMC Global | 8&9 Floor, CMC Tower, Duy Tan, Cau Giay, Hanoi
+M +84 | T: +
+E: tthmai@cmcglobal.vn
+
+
+
+
+1. Kiem thu phan mem: kiem tra danh gia he thog phan mem co dap ung cac yeu cau da dat ra hay khong cung nhu phat hien loi hoac van de
+
+2. Cac loai kiem thu:
+- Kiem thu chuc nang (functional Testing): xac minh cac chuc nang cua phan mem theo yeu cau
+- Kiem thu phi chuc nang (Non-functional testing): danh gia hieu suat, bao mat, kha nang sd
+- Kiem thu tu dong (automated testing): Sd cong tu de tu dong hoa cac tac vu kiem thu
+- Kiem thu thu cong (manual testing)
+
+3. Test level
+- Kiem thu don vi (unit testing): Kiem tra tung don vi hoac thanh phan nho nhat cua phan mem (cac ham, phuong thuc,..), thuong do dev lam
+- Kiem thu tich hop (integration testing): Kiem tra su tuong tac giua cac don vi hoac module khac nhau dam bao chung hoat dong cung nhau mot cach chinh xac
+- Kiem thu he thong (System testing): Kiem tra toan bo he thong phan mem de dam bao chung hoat dong theo yeu cau da de ra
+- Kiem thu chap nhan (acceptance testing): danh gia san pham phan mem co dap ung yeu cau cua nguoi dung cuoi hay k (thuong do nguoi dung cuoi hoac khach hang thuc hien)
+- Kiem thu hoi quy (regression testing): dam bao rang cac thay doi trong ma nguon khong lam anh huong den cac chuc nang da hoat dong trc do (chay laij cac ca kiem thu da thuc hien truoc do)
+- Kiem thu phi chuc nang (non-functional testing): danh gia hieu suat, bao mat, kha nang sd,..
+
+
+3. System testing - integration testing:
+- System testing: test toan bo he thong dam bao no hoat dong dung theo yc
+- integration testing: test su tuong tac giua cac thanh phan hoac module khac nhau de dam bao chung hoat dong cun nhau mot cach chinh xac
+
+4. Kiem thu lai (retesting): la quy trinh kiem thu trong do cac ca kiem thu duoc thuc hien lai de xac minh loi da duoc sua chua
+retesting - regression testing:
+- kiem thu lai: tap trung vao viec xac minh rang mot loi cu the da duoc sua, k ktra cac cnang khac
+- kiem thu hoi quy: kiem tra toan bo ung dung de dam bao rang cac cnang trc do van hoat dong nhu mong doi sau khi co thay doi
+
+5. Test type :
+- Functional testing : dam bao cac cnag cua hthong hd dung yeu cau 
+vd: ktra xem nguoi dung co the dang nhap vao he thong bang thong tin dung hay khong
+- Non-Functional testing: danh gia cac thuoc tinh khong chuc nang cua phan mem nhu hieu suat, bao mat, kha nang su dung
+vd: ktra xem thoi gian phan hoi cua ung dung khi co nhieu nguoi truy cap cung luc
+- Structual testing: danh gia cau truc ben trong cua phan mem, dam bao rang cac thanh phan va ma nguon hoat dong dung cach
+vd: kiem tra xem cac dieu kien trong ma nguon co duoc xu ly dung hay khong
+- Change testing (kiem thu thay doi): dam bao rang cac thay doi trong ma nguon (nhu sua loi hoac them tinh nang) khong anh huong den cac chuc nang da hoat dong
+vd:sau khi sua loi trong chuc nang thanh toanm kiem thu lai toan bo quy trinh thanh toan, kiem thu lai toan bo quy trinh thanh toan de xac nhan rang loi da duoc khac phuc va khong co loi moi phat sing
+
+
+6. lam sao viet testcase bao phu duoc toi da requirement
+- hieu ro yeu cau
+- xac dinh cac kich ban kiem thu
+- viet cau truc testcase
+- van dung toi da cac ky thuat kiem thu (bien, phan vung tuong duong, doan loi,..)
+- sau khi taoj test xong thi phai review (kiem tra va ra soat): tu review, review cheo, meeting review,..
+- thuc hien kiem thu
+
+7. test design - test case
+- thiet ke kiem thu (test design): xac dinh cach thuc thuc hien kiem thu dua tren yc
+- testcase: mo ta tinh huong cu the de kiem tra mot chuc nang
+--> moi quan he: test design cung cap nen tang de viet testcase; testcase cu the hoa cac kich ban va yeu cau trong thiet ke kiem thu    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

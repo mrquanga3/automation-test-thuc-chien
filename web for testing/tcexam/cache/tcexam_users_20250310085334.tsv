@@ -1,0 +1,13 @@
+user_id	user_name	user_password	user_email	user_regdate	user_ip	user_firstname	user_lastname	user_birthdate	user_birthplace	user_regnumber	user_ssn	user_level	user_verifycode	user_otpkey	user_groups
+2	admin		admin@gmail.com	2001-01-01 01:01:01	127.0.0.0							0	fc6e149c7d05f97812fa18cf96ad9f9c		default
+14	admin1		1234@gmail.com	2025-03-07 16:54:54	0000:0000:0000:0000:0000:ffff:7461:b74a							10		ZSFYD3T2IS7W3KQ5	
+21	anh23		1234@gmail.com	2025-03-07 17:17:53	0000:0000:0000:0000:0000:ffff:7461:b74a							10		2M5LDZY2WTX7QC4C	
+18	hang98		4567@gmail.com	2025-03-07 17:04:12	0000:0000:0000:0000:0000:ffff:7114:6f22							10		AQFV6G6DTYSDVVMV	
+16	huong1		5678@gmail.com	2025-03-07 17:02:46	0000:0000:0000:0000:0000:ffff:7114:6f22							10		XX4CJYZX2N2FUSLL	
+17	huong99		5678@gmail.com	2025-03-07 17:03:15	0000:0000:0000:0000:0000:ffff:7114:6f22							10		ENFH7Q2D7IWQ2OOK	
+11	mai2		mai@gmail.com	2025-03-07 16:33:22	0000:0000:0000:0000:0000:ffff:7114:6f22							10		RMRSEUCGRLYINK5O	học sinh
+15	maiham		maiham@gmail.com	2025-03-07 16:33:22	0000:0000:0000:0000:0000:ffff:7114:6f22							10		GD4NF7TPRT5MZ5HC	
+12	phuong16		phuong2003@gmail.com	2025-03-07 16:52:38	0000:0000:0000:0000:0000:ffff:7461:b74a							10		CUURO5RTJETGBU4C	
+20	son21		6789@gmail.com	2025-03-07 17:06:27	0000:0000:0000:0000:0000:ffff:7461:b74a							10		T7RM2HDV4ZVE3T72	
+3	student		h@gmail.com	2025-03-04 09:00:36	0000:0000:0000:0000:0000:ffff:7114:6f22							1	6fe8a25791e4f4bebc59752097e23080	5YOB7OJA62UFDIXJ	học sinh
+19	thanh03		2345@gmail.com	2025-03-07 17:05:03	0000:0000:0000:0000:0000:ffff:7114:6f22							10		M3TPQ6FZXXRHQHDE	

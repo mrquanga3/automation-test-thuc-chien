@@ -1,0 +1,5 @@
+user db
+tcexam/tcexam
+
+default account
+admin/123

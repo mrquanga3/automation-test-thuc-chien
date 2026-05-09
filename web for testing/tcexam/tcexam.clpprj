@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<project name="D:\xampp\htdocs\tcexam\tcexam.clpprj">
+ <settings>
+  <PM_URL><![CDATA[http://localhost/D:/xampp/htdocs/tcexam]]></PM_URL>
+  <PM_HOME_URL><![CDATA[http://localhost/D:/xampp/htdocs/tcexam]]></PM_HOME_URL>
+  <PM_LIBS><![CDATA[]]></PM_LIBS>
+  <PM_FTP_CONNECTION><![CDATA[]]></PM_FTP_CONNECTION>
+  <PM_FTP_DIR><![CDATA[]]></PM_FTP_DIR>
+  <PM_FTP_UPLOAD_ON_SAVE><![CDATA[INT:0]]></PM_FTP_UPLOAD_ON_SAVE>
+  <PM_LANGUAGE><![CDATA[]]></PM_LANGUAGE>
+ </settings>
+ <removed value=";"/>
+ <added value=""/>
+ <lastopfiles>
+  <file name="D:\xampp\htdocs\tcexam\shared\code\tce_authorization.php"/>
+  <file name="D:\xampp\htdocs\tcexam\shared\cas\source\CAS.php"/>
+  <file name="D:\xampp\htdocs\tcexam\shared\config\tce_paths.php"/>
+  <file name="D:\xampp\htdocs\tcexam\shared\code\tce_functions_form.php"/>
+  <file name="D:\xampp\htdocs\tcexam\shared\code\tce_page_userbar.php"/>
+  <file name="D:\xampp\htdocs\tcexam\shared\phpmailer\get_oauth_token.php"/>
+  <file name="D:\xampp\htdocs\tcexam\shared\code\tce_functions_session.php"/>
+  <file name="D:\xampp\htdocs\tcexam\public\code\index.php"/>
+  <lastactivefile name=""/>
+ </lastopfiles>
+ <errors version="1.12.0"/>
+ <twigtemplate/>
+ <todoblock>
+  <todofile name="D:\xampp\htdocs\tcexam\shared\cas\source\CAS\ProxiedService\Imap.php">
+   <todo name="todo add localization integration." pos="14;208"/>
+   <todo name="@todo add localization integration." pos="13;208"/>
+  </todofile>
+  <todofile name="D:\xampp\htdocs\tcexam\shared\tcpdf\include\tcpdf_static.php">
+   <todo name="TODO" pos="10;467"/>
+  </todofile>
+  <todofile name="D:\xampp\htdocs\tcexam\shared\tcpdf\tcpdf.php">
+   <todo name="TODO: create a SMask" pos="41;9293"/>
+   <todo name="@TODO: create a SMask" pos="40;9293"/>
+   <todo name="TODO: implement this feature" pos="4;13690"/>
+   <todo name="@TODO: implement this feature" pos="3;13690"/>
+   <todo name="TODO: unsupported feature" pos="7;24536"/>
+   <todo name="@TODO: unsupported feature" pos="6;24536"/>
+  </todofile>
+ </todoblock>
+ <dbgurls>
+  <url name="http://192.168.5.101/tcexam"/>
+ </dbgurls>
+ <lasttime value="1739716159"/>
+</project>
