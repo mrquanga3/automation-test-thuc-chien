@@ -762,7 +762,9 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 
-.sidebar-closed > #sidebar > ul {
+.sidebar-closed > #sidebar > ul,
+body.sidebar-closed > aside > #sidebar > ul,
+body.sidebar-closed #sidebar > ul {
     display: none;
 }
 
@@ -770,8 +772,9 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
     margin-left: 0px;
 }
 
-.sidebar-closed #sidebar {
-    margin-left: -180px;
+.sidebar-closed #sidebar,
+body.sidebar-closed #sidebar {
+    margin-left: -210px;
 }
 
 
