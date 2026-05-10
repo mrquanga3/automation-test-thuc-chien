@@ -421,9 +421,9 @@ if ($r = F_db_query($sql, $db)) {
         }
         $full_name = trim($m['user_lastname'].' '.$m['user_firstname']);
         if (empty($full_name)) {
-            $display_name = $m['user_name'].' - '.strtoupper($m['user_name']);
+            $display_name = $m['user_id'].' - '.$m['user_name'].' ('.strtoupper($m['user_name']).')';
         } else {
-            $display_name = $m['user_name'].' - '.$full_name;
+            $display_name = $m['user_id'].' - '.$m['user_name'].' ('.$full_name.')';
         }
         echo '>'.htmlspecialchars($display_name, ENT_NOQUOTES, $l['a_meta_charset']).'</option>'.K_NEWLINE;
     }

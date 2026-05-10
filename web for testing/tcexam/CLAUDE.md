@@ -136,6 +136,84 @@ Login pages (`admin/code/tce_login.php`, `public/code/tce_login.php`) include a 
 
 For implementation details and common issues/fixes, see [SKILL.md — Language Selector Implementation](SKILL.md#language-selector-implementation).
 
+### Answer rating editor improvements
+The admin rating page (`admin/code/tce_edit_rating.php`) has been enhanced with a custom dropdown for answer selection:
+- **Custom div-based dropdown** instead of native `<select>` (supports hover/click interactions)
+- **Full answer details displayed** in dropdown options: User, Status, Score, Question (100 chars), Answer (100 chars)
+- **Multi-line formatting** with proper text wrapping for better readability
+- **Selected answer display** shows formatted details when a rating is loaded
+- **Consistent styling** matches other form inputs
+
+For technical details, see [SKILL.md — Custom Dropdown Implementation](SKILL.md#custom-dropdown-implementation-answer-selection).
+
+### REST API for User Management
+
+A custom REST API has been implemented for programmatic user management and testing operations.
+
+**Endpoints:**
+- `POST route=api/user.add` — Create new user (admin only)
+- `POST route=api/user.edit&user_id=N` — Update user (admin any; non-admin self only)
+- `GET route=api/user.list` — List users with pagination
+- `GET route=api/user.get&user_id=N` — Get single user
+- `POST route=api/user.delete&user_id=N` — Delete user (admin only)
+
+**Permission Model:**
+- **Admin (level 10):** Can add, edit any user, delete, list, get
+- **Non-admin (level 1-9):** Can edit only themselves, cannot add/delete, can list/get
+
+**Base URL:** `http://localhost/tcexam/admin/code/tce_api.php?route=<endpoint>`
+
+**Authentication:** All endpoints require Bearer token in the `Authorization` header.
+
+**Apache Configuration:** Add this to `httpd-xampp.conf` to enable Authorization header passing:
+```apache
+<Directory "D:/automation-test-thuc-chien/web for testing/tcexam/">
+    AllowOverride All
+    Require all granted
+    SetEnvIf Authorization .+ HTTP_AUTHORIZATION=$0
+</Directory>
+```
+Then restart Apache: `httpd.exe -k restart`
+
+**Example (PowerShell):** Login and create user
+```powershell
+# Step 1: Login to get token
+$loginUri = "http://localhost/tcexam/admin/code/tce_api.php?route=api/auth.login"
+$loginBody = @{ user_name = "admin"; password = "1234" }
+$loginResp = Invoke-WebRequest -Uri $loginUri -Method POST -Body $loginBody -ContentType "application/x-www-form-urlencoded"
+$token = ($loginResp.Content | ConvertFrom-Json).token
+
+# Step 2: Use token to create user (via Authorization header)
+$uri = "http://localhost/tcexam/admin/code/tce_api.php?route=api/user.add"
+$headers = @{ "Authorization" = "Bearer $token" }
+$body = @{
+    user_name = "testuser"
+    password = "pass123"
+    firstname = "Test"
+    lastname = "User"
+    email = "test@example.com"
+    user_level = "1"
+}
+$response = Invoke-WebRequest -Uri $uri -Method POST -Body $body -Headers $headers -ContentType "application/x-www-form-urlencoded"
+$response.Content | ConvertFrom-Json
+```
+
+**Example (bash/curl - Git Bash):** Login and create user
+```bash
+# Step 1: Login to get token
+TOKEN=$(curl -s -X POST "http://localhost/tcexam/admin/code/tce_api.php?route=api/auth.login" \
+  -d "user_name=admin&password=1234" | grep -o '"token":"[^"]*"' | cut -d'"' -f4)
+
+# Step 2: Use token to create user (via Authorization header)
+curl -X POST "http://localhost/tcexam/admin/code/tce_api.php?route=api/user.add" \
+  -H "Authorization: Bearer $TOKEN" \
+  -d "user_name=testuser&password=pass123&firstname=Test&lastname=User&email=test@example.com&user_level=1"
+```
+
+Returns JSON with HTTP status codes (201 Created, 200 OK, 401 Unauthorized, 403 Forbidden, 404 Not Found, 409 Conflict, etc.)
+
+For complete API documentation with all parameters, examples, and error handling, see [SKILL.md — REST API Documentation](SKILL.md#rest-api-documentation).
+
 ## Conventions when editing
 
 - Keep `*.default/` files untouched — they are the upstream copy. Edit `*/config/*.php` instead.

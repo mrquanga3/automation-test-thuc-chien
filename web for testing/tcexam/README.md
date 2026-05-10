@@ -1,6 +1,73 @@
 # TCExam - README
 
-> **Local automation testing fork.** This copy of TCExam runs locally on Windows + XAMPP and is used as an Application Under Test for automation practice. Local-environment context (URLs, DB credentials, paths, theme) lives in [CLAUDE.md](CLAUDE.md). Quick recipes for reconfiguring paths/DB/theme when moving the project across machines are in [SKILL.md](SKILL.md). The rest of this README is the upstream tecnickcom documentation.
+> **Local automation testing fork.** This copy of TCExam runs locally on Windows + XAMPP and is used as an Application Under Test for automation practice. Local-environment context (URLs, DB credentials, paths, theme) lives in [CLAUDE.md](CLAUDE.md). Quick recipes for reconfiguring paths/DB/theme when moving the project across machines are in [SKILL.md](SKILL.md). Detailed API documentation and development guides are in [SKILL.md](SKILL.md). The rest of this README is the upstream tecnickcom documentation.
+
+## Local Development & API
+
+### REST API Endpoints
+
+This fork includes a custom REST API for programmatic user management and testing with Bearer token authentication. See [SKILL.md — REST API Documentation](SKILL.md#rest-api-documentation) for complete endpoint reference and examples.
+
+**Quick Start (PowerShell):**
+```powershell
+# Step 1: Login to get Bearer token
+$loginUri = "http://localhost/tcexam/admin/code/tce_api.php?route=api/auth.login"
+$loginResp = Invoke-WebRequest -Uri $loginUri -Method POST -Body @{user_name="admin";password="1234"} -ContentType "application/x-www-form-urlencoded"
+$token = ($loginResp.Content | ConvertFrom-Json).token
+
+# Add a new user
+$uri = "http://localhost/tcexam/admin/code/tce_api.php?route=api/user.add"
+$headers = @{ "Authorization" = "Bearer $token" }
+$body = @{
+    user_name = "testuser"
+    password = "pass123"
+    firstname = "Test"
+    lastname = "User"
+    email = "test@example.com"
+}
+$response = Invoke-WebRequest -Uri $uri -Method POST -Body $body -Headers $headers -ContentType "application/x-www-form-urlencoded"
+$response.Content | ConvertFrom-Json
+
+# Get user list
+$response = Invoke-WebRequest -Uri "http://localhost/tcexam/admin/code/tce_api.php?route=api/user.list&page=1&limit=50" -Headers $headers -Method GET
+$response.Content | ConvertFrom-Json
+```
+
+**Quick Start (bash/curl - Git Bash/Linux/Mac):**
+```bash
+# Step 1: Login to get Bearer token
+TOKEN=$(curl -s -X POST "http://localhost/tcexam/admin/code/tce_api.php?route=api/auth.login" \
+  -d "user_name=admin&password=1234" | grep -o '"token":"[^"]*"' | cut -d'"' -f4)
+
+# Add a new user
+curl -X POST "http://localhost/tcexam/admin/code/tce_api.php?route=api/user.add" \
+  -H "Authorization: Bearer $TOKEN" \
+  -d "user_name=testuser&password=pass123&firstname=Test&lastname=User&email=test@example.com&user_level=1"
+
+# Get user list
+curl "http://localhost/tcexam/admin/code/tce_api.php?route=api/user.list&page=1&limit=50" \
+  -H "Authorization: Bearer $TOKEN"
+
+# Get single user
+curl "http://localhost/tcexam/admin/code/tce_api.php?route=api/user.get&user_id=5" \
+  -H "Authorization: Bearer $TOKEN"
+
+# Update user
+curl -X POST "http://localhost/tcexam/admin/code/tce_api.php?route=api/user.edit" \
+  -H "Authorization: Bearer $TOKEN" \
+  -d "user_id=5&firstname=Updated&email=newemail@example.com"
+
+# Delete user
+curl -X POST "http://localhost/tcexam/admin/code/tce_api.php?route=api/user.delete" \
+  -H "Authorization: Bearer $TOKEN" \
+  -d "user_id=5"
+```
+
+### Custom Improvements
+
+- **Enhanced Rating Editor** (`admin/code/tce_edit_rating.php`): Custom dropdown with full answer details, multi-line formatting, and proper text truncation
+- **Fixed PDF Generation**: Robust percentage formatting that handles edge cases
+- See [SKILL.md](SKILL.md) for implementation details
 
 ------------------------------------------------------
 
