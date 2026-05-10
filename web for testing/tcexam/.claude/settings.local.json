@@ -3,5 +3,8 @@
     "allow": [
       "Bash(findstr -i \"readme claude skill\")"
     ]
-  }
+  },
+  "enabledMcpjsonServers": [
+    "playwright"
+  ]
 }
