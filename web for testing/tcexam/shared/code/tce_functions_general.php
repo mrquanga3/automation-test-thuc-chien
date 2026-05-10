@@ -440,6 +440,9 @@ function F_formatPercentage($num, $ratio = true)
  */
 function F_formatPdfPercentage($num, $ratio = true)
 {
+    if (empty($num) || !is_numeric($num)) {
+        return '(  0%)';
+    }
     if ($ratio) {
         $num = (100 * $num);
     }
