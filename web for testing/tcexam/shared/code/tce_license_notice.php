@@ -17,7 +17,7 @@
 function F_displayLicenseNotice() {
     global $l;
 
-    $notice = '<div style="direction:ltr;text-align:left;border:1px solid black; padding:5px; margin:10px; background-color:#DDEEFF; color:#555555; width:95%; margin-left:auto; margin-right:auto; font-weight:normal; font-size:95%;">';
+    $notice = '<div style="direction:ltr;text-align:left;border:1px solid black; padding:5px; margin:10px; background-color:#DDEEFF; color:#000000; width:95%; margin-left:auto; margin-right:auto; font-weight:bold; font-size:95%;">';
 
     // Main license text with link to AGPL
     if (isset($l['a_license_header'])) {
