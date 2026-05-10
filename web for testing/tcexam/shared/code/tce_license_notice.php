@@ -10,23 +10,34 @@
 /**
  * Display license notice with language support
  * Supports multiple languages via TMX translation system
+ * Uses global $l array for language strings
  *
  * @return void
  */
 function F_displayLicenseNotice() {
+    global $l;
+
     $notice = '<div style="direction:ltr;text-align:left;border:1px solid black; padding:5px; margin:10px; background-color:#DDEEFF; color:#000000; width:95%; margin-left:auto; margin-right:auto; font-weight:bold; font-size:95%;">';
 
     // Main license text
-    $notice .= F_getLanguageVariable('a_license_header');
+    if (isset($l['a_license_header'])) {
+        $notice .= $l['a_license_header'];
+    }
 
     // License terms list
     $notice .= '<ul>';
-    $notice .= '<li>' . F_getLanguageVariable('a_license_term_1') . '</li>';
-    $notice .= '<li>' . F_getLanguageVariable('a_license_term_2') . '</li>';
+    if (isset($l['a_license_term_1'])) {
+        $notice .= '<li>' . $l['a_license_term_1'] . '</li>';
+    }
+    if (isset($l['a_license_term_2'])) {
+        $notice .= '<li>' . $l['a_license_term_2'] . '</li>';
+    }
     $notice .= '</ul>';
 
     // Commercial license info
-    $notice .= F_getLanguageVariable('a_license_commercial');
+    if (isset($l['a_license_commercial'])) {
+        $notice .= $l['a_license_commercial'];
+    }
 
     $notice .= '</div>';
 
