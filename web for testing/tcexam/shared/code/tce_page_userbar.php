@@ -41,7 +41,7 @@ echo '<a href="#menusection" accesskey="4" title="[4] '.$l['w_jump_menu'].'" cla
 echo '</div>'.K_NEWLINE;
 
 // Only show userbar if user is logged in
-if ($_SESSION['session_user_level'] > 0) {
+if (isset($_SESSION['session_user_level']) && $_SESSION['session_user_level'] > 0) {
     echo '<div class="userbar">'.K_NEWLINE;
     // display user information
     echo '<span title="'.$l['h_user_info'].'">'.$l['w_user'].': '.$_SESSION['session_user_name'].'</span>';

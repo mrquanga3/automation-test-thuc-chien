@@ -315,7 +315,7 @@ header('Pragma: no-cache');
 header('Expires: ' . date('r', time() - 86400));
 
 ini_set('arg_separator.output', '&amp;');
-//date_default_timezone_set(K_TIMEZONE);
+date_default_timezone_set(K_TIMEZONE);
 
 if (!defined('PHP_VERSION_ID')) {
     $version = PHP_VERSION;
