@@ -31,11 +31,8 @@
 
 // IMPORTANT: DO NOT REMOVE OR ALTER THIS PAGE!
 
-// Skip userbar when user is not logged in or on specific auth pages (to avoid duplicate login buttons)
-if ($_SESSION['session_user_level'] <= 0 || strpos($_SERVER['SCRIPT_NAME'], 'tce_password_reset.php') !== false || strpos($_SERVER['SCRIPT_NAME'], 'tce_user_registration.php') !== false) {
-    // Don't display userbar on these pages
-    return;
-}
+// Skip login button on login pages (to avoid duplicate login buttons)
+$skip_login_button = strpos($_SERVER['SCRIPT_NAME'], 'tce_login.php') !== false || strpos($_SERVER['SCRIPT_NAME'], 'tce_password_reset.php') !== false || strpos($_SERVER['SCRIPT_NAME'], 'tce_user_registration.php') !== false;
 
 // skip links
 echo '<div class="minibutton" dir="ltr">'.K_NEWLINE;
@@ -43,17 +40,15 @@ echo '<a href="#timersection" accesskey="3" title="[3] '.$l['w_jump_timer'].'" c
 echo '<a href="#menusection" accesskey="4" title="[4] '.$l['w_jump_menu'].'" class="white">'.$l['w_jump_menu'].'</a>'.K_NEWLINE;
 echo '</div>'.K_NEWLINE;
 
-echo '<div class="userbar">'.K_NEWLINE;
+// Only show userbar if user is logged in
 if ($_SESSION['session_user_level'] > 0) {
+    echo '<div class="userbar">'.K_NEWLINE;
     // display user information
     echo '<span title="'.$l['h_user_info'].'">'.$l['w_user'].': '.$_SESSION['session_user_name'].'</span>';
     // display logout link
     echo ' <a href="tce_logout.php" class="logoutbutton" title="'.$l['h_logout_link'].'" onclick="return confirm(\''.$l['w_logout'].' ?\')">'.$l['w_logout'].'</a>'.K_NEWLINE;
-} else {
-    // display login link
-    echo ' <a href="tce_login.php" class="loginbutton" title="'.$l['h_login_button'].'">'.$l['w_login'].'</a>'.K_NEWLINE;
+    echo '</div>'.K_NEWLINE;
 }
-echo '</div>'.K_NEWLINE;
 
 echo '<div class="minibutton" dir="ltr">';
 echo '<span class="copyright"><a href="http://www.tcexam.org">TCExam</a> ver. '.K_TCEXAM_VERSION.' - Copyright &copy; 2004-2020 Nicola Asuni - <a href="http://www.tecnick.com">Tecnick.com LTD</a></span>';
