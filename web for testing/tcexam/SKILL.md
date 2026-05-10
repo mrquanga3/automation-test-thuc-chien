@@ -615,11 +615,323 @@ curl -X POST "http://localhost/tcexam/admin/code/tce_api.php?route=api/user.dele
 
 ---
 
+### Module Management Endpoints
+
+#### 1. Create Module (Add)
+**Route:** `api/module.add`  
+**Method:** `POST`  
+**Permission:** Admin only (level 10)
+
+**Parameters:**
+| Parameter | Required | Type | Description |
+|-----------|----------|------|-------------|
+| module_name | Yes | string | Module name |
+| module_enabled | No | int | 1 (enabled) or 0 (disabled), default: 0 |
+
+**Example Request (bash):**
+```bash
+curl -X POST "http://localhost/tcexam/admin/code/tce_api.php?route=api/module.add" \
+  -H "Authorization: Bearer $TOKEN" \
+  -d "module_name=Mathematics&module_enabled=1"
+```
+
+**Success Response (201 Created):**
+```json
+{
+  "status": "success",
+  "message": "Module added successfully",
+  "module_id": 12
+}
+```
+
+---
+
+#### 2. Update Module (Edit)
+**Route:** `api/module.edit`  
+**Method:** `POST`  
+**Permission:** Admin only (level 10)
+
+**Parameters:**
+| Parameter | Required | Type | Description |
+|-----------|----------|------|-------------|
+| module_id | Yes | int | Module ID to update |
+| module_name | No | string | New module name |
+| module_enabled | No | int | 1 or 0 |
+
+---
+
+#### 3. Get Single Module
+**Route:** `api/module.get`  
+**Method:** `GET`  
+**Permission:** Authenticated users
+
+**Parameters:**
+| Parameter | Required | Type | Description |
+|-----------|----------|------|-------------|
+| module_id | Yes | int | Module ID to retrieve |
+
+---
+
+#### 4. List Modules
+**Route:** `api/module.list`  
+**Method:** `GET`  
+**Permission:** Authenticated users
+
+**Success Response (200 OK):**
+```json
+{
+  "status": "success",
+  "modules": [
+    {
+      "module_id": 1,
+      "module_name": "Mathematics",
+      "module_enabled": 1
+    },
+    {
+      "module_id": 12,
+      "module_name": "Physics",
+      "module_enabled": 1
+    }
+  ]
+}
+```
+
+---
+
+#### 5. Delete Module
+**Route:** `api/module.delete`  
+**Method:** `POST`  
+**Permission:** Admin only (level 10)
+
+**Parameters:**
+| Parameter | Required | Type | Description |
+|-----------|----------|------|-------------|
+| module_id | Yes | int | Module ID to delete |
+
+---
+
+### Topic (Subject) Management Endpoints
+
+Topics are organized under modules. Database table: `tce_subjects`
+
+#### 1. Create Topic (Add)
+**Route:** `api/topic.add`  
+**Method:** `POST`  
+**Permission:** Admin only (level 10)
+
+**Parameters:**
+| Parameter | Required | Type | Description |
+|-----------|----------|------|-------------|
+| module_id | Yes | int | Parent module ID |
+| topic_name | Yes | string | Topic name |
+| topic_description | No | string | Topic description |
+| topic_enabled | No | int | 1 (enabled) or 0 (disabled), default: 0 |
+
+**Example Request (bash):**
+```bash
+curl -X POST "http://localhost/tcexam/admin/code/tce_api.php?route=api/topic.add" \
+  -H "Authorization: Bearer $TOKEN" \
+  -d "module_id=12&topic_name=Algebra&topic_description=Fundamentals of algebra&topic_enabled=1"
+```
+
+**Success Response (201 Created):**
+```json
+{
+  "status": "success",
+  "message": "Topic added successfully",
+  "topic_id": 10
+}
+```
+
+---
+
+#### 2. Update Topic (Edit)
+**Route:** `api/topic.edit`  
+**Method:** `POST`  
+**Permission:** Admin only (level 10)
+
+**Parameters:**
+| Parameter | Required | Type | Description |
+|-----------|----------|------|-------------|
+| topic_id | Yes | int | Topic ID to update |
+| topic_name | No | string | New topic name |
+| topic_description | No | string | New description |
+| topic_enabled | No | int | 1 or 0 |
+
+---
+
+#### 3. Get Single Topic
+**Route:** `api/topic.get`  
+**Method:** `GET`  
+**Permission:** Authenticated users
+
+**Parameters:**
+| Parameter | Required | Type | Description |
+|-----------|----------|------|-------------|
+| topic_id | Yes | int | Topic ID to retrieve |
+
+---
+
+#### 4. List Topics by Module
+**Route:** `api/topic.list`  
+**Method:** `GET`  
+**Permission:** Authenticated users
+
+**Parameters:**
+| Parameter | Required | Type | Default | Description |
+|-----------|----------|------|---------|-------------|
+| module_id | No | int | - | Filter by module (if not provided, lists all topics) |
+| page | No | int | 1 | Page number |
+| limit | No | int | 50 | Results per page |
+
+**Success Response (200 OK):**
+```json
+{
+  "status": "success",
+  "subjects": [
+    {
+      "subject_id": 10,
+      "subject_module_id": 12,
+      "subject_name": "Algebra",
+      "subject_description": "Fundamentals of algebra",
+      "subject_enabled": 1
+    }
+  ]
+}
+```
+
+---
+
+#### 5. Delete Topic
+**Route:** `api/topic.delete`  
+**Method:** `POST`  
+**Permission:** Admin only (level 10)
+
+**Parameters:**
+| Parameter | Required | Type | Description |
+|-----------|----------|------|-------------|
+| topic_id | Yes | int | Topic ID to delete |
+
+---
+
+### Question Management Endpoints
+
+Questions belong to topics. Database table: `tce_questions`
+
+#### 1. Create Question (Add)
+**Route:** `api/question.add`  
+**Method:** `POST`  
+**Permission:** Admin only (level 10)
+
+**Parameters:**
+| Parameter | Required | Type | Description |
+|-----------|----------|------|-------------|
+| topic_id | Yes | int | Parent topic ID |
+| question_description | Yes | string | Question text |
+| question_type | No | int | Question type (1=single choice, 2=multiple choice, etc.), default: 1 |
+| question_difficulty | No | int | Difficulty level (1-5), default: 1 |
+| question_explanation | No | string | Answer explanation |
+| question_enabled | No | int | 1 (enabled) or 0 (disabled), default: 0 |
+
+**Example Request (bash):**
+```bash
+curl -X POST "http://localhost/tcexam/admin/code/tce_api.php?route=api/question.add" \
+  -H "Authorization: Bearer $TOKEN" \
+  -d "topic_id=10&question_description=What is 2+2?&question_type=1&question_difficulty=1&question_enabled=1"
+```
+
+**Success Response (201 Created):**
+```json
+{
+  "status": "success",
+  "message": "Question added successfully",
+  "question_id": 218
+}
+```
+
+---
+
+#### 2. Update Question (Edit)
+**Route:** `api/question.edit`  
+**Method:** `POST`  
+**Permission:** Admin only (level 10)
+
+**Parameters:**
+| Parameter | Required | Type | Description |
+|-----------|----------|------|-------------|
+| question_id | Yes | int | Question ID to update |
+| question_description | No | string | New question text |
+| question_type | No | int | Question type |
+| question_difficulty | No | int | Difficulty level (1-5) |
+| question_explanation | No | string | New explanation |
+| question_enabled | No | int | 1 or 0 |
+
+---
+
+#### 3. Get Single Question
+**Route:** `api/question.get`  
+**Method:** `GET`  
+**Permission:** Authenticated users
+
+**Parameters:**
+| Parameter | Required | Type | Description |
+|-----------|----------|------|-------------|
+| question_id | Yes | int | Question ID to retrieve |
+
+---
+
+#### 4. List Questions by Topic
+**Route:** `api/question.list`  
+**Method:** `GET`  
+**Permission:** Authenticated users
+
+**Parameters:**
+| Parameter | Required | Type | Default | Description |
+|-----------|----------|------|---------|-------------|
+| topic_id | No | int | - | Filter by topic ID |
+| page | No | int | 1 | Page number |
+| limit | No | int | 50 | Results per page |
+
+**Success Response (200 OK):**
+```json
+{
+  "status": "success",
+  "page": 1,
+  "limit": 50,
+  "questions": [
+    {
+      "question_id": 218,
+      "question_subject_id": 10,
+      "question_description": "What is 2+2?",
+      "question_type": 1,
+      "question_difficulty": 1,
+      "question_enabled": 1
+    }
+  ]
+}
+```
+
+---
+
+#### 5. Delete Question
+**Route:** `api/question.delete`  
+**Method:** `POST`  
+**Permission:** Admin only (level 10)
+
+**Parameters:**
+| Parameter | Required | Type | Description |
+|-----------|----------|------|-------------|
+| question_id | Yes | int | Question ID to delete |
+
+---
+
 ### Implementation Details
 
 **File:** `admin/code/tce_api.php`
 
-**Database Columns Used:**
+**Database Tables & Columns Used:**
+
+**Users Table** (`tce_users`):
 - `user_id` - Primary key
 - `user_name` - Unique username
 - `user_password` - Hashed password
@@ -627,6 +939,29 @@ curl -X POST "http://localhost/tcexam/admin/code/tce_api.php?route=api/user.dele
 - `user_lastname` - Last name
 - `user_email` - Email address
 - `user_level` - Access level (1-10, NOT user_status)
+
+**Modules Table** (`tce_modules`):
+- `module_id` - Primary key
+- `module_name` - Module name
+- `module_enabled` - 1 (enabled) or 0 (disabled)
+- `module_user_id` - User who created the module
+
+**Topics/Subjects Table** (`tce_subjects`):
+- `subject_id` - Primary key
+- `subject_module_id` - Parent module ID
+- `subject_name` - Topic name
+- `subject_description` - Description
+- `subject_enabled` - 1 (enabled) or 0 (disabled)
+- `subject_user_id` - User who created the topic
+
+**Questions Table** (`tce_questions`):
+- `question_id` - Primary key
+- `question_subject_id` - Parent topic ID
+- `question_description` - Question text
+- `question_explanation` - Answer explanation
+- `question_type` - Question type (1=single, 2=multiple, etc.)
+- `question_difficulty` - Difficulty level (1-5)
+- `question_enabled` - 1 (enabled) or 0 (disabled)
 
 **Features:**
 - JSON request/response format
@@ -641,9 +976,11 @@ curl -X POST "http://localhost/tcexam/admin/code/tce_api.php?route=api/user.dele
 **Security Considerations:**
 - Passwords are never returned in API responses
 - All user input is escaped before database operations
-- Only existing users can be updated/deleted
+- Only existing resources can be updated/deleted
 - Database errors are caught and returned as JSON
-- **Permission-based access control:**
+- **Permission-based access control across all endpoints:**
+  
+  **User Management:**
   - **Add user** (`api/user.add`) — **Admin only** (level 10)
   - **Edit user** (`api/user.edit`) — **Admin can edit any user; non-admin can edit themselves only**
     - Non-admin users attempting to edit other users get 403 Forbidden
@@ -651,11 +988,35 @@ curl -X POST "http://localhost/tcexam/admin/code/tce_api.php?route=api/user.dele
   - **Delete user** (`api/user.delete`) — **Admin only** (level 10)
   - **Get user** (`api/user.get`) — Any authenticated user
   - **List users** (`api/user.list`) — Any authenticated user
+  
+  **Module Management:**
+  - **Add module** (`api/module.add`) — **Admin only** (level 10)
+  - **Edit module** (`api/module.edit`) — **Admin only** (level 10)
+  - **Delete module** (`api/module.delete`) — **Admin only** (level 10)
+  - **Get module** (`api/module.get`) — Any authenticated user
+  - **List modules** (`api/module.list`) — Any authenticated user
+  
+  **Topic Management:**
+  - **Add topic** (`api/topic.add`) — **Admin only** (level 10)
+  - **Edit topic** (`api/topic.edit`) — **Admin only** (level 10)
+  - **Delete topic** (`api/topic.delete`) — **Admin only** (level 10)
+  - **Get topic** (`api/topic.get`) — Any authenticated user
+  - **List topics** (`api/topic.list`) — Any authenticated user
+  
+  **Question Management:**
+  - **Add question** (`api/question.add`) — **Admin only** (level 10)
+  - **Edit question** (`api/question.edit`) — **Admin only** (level 10)
+  - **Delete question** (`api/question.delete`) — **Admin only** (level 10)
+  - **Get question** (`api/question.get`) — Any authenticated user
+  - **List questions** (`api/question.list`) — Any authenticated user
 
-**Bug Fixes:**
+**Bug Fixes & Improvements:**
 - Fixed double response issue by adding `exit;` after each handler function
 - Corrected column names to match actual TCExam schema (`user_level` instead of `user_status`)
 - Added permission checks to enforce user level restrictions on sensitive operations
+- Extended API with 15 additional endpoints (5 for modules, 5 for topics, 5 for questions) following the same security and permission patterns
+- All 25+ endpoints (users + modules + topics + questions) use consistent Bearer token authentication and HTTP status codes
+- Added comprehensive test suite (`test_api_modules.sh`) validating all new endpoints in sequence
 
 ---
 
@@ -676,7 +1037,7 @@ When building REST APIs:
 
 ### API Testing
 
-**File:** `test_api.sh` (Bash/curl test script)
+**User API Test File:** `test_api.sh` (Bash/curl test script)
 
 **Purpose:** Comprehensive test suite that validates all 5 user management endpoints in sequence:
 1. Add User — creates a test user with timestamp-based unique name
@@ -691,6 +1052,41 @@ When building REST APIs:
 ```bash
 # Using Git Bash (Windows) or bash (Linux/Mac)
 bash test_api.sh
+```
+
+---
+
+**Module, Topic, Question API Test File:** `test_api_modules.sh` (Bash/curl test script)
+
+**Purpose:** Comprehensive test suite that validates all 15 endpoints (5 for modules, 5 for topics, 5 for questions):
+
+Module Tests (1-4):
+1. Add Module
+2. Get Single Module
+3. List Modules
+4. Update Module
+
+Topic Tests (5-8):
+5. Add Topic
+6. Get Single Topic
+7. List Topics by Module
+8. Update Topic
+
+Question Tests (9-12):
+9. Add Question
+10. Get Single Question
+11. List Questions by Topic
+12. Update Question
+
+Cleanup Tests (13-15):
+13. Delete Question
+14. Delete Topic
+15. Delete Module
+
+**Run the tests:**
+```bash
+# Using Git Bash (Windows) or bash (Linux/Mac)
+bash test_api_modules.sh
 
 # Or on Linux/Mac
 ./test_api.sh

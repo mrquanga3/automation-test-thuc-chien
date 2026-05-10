@@ -6,7 +6,15 @@
 
 ### REST API Endpoints
 
-This fork includes a custom REST API for programmatic user management and testing with Bearer token authentication. See [SKILL.md — REST API Documentation](SKILL.md#rest-api-documentation) for complete endpoint reference and examples.
+This fork includes a comprehensive custom REST API for programmatic management of users, modules, topics, and questions with Bearer token authentication.
+
+**Available API Endpoints:**
+- **Users** (5 endpoints): Create, read, update, delete, list users
+- **Modules** (5 endpoints): Create, read, update, delete, list modules
+- **Topics** (5 endpoints): Create, read, update, delete, list topics (organized under modules)
+- **Questions** (5 endpoints): Create, read, update, delete, list questions (organized under topics)
+
+See [SKILL.md — REST API Documentation](SKILL.md#rest-api-documentation) for complete endpoint reference and examples.
 
 **Quick Start (PowerShell):**
 ```powershell
@@ -61,10 +69,30 @@ curl -X POST "http://localhost/tcexam/admin/code/tce_api.php?route=api/user.edit
 curl -X POST "http://localhost/tcexam/admin/code/tce_api.php?route=api/user.delete" \
   -H "Authorization: Bearer $TOKEN" \
   -d "user_id=5"
+
+# Create a module
+curl -X POST "http://localhost/tcexam/admin/code/tce_api.php?route=api/module.add" \
+  -H "Authorization: Bearer $TOKEN" \
+  -d "module_name=Mathematics&module_enabled=1"
+
+# Create a topic under the module
+curl -X POST "http://localhost/tcexam/admin/code/tce_api.php?route=api/topic.add" \
+  -H "Authorization: Bearer $TOKEN" \
+  -d "module_id=1&topic_name=Algebra&topic_description=Algebra fundamentals&topic_enabled=1"
+
+# Create a question under the topic
+curl -X POST "http://localhost/tcexam/admin/code/tce_api.php?route=api/question.add" \
+  -H "Authorization: Bearer $TOKEN" \
+  -d "topic_id=1&question_description=What is 2+2?&question_type=1&question_difficulty=1&question_enabled=1"
 ```
 
 ### Custom Improvements
 
+- **Comprehensive REST API** (`admin/code/tce_api.php`): 
+  - Bearer token authentication for all endpoints
+  - 25+ endpoints covering user, module, topic, and question management
+  - Permission-based access control (admin-only vs. authenticated users)
+  - Full CRUD operations with JSON responses
 - **Enhanced Rating Editor** (`admin/code/tce_edit_rating.php`): Custom dropdown with full answer details, multi-line formatting, and proper text truncation
 - **Fixed PDF Generation**: Robust percentage formatting that handles edge cases
 - See [SKILL.md](SKILL.md) for implementation details

@@ -98,6 +98,159 @@ try {
             }
             break;
 
+        // Module endpoints
+        case 'api/module.list':
+            if ($request_method === 'GET') {
+                handleListModules();
+                exit;
+            } else {
+                http_response_code(405);
+                $response['message'] = 'Method not allowed';
+            }
+            break;
+
+        case 'api/module.get':
+            if ($request_method === 'GET') {
+                handleGetModule();
+                exit;
+            } else {
+                http_response_code(405);
+                $response['message'] = 'Method not allowed';
+            }
+            break;
+
+        case 'api/module.add':
+            if ($request_method === 'POST') {
+                handleAddModule();
+                exit;
+            } else {
+                http_response_code(405);
+                $response['message'] = 'Method not allowed';
+            }
+            break;
+
+        case 'api/module.edit':
+            if ($request_method === 'POST') {
+                handleEditModule();
+                exit;
+            } else {
+                http_response_code(405);
+                $response['message'] = 'Method not allowed';
+            }
+            break;
+
+        case 'api/module.delete':
+            if ($request_method === 'POST') {
+                handleDeleteModule();
+                exit;
+            } else {
+                http_response_code(405);
+                $response['message'] = 'Method not allowed';
+            }
+            break;
+
+        // Topic (Subject) endpoints
+        case 'api/topic.list':
+            if ($request_method === 'GET') {
+                handleListTopics();
+                exit;
+            } else {
+                http_response_code(405);
+                $response['message'] = 'Method not allowed';
+            }
+            break;
+
+        case 'api/topic.get':
+            if ($request_method === 'GET') {
+                handleGetTopic();
+                exit;
+            } else {
+                http_response_code(405);
+                $response['message'] = 'Method not allowed';
+            }
+            break;
+
+        case 'api/topic.add':
+            if ($request_method === 'POST') {
+                handleAddTopic();
+                exit;
+            } else {
+                http_response_code(405);
+                $response['message'] = 'Method not allowed';
+            }
+            break;
+
+        case 'api/topic.edit':
+            if ($request_method === 'POST') {
+                handleEditTopic();
+                exit;
+            } else {
+                http_response_code(405);
+                $response['message'] = 'Method not allowed';
+            }
+            break;
+
+        case 'api/topic.delete':
+            if ($request_method === 'POST') {
+                handleDeleteTopic();
+                exit;
+            } else {
+                http_response_code(405);
+                $response['message'] = 'Method not allowed';
+            }
+            break;
+
+        // Question endpoints
+        case 'api/question.list':
+            if ($request_method === 'GET') {
+                handleListQuestions();
+                exit;
+            } else {
+                http_response_code(405);
+                $response['message'] = 'Method not allowed';
+            }
+            break;
+
+        case 'api/question.get':
+            if ($request_method === 'GET') {
+                handleGetQuestion();
+                exit;
+            } else {
+                http_response_code(405);
+                $response['message'] = 'Method not allowed';
+            }
+            break;
+
+        case 'api/question.add':
+            if ($request_method === 'POST') {
+                handleAddQuestion();
+                exit;
+            } else {
+                http_response_code(405);
+                $response['message'] = 'Method not allowed';
+            }
+            break;
+
+        case 'api/question.edit':
+            if ($request_method === 'POST') {
+                handleEditQuestion();
+                exit;
+            } else {
+                http_response_code(405);
+                $response['message'] = 'Method not allowed';
+            }
+            break;
+
+        case 'api/question.delete':
+            if ($request_method === 'POST') {
+                handleDeleteQuestion();
+                exit;
+            } else {
+                http_response_code(405);
+                $response['message'] = 'Method not allowed';
+            }
+            break;
+
         default:
             http_response_code(404);
             $response['message'] = 'Route not found: ' . htmlspecialchars($route);
@@ -477,6 +630,519 @@ function handleDeleteUser() {
             'message' => 'User deleted successfully',
             'user_id' => $user_id
         ));
+    } else {
+        http_response_code(500);
+        echo json_encode(array('status' => 'error', 'message' => 'Database error'));
+    }
+}
+
+// ============================================================
+// MODULE HANDLERS
+// ============================================================
+
+function handleListModules() {
+    global $db;
+
+    $sql = "SELECT module_id, module_name, module_enabled, module_user_id FROM ".K_TABLE_MODULES." ORDER BY module_name";
+
+    if ($r = F_db_query($sql, $db)) {
+        $modules = array();
+        while ($row = F_db_fetch_array($r)) {
+            $modules[] = array(
+                'module_id' => intval($row['module_id']),
+                'module_name' => $row['module_name'],
+                'module_enabled' => intval($row['module_enabled']),
+                'module_user_id' => intval($row['module_user_id'])
+            );
+        }
+        http_response_code(200);
+        echo json_encode(array('status' => 'success', 'modules' => $modules));
+    } else {
+        http_response_code(500);
+        echo json_encode(array('status' => 'error', 'message' => 'Database error'));
+    }
+}
+
+function handleGetModule() {
+    global $db;
+
+    if (empty($_GET['module_id'])) {
+        http_response_code(400);
+        echo json_encode(array('status' => 'error', 'message' => 'Missing module_id'));
+        exit;
+    }
+
+    $module_id = intval($_GET['module_id']);
+    $sql = "SELECT module_id, module_name, module_enabled, module_user_id FROM ".K_TABLE_MODULES." WHERE module_id=".$module_id;
+
+    if ($r = F_db_query($sql, $db)) {
+        if ($row = F_db_fetch_array($r)) {
+            http_response_code(200);
+            echo json_encode(array('status' => 'success', 'module' => array(
+                'module_id' => intval($row['module_id']),
+                'module_name' => $row['module_name'],
+                'module_enabled' => intval($row['module_enabled']),
+                'module_user_id' => intval($row['module_user_id'])
+            )));
+        } else {
+            http_response_code(404);
+            echo json_encode(array('status' => 'error', 'message' => 'Module not found'));
+        }
+    } else {
+        http_response_code(500);
+        echo json_encode(array('status' => 'error', 'message' => 'Database error'));
+    }
+}
+
+function handleAddModule() {
+    global $db, $authenticated_user_level, $authenticated_user_id;
+
+    if ($authenticated_user_level < 10) {
+        http_response_code(403);
+        echo json_encode(array('status' => 'error', 'message' => 'Permission denied: only administrators can add modules'));
+        exit;
+    }
+
+    if (empty($_POST['module_name'])) {
+        http_response_code(400);
+        echo json_encode(array('status' => 'error', 'message' => 'Missing module_name'));
+        exit;
+    }
+
+    $module_name = F_escape_sql($db, $_POST['module_name']);
+    $module_enabled = isset($_POST['module_enabled']) ? intval($_POST['module_enabled']) : 0;
+
+    $sql = "INSERT INTO ".K_TABLE_MODULES." (module_name, module_enabled, module_user_id) VALUES ('".$module_name."', ".$module_enabled.", ".$authenticated_user_id.")";
+
+    if (F_db_query($sql, $db)) {
+        $module_id = F_db_insert_id($db);
+        http_response_code(201);
+        echo json_encode(array('status' => 'success', 'message' => 'Module added successfully', 'module_id' => $module_id));
+    } else {
+        http_response_code(500);
+        echo json_encode(array('status' => 'error', 'message' => 'Database error: '.F_db_error($db)));
+    }
+}
+
+function handleEditModule() {
+    global $db, $authenticated_user_level;
+
+    if ($authenticated_user_level < 10) {
+        http_response_code(403);
+        echo json_encode(array('status' => 'error', 'message' => 'Permission denied: only administrators can edit modules'));
+        exit;
+    }
+
+    if (empty($_POST['module_id'])) {
+        http_response_code(400);
+        echo json_encode(array('status' => 'error', 'message' => 'Missing module_id'));
+        exit;
+    }
+
+    $module_id = intval($_POST['module_id']);
+    $updates = array();
+
+    if (isset($_POST['module_name']) && $_POST['module_name'] !== '') {
+        $updates[] = "module_name='".F_escape_sql($db, $_POST['module_name'])."'";
+    }
+    if (isset($_POST['module_enabled'])) {
+        $updates[] = "module_enabled=".intval($_POST['module_enabled']);
+    }
+
+    if (empty($updates)) {
+        http_response_code(400);
+        echo json_encode(array('status' => 'error', 'message' => 'No fields to update'));
+        exit;
+    }
+
+    $sql = "UPDATE ".K_TABLE_MODULES." SET ".implode(', ', $updates)." WHERE module_id=".$module_id;
+
+    if (F_db_query($sql, $db)) {
+        http_response_code(200);
+        echo json_encode(array('status' => 'success', 'message' => 'Module updated successfully', 'module_id' => $module_id));
+    } else {
+        http_response_code(500);
+        echo json_encode(array('status' => 'error', 'message' => 'Database error'));
+    }
+}
+
+function handleDeleteModule() {
+    global $db, $authenticated_user_level;
+
+    if ($authenticated_user_level < 10) {
+        http_response_code(403);
+        echo json_encode(array('status' => 'error', 'message' => 'Permission denied: only administrators can delete modules'));
+        exit;
+    }
+
+    if (empty($_POST['module_id'])) {
+        http_response_code(400);
+        echo json_encode(array('status' => 'error', 'message' => 'Missing module_id'));
+        exit;
+    }
+
+    $module_id = intval($_POST['module_id']);
+    $sql = "DELETE FROM ".K_TABLE_MODULES." WHERE module_id=".$module_id;
+
+    if (F_db_query($sql, $db)) {
+        http_response_code(200);
+        echo json_encode(array('status' => 'success', 'message' => 'Module deleted successfully', 'module_id' => $module_id));
+    } else {
+        http_response_code(500);
+        echo json_encode(array('status' => 'error', 'message' => 'Database error'));
+    }
+}
+
+// ============================================================
+// TOPIC (SUBJECT) HANDLERS
+// ============================================================
+
+function handleListTopics() {
+    global $db;
+
+    $module_id = isset($_GET['module_id']) ? intval($_GET['module_id']) : null;
+
+    $sql = "SELECT subject_id, subject_module_id, subject_name, subject_description, subject_enabled FROM ".K_TABLE_SUBJECTS;
+    if ($module_id) {
+        $sql .= " WHERE subject_module_id=".$module_id;
+    }
+    $sql .= " ORDER BY subject_name";
+
+    if ($r = F_db_query($sql, $db)) {
+        $topics = array();
+        while ($row = F_db_fetch_array($r)) {
+            $topics[] = array(
+                'topic_id' => intval($row['subject_id']),
+                'module_id' => intval($row['subject_module_id']),
+                'topic_name' => $row['subject_name'],
+                'topic_description' => $row['subject_description'],
+                'topic_enabled' => intval($row['subject_enabled'])
+            );
+        }
+        http_response_code(200);
+        echo json_encode(array('status' => 'success', 'topics' => $topics));
+    } else {
+        http_response_code(500);
+        echo json_encode(array('status' => 'error', 'message' => 'Database error'));
+    }
+}
+
+function handleGetTopic() {
+    global $db;
+
+    if (empty($_GET['topic_id'])) {
+        http_response_code(400);
+        echo json_encode(array('status' => 'error', 'message' => 'Missing topic_id'));
+        exit;
+    }
+
+    $topic_id = intval($_GET['topic_id']);
+    $sql = "SELECT subject_id, subject_module_id, subject_name, subject_description, subject_enabled FROM ".K_TABLE_SUBJECTS." WHERE subject_id=".$topic_id;
+
+    if ($r = F_db_query($sql, $db)) {
+        if ($row = F_db_fetch_array($r)) {
+            http_response_code(200);
+            echo json_encode(array('status' => 'success', 'topic' => array(
+                'topic_id' => intval($row['subject_id']),
+                'module_id' => intval($row['subject_module_id']),
+                'topic_name' => $row['subject_name'],
+                'topic_description' => $row['subject_description'],
+                'topic_enabled' => intval($row['subject_enabled'])
+            )));
+        } else {
+            http_response_code(404);
+            echo json_encode(array('status' => 'error', 'message' => 'Topic not found'));
+        }
+    } else {
+        http_response_code(500);
+        echo json_encode(array('status' => 'error', 'message' => 'Database error'));
+    }
+}
+
+function handleAddTopic() {
+    global $db, $authenticated_user_level, $authenticated_user_id;
+
+    if ($authenticated_user_level < 10) {
+        http_response_code(403);
+        echo json_encode(array('status' => 'error', 'message' => 'Permission denied: only administrators can add topics'));
+        exit;
+    }
+
+    if (empty($_POST['topic_name']) || empty($_POST['module_id'])) {
+        http_response_code(400);
+        echo json_encode(array('status' => 'error', 'message' => 'Missing topic_name or module_id'));
+        exit;
+    }
+
+    $topic_name = F_escape_sql($db, $_POST['topic_name']);
+    $module_id = intval($_POST['module_id']);
+    $topic_description = isset($_POST['topic_description']) ? F_escape_sql($db, $_POST['topic_description']) : '';
+    $topic_enabled = isset($_POST['topic_enabled']) ? intval($_POST['topic_enabled']) : 0;
+
+    $sql = "INSERT INTO ".K_TABLE_SUBJECTS." (subject_name, subject_description, subject_module_id, subject_enabled, subject_user_id) VALUES ('".$topic_name."', '".$topic_description."', ".$module_id.", ".$topic_enabled.", ".$authenticated_user_id.")";
+
+    if (F_db_query($sql, $db)) {
+        $topic_id = F_db_insert_id($db);
+        http_response_code(201);
+        echo json_encode(array('status' => 'success', 'message' => 'Topic added successfully', 'topic_id' => $topic_id));
+    } else {
+        http_response_code(500);
+        echo json_encode(array('status' => 'error', 'message' => 'Database error: '.F_db_error($db)));
+    }
+}
+
+function handleEditTopic() {
+    global $db, $authenticated_user_level;
+
+    if ($authenticated_user_level < 10) {
+        http_response_code(403);
+        echo json_encode(array('status' => 'error', 'message' => 'Permission denied: only administrators can edit topics'));
+        exit;
+    }
+
+    if (empty($_POST['topic_id'])) {
+        http_response_code(400);
+        echo json_encode(array('status' => 'error', 'message' => 'Missing topic_id'));
+        exit;
+    }
+
+    $topic_id = intval($_POST['topic_id']);
+    $updates = array();
+
+    if (isset($_POST['topic_name']) && $_POST['topic_name'] !== '') {
+        $updates[] = "subject_name='".F_escape_sql($db, $_POST['topic_name'])."'";
+    }
+    if (isset($_POST['topic_description'])) {
+        $updates[] = "subject_description='".F_escape_sql($db, $_POST['topic_description'])."'";
+    }
+    if (isset($_POST['topic_enabled'])) {
+        $updates[] = "subject_enabled=".intval($_POST['topic_enabled']);
+    }
+
+    if (empty($updates)) {
+        http_response_code(400);
+        echo json_encode(array('status' => 'error', 'message' => 'No fields to update'));
+        exit;
+    }
+
+    $sql = "UPDATE ".K_TABLE_SUBJECTS." SET ".implode(', ', $updates)." WHERE subject_id=".$topic_id;
+
+    if (F_db_query($sql, $db)) {
+        http_response_code(200);
+        echo json_encode(array('status' => 'success', 'message' => 'Topic updated successfully', 'topic_id' => $topic_id));
+    } else {
+        http_response_code(500);
+        echo json_encode(array('status' => 'error', 'message' => 'Database error'));
+    }
+}
+
+function handleDeleteTopic() {
+    global $db, $authenticated_user_level;
+
+    if ($authenticated_user_level < 10) {
+        http_response_code(403);
+        echo json_encode(array('status' => 'error', 'message' => 'Permission denied: only administrators can delete topics'));
+        exit;
+    }
+
+    if (empty($_POST['topic_id'])) {
+        http_response_code(400);
+        echo json_encode(array('status' => 'error', 'message' => 'Missing topic_id'));
+        exit;
+    }
+
+    $topic_id = intval($_POST['topic_id']);
+    $sql = "DELETE FROM ".K_TABLE_SUBJECTS." WHERE subject_id=".$topic_id;
+
+    if (F_db_query($sql, $db)) {
+        http_response_code(200);
+        echo json_encode(array('status' => 'success', 'message' => 'Topic deleted successfully', 'topic_id' => $topic_id));
+    } else {
+        http_response_code(500);
+        echo json_encode(array('status' => 'error', 'message' => 'Database error'));
+    }
+}
+
+// ============================================================
+// QUESTION HANDLERS
+// ============================================================
+
+function handleListQuestions() {
+    global $db;
+
+    $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+    $limit = isset($_GET['limit']) ? intval($_GET['limit']) : 50;
+    $topic_id = isset($_GET['topic_id']) ? intval($_GET['topic_id']) : null;
+    $offset = ($page - 1) * $limit;
+
+    $sql = "SELECT question_id, question_subject_id, question_description, question_type, question_difficulty, question_enabled FROM ".K_TABLE_QUESTIONS;
+
+    if ($topic_id) {
+        $sql .= " WHERE question_subject_id=".$topic_id;
+    }
+
+    $sql .= " LIMIT ".$offset.", ".$limit;
+
+    if ($r = F_db_query($sql, $db)) {
+        $questions = array();
+        while ($row = F_db_fetch_array($r)) {
+            $questions[] = array(
+                'question_id' => intval($row['question_id']),
+                'topic_id' => intval($row['question_subject_id']),
+                'question_description' => substr($row['question_description'], 0, 200),
+                'question_type' => intval($row['question_type']),
+                'question_difficulty' => intval($row['question_difficulty']),
+                'question_enabled' => intval($row['question_enabled'])
+            );
+        }
+        http_response_code(200);
+        echo json_encode(array('status' => 'success', 'page' => $page, 'limit' => $limit, 'questions' => $questions));
+    } else {
+        http_response_code(500);
+        echo json_encode(array('status' => 'error', 'message' => 'Database error'));
+    }
+}
+
+function handleGetQuestion() {
+    global $db;
+
+    if (empty($_GET['question_id'])) {
+        http_response_code(400);
+        echo json_encode(array('status' => 'error', 'message' => 'Missing question_id'));
+        exit;
+    }
+
+    $question_id = intval($_GET['question_id']);
+    $sql = "SELECT question_id, question_subject_id, question_description, question_explanation, question_type, question_difficulty, question_enabled FROM ".K_TABLE_QUESTIONS." WHERE question_id=".$question_id;
+
+    if ($r = F_db_query($sql, $db)) {
+        if ($row = F_db_fetch_array($r)) {
+            http_response_code(200);
+            echo json_encode(array('status' => 'success', 'question' => array(
+                'question_id' => intval($row['question_id']),
+                'topic_id' => intval($row['question_subject_id']),
+                'question_description' => $row['question_description'],
+                'question_explanation' => $row['question_explanation'],
+                'question_type' => intval($row['question_type']),
+                'question_difficulty' => intval($row['question_difficulty']),
+                'question_enabled' => intval($row['question_enabled'])
+            )));
+        } else {
+            http_response_code(404);
+            echo json_encode(array('status' => 'error', 'message' => 'Question not found'));
+        }
+    } else {
+        http_response_code(500);
+        echo json_encode(array('status' => 'error', 'message' => 'Database error'));
+    }
+}
+
+function handleAddQuestion() {
+    global $db, $authenticated_user_level;
+
+    if ($authenticated_user_level < 10) {
+        http_response_code(403);
+        echo json_encode(array('status' => 'error', 'message' => 'Permission denied: only administrators can add questions'));
+        exit;
+    }
+
+    if (empty($_POST['question_description']) || empty($_POST['topic_id'])) {
+        http_response_code(400);
+        echo json_encode(array('status' => 'error', 'message' => 'Missing question_description or topic_id'));
+        exit;
+    }
+
+    $question_description = F_escape_sql($db, $_POST['question_description']);
+    $topic_id = intval($_POST['topic_id']);
+    $question_explanation = isset($_POST['question_explanation']) ? F_escape_sql($db, $_POST['question_explanation']) : '';
+    $question_type = isset($_POST['question_type']) ? intval($_POST['question_type']) : 1;
+    $question_difficulty = isset($_POST['question_difficulty']) ? intval($_POST['question_difficulty']) : 1;
+    $question_enabled = isset($_POST['question_enabled']) ? intval($_POST['question_enabled']) : 0;
+
+    $sql = "INSERT INTO ".K_TABLE_QUESTIONS." (question_subject_id, question_description, question_explanation, question_type, question_difficulty, question_enabled) VALUES (".$topic_id.", '".$question_description."', '".$question_explanation."', ".$question_type.", ".$question_difficulty.", ".$question_enabled.")";
+
+    if (F_db_query($sql, $db)) {
+        $question_id = F_db_insert_id($db);
+        http_response_code(201);
+        echo json_encode(array('status' => 'success', 'message' => 'Question added successfully', 'question_id' => $question_id));
+    } else {
+        http_response_code(500);
+        echo json_encode(array('status' => 'error', 'message' => 'Database error: '.F_db_error($db)));
+    }
+}
+
+function handleEditQuestion() {
+    global $db, $authenticated_user_level;
+
+    if ($authenticated_user_level < 10) {
+        http_response_code(403);
+        echo json_encode(array('status' => 'error', 'message' => 'Permission denied: only administrators can edit questions'));
+        exit;
+    }
+
+    if (empty($_POST['question_id'])) {
+        http_response_code(400);
+        echo json_encode(array('status' => 'error', 'message' => 'Missing question_id'));
+        exit;
+    }
+
+    $question_id = intval($_POST['question_id']);
+    $updates = array();
+
+    if (isset($_POST['question_description']) && $_POST['question_description'] !== '') {
+        $updates[] = "question_description='".F_escape_sql($db, $_POST['question_description'])."'";
+    }
+    if (isset($_POST['question_explanation'])) {
+        $updates[] = "question_explanation='".F_escape_sql($db, $_POST['question_explanation'])."'";
+    }
+    if (isset($_POST['question_type'])) {
+        $updates[] = "question_type=".intval($_POST['question_type']);
+    }
+    if (isset($_POST['question_difficulty'])) {
+        $updates[] = "question_difficulty=".intval($_POST['question_difficulty']);
+    }
+    if (isset($_POST['question_enabled'])) {
+        $updates[] = "question_enabled=".intval($_POST['question_enabled']);
+    }
+
+    if (empty($updates)) {
+        http_response_code(400);
+        echo json_encode(array('status' => 'error', 'message' => 'No fields to update'));
+        exit;
+    }
+
+    $sql = "UPDATE ".K_TABLE_QUESTIONS." SET ".implode(', ', $updates)." WHERE question_id=".$question_id;
+
+    if (F_db_query($sql, $db)) {
+        http_response_code(200);
+        echo json_encode(array('status' => 'success', 'message' => 'Question updated successfully', 'question_id' => $question_id));
+    } else {
+        http_response_code(500);
+        echo json_encode(array('status' => 'error', 'message' => 'Database error'));
+    }
+}
+
+function handleDeleteQuestion() {
+    global $db, $authenticated_user_level;
+
+    if ($authenticated_user_level < 10) {
+        http_response_code(403);
+        echo json_encode(array('status' => 'error', 'message' => 'Permission denied: only administrators can delete questions'));
+        exit;
+    }
+
+    if (empty($_POST['question_id'])) {
+        http_response_code(400);
+        echo json_encode(array('status' => 'error', 'message' => 'Missing question_id'));
+        exit;
+    }
+
+    $question_id = intval($_POST['question_id']);
+    $sql = "DELETE FROM ".K_TABLE_QUESTIONS." WHERE question_id=".$question_id;
+
+    if (F_db_query($sql, $db)) {
+        http_response_code(200);
+        echo json_encode(array('status' => 'success', 'message' => 'Question deleted successfully', 'question_id' => $question_id));
     } else {
         http_response_code(500);
         echo json_encode(array('status' => 'error', 'message' => 'Database error'));
