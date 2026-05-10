@@ -48,7 +48,7 @@ Project root: `D:/automation-test-thuc-chien/web for testing/tcexam/` (paths use
 
 ```php
 // shared/config/tce_paths.php
-K_PATH_HOST    = 'http://localhost'
+K_PATH_HOST    = auto-detected from HTTP request (protocol + domain/IP)
 K_PATH_TCEXAM  = '/tcexam/'
 K_PATH_MAIN    = 'D:/automation-test-thuc-chien/web for testing/tcexam/'
 
