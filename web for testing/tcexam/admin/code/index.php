@@ -96,7 +96,13 @@ if (strlen($limits) > 0) {
     echo '<table style="border: 1px solid #808080;margin-left:auto; margin-right:auto;"><tr><th colspan="4" style="text-align:center;">'.$l['w_remaining_tests'].'</th></tr><tr style="background-color:#CCCCCC;"><th>'.$l['w_limit'].'</th><th>'.$l['w_max'].'</th><th>'.$l['w_executed'].'</th><th>'.$l['w_remaining'].'</th></tr>'.$limits.'</table><br />'.K_NEWLINE;
 }
 
-echo $l['d_admin_index'];
+// Display admin index with white color for first paragraph only
+$admin_text = $l['d_admin_index'];
+$admin_parts = explode('<br /><br />', $admin_text, 2);
+echo '<div style="color:#FFFFFF;">' . $admin_parts[0] . '</div>';
+if (isset($admin_parts[1])) {
+    echo '<br /><br />' . $admin_parts[1];
+}
 
 require_once('tce_page_footer.php');
 
