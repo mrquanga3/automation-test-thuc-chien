@@ -1,5 +1,72 @@
 # SKILL.md — TCExam Development Skills & Lessons
 
+## Deployment Guide
+
+### Multi-Server Deployment
+
+TCExam is configured to work across multiple environments (localhost, staging, production) with automatic domain detection.
+
+#### How It Works
+
+**File:** `shared/config/tce_paths.php`
+
+The `K_PATH_HOST` constant is now **auto-detected** from the HTTP request:
+- **Protocol detection:** Uses `REQUEST_SCHEME` (preferred) or checks `HTTPS` header
+- **Domain detection:** Uses `HTTP_HOST` from the request header
+- **Fallback:** Defaults to `localhost` if detection fails
+
+**Example:**
+```php
+// When accessed from http://107.172.50.178/tcexam/
+K_PATH_HOST = 'http://107.172.50.178'
+
+// When accessed from https://mysite.com/tcexam/
+K_PATH_HOST = 'https://mysite.com'
+
+// When accessed from http://localhost/tcexam/
+K_PATH_HOST = 'http://localhost'
+```
+
+#### What Still Needs Manual Update
+
+When deploying to a new server, update **only these values** in `shared/config/tce_paths.php`:
+
+1. **K_PATH_MAIN** — Filesystem path where TCExam is installed
+   ```php
+   // Example for Linux/Unix server:
+   define('K_PATH_MAIN', '/var/www/html/tcexam/');
+   
+   // Example for Windows server:
+   define('K_PATH_MAIN', 'C:/inetpub/wwwroot/tcexam/');
+   ```
+
+2. **K_PATH_TCEXAM** — Web path (usually same everywhere)
+   ```php
+   define('K_PATH_TCEXAM', '/tcexam/');  // Or '/' if at root
+   ```
+
+3. **Database config** in `shared/config/tce_db_config.php` (if database location changes)
+
+#### Deploy Checklist
+
+- [ ] Upload code to server
+- [ ] Update `K_PATH_MAIN` in `shared/config/tce_paths.php` to match server filesystem
+- [ ] Verify `K_PATH_TCEXAM` matches where app is installed on web root
+- [ ] Update database credentials if database server is different
+- [ ] Clear language cache: delete files in `cache/lang/` directory
+- [ ] Test login: access `http://your-domain/tcexam/public/` and verify redirect uses correct domain
+
+#### Testing Domain Detection
+
+Access the application from different domain/IP combinations and verify:
+1. Login redirect stays on same domain (not redirected to localhost)
+2. Password reset redirect uses correct domain
+3. User registration redirect uses correct domain
+
+**Note:** All redirects now automatically use the domain from the HTTP request, so cross-domain redirect issues are resolved.
+
+---
+
 ## Language Selector Implementation
 
 ### Problem: Language Selector Positioning
