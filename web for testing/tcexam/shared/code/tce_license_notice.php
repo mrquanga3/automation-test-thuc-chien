@@ -19,9 +19,9 @@ function F_displayLicenseNotice() {
 
     $notice = '<div style="direction:ltr;text-align:left;border:1px solid black; padding:5px; margin:10px; background-color:#DDEEFF; color:#000000; width:95%; margin-left:auto; margin-right:auto; font-weight:bold; font-size:95%;">';
 
-    // Main license text
+    // Main license text with link to AGPL
     if (isset($l['a_license_header'])) {
-        $notice .= $l['a_license_header'];
+        $notice .= str_replace('GNU-AGPL v.3', '<a href="http://www.fsf.org/licensing/licenses/agpl-3.0.html" title="External link to GNU Affero General Public License">GNU-AGPL v.3</a>', $l['a_license_header']);
     }
 
     // License terms list
@@ -34,9 +34,9 @@ function F_displayLicenseNotice() {
     }
     $notice .= '</ul>';
 
-    // Commercial license info
+    // Commercial license info with mailto link
     if (isset($l['a_license_commercial'])) {
-        $notice .= $l['a_license_commercial'];
+        $notice .= str_replace('info@tecnick.com', '<a href="mailto:info@tecnick.com">info@tecnick.com</a>', $l['a_license_commercial']);
     }
 
     $notice .= '</div>';
