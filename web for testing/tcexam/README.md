@@ -1,6 +1,21 @@
 # TCExam - README
 
-> **Local automation testing fork.** This copy of TCExam runs locally on Windows + XAMPP and is used as an Application Under Test for automation practice. Local-environment context (URLs, DB credentials, paths, theme) lives in [CLAUDE.md](CLAUDE.md). Quick recipes for reconfiguring paths/DB/theme when moving the project across machines are in [SKILL.md](SKILL.md). Detailed API documentation and development guides are in [SKILL.md](SKILL.md). The rest of this README is the upstream tecnickcom documentation.
+> **⚠️ Local automation testing fork (Modified TCExam)**
+>
+> This is a **derivative work** based on the official [TCExam](https://github.com/tecnickcom/tcexam) project.
+> 
+> **Original:** [TCExam by Nicola Asuni (Tecnick.com)](http://www.tcexam.org)  
+> **License:** GNU Affero General Public License v.3  
+> **Modifications:** Custom REST API, UI improvements, deployment fixes (see [SKILL.md](SKILL.md))
+>
+> This copy runs locally on Windows + XAMPP and is used as an Application Under Test for automation practice. 
+> Local-environment context (URLs, DB credentials, paths, theme) lives in [CLAUDE.md](CLAUDE.md). 
+> Quick recipes for reconfiguring paths/DB/theme when moving the project across machines are in [SKILL.md](SKILL.md). 
+> Detailed API documentation and development guides are in [SKILL.md](SKILL.md). 
+>
+> ⚖️ **For license/compliance details when modifying this code, see [CLAUDE.md — License & Compliance](CLAUDE.md#%EF%B8%8F-license--compliance-important).**
+>
+> The rest of this README is the upstream tecnickcom documentation.
 
 ## Local Development & API
 

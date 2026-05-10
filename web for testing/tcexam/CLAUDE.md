@@ -8,6 +8,79 @@ This file gives Claude Code context for working with the TCExam install in this 
 
 The codebase is shipped as the original tecnickcom source plus local config tweaks (paths, host, theme) for running on this Windows + XAMPP machine.
 
+## ⚖️ License & Compliance (IMPORTANT)
+
+**TCExam is licensed under GNU-AGPL v.3 with additional terms from Tecnick.com:**
+
+### ✅ You CAN:
+- Modify code for **internal/educational use** (local testing, learning)
+- Create custom features (APIs, UI improvements, bug fixes)
+- Add custom documentation (CLAUDE.md, SKILL.md, etc.)
+- Deploy to private/internal servers
+- Share modifications as derivative works **if they remain open-source under AGPL v.3**
+
+### ❌ You CANNOT:
+- **Remove, alter, hide, or move:** Original TCExam logo, copyright statements, links to Tecnick.com and TCExam websites
+- **Remove proprietary notices**, legends, symbols, or labels in software
+- Use TCExam name/logo without proper trademark attribution
+- Deploy commercially without explicit permission from Tecnick.com
+
+### 📋 When Modifying Code - Compliance Checklist:
+
+1. **New files created:**
+   - Include proper license header (AGPL v.3)
+   - Add clear `Author` attribution (who created this modification)
+   - Example: `// File name: tce_api.php | Author: Your Name | License: AGPL-3.0`
+
+2. **Existing files modified:**
+   - Keep original copyright headers intact
+   - Document changes clearly (git commit messages, code comments)
+   - Don't remove any copyright statements
+
+3. **If deploying publicly:**
+   - ✅ Include full LICENSE.TXT file
+   - ✅ Clearly identify it as "Modified TCExam" or "TCExam Fork"
+   - ✅ Document all modifications in README/CHANGELOG
+   - ✅ Keep links to original: https://github.com/tecnickcom/tcexam
+   - ✅ If monetizing: Contact info@tecnick.com for commercial license
+
+4. **Documentation files (CLAUDE.md, SKILL.md, README.md):**
+   - These are derivative documentation - that's OK ✅
+   - Must still credit TCExam and Tecnick.com
+   - Must acknowledge original author (Nicola Asuni)
+
+### 🔗 Current Files & Status:
+
+| File | Type | Status |
+|------|------|--------|
+| `admin/code/tce_api.php` | Custom | ✅ Has author attribution |
+| `admin/code/tce_edit_user.php` | Modified | ✅ Keep original headers |
+| `README.md` | Modified | ✅ Keeps copyright & links |
+| `SKILL.md` | New docs | ✅ Derived documentation (OK) |
+| `CLAUDE.md` | New docs | ✅ Derived documentation (OK) |
+
+### 📞 When to Contact Tecnick.com:
+
+```
+Email: info@tecnick.com
+Subject: TCExam Commercial License
+
+If you plan to:
+- Sell TCExam or services based on it
+- Remove copyright/trademark notices
+- Rebrand TCExam as your own product
+- Deploy as SaaS/commercial platform
+```
+
+### 📖 References:
+
+- **License file:** [LICENSE.TXT](LICENSE.TXT)
+- **Original upstream:** https://github.com/tecnickcom/tcexam
+- **Official website:** http://www.tcexam.org
+- **GNU-AGPL v.3:** https://www.gnu.org/licenses/agpl-3.0.html
+
+---
+
 ## Local URLs
 
 | Endpoint | URL |

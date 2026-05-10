@@ -1,5 +1,128 @@
 # SKILL.md — TCExam Development Skills & Lessons
 
+## Code Modification Best Practices
+
+### When Creating New Files
+
+Always include proper file header with license attribution:
+
+```php
+<?php
+//============================================================+
+// File name   : tce_your_feature.php
+// Begin       : 2026-05-11
+// Description : Description of what this file does
+// Author      : Your Name / Team
+//============================================================+
+
+/**
+ * Detailed description if needed
+ * @package com.tecnick.tcexam.custom
+ * @author Your Name
+ * @license GNU Affero General Public License v.3
+ * @since 2026-05-11
+ */
+
+// Your code here...
+```
+
+### When Modifying Existing Files
+
+1. **Keep original copyright headers intact** ✅
+   - Do NOT remove "Copyright (C) 2004-2024 Nicola Asuni - Tecnick.com LTD"
+   - Do NOT hide license information
+
+2. **Document your changes** ✅
+   - Add git commit messages explaining the modification
+   - Add inline comments for non-obvious changes
+   - Example: `// CUSTOM: Added Bearer token support for REST API`
+
+3. **Example of proper modification:**
+   ```php
+   // Original code structure maintained
+   // CUSTOM: Added new function for REST API authentication
+   function F_validateBearerToken() {
+       // Implementation...
+   }
+   ```
+
+### File Header Template for Custom Files
+
+```php
+<?php
+//============================================================+
+// File name   : tce_custom_feature.php
+// Begin       : 2026-05-11
+// Description : [Description of your custom feature]
+// Author      : [Your Name/Organization]
+// Based on    : TCExam (https://github.com/tecnickcom/tcexam)
+//             : Original author: Nicola Asuni (Tecnick.com)
+//============================================================+
+
+/**
+ * [Brief description]
+ * 
+ * This is a custom extension/modification of TCExam.
+ * Original TCExam is licensed under GNU-AGPL v.3
+ * This file is also licensed under GNU-AGPL v.3
+ * 
+ * @package com.tecnick.tcexam.custom
+ * @author [Your Name]
+ * @license GNU Affero General Public License v.3
+ * @since 2026-05-11
+ */
+
+// Code starts here
+```
+
+### Documentation Modifications
+
+For CLAUDE.md, SKILL.md, README.md (custom documentation):
+- ✅ These are OK to modify/create - they're derivative documentation
+- ✅ Must still credit original TCExam and Tecnick.com
+- ✅ Must acknowledge Nicola Asuni as original author
+- ❌ Don't claim they are official TCExam documentation
+
+### Compliance Checklist for Any Modification
+
+Before committing/deploying any change:
+
+- [ ] Original copyright headers are preserved (if modifying existing files)
+- [ ] New custom files have proper author attribution
+- [ ] License information (AGPL-v.3) is referenced
+- [ ] Links to original TCExam are preserved (in README/docs)
+- [ ] No removal/hiding of Tecnick.com or TCExam references
+- [ ] Git commit message documents the purpose of change
+- [ ] If deploying: LICENSE.TXT file is included
+
+### Example: Proper vs Improper Modifications
+
+❌ **IMPROPER** (Do NOT do this):
+```php
+<?php
+// File: tce_api.php (modified without attribution)
+// (removed original copyright header)
+// (no mention of Nicola Asuni or Tecnick.com)
+function handleLogin() { ... }
+```
+
+✅ **PROPER** (Do this instead):
+```php
+<?php
+//============================================================+
+// File name   : tce_api.php
+// Begin       : 2026-05-10
+// Description : REST API handler for admin operations
+// Author      : Claude Code (custom modifications)
+// Based on    : TCExam Framework (Nicola Asuni - Tecnick.com)
+// License     : GNU Affero General Public License v.3
+//============================================================+
+
+// ... original code with attribution preserved ...
+```
+
+---
+
 ## Deployment Guide
 
 ### Multi-Server Deployment
