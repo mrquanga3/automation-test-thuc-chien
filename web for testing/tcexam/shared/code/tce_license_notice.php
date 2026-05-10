@@ -42,7 +42,7 @@ function F_displayLicenseNotice() {
     // Commercial license info with mailto link
     if (isset($l['a_license_commercial'])) {
         $commercial = $l['a_license_commercial'];
-        $commercial = str_ireplace('info@tecnick.com', '<a href="mailto:info@tecnick.com">info@tecnick.com</a>', $commercial);
+        $commercial = str_ireplace('info@tecnick.com', '<a href="mailto:info@tecnick.com">INFO@TECNICK.COM</a>', $commercial);
         $notice .= $commercial;
     }
 
