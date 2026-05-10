@@ -27,10 +27,15 @@ function F_displayLicenseNotice() {
     // License terms list
     $notice .= '<ul>';
     if (isset($l['a_license_term_1'])) {
-        $notice .= '<li>' . $l['a_license_term_1'] . '</li>';
+        $term1 = $l['a_license_term_1'];
+        $term1 = str_replace('TECNICK.COM', '<a href="http://www.tecnick.com">TECNICK.COM</a>', $term1);
+        $term1 = str_replace('TCEXAM', '<a href="http://www.tcexam.org">TCEXAM</a>', $term1);
+        $notice .= '<li>' . $term1 . '</li>';
     }
     if (isset($l['a_license_term_2'])) {
-        $notice .= '<li>' . $l['a_license_term_2'] . '</li>';
+        $term2 = $l['a_license_term_2'];
+        $term2 = str_replace('TECNICK.COM LTD', '<a href="http://www.tecnick.com">TECNICK.COM LTD</a>', $term2);
+        $notice .= '<li>' . $term2 . '</li>';
     }
     $notice .= '</ul>';
 
