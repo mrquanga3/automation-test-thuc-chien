@@ -1,6 +1,6 @@
 <?php
 // CACHE FILE FOR LANGUAGE: vn
-// DATE: 2026-05-10 01:20:44
+// DATE: 2026-05-10 21:33:50
 // *** DELETE THIS FILE TO RELOAD DATA FROM TMX FILE ***
 
 $tmx['a_meta_charset']='UTF-8';
@@ -635,5 +635,9 @@ $tmx['w_sslcert']='SSL certificate';
 $tmx['hp_import_ssl_certificates']='With this form you can import client SSL certificates (pfx, pem, crt). These certificates can be used to restrict the access to certain tests or areas.';
 $tmx['m_ssl_certificate_required']='To access this page you need a valid SSL certificate client.';
 $tmx['w_graph']='graph';
+$tmx['a_license_header']='TCEXAM CÓ HIỆU LỰC THEO GIẤY PHÉP GNU-AGPL v.3 VỚI CÁC ĐIỀU KHOẢN BỔ SUNG SAU:';
+$tmx['a_license_term_1']='BẠN KHÔNG ĐƯỢC THAY ĐỔI, XÓA, DI CHUYỂN HOẶC ẨN LOGO TCEXAM GỐC, CÁC TUYÊN BỐ BẢN QUYỀN, LIÊN KẾT ĐẾN WEBSITE TECNICK.COM VÀ TCEXAM, CÁC THÔNG BÁO QUYỀN SỬ DỤNG KHÁC, CHỮ KÝ, KÝ HIỆU HOẶC NHÃN TRONG PHẦN MỀM.';
+$tmx['a_license_term_2']='TÊN TCEXAM VÀ LOGO LÀ NHÃN HIỆU CỦA TECNICK.COM LTD VÀ PHẢI ĐƯỢC SỬ DỤNG THEO ĐÚNG THÔNG LỆ SỬ DỤNG NHÃN HIỆU ĐÃ ĐƯỢC CHẤP NHẬN, BAO GỒM XÁC ĐỊNH TÊN CHỦ SỞ HỮU NHÃN HIỆU.';
+$tmx['a_license_commercial']='ĐỐI VỚI BẤT KỲ SỬ DỤNG NÀO YÊU CẦU CÁC ĐIỀU KHOẢN CẤP PHÉP KHÁC (THƯƠNG MẠI), VUI LÒNG LIÊN HỆ INFO@TECNICK.COM ĐỂ MUA GIẤY PHÉP THƯƠNG MẠI.';
 
 // --- EOF ---

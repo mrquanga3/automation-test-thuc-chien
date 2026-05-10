@@ -1,4 +1,19 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(curl -s \"http://localhost/tcexam/admin/code/index.php\" > /tmp/admin_index.html && grep -o \"a_license\" /tmp/admin_index.html | head -5)",
+      "Read(//tmp/**)",
+      "Bash(grep -r '$l\\\\[' 'D:/automation-test-thuc-chien/web for testing/tcexam/shared/code/tce_language')",
+      "Bash(grep -n 'language\\\\|$l\\\\[' 'D:/automation-test-thuc-chien/web for testing/tcexam/shared/code/tce_authorization.php')",
+      "Bash(grep -r 'function.*load.*lang\\\\|$l\\\\s*=' 'D:/automation-test-thuc-chien/web for testing/tcexam/shared/code/')",
+      "Bash(grep -n 'include.*cache.*lang\\\\|require.*cache.*lang\\\\|$l\\\\s*=' 'D:/automation-test-thuc-chien/web for testing/tcexam/shared/code/tce_authorization.php')",
+      "Bash(grep -n 'language\\\\|$l' 'D:/automation-test-thuc-chien/web for testing/tcexam/shared/code/tce_functions_general.php')",
+      "Bash(xargs grep -l \"TMX\\\\|language_tmx\\\\|cache/lang\")"
+    ],
+    "additionalDirectories": [
+      "D:\\automation-test-thuc-chien\\web for testing\\tcexam\\cache\\lang"
+    ]
+  },
   "enabledMcpjsonServers": [
     "playwright"
   ]
