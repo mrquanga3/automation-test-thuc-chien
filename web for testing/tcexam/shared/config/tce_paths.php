@@ -30,8 +30,11 @@
 
 /**
  * Host URL (e.g.: "http://www.yoursite.com").
+ * Auto-detect from request to support multiple domains
  */
-define('K_PATH_HOST', 'http://localhost');
+$k_protocol = (isset($_SERVER['REQUEST_SCHEME']) ? $_SERVER['REQUEST_SCHEME'] : (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http'));
+$k_host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost';
+define('K_PATH_HOST', $k_protocol . '://' . $k_host);
 
 /**
  * Relative URL where this program is installed (e.g.: "/").
