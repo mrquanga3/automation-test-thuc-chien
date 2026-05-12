@@ -353,7 +353,7 @@ class ColumnLeft extends \Opencart\System\Engine\Controller {
 
 			if ($customer) {
 				$data['menus'][] = [
-					'id'       => 'menu-customer',
+					'id'       => 'menu-customer1',
 					'icon'	   => 'fas fa-user',
 					'name'	   => $this->language->get('text_customer'),
 					'href'     => '',
