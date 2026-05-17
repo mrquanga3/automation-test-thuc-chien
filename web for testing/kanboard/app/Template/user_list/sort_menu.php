@@ -5,6 +5,9 @@
             <?= $paginator->order(t('User ID'), \Kanboard\Model\UserModel::TABLE.'.id') ?>
         </li>
         <li>
+            <?= $paginator->order(t('Date created'), 'id') ?>
+        </li>
+        <li>
             <?= $paginator->order(t('Username'), \Kanboard\Model\UserModel::TABLE.'.username') ?>
         </li>
         <li>

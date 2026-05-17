@@ -1441,4 +1441,5 @@ return array(
     // 'Light theme' => '',
     // 'Dark theme' => '',
     // 'Automatic theme - Sync with system' => '',
+    'Date created' => 'Ngày tạo',
 );
