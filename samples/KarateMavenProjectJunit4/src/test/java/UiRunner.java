@@ -1,18 +1,29 @@
 
 import com.intuit.karate.Results;
 import com.intuit.karate.Runner;
-import com.intuit.karate.junit4.Karate;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import static org.junit.Assert.assertEquals;
 
-//@RunWith(Karate.class)
 public class UiRunner {
-//    @Karate.Test
-//    Karate uiRunner(){
-//        return Karate.run("classpath:demo_web.feature");
-//    }
+    static Process mockServer;
+
+    @BeforeClass
+    public static void startMockServer() throws Exception {
+        String scriptPath = UiRunner.class.getClassLoader()
+                .getResource("mock_server.py").getPath();
+        mockServer = new ProcessBuilder("python3", scriptPath)
+                .redirectErrorStream(true)
+                .start();
+        Thread.sleep(1500);
+    }
+
+    @AfterClass
+    public static void stopMockServer() {
+        if (mockServer != null) mockServer.destroyForcibly();
+    }
 
     @Test
     public void testCustomTags() {
