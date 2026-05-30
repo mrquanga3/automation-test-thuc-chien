@@ -9,9 +9,9 @@ import org.openqa.selenium.support.PageFactory;
 public class HomePage {
 	WebDriver driver;
 
-	@FindBy(how = How.CSS, using = ".login_logo")
+	@FindBy(how = How.CSS, using = "#logo")
 	WebElement logo;
-	@FindBy(how = How.ID, using = "login-button")
+	@FindBy(how = How.CSS, using = "a[href*='account/login']")
 	WebElement login;
 
 	public HomePage(WebDriver driver_) {

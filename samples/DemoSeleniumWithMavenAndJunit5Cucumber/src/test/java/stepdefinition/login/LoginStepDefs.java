@@ -20,7 +20,7 @@ public class LoginStepDefs {
 
     @When("I go to opencart login page")
     public void iGoToOpencartLoginPage() {
-        driver.get("https://opencart.abstracta.us/admin/");
+        driver.get("http://103.245.237.118:8081/opencart/administrator/");
     }
 
     @Then("I see login page")
