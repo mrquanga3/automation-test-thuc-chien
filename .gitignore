@@ -16,6 +16,9 @@ buildNumber.properties
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 *.idea/
+# Playwright MCP snapshot/log artifacts
+.playwright-mcp/
+
 web for testing/opencart/image/cache/
 web for testing/tcexam/cache/
 web for testing/tcexam/node_modules/

@@ -15,12 +15,12 @@ public class InventoryList extends BasePage{
 
 
     public String getTitle(){
-        titleOfCurrentPage =  driver.findElement(By.className("product_label"));
+        titleOfCurrentPage =  driver.findElement(By.className("title"));
         return titleOfCurrentPage.getText();
     }
 
     public void clickAItem(String itemName) {
-        WebElement productItem =  driver.findElement(By.xpath("//div[@class='inventory_item_name' and text ()='"+itemName+ "']"));
+        WebElement productItem =  driver.findElement(By.xpath("//div[contains(@class,'inventory_item_name') and normalize-space(text())='"+itemName+ "']"));
         productItem.click();
     }
 }

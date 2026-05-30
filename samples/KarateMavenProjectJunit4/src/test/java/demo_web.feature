@@ -1,7 +1,7 @@
-Feature: Test home page
-  Scenario: Test case check home page
+Feature: Test login page
+  Scenario: Login with invalid credentials shows error
     * def urlBase = 'https://practicetestautomation.com/practice-test-login/'
-    * configure driver = { type: 'chrome', addOptions: ["--remote-allow-origins=*"] }
+    * configure driver = { type: 'chrome', addOptions: ['--no-sandbox', '--disable-dev-shm-usage', '--remote-allow-origins=*'] }
     * driver urlBase
     * input('#username', 'dummy')
     * input('#password', 'dummy')
