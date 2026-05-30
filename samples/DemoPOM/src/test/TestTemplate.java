@@ -1,6 +1,6 @@
 package test;
 
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,7 +17,7 @@ public class TestTemplate {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get(Settings.URL);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.MICROSECONDS);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
 
 	@AfterClass

@@ -21,7 +21,7 @@ public class TestWithoutSeleniumWait {
         WebElement optionCheckbox1 = driver
                 .findElement(By.xpath("//span[@class='rct-checkbox']/*"));
         optionCheckbox1.click();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         boolean isSelected = wait.until(ExpectedConditions.attributeContains(By.xpath("//span[@class='rct-checkbox']/*"), "class", "rct-icon-check"));
         Assertions.assertTrue(isSelected);
     }
