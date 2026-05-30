@@ -22,7 +22,7 @@ public class Login extends BasePage{
         PageFactory.initElements(driver, this);
     }
     public void gotoLoginPage() {
-        driver.get("https://www.saucedemo.com/v1");
+        driver.get("https://www.saucedemo.com/");
     }
     public void enterUsername(String strUser) {
         username.sendKeys(strUser);

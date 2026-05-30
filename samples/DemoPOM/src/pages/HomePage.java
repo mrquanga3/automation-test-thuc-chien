@@ -9,9 +9,9 @@ import org.openqa.selenium.support.PageFactory;
 public class HomePage {
 	WebDriver driver;
 
-	@FindBy(how = How.CSS, using = ".navbar-brand.logo_cmc")
+	@FindBy(how = How.CSS, using = ".login_logo")
 	WebElement logo;
-	@FindBy(how = How.CSS, using = ".nav-item.work .btn-log.login-portal")
+	@FindBy(how = How.ID, using = "login-button")
 	WebElement login;
 
 	public HomePage(WebDriver driver_) {

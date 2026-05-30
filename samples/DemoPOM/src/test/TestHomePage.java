@@ -10,7 +10,7 @@ public class TestHomePage extends TestTemplate {
 	@Test
 	public void testTitle() {
 		HomePage homePage = new HomePage(driver);
-		Assert.assertEquals("Tuyển dụng CMC Corporation", homePage.getTitle());
+		Assert.assertEquals("Swag Labs", homePage.getTitle());
 	}
 
 	@Test

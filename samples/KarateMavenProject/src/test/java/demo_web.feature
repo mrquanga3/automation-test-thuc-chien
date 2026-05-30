@@ -1,6 +1,6 @@
 Feature: Test admin login page
   Scenario: Login with invalid credentials shows error
-    * def urlBase = 'https://demo.opencart.com/admin/'
+    * def urlBase = 'https://opencart.abstracta.us/admin/'
     * configure driver = { type: 'chrome', addOptions: ['--no-sandbox', '--disable-dev-shm-usage'] }
     * driver urlBase
     * value('#input-username', '')
@@ -8,4 +8,4 @@ Feature: Test admin login page
     * value('#input-password', '')
     * input('#input-password', 'dummy')
     * click('//button/i')
-    * match text('.alert.alert-danger.alert-dismissible') == ' No match for Username and/or Password. '
+    * match text('.alert.alert-danger.alert-dismissible') contains 'No match for Username and/or Password.'
